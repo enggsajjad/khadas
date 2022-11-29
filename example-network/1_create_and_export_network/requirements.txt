@@ -1,0 +1,12 @@
+matplotlib
+numpy
+onnx
+onnxruntime
+opencv-python
+Pillow
+ipykernel
+torch
+torchaudio
+torchvision
+
+

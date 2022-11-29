@@ -1,0 +1,174 @@
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to khadas@192.168.178.139                              │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+
+Welcome to Fenix 1.0.10 Ubuntu 20.04.4 LTS Linux 4.9.241
+ _  ___               _            __     _____ __  __ _____
+| |/ / |__   __ _  __| | __ _ ___  \ \   / /_ _|  \/  |___ /
+| ' /| '_ \ / _` |/ _` |/ _` / __|  \ \ / / | || |\/| | |_ \
+| . \| | | | (_| | (_| | (_| \__ \   \ V /  | || |  | |___) |
+|_|\_\_| |_|\__,_|\__,_|\__,_|___/    \_/  |___|_|  |_|____/
+
+
+ * Website:        https://www.khadas.com
+ * Documentation:  https://docs.khadas.com
+ * Forum:          https://forum.khadas.com
+
+Last login: Mon May  9 18:19:16 2022 from 192.168.178.33
+khadas@Khadas-teco:~$ cd sajjad/
+applsource1/    eachoptime1/    npu1/           NPUApp1/        NPUApp2_qtest2/
+eachoptime/     ksnn/           NPUApp/         NPUApp2_qtest1/ npusdk1/
+khadas@Khadas-teco:~$ cd sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11/
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11$ ls
+1080p.bmp    detect.h  main.cpp        makefile.linux.def    nn_detect_common.h  nn_detect_utils.h  result
+build_vx.sh  emb.db    makefile.linux  makefile.target_name  nn_detect.h         ReadMe.txt
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11$ ls result/
+face_160.bmp  face.bmp  output0.bmp  output1.bmp  output2.bmp  output5.bmp
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11$ vim ReadMe.txt
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11$ ./build_vx.sh
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11/main.cpp
+main.cpp: In function ‘int run_detect_model(int, char**)’:
+main.cpp:329:10: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+  329 |   return NULL;
+      |          ^~~~
+main.cpp:275:39: warning: unused variable ‘img_width’ [-Wunused-variable]
+  275 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                       ^~~~~~~~~
+main.cpp:275:50: warning: unused variable ‘img_height’ [-Wunused-variable]
+  275 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                                  ^~~~~~~~~~
+main.cpp: In function ‘int run_detect_facent(int, char**)’:
+main.cpp:412:10: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+  412 |   return NULL;
+      |          ^~~~
+main.cpp:368:39: warning: unused variable ‘img_width’ [-Wunused-variable]
+  368 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                       ^~~~~~~~~
+main.cpp:368:50: warning: unused variable ‘img_height’ [-Wunused-variable]
+  368 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                                  ^~~~~~~~~~
+main.cpp: In function ‘int init_fb()’:
+main.cpp:538:11: warning: unused variable ‘i’ [-Wunused-variable]
+  538 |  long int i;
+      |           ^
+main.cpp: At global scope:
+main.cpp:536:12: warning: ‘int init_fb()’ defined but not used [-Wunused-function]
+  536 | static int init_fb(void)
+      |            ^~~~~~~
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11$ ls
+1080p.bmp  build_vx.sh  emb.db                  main.cpp        makefile.linux.def    nn_detect_common.h  nn_detect_utils.h  result
+bin_r_cv4  detect.h     linux_build_sample.log  makefile.linux  makefile.target_name  nn_detect.h         ReadMe.txt
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11$ ls bin_r_cv4/
+detect_demo_x11  main.o
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11$ ./bin_r_cv4/detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [vnn_CreateYolov3:165]Open file nn_data/yolov3_88.nb failed.
+E [model_create:61]CHECK PTR 61
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11$ ./bin_r_cv4/detect_demo_x11 -m 0 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [vnn_CreateYoloface:165]Open file nn_data/yolo_face_88.nb failed.
+E [model_create:60]CHECK PTR 60
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11$ ./bin_r_cv4/detect_demo_x11 -h
+./bin_r_cv4/detect_demo_x11: option requires an argument -- 'h'
+./bin_r_cv4/detect_demo_x11 [-p picture path] [-w width] [-h height] [-m model type] [-f facenet flag] [-H]
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11$ ls bin_r_cv4/
+detect_demo_x11  main.o
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11$ cd bin_r_cv4/
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ mkdir lib
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ mkdir nn_data
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ cp /home/khadas/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture/lib/libnn_yolo_v3.so lib/.
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ cp /home/khadas/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture/nn_data/yolov3_88.nb ./nn_data/.
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ cd ..
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11$ ./bin_r_cv4/detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [vnn_CreateYolov3:165]Open file nn_data/yolov3_88.nb failed.
+E [model_create:61]CHECK PTR 61
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11$ cd bin_r_cv4/
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls
+detect_demo_x11  lib  main.o  nn_data
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls lib/
+libnn_yolo_v3.so
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls nn_data/
+yolov3_88.nb
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ./detect_demo_x11 -m 0 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [vnn_CreateYoloface:165]Open file nn_data/yolo_face_88.nb failed.
+E [model_create:60]CHECK PTR 60
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls
+detect_demo_x11  lib  main.o  nn_data
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ cd ..
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11$ cp /home/khadas/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture/nn_data/yolo_face_88.nb ./nn_data/.
+cp: cannot create regular file './nn_data/.': No such file or directory
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11$ cd bin_r_cv4/
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ cp /home/khadas/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture/nn_data/yolo_face_88.nb ./nn_data/.
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ./detect_demo_x11 -m 0 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Picture : ./1080p.bmp load fail
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ./detect_demo_x11 -m 0 -p ../1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:967.347 right:1266.4 top:63.3736 bottom:518.165
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$

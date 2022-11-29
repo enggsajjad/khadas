@@ -1,0 +1,107 @@
+khadas@Khadas:~$ cd /home/khadas/hussain/nbg_unify_mnistx/bin_r_cv4/
+khadas@Khadas:~/hussain/nbg_unify_mnistx/bin_r_cv4$ ./mnist ../mnist.nb ../bmp/2.bmp.jpg
+Create Neural Network: 81ms or 81202us
+
++++++++++++++ fdata[0] after mean: -127.000000
+
++++++++++++++ fdata[0] means: 127.000000 127.000000 127.000000
+
++++++++++++++ fdata[0] after scaling: -32385.000000
+Verify...
+Verify Graph: 5ms or 5792us
+Start run graph [1] times...
+Run the 1 time: 18.00ms or 18103.00us
+vxProcessGraph execution time:
+Total   18.00ms or 18179.00us
+Average 18.18ms or 18179.00us
+ --- Top5 ---
+  2: 0.000000
+  3: -12.458495
+  8: -12.891082
+  7: -15.227050
+  1: -17.216948
+khadas@Khadas:~/hussain/nbg_unify_mnistx/bin_r_cv4$ ./mnist ../mnist.nb ../bmp/2.bmp.jpg
+Create Neural Network: 12ms or 12558us
+
++++++++++++++ fdata[0] after mean: -127.000000
+
++++++++++++++ fdata[0] means: 127.000000 127.000000 127.000000
+
++++++++++++++ fdata[0] after scaling: -32385.000000
+Verify...
+Verify Graph: 1ms or 1795us
+Start run graph [1] times...
+Run the 1 time: 0.00ms or 758.00us
+vxProcessGraph execution time:
+Total   0.00ms or 871.00us
+Average 0.87ms or 871.00us
+ --- Top5 ---
+  2: 0.000000
+  3: -12.458495
+  8: -12.891082
+  7: -15.227050
+  1: -17.216948
+khadas@Khadas:~/hussain/nbg_unify_mnistx/bin_r_cv4$ ./mnist ../mnist.nb ../bmp/2.bmp.jpg
+Create Neural Network: 12ms or 12338us
+
++++++++++++++ fdata[0] after mean: -127.000000
+
++++++++++++++ fdata[0] means: 127.000000 127.000000 127.000000
+
++++++++++++++ fdata[0] after scaling: -32385.000000
+Verify...
+Verify Graph: 0ms or 960us
+Start run graph [1] times...
+Run the 1 time: 0.00ms or 540.00us
+vxProcessGraph execution time:
+Total   0.00ms or 573.00us
+Average 0.57ms or 573.00us
+ --- Top5 ---
+  2: 0.000000
+  3: -12.458495
+  8: -12.891082
+  7: -15.227050
+  1: -17.216948
+khadas@Khadas:~/hussain/nbg_unify_mnistx/bin_r_cv4$ ./mnist ../mnist.nb ../bmp/2.bmp.jpg
+Create Neural Network: 6ms or 6355us
+
++++++++++++++ fdata[0] after mean: -127.000000
+
++++++++++++++ fdata[0] means: 127.000000 127.000000 127.000000
+
++++++++++++++ fdata[0] after scaling: -32385.000000
+Verify...
+Verify Graph: 0ms or 889us
+Start run graph [1] times...
+Run the 1 time: 0.00ms or 632.00us
+vxProcessGraph execution time:
+Total   0.00ms or 689.00us
+Average 0.69ms or 689.00us
+ --- Top5 ---
+  2: 0.000000
+  3: -12.458495
+  8: -12.891082
+  7: -15.227050
+  1: -17.216948
+khadas@Khadas:~/hussain/nbg_unify_mnistx/bin_r_cv4$ ./mnist ../mnist.nb ../bmp/2.bmp.jpg
+Create Neural Network: 6ms or 6393us
+
++++++++++++++ fdata[0] after mean: -127.000000
+
++++++++++++++ fdata[0] means: 127.000000 127.000000 127.000000
+
++++++++++++++ fdata[0] after scaling: -32385.000000
+Verify...
+Verify Graph: 0ms or 883us
+Start run graph [1] times...
+Run the 1 time: 0.00ms or 645.00us
+vxProcessGraph execution time:
+Total   0.00ms or 700.00us
+Average 0.70ms or 700.00us
+ --- Top5 ---
+  2: 0.000000
+  3: -12.458495
+  8: -12.891082
+  7: -15.227050
+  1: -17.216948
+khadas@Khadas:~/hussain/nbg_unify_mnistx/bin_r_cv4$

@@ -1,0 +1,238 @@
+=====================================================
+cloning into new khadas image, user email and name config and adding new files and folders
+=====================================================
+khadas@Khadas:~$ cd hussain/
+khadas@Khadas:~/hussain$ mkdir novelsense_git
+khadas@Khadas:~/hussain$ cd novelsense_git/
+khadas@Khadas:~/hussain/novelsense_git$ git clone https://enggsajjad123@bitbucket.org/novelsense/khadas.git
+Cloning into 'khadas'...
+Password for 'https://enggsajjad123@bitbucket.org':
+remote: Enumerating objects: 532, done.
+remote: Counting objects: 100% (532/532), done.
+remote: Compressing objects: 100% (468/468), done.
+remote: Total 532 (delta 196), reused 115 (delta 38), pack-reused 0
+error: RPC failed; curl 56 GnuTLS recv error (-110): The TLS connection was non-properly terminated.
+Receiving objects: 100% (532/532), 140.92 MiB | 1.73 MiB/s, done.
+Resolving deltas: 100% (196/196), done.
+khadas@Khadas:~/hussain/novelsense_git$ ls
+khadas@Khadas:~/hussain/novelsense_git$ sudo apt-get install build-essential fakeroot dpkg-dev
+[sudo] password for khadas:
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+dpkg-dev is already the newest version (1.19.7ubuntu3.2).
+dpkg-dev set to manually installed.
+build-essential is already the newest version (12.8ubuntu1.1).
+The following additional packages will be installed:
+  libfakeroot
+The following NEW packages will be installed:
+  fakeroot libfakeroot
+0 upgraded, 2 newly installed, 0 to remove and 27 not upgraded.
+Need to get 88.0 kB of archives.
+After this operation, 389 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://ports.ubuntu.com focal/main arm64 libfakeroot arm64 1.24-1 [26.0 kB]
+Get:2 http://ports.ubuntu.com focal/main arm64 fakeroot arm64 1.24-1 [61.9 kB]
+Fetched 88.0 kB in 0s (429 kB/s)
+Selecting previously unselected package libfakeroot:arm64.
+(Reading database ... 133932 files and directories currently installed.)
+Preparing to unpack .../libfakeroot_1.24-1_arm64.deb ...
+Unpacking libfakeroot:arm64 (1.24-1) ...
+Selecting previously unselected package fakeroot.
+Preparing to unpack .../fakeroot_1.24-1_arm64.deb ...
+Unpacking fakeroot (1.24-1) ...
+Setting up libfakeroot:arm64 (1.24-1) ...
+Setting up fakeroot (1.24-1) ...
+update-alternatives: using /usr/bin/fakeroot-sysv to provide /usr/bin/fakeroot (fakeroot) in auto mode
+Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.9) ...
+/sbin/ldconfig.real: /lib/libnn_yolo_v3.so is not a symbolic link
+
+khadas@Khadas:~/hussain/novelsense_git$ sudo apt-get build-dep git
+Reading package lists... Done
+E: You must put some 'deb-src' URIs in your sources.list
+khadas@Khadas:~/hussain/novelsense_git$ sudo apt-get install libcurl4-openssl-dev
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  curl libcurl4
+Suggested packages:
+  libcurl4-doc libidn11-dev libkrb5-dev libldap2-dev librtmp-dev libssh2-1-dev
+The following NEW packages will be installed:
+  libcurl4-openssl-dev
+The following packages will be upgraded:
+  curl libcurl4
+2 upgraded, 1 newly installed, 0 to remove and 25 not upgraded.
+Need to get 682 kB of archives.
+After this operation, 1,488 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://ports.ubuntu.com focal-security/main arm64 curl arm64 7.68.0-1ubuntu2.12 [157 kB]
+Get:2 http://ports.ubuntu.com focal-security/main arm64 libcurl4 arm64 7.68.0-1ubuntu2.12 [215 kB]
+Get:3 http://ports.ubuntu.com focal-security/main arm64 libcurl4-openssl-dev arm64 7.68.0-1ubuntu2.12 [310 kB]
+Fetched 682 kB in 0s (2,398 kB/s)
+(Reading database ... 133981 files and directories currently installed.)
+Preparing to unpack .../curl_7.68.0-1ubuntu2.12_arm64.deb ...
+Unpacking curl (7.68.0-1ubuntu2.12) over (7.68.0-1ubuntu2.11) ...
+Preparing to unpack .../libcurl4_7.68.0-1ubuntu2.12_arm64.deb ...
+Unpacking libcurl4:arm64 (7.68.0-1ubuntu2.12) over (7.68.0-1ubuntu2.11) ...
+Selecting previously unselected package libcurl4-openssl-dev:arm64.
+Preparing to unpack .../libcurl4-openssl-dev_7.68.0-1ubuntu2.12_arm64.deb ...
+Unpacking libcurl4-openssl-dev:arm64 (7.68.0-1ubuntu2.12) ...
+Setting up libcurl4:arm64 (7.68.0-1ubuntu2.12) ...
+Setting up curl (7.68.0-1ubuntu2.12) ...
+Setting up libcurl4-openssl-dev:arm64 (7.68.0-1ubuntu2.12) ...
+Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.9) ...
+/sbin/ldconfig.real: /lib/libnn_yolo_v3.so is not a symbolic link
+
+khadas@Khadas:~/hussain/novelsense_git$ git config --global http.postBuffer 524288000
+khadas@Khadas:~/hussain/novelsense_git$ git config --global https.postBuffer 524288000
+khadas@Khadas:~/hussain/novelsense_git$ git config --global core.compression -1
+khadas@Khadas:~/hussain/novelsense_git$ git clone https://enggsajjad123@bitbucket.org/novelsense/khadas.git
+Cloning into 'khadas'...
+Password for 'https://enggsajjad123@bitbucket.org':
+Receiving objects: 100% (532/532), 140.92 MiB | 1.87 MiB/s, done.
+Resolving deltas: 100% (196/196), done.
+khadas@Khadas:~/hussain/novelsense_git$ cd khadas/
+khadas@Khadas:~/hussain/novelsense_git/khadas$ git checkout dev_sajjad
+Updating files: 100% (486/486), done.
+Branch 'dev_sajjad' set up to track remote branch 'dev_sajjad' from 'origin'.
+Switched to a new branch 'dev_sajjad'
+khadas@Khadas:~/hussain/novelsense_git/khadas$ ls
+docs  example-network  nbg  nopnet  README.md  standalone  test-quant-network
+khadas@Khadas:~/hussain/novelsense_git/khadas$ git branch
+* dev_sajjad
+  master
+khadas@Khadas:~/hussain/novelsense_git/khadas$ cd ..
+khadas@Khadas:~/hussain/novelsense_git$ cd ..
+khadas@Khadas:~/hussain$ cp -r /media/khadas/SAJJAD/standalone_v3R1 .
+khadas@Khadas:~/hussain$ cd standalone_v3R1/
+khadas@Khadas:~/hussain/standalone_v3R1$ ls
+newscripts
+
+khadas@Khadas:~$ ^Ct clone https://enggsajjad123@bitbucket.org/novelsense/minimal_nn_example.git
+khadas@Khadas:~$ cd hussain/
+khadas@Khadas:~/hussain$ git clone https://enggsajjad123@bitbucket.org/novelsense/minimal_nn_example.git
+Cloning into 'minimal_nn_example'...
+Password for 'https://enggsajjad123@bitbucket.org':
+remote: Enumerating objects: 119, done.
+remote: Counting objects: 100% (119/119), done.
+remote: Compressing objects: 100% (118/118), done.
+remote: Total 119 (delta 47), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (119/119), 56.20 MiB | 1.46 MiB/s, done.
+Resolving deltas: 100% (47/47), done.
+khadas@Khadas:~/hussain$ cd minimal_nn_example/
+khadas@Khadas:~/hussain/minimal_nn_example$ ls
+nbg_unify_lenet  nbg_unify_yolov3  README.md  yolov3_nbg_unify_608_hussain
+khadas@Khadas:~/hussain/minimal_nn_example$ cp -r nbg_unify_lenet ~/hussain/novelsense_git/khadas/nbg/.
+khadas@Khadas:~/hussain/minimal_nn_example$ cp -r nbg_unify_yolov3 ~/hussain/novelsense_git/khadas/nbg/.
+khadas@Khadas:~/hussain/minimal_nn_example$ cd ..
+khadas@Khadas:~/hussain$ cd novelsense_git/khadas/
+khadas@Khadas:~/hussain/novelsense_git/khadas$ ls
+docs  example-network  nbg  nopnet  README.md  standalone  test-quant-network
+khadas@Khadas:~/hussain/novelsense_git/khadas$ git add --all
+khadas@Khadas:~/hussain/novelsense_git/khadas$ git commit -m "adding the readme files and nbg_unify_yolov3 and nbg_unify_lenet minimal nbg folder"
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'khadas@Khadas.(none)')
+khadas@Khadas:~/hussain/novelsense_git/khadas$ git config --global user.email "hussain@teco.edu"
+khadas@Khadas:~/hussain/novelsense_git/khadas$ git config --global user.name "sajjad"
+khadas@Khadas:~/hussain/novelsense_git/khadas$ git commit -m "adding the readme files and nbg_unify_yolov3 and nbg_unify_lenet minimal nbg folder"
+[dev_sajjad a3cbd88] adding the readme files and nbg_unify_yolov3 and nbg_unify_lenet minimal nbg folder
+ 71 files changed, 8130 insertions(+)
+ create mode 100644 nbg/README.md
+ create mode 100644 nbg/nbg_unify_lenet/.cproject
+ create mode 100644 nbg/nbg_unify_lenet/.project
+ create mode 100644 nbg/nbg_unify_lenet/BUILD
+ create mode 100644 nbg/nbg_unify_lenet/bin_r_cv4/graph.json
+ create mode 100644 nbg/nbg_unify_lenet/bin_r_cv4/input_0.dat
+ create mode 100755 nbg/nbg_unify_lenet/bin_r_cv4/lenettest
+ create mode 100644 nbg/nbg_unify_lenet/bin_r_cv4/main.o
+ create mode 100644 nbg/nbg_unify_lenet/bin_r_cv4/output0_10_1.dat
+ create mode 100644 nbg/nbg_unify_lenet/bin_r_cv4/vnn_lenet.o
+ create mode 100644 nbg/nbg_unify_lenet/bin_r_cv4/vnn_post_process.o
+ create mode 100644 nbg/nbg_unify_lenet/bin_r_cv4/vnn_pre_process.o
+ create mode 100644 nbg/nbg_unify_lenet/bmp/0.bmp
+ create mode 100644 nbg/nbg_unify_lenet/bmp/1.bmp
+ create mode 100644 nbg/nbg_unify_lenet/bmp/1.jpg
+ create mode 100644 nbg/nbg_unify_lenet/bmp/2.bmp
+ create mode 100644 nbg/nbg_unify_lenet/bmp/3.bmp
+ create mode 100644 nbg/nbg_unify_lenet/bmp/4.bmp
+ create mode 100644 nbg/nbg_unify_lenet/bmp/5.bmp
+ create mode 100644 nbg/nbg_unify_lenet/bmp/6.bmp
+ create mode 100644 nbg/nbg_unify_lenet/bmp/7.bmp
+ create mode 100644 nbg/nbg_unify_lenet/bmp/8.bmp
+ create mode 100644 nbg/nbg_unify_lenet/bmp/9.bmp
+ create mode 100755 nbg/nbg_unify_lenet/build_vx.sh
+ create mode 100644 nbg/nbg_unify_lenet/input_0.dat
+ create mode 100644 nbg/nbg_unify_lenet/lenet.data
+ create mode 100644 nbg/nbg_unify_lenet/lenet.nb
+ create mode 100644 nbg/nbg_unify_lenet/lenet.vcxproj
+ create mode 100644 nbg/nbg_unify_lenet/main.c
+ create mode 100644 nbg/nbg_unify_lenet/makefile.linux
+ create mode 100644 nbg/nbg_unify_lenet/makefile.linux.def
+ create mode 100644 nbg/nbg_unify_lenet/makefile.linux_backup
+ create mode 100644 nbg/nbg_unify_lenet/makefile.target_name
+ create mode 100644 nbg/nbg_unify_lenet/nbg_meta.json
+ create mode 100644 nbg/nbg_unify_lenet/output0_10_1.dat
+ create mode 100644 nbg/nbg_unify_lenet/vnn_global.h
+ create mode 100644 nbg/nbg_unify_lenet/vnn_lenet.c
+ create mode 100644 nbg/nbg_unify_lenet/vnn_lenet.h
+ create mode 100644 nbg/nbg_unify_lenet/vnn_post_process.c
+ create mode 100644 nbg/nbg_unify_lenet/vnn_post_process.h
+ create mode 100644 nbg/nbg_unify_lenet/vnn_pre_process.c
+ create mode 100644 nbg/nbg_unify_lenet/vnn_pre_process.h
+ create mode 100644 nbg/nbg_unify_yolov3/.cproject
+ create mode 100644 nbg/nbg_unify_yolov3/.project
+ create mode 100644 nbg/nbg_unify_yolov3/1080p-416x416.jpg
+ create mode 100644 nbg/nbg_unify_yolov3/1080p-608x608.jpg
+ create mode 100644 nbg/nbg_unify_yolov3/BUILD
+ create mode 100644 nbg/nbg_unify_yolov3/bin_r_cv4/main.o
+ create mode 100644 nbg/nbg_unify_yolov3/bin_r_cv4/vnn_post_process.o
+ create mode 100644 nbg/nbg_unify_yolov3/bin_r_cv4/vnn_pre_process.o
+ create mode 100644 nbg/nbg_unify_yolov3/bin_r_cv4/vnn_yolov3.o
+ create mode 100755 nbg/nbg_unify_yolov3/bin_r_cv4/yolov3test
+ create mode 100755 nbg/nbg_unify_yolov3/build_vx.sh
+ create mode 100644 nbg/nbg_unify_yolov3/input_0.dat
+ create mode 100644 nbg/nbg_unify_yolov3/main.c
+ create mode 100644 nbg/nbg_unify_yolov3/makefile.linux
+ create mode 100644 nbg/nbg_unify_yolov3/makefile.linux.def
+ create mode 100644 nbg/nbg_unify_yolov3/makefile.linux_backup
+ create mode 100644 nbg/nbg_unify_yolov3/makefile.target_name
+ create mode 100644 nbg/nbg_unify_yolov3/nbg_meta.json
+ create mode 100644 nbg/nbg_unify_yolov3/vnn_global.h
+ create mode 100644 nbg/nbg_unify_yolov3/vnn_post_process.c
+ create mode 100644 nbg/nbg_unify_yolov3/vnn_post_process.h
+ create mode 100644 nbg/nbg_unify_yolov3/vnn_pre_process.c
+ create mode 100644 nbg/nbg_unify_yolov3/vnn_pre_process.h
+ create mode 100644 nbg/nbg_unify_yolov3/vnn_yolov3.c
+ create mode 100644 nbg/nbg_unify_yolov3/vnn_yolov3.h
+ create mode 100644 nbg/nbg_unify_yolov3/yolov3.nb
+ create mode 100644 nbg/nbg_unify_yolov3/yolov3.vcxproj
+ create mode 100644 nopnet/README.md
+ create mode 100644 standalone/README.md
+khadas@Khadas:~/hussain/novelsense_git/khadas$ git push --all
+Password for 'https://enggsajjad123@bitbucket.org':
+Enumerating objects: 53, done.
+Counting objects: 100% (53/53), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (48/48), done.
+Writing objects: 100% (49/49), 42.25 MiB | 4.11 MiB/s, done.
+Total 49 (delta 12), reused 0 (delta 0)
+remote:
+remote: Create pull request for dev_sajjad:
+remote:   https://bitbucket.org/novelsense/khadas/pull-requests/new?source=dev_sajjad&t=1
+remote:
+To https://bitbucket.org/novelsense/khadas.git
+   02fd7f1..a3cbd88  dev_sajjad -> dev_sajjad
+khadas@Khadas:~/hussain/novelsense_git/khadas$

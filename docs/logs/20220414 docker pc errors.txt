@@ -1,0 +1,277 @@
+Microsoft Windows [Version 10.0.19044.1586]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Windows\system32>d:
+
+D:\>cd Downloads
+
+D:\Downloads>cd novelsense\example-network\1_create_and_export_network
+
+D:\Downloads\novelsense\example-network\1_create_and_export_network>LS
+0.bmp  2.bmp  4.bmp  6.bmp  8.bmp  README.md  lenet.onnx  pytorch_to_khadas_TECO_example.ipynb  requirements_cuda.txt
+1.bmp  3.bmp  5.bmp  7.bmp  9.bmp  data       lenet.pt    requirements.txt                      venv
+
+D:\Downloads\novelsense\example-network\1_create_and_export_network>ls
+0.bmp  2.bmp  4.bmp  6.bmp  8.bmp  README.md  lenet.onnx  pytorch_to_khadas_TECO_example.ipynb  requirements_cuda.txt
+1.bmp  3.bmp  5.bmp  7.bmp  9.bmp  data       lenet.pt    requirements.txt                      venv
+
+D:\Downloads\novelsense\example-network\1_create_and_export_network>venv\Scripts\activate.bat
+
+(venv) D:\Downloads\novelsense\example-network\1_create_and_export_network>cd ..
+
+(venv) D:\Downloads\novelsense\example-network>cd 2_convert_network
+
+(venv) D:\Downloads\novelsense\example-network\2_convert_network>ls
+README.md  convert.bat  data  network  outputs
+
+(venv) D:\Downloads\novelsense\example-network\2_convert_network>convert.bat
+
+(venv) D:\Downloads\novelsense\example-network\2_convert_network>docker run --rm --name conv-test -it  --mount type=bind,source=D:\Downloads\novelsense\example-network\2_convert_network\data,target=/acuity-toolkit/python/data  --mount type=bind,source=D:\Downloads\novelsense\example-network\2_convert_network\network,target=/acuity-toolkit/python/network   --mount type=bind,source=D:\Downloads\novelsense\example-network\2_convert_network\outputs,target=/acuity-toolkit/python/outputs  --entrypoint=/acuity-toolkit/python/network/convert-lenet-onnx-to-khadas.sh   ghcr.io/scholz/aml-container:0.0.1
+
+
+--+ KSNN Convert tools v1.2 +--
+
+
+Start import model ...
+Illegal instruction
+
+
+(venv) D:\Downloads\novelsense\example-network\2_convert_network>convert.bat
+
+(venv) D:\Downloads\novelsense\example-network\2_convert_network>docker run --rm --name conv-test -it  --mount type=bind,source=D:\Downloads\novelsense\example-network\2_convert_network\data,target=/acuity-toolkit/python/data  --mount type=bind,source=D:\Downloads\novelsense\example-network\2_convert_network\network,target=/acuity-toolkit/python/network   --mount type=bind,source=D:\Downloads\novelsense\example-network\2_convert_network\outputs,target=/acuity-toolkit/python/outputs  --entrypoint=/bin/bash   ghcr.io/scholz/aml-container:0.0.1
+root@668e39b4dce1:/acuity-toolkit# ls
+bin  demo  python  ReadMe.txt  requirements.txt
+root@668e39b4dce1:/acuity-toolkit# ls demo/
+0_import_model.sh  1_quantize_model.sh  2_export_case_code.sh  data  extractoutput.py  inference.sh  model
+root@668e39b4dce1:/acuity-toolkit# vim
+root@668e39b4dce1:/acuity-toolkit# cd demo/
+root@668e39b4dce1:/acuity-toolkit/demo# ls
+0_import_model.sh  1_quantize_model.sh  2_export_case_code.sh  data  extractoutput.py  inference.sh  model
+root@668e39b4dce1:/acuity-toolkit/demo# vim convert-lenet-onnx-to-khadas.sh
+root@668e39b4dce1:/acuity-toolkit/demo# chmod +x convert-lenet-onnx-to-khadas.sh
+root@668e39b4dce1:/acuity-toolkit/demo# ./convert-lenet-onnx-to-khadas.sh
+
+
+--+ KSNN Convert tools v1.2 +--
+
+
+Start import model ...
+Illegal instruction
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+root@668e39b4dce1:/acuity-toolkit/demo# CONVERT_PATH="/acuity-toolkit/python/"
+root@668e39b4dce1:/acuity-toolkit/demo# cd $CONVERT_PATH/
+root@668e39b4dce1:/acuity-toolkit/python# ./convert --model-name lenet --platform onnx --outputs "output"  --inputs "input" --input-size-list '28,28,3'  --model ./network/lenet.onnx --mean-values '127.5,127.5,127.5,255.0' --quantized-dtype
+asymmetric_affine --qtype int16 --kboard VIM3 --print-level 1
+
+
+--+ KSNN Convert tools v1.2 +--
+
+
+Start import model ...
+Illegal instruction
+
+root@668e39b4dce1:/acuity-toolkit/python# ./convert --model-name lenet --platform onnx --outputs "output"  --inputs "input"  --model ./network/lenet.onnx
+
+
+--+ KSNN Convert tools v1.2 +--
+
+
+Quantize type not found !!! Please use this format: --quantized-dtype
+root@668e39b4dce1:/acuity-toolkit/python# ./convert --model-name lenet --platform onnx --outputs "output"  --inputs "input"  --model ./network/lenet.onnx --quantized-dtype
+asymmetric_affine
+usage: convert [-h] [--model-name MODEL_NAME] [--print-level PRINT_LEVEL] [--platform PLATFORM] [--kboard KBOARD]
+               [--model MODEL] [--outputs OUTPUTS] [--input-size-list INPUT_SIZE_LIST]
+               [--size-with-batch SIZE_WITH_BATCH] [--input-dtype-list INPUT_DTYPE_LIST] [--inputs INPUTS]
+               [--weights WEIGHTS] [--std-values STD_VALUES] [--mean-values MEAN_VALUES] [--predef-file PREDEF_FILE]
+               [--config CONFIG] [--proto PROTO] [--convert-engine CONVERT_ENGINE] [--quantized-dtype QUANTIZED_DTYPE]
+               [--qtype QTYPE] [--batch-size BATCH_SIZE] [--iterations ITERATIONS] [--device DEVICE] [--hybrid HYBRID]
+               [--algorithm ALGORITHM] [--moving-average-weight MOVING_AVERAGE_WEIGHT]
+               [--divergence-nbins DIVERGENCE_NBINS]
+convert: error: argument --quantized-dtype: expected one argument
+^[[Aroot@668e39b4dce1:/acuity-toolkit/python# asymmetric_affineasymmetric_affine
+bash: asymmetric_affineasymmetric_affine: command not found
+root@668e39b4dce1:/acuity-toolkit/python# ./convert --model-name lenet --platform onnx --outputs "output"  --inputs "input"  --model ./network/lenet.onnx --quantized-dtype asymmetric_affine
+
+
+--+ KSNN Convert tools v1.2 +--
+
+
+Mean values not found !!! Please use this format: '--mean-values'
+^[[A^[[Broot@668e39b4dce1:/acuity-toolkit/./convert --model-name lenet --platform onnx --outputs "output"  --inputs "input"  --model ./network/lenet.onnx --quantized-dtype asymmetric_affine --mean-values '127.5,127.5,127.5,255.0'
+
+
+--+ KSNN Convert tools v1.2 +--
+
+
+Start import model ...
+Illegal instruction
+
+root@668e39b4dce1:/acuity-toolkit/python# ./convert --model-name lenet --platform onnx --outputs "output"  --model ./network/lenet.onnx --quantized-dtype asymmetric_affine --mean-values '127.5,127.5,127.5,255.0'
+
+
+--+ KSNN Convert tools v1.2 +--
+
+
+Start import model ...
+Illegal instruction
+
+root@668e39b4dce1:/acuity-toolkit/python# ./convert --model-name lenet --platform onnx --model ./network/lenet.onnx --qu
+antized-dtype asymmetric_affine --mean-values '127.5,127.5,127.5,255.0'
+
+
+--+ KSNN Convert tools v1.2 +--
+
+
+Start import model ...
+Illegal instruction
+
+root@668e39b4dce1:/acuity-toolkit/python#

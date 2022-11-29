@@ -1,0 +1,431 @@
+==============================================================================
+profiling yolov3-tiny using yolotiny_88.nb file 
+profiling yolov3 using yolov3_88.nb file does not work
+==============================================================================
+khadas@Khadas:~$ cd ~/hussain/novelsense_git/khadas/profile_results/op_test_yolotiny_minimal_using_export.data/bin_r_cv4
+khadas@Khadas:~/hussain/novelsense_git/khadas/profile_results/op_test_yolotiny_minimal_using_export.data/bin_r_cv4$ export VIVANTE_SDK_DIR=/home/khadas/Just_for_get_op_time/data/vcmdtools
+khadas@Khadas:~/hussain/novelsense_git/khadas/profile_results/op_test_yolotiny_minimal_using_export.data/bin_r_cv4$ export LD_LIBRARY_PATH=/home/khadas/Just_for_get_op_time/data/drivers_64_exportdata
+khadas@Khadas:~/hussain/novelsense_git/khadas/profile_results/op_test_yolotiny_minimal_using_export.data/bin_r_cv4$ export CNN_PERF=1    khadas@Khadas:~/hussain/novelsense_git/khadas/profile_results/op_test_yolotiny_minimal_using_export.data/bin_r_cv4$ export NN_LAYER_DUMP=1
+khadas@Khadas:~/hussain/novelsense_git/khadas/profile_results/op_test_yolotiny_minimal_using_export.data/bin_r_cv4$ export VIV_VX_DEBUG_LEVEL=1
+khadas@Khadas:~/hussain/novelsense_git/khadas/profile_results/op_test_yolotiny_minimal_using_export.data/bin_r_cv4$ ./yolotiny ~/hussain/novelsense_git/khadas/nbg/sdk_generated_nbg_original/yolov3tiny/yolotiny_nbg_unify_416_hussainA/yolotiny_88.nb ~/hussain/img/416/person_416.jpg
+#productname=VIPNano-QI, pid=0x88
+Create Neural Network: 543ms or 543015us
+Verify...
+generate command buffer, total device count=1, core count per-device: 1,
+current device id=0, AXI SRAM base address=0xff000000
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4828]: cann't support data type 3, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4828]: cann't support data type 3, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4828]: cann't support data type 3, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4828]: cann't support data type 3, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4333]: cann't support data type 3, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchSH[5410]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchSH[5410]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchTP[4856]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+vxoBinaryGraph_patchNN[4362]: cann't support data type 4, please set ENV NN_LAYER_DUMP=1 and re-generate binary graph
+---------------------------Begin VerifyTiling -------------------------
+AXI-SRAM = 1048320 Bytes VIP-SRAM = 522240 Bytes SWTILING_PHASE_FEATURES[1, 1, 0]
+  0 NBG [(   0    0    0 0,        0, 0x(nil)(0x(nil), 0x(nil)) ->    0    0    0 0,        0, 0x(nil)(0x(nil), 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 0 0)]
+
+ id IN [ x  y  w   h ]   OUT  [ x  y  w  h ] (tx, ty, kpc) (ic, kc, kc/ks, ks/eks, kernel_type) NNT(in, out)
+
+ id | opid IN [ x  y  w   h ]   OUT  [ x  y  w  h ] (tx, ty, kpc) (ic, kc, kc/ks, ks/eks, kernel_type) NNT(in, out)
+  0 |   0 NBG DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+
+PreLoadWeightBiases = 1048320  100.000000%
+---------------------------End VerifyTiling -------------------------
+Verify Graph: 173ms or 173415us
+Start run graph [1] times...
+Total segments: 66.
+Run segment 0. Type: 1, operations: [1, 1].
+Segment 0 ended.
+Run segment 1. Type: 1, operations: [2, 2].
+Segment 1 ended.
+Run segment 2. Type: 1, operations: [3, 3].
+Segment 2 ended.
+Run segment 3. Type: 1, operations: [4, 4].
+Segment 3 ended.
+Run segment 4. Type: 1, operations: [5, 5].
+Segment 4 ended.
+Run segment 5. Type: 1, operations: [6, 6].
+Segment 5 ended.
+Run segment 6. Type: 1, operations: [7, 7].
+Segment 6 ended.
+Run segment 7. Type: 1, operations: [8, 8].
+Segment 7 ended.
+Run segment 8. Type: 1, operations: [9, 9].
+Segment 8 ended.
+Run segment 9. Type: 1, operations: [10, 10].
+Segment 9 ended.
+Run segment 10. Type: 1, operations: [11, 11].
+Segment 10 ended.
+Run segment 11. Type: 1, operations: [12, 12].
+Segment 11 ended.
+Run segment 12. Type: 1, operations: [13, 13].
+Segment 12 ended.
+Run segment 13. Type: 1, operations: [14, 14].
+Segment 13 ended.
+Run segment 14. Type: 1, operations: [15, 15].
+Segment 14 ended.
+Run segment 15. Type: 1, operations: [16, 16].
+Segment 15 ended.
+Run segment 16. Type: 1, operations: [17, 17].
+Segment 16 ended.
+Run segment 17. Type: 1, operations: [18, 18].
+Segment 17 ended.
+Run segment 18. Type: 1, operations: [19, 19].
+Segment 18 ended.
+Run segment 19. Type: 1, operations: [20, 20].
+Segment 19 ended.
+Run segment 20. Type: 1, operations: [21, 21].
+Segment 20 ended.
+Run segment 21. Type: 1, operations: [22, 22].
+Segment 21 ended.
+Run segment 22. Type: 1, operations: [23, 23].
+Segment 22 ended.
+Run segment 23. Type: 1, operations: [24, 24].
+Segment 23 ended.
+Run segment 24. Type: 1, operations: [25, 25].
+Segment 24 ended.
+Run segment 25. Type: 1, operations: [26, 26].
+Segment 25 ended.
+Run segment 26. Type: 1, operations: [27, 27].
+Segment 26 ended.
+Run segment 27. Type: 1, operations: [28, 28].
+Segment 27 ended.
+Run segment 28. Type: 1, operations: [29, 29].
+Segment 28 ended.
+Run segment 29. Type: 1, operations: [30, 30].
+Segment 29 ended.
+Run segment 30. Type: 1, operations: [31, 31].
+Segment 30 ended.
+Run segment 31. Type: 1, operations: [32, 32].
+Segment 31 ended.
+Run segment 32. Type: 1, operations: [33, 33].
+Segment 32 ended.
+Run segment 33. Type: 1, operations: [34, 34].
+Segment 33 ended.
+Run segment 34. Type: 1, operations: [35, 35].
+Segment 34 ended.
+Run segment 35. Type: 1, operations: [36, 36].
+Segment 35 ended.
+Run segment 36. Type: 1, operations: [37, 37].
+Segment 36 ended.
+Run segment 37. Type: 1, operations: [38, 38].
+Segment 37 ended.
+Run segment 38. Type: 1, operations: [39, 39].
+Segment 38 ended.
+Run segment 39. Type: 1, operations: [40, 40].
+Segment 39 ended.
+Run segment 40. Type: 1, operations: [41, 41].
+Segment 40 ended.
+Run segment 41. Type: 1, operations: [42, 42].
+Segment 41 ended.
+Run segment 42. Type: 1, operations: [43, 43].
+Segment 42 ended.
+Run segment 43. Type: 1, operations: [44, 44].
+Segment 43 ended.
+Run segment 44. Type: 1, operations: [45, 45].
+Segment 44 ended.
+Run segment 45. Type: 1, operations: [46, 46].
+Segment 45 ended.
+Run segment 46. Type: 1, operations: [47, 47].
+Segment 46 ended.
+Run segment 47. Type: 1, operations: [48, 48].
+Segment 47 ended.
+Run segment 48. Type: 1, operations: [49, 49].
+Segment 48 ended.
+Run segment 49. Type: 1, operations: [50, 50].
+Segment 49 ended.
+Run segment 50. Type: 1, operations: [51, 51].
+Segment 50 ended.
+Run segment 51. Type: 1, operations: [52, 52].
+Segment 51 ended.
+Run segment 52. Type: 1, operations: [53, 53].
+Segment 52 ended.
+Run segment 53. Type: 1, operations: [54, 54].
+Segment 53 ended.
+***********dump layer : 20 operation: 54***************
+Run segment 54. Type: 1, operations: [55, 55].
+Segment 54 ended.
+Run segment 55. Type: 1, operations: [56, 56].
+Segment 55 ended.
+Run segment 56. Type: 1, operations: [57, 57].
+Segment 56 ended.
+Run segment 57. Type: 1, operations: [58, 58].
+Segment 57 ended.
+Run segment 58. Type: 1, operations: [59, 59].
+Segment 58 ended.
+Run segment 59. Type: 1, operations: [60, 60].
+Segment 59 ended.
+Run segment 60. Type: 1, operations: [61, 61].
+Segment 60 ended.
+Run segment 61. Type: 1, operations: [62, 62].
+Segment 61 ended.
+Run segment 62. Type: 1, operations: [63, 63].
+Segment 62 ended.
+Run segment 63. Type: 1, operations: [64, 64].
+Segment 63 ended.
+Run segment 64. Type: 1, operations: [65, 65].
+Segment 64 ended.
+Run segment 65. Type: 1, operations: [66, 66].
+Segment 65 ended.
+***********dump layer : 26 operation: 66***************
+***********dump layer : 0***************
+***********dump layer : 1***************
+layer_id: 0 layer name:network_binary_graph operation[0]:unkown operation type target:unkown operation target.
+uid: 0
+abs_op_id: 0
+execution time:            304576 us
+Run the 1 time: 311.00ms or 311009.00us
+vxProcessGraph execution time:
+Total   311.00ms or 311051.00us
+Average 311.05ms or 311051.00us
+ --- Top5 ---
+15305: 7.750000
+15292: 6.250000
+3668: 5.750000
+3669: 5.500000
+3655: 4.500000
+khadas@Khadas:~/hussain/novelsense_git/khadas/profile_results/op_test_yolotiny_minimal_using_export.data/bin_r_cv4$ 

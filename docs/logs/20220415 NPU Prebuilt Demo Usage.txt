@@ -1,0 +1,403 @@
+NPU Prebuilt Demo Usage
+https://docs.khadas.com/linux/vim3/NPUPrebuiltUsage.html
+
+khadas@Khadas-teco:~$ ls
+ aml_npu_sdk                                   Desktop     Downloads   Music            nn         Public   Templ
+'copy_to_board executing on ksnn khadas.log'   Documents   ksnn        my_video-1.mkv   Pictures   sajjad   venv
+khadas@Khadas-teco:~$ cd sajjad/
+applsource1/ eachoptime/  eachoptime1/ ksnn/        npu1/        npusdk1/
+khadas@Khadas-teco:~$ cd sajjad/applsource1/
+khadas@Khadas-teco:~/sajjad/applsource1$ cd aml_npu_app/
+DDK_6.3.3.4/    DDK_6.4.0.3/    DDK_6.4.3/      DDK_6.4.4.3/    detect_library/ .git/           NN_SLT/
+khadas@Khadas-teco:~/sajjad/applsource1$ cd aml_npu_app/
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app$ ls
+DDK_6.3.3.4  DDK_6.4.0.3  DDK_6.4.3  DDK_6.4.4.3  detect_library  LICENSE  NN_SLT
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app$ ls detect_library/
+inception   sample_demo_fb   source_code        yolo_demo_fb_usb    yolo_demo_x11_usb
+model_code  sample_demo_x11  yolo_demo_fb_mipi  yolo_demo_x11_mipi
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app$ ls detect_library/source_code/
+bin_r  build_vx.sh  detect.c  detect_log.c  include  Makefile  makefile.linux  makefile.linux.def
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app$ cd
+khadas@Khadas-teco:~$ cd sajjad/npu1/
+
+========================================================
+Inception Model
+========================================================
+
+khadas@Khadas-teco:~/sajjad/npu1$ ls
+aml_npu_demo_binaries
+khadas@Khadas-teco:~/sajjad/npu1$ cd aml_npu_demo_binaries/
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries$ ls
+detect_demo  detect_demo_picture  detect_demo_picture_original  inceptionv3  LICENSE  README.md
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries$ ls inceptionv3/
+dog_299x299.jpg  goldfish_299x299.jpg  imagenet_slim_labels.txt  VIM3  VIM3L
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries$ cd inceptionv3/
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/inceptionv3$ cd VIM3
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/inceptionv3/VIM3$ ./run.sh
+Create Neural Network: 1820ms or 1820271us
+Verify...
+Verify Graph: 29ms or 29602us
+Start run graph [1] times...
+Run the 1 time: 36.00ms or 36340.00us
+vxProcessGraph execution time:
+Total   37.00ms or 37187.00us
+Average 37.19ms or 37187.00us
+ --- Top5 ---
+  2: 0.934082
+795: 0.003748
+408: 0.001803
+974: 0.001579
+393: 0.000868
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/inceptionv3/VIM3$ ls
+inceptionv3  inception_v3.nb  input_0.dat  output0_1001_1.dat  run.sh
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/inceptionv3/VIM3$ ls inception3
+ls: cannot access 'inception3': No such file or directory
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/inceptionv3/VIM3$ cd ..
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/inceptionv3$ ls
+dog_299x299.jpg  goldfish_299x299.jpg  imagenet_slim_labels.txt  VIM3  VIM3L
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/inceptionv3$ vim VIM3/run.sh
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/inceptionv3$ ls
+dog_299x299.jpg  goldfish_299x299.jpg  imagenet_slim_labels.txt  VIM3  VIM3L
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/inceptionv3$ cd VIM3
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/inceptionv3/VIM3$ cp run.sh run_dog.sh
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/inceptionv3/VIM3$ chmod +x run_dog.sh
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/inceptionv3/VIM3$ vim run_dog.sh
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/inceptionv3/VIM3$ ./run_dog.sh
+Create Neural Network: 697ms or 697171us
+Verify...
+Verify Graph: 31ms or 31712us
+Start run graph [1] times...
+Run the 1 time: 21.00ms or 21177.00us
+vxProcessGraph execution time:
+Total   21.00ms or 21222.00us
+Average 21.22ms or 21222.00us
+ --- Top5 ---
+208: 0.710449
+209: 0.049713
+223: 0.016052
+185: 0.005543
+268: 0.005543
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/inceptionv3/VIM3$
+
+========================================================
+Yolo Series Model X11
+========================================================
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 0 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:967.347 right:1266.4 top:63.3736 bottom:518.165
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 1 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:230.364 right:1689.64 top:0 bottom:1080
+left:240.364 top-10:40
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:608
+model.height:608
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 3 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 4 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:372.992 right:1510.84 top:0 bottom:1080
+left:382.992 top-10:40
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$
+
+
+========================================================
+Yolo Series Model FB gives error on Monitor
+========================================================
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_fb -m 0 -p ./1080p.bmp
+init_fb...
+1920x1080, 32bpp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:967.347 right:1266.4 top:63.3736 bottom:518.165
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$
+
+========================================================
+Yolo Series Model X11 with own picture
+========================================================
+
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 0 -p ./6.jpg
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:565.104 right:695.876 top:376.414 bottom:547.763
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 0 -p ./6.jpg
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:565.104 right:695.876 top:376.414 bottom:547.763
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 1 -p ./6.jpg
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:305.405 right:941.916 top:345.288 bottom:1080
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 3 -p ./6.jpg
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:381.037 right:866.284 top:447.508 bottom:1010.87
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 4 -p ./6.jpg
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:353.168 right:863.582 top:344.398 bottom:1080
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$
+
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$ eog 1080p.bmp
+
+
+
+
+========================================================
+Yolo Series Model FB with own picture
+========================================================
+
+
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_fb -m 4 -p ./6.jpg
+init_fb...
+1920x1080, 32bpp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:353.168 right:863.582 top:344.398 bottom:1080
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_fb -m 3 -p ./6.jpg
+init_fb...
+1920x1080, 32bpp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:381.037 right:866.284 top:447.508 bottom:1010.87
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_fb -m 2 -p ./6.jpg
+init_fb...
+1920x1080, 32bpp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:608
+model.height:608
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_fb -m 1 -p ./6.jpg
+init_fb...
+1920x1080, 32bpp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:305.405 right:941.916 top:345.288 bottom:1080
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$

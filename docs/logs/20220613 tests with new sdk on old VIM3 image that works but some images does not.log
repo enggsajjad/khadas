@@ -1,0 +1,1207 @@
+khadas@Khadas-teco:~$ cd  /home/khadas/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1$ sudo rm -rf bin_r_cv4/detect_* bin_r_cv4/*.o
+[sudo] password for khadas: 
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1$ sudo ./build_vx.sh 
+  COMPILE /home/khadas/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/detect_log.c
+  COMPILE /home/khadas/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/yolov3_process.c
+make: Warning: File 'vnn_yolov3.c' has modification time 2219 s in the future
+  COMPILE /home/khadas/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/vnn_yolov3.c
+vnn_yolov3.c: In function 'vnn_CreateYolov3':
+vnn_yolov3.c:146:29: warning: unused variable 'data' [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_yolov3.c:94:17: warning: 'load_data' defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/yolo_v3.c
+  COMPILE /home/khadas/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/main.cpp
+main.cpp: In function 'int run_detect_model(int, char**)':
+main.cpp:331:10: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
+  331 |   return NULL;
+      |          ^~~~
+main.cpp:277:39: warning: unused variable 'img_width' [-Wunused-variable]
+  277 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                       ^~~~~~~~~
+main.cpp:277:50: warning: unused variable 'img_height' [-Wunused-variable]
+  277 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                                  ^~~~~~~~~~
+main.cpp: At global scope:
+main.cpp:250:13: warning: 'void crop_face(cv::Mat, cv::Mat&, DetectResult, int, int)' defined but not used [-Wunused-function]
+  250 | static void crop_face(cv::Mat sourceFrame, cv::Mat& imageROI, DetectResult resultData, int img_height, int img_width) {
+      |             ^~~~~~~~~
+main.cpp:98:17: warning: 'screensize' defined but not used [-Wunused-variable]
+   98 | static long int screensize = 0;
+      |                 ^~~~~~~~~~
+main.cpp:97:33: warning: 'finfo' defined but not used [-Wunused-variable]
+   97 | static struct fb_fix_screeninfo finfo;
+      |                                 ^~~~~
+main.cpp:96:33: warning: 'vinfo' defined but not used [-Wunused-variable]
+   96 | static struct fb_var_screeninfo vinfo;
+      |                                 ^~~~~
+main.cpp:95:12: warning: 'fbfd' defined but not used [-Wunused-variable]
+   95 | static int fbfd = 0;
+      |            ^~~~
+make: warning:  Clock skew detected.  Your build may be incomplete.
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1$ cd bin_r_cv4/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ sudo rm -rf *.o^C
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp 
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:526.938 right:1340.14 top:1.80045 bottom:1080
+left:536.938 top-10:40
+
+(process:6415): Gtk-WARNING **: 17:49:06.519: Locale not supported by C library.
+        Using the fallback 'C' locale.
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1.bmp 
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:559.831 right:996.533 top:386.308 bottom:1046.35
+
+(process:6484): Gtk-WARNING **: 17:50:18.294: Locale not supported by C library.
+        Using the fallback 'C' locale.
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../2.bmp 
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=9
+result type is 2
+i:9 left:1438.88 right:1910.66 top:471.156 bottom:562.141
+
+(process:6500): Gtk-WARNING **: 17:50:38.751: Locale not supported by C library.
+        Using the fallback 'C' locale.
+i:9 left:178.415 right:390.489 top:483.762 bottom:993.122
+i:9 left:394.441 right:606.514 top:413.099 bottom:1067.13
+i:9 left:586.459 right:798.532 top:483.762 bottom:993.122
+i:9 left:763.672 right:975.745 top:404.994 bottom:1059.03
+i:9 left:942.462 right:1107.62 top:399.908 bottom:1053.94
+i:9 left:1099.19 right:1311.27 top:402.49 bottom:1056.52
+i:9 left:1264.71 right:1476.78 top:413.099 bottom:1067.13
+i:9 left:1583.26 right:1721.73 top:858.664 bottom:1062.01
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../3.bmp 
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=9
+result type is 2
+i:9 left:836.372 right:1920 top:883.595 bottom:1065.57
+
+(process:6531): Gtk-WARNING **: 17:51:14.087: Locale not supported by C library.
+        Using the fallback 'C' locale.
+i:9 left:28.3068 right:166.768 top:904.414 bottom:1062.78
+i:9 left:221.607 right:329.441 top:908.49 bottom:1066.86
+i:9 left:960.069 right:1067.9 top:910.163 bottom:1068.53
+i:9 left:1824.02 right:1908 top:906.569 bottom:1064.93
+i:9 left:1027.53 right:1165.99 top:925.318 bottom:1080
+i:9 left:1464.52 right:1572.35 top:925.318 bottom:1080
+i:9 left:1643 right:1726.98 top:925.318 bottom:1080
+i:9 left:1729.32 right:1837.16 top:946.427 bottom:1069.76
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:526.938 right:1340.14 top:1.80045 bottom:1080
+left:536.938 top-10:40
+
+(process:6565): Gtk-WARNING **: 17:51:42.872: Locale not supported by C library.
+        Using the fallback 'C' locale.
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../dog.jpg 
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1$ convert dog.jpg dog.bmp 
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1$ convert eagle.jpg eagle.bmp 
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1$ convert giraffe.jpg giraffe.bmp 
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1$ convert horses.jpg horses.bmp  
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1$ convert kite.jpg kite.bmp    
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1$ convert person.jpg person.bmp 
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1$ convert scream.jpg scream.bmp 
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1$ cd -
+/home/khadas/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../dog.bmp 
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../eagle.bmp 
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Segmentation fault (core dumped)
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../giraffe.bmp 
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../horses.bmp  
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../person.bmp 
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=7
+result type is 2
+i:7 left:1669.68 right:1892.54 top:32.633 bottom:123.618
+left:1679.68 top-10:40
+
+(process:6924): Gtk-WARNING **: 18:00:05.083: Locale not supported by C library.
+        Using the fallback 'C' locale.
+i:7 left:198.555 right:272.402 top:29.2852 bottom:129.291
+left:208.555 top-10:40
+i:7 left:405.2 right:600.767 top:40.9525 bottom:117.624
+left:415.2 top-10:40
+i:7 left:835.291 right:909.137 top:39.5093 bottom:117.394
+left:845.291 top-10:40
+i:7 left:1041.37 right:1236.93 top:40.9525 bottom:117.624
+left:1051.37 top-10:40
+i:7 left:1052.3 right:1247.87 top:40.9525 bottom:117.624
+left:1062.3 top-10:40
+i:7 left:1473.4 right:1547.25 top:27.4883 bottom:127.494
+left:1483.4 top-10:40
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../kite.bmp 
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../scream.bmp 
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Segmentation fault (core dumped)
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../dog.bmp -w 768 -h 576
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=3
+result type is 2
+i:3 left:474.946 right:689.1 top:89.85 bottom:165.433
+
+(process:6973): Gtk-WARNING **: 18:01:51.747: Locale not supported by C library.
+        Using the fallback 'C' locale.
+i:3 left:103.889 right:578.721 top:140.685 bottom:414.839
+i:3 left:133.079 right:307.76 top:208.544 bottom:560.565
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../eagle.bmp -w 773 -h 512
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../eagle.bmp -w 416 -h 416
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../eagle.bmp -w 256 -h 256
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../giraffe.bmp -w 500 -h 500
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../horses.bmp -w 773 -h 512
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../horses.jpg -w 773 -h 512
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../kite.bmp -w 1352 -h 900
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../kite.bmp               
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ convert ../horses.jpg --resize 1920x1080 ../horses_1920*1080.bmp
+convert-im6.q16: unable to open image `--resize': No such file or directory @ error/blob.c/OpenBlob/2874.
+convert-im6.q16: no decode delegate for this image format `' @ error/constitute.c/ReadImage/560.
+convert-im6.q16: unable to open image `1920x1080': No such file or directory @ error/blob.c/OpenBlob/2874.
+convert-im6.q16: unable to open image `1920x1080': No such file or directory @ error/blob.c/OpenBlob/2874.
+convert-im6.q16: no decode delegate for this image format `' @ error/constitute.c/ReadImage/560.
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1$ convert horses.jpg --resize 1920x1080 .horses_1920*1080.bmp
+convert-im6.q16: unable to open image `--resize': No such file or directory @ error/blob.c/OpenBlob/2874.
+convert-im6.q16: no decode delegate for this image format `' @ error/constitute.c/ReadImage/560.
+convert-im6.q16: unable to open image `1920x1080': No such file or directory @ error/blob.c/OpenBlob/2874.
+convert-im6.q16: unable to open image `1920x1080': No such file or directory @ error/blob.c/OpenBlob/2874.
+convert-im6.q16: no decode delegate for this image format `' @ error/constitute.c/ReadImage/560.
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1$ sudo apt-get install imagemagick
+[sudo] password for khadas: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+imagemagick is already the newest version (8:6.9.10.23+dfsg-2.1ubuntu11.4).
+The following packages were automatically installed and are no longer required:
+  libfwupdplugin1 libllvm11
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 52 not upgraded.
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1$ convert horses.jpg -resize 1920x1080 horses_1920*1080.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1$ convert horses.jpg -resize 1920x1080! horses_1920*1080.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1$ cd -
+/home/khadas/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../horses_1920\*1080.bmp 
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=4
+result type is 2
+i:4 left:585.57 right:1120.95 top:409.187 bottom:709.204
+
+(process:7831): Gtk-WARNING **: 18:13:28.084: Locale not supported by C library.
+        Using the fallback 'C' locale.
+i:4 left:35.6941 right:755.694 top:389.095 bottom:903.133
+i:4 left:9.79039 right:359.44 top:408.881 bottom:717.823
+i:4 left:1108.44 right:1458.09 top:436.318 bottom:745.26
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ convert ../dog.jpg -resize 1920x1080 ../dog_1920*1080.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ convert ../eagle.jpg -resize 1920x1080 ../eagle_1920*1080.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ convert ../giraffe.jpg -resize 1920x1080 ../giraffe_1920*1080.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ convert ../kite.jpg -resize 1920x1080 ../kite_1920*1080.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ vim main.cpp ^C
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ convert ../person.jpg -resize 1920x1080 ../person_1920*1080.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ convert ../scream.jpg -resize 1920x1080 ../scream_1920*1080.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../eagle_1920\*1080.bmp 
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../giraffe_1920\*1080.bmp 
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../kite_1920\*1080.bmp 
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../scream_1920\*1080.bmp 
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ls ../*.bmp
+ ../1.bmp       ../2.bmp   ../dog.bmp              ../eagle.bmp              ../giraffe.bmp              ../horses.bmp              ../kite.bmp              ../person.bmp              ../scream.bmp
+ ../1080p.bmp   ../3.bmp  '../dog_1920*1080.bmp'  '../eagle_1920*1080.bmp'  '../giraffe_1920*1080.bmp'  '../horses_1920*1080.bmp'  '../kite_1920*1080.bmp'  '../person_1920*1080.bmp'  '../scream_1920*1080.bmp'
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ 

@@ -1,0 +1,75 @@
+khadas@Khadas:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ sudo cp -arf lib/libnn_yolo_tiny_orignal.so /usr/lib/libnn_yolo_tiny.so
+[sudo] password for khadas:
+khadas@Khadas:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ sudo cp -arf lib/libnn_detect.so /usr/lib/libnn_detect.so      khadas@Khadas:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 3 -p ~/hussain/img/1920x1056/person_1920x1056.jpg
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:65]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ ls nn_data/
+yolo_face_88.nb  yolotiny_88.nb           yolotiny_99.nb  yolov2_99.nb  yolov3_88_orig.nb  yolov4_88.nb
+yolo_face_99.nb  yolotiny_88_original.nb  yolov2_88.nb    yolov3_88.nb  yolov3_99.nb       yolov4_99.nb
+khadas@Khadas:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ cp nn_data/yolotiny_88_original.nb nn_data/yolotiny_88.nb
+khadas@Khadas:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 3 -p ~/hussain/img/1920x1056/person_1920x1056.jpg
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=3
+result type is 2
+i:3 left:535.543 right:829.86 top:309.758 bottom:873.125
+i:3 left:1205.11 right:1828.18 top:312.155 bottom:875.521
+i:3 left:234.288 right:608.135 top:663.593 bottom:876.477
+khadas@Khadas:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 3 -w 416 -h 416 -p ~/hussain/img/1920x1056/person_1920x1056.jpg
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 3 -w 416 -h 416 -p ~/hussain/img/416/person_416.jpg
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=3
+result type is 2
+i:3 left:116.034 right:179.803 top:94.9493 bottom:373.583
+i:3 left:259.627 right:394.626 top:121.337 bottom:338.338
+i:3 left:59.7211 right:122.804 top:259.081 bottom:341.081
+khadas@Khadas:~/hussain/aml_npu_demo_binaries/detect_demo_picture$

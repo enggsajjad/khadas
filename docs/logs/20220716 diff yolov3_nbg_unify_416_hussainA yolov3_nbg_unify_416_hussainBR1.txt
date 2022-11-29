@@ -1,0 +1,413 @@
+khadas@Khadas:~/hussain/minimal_first_working/yolov3_nbg_unify_416_hussainBR1$ ls
+bin_r_cv4    linux_build_sample.log  nbg_meta.json            output2_52_52_255_1.dat  vnn_post_process.h  yolov3_88.nb
+BUILD        main.c                  nn_detect_common.h       output.jpg               vnn_pre_process.c   yolov3_process.c
+build_vx.sh  makefile.linux          nn_detect_utils.h        stb_image                vnn_pre_process.h   yolov3_process.h
+debug.h      makefile.linux.def      output0_13_13_255_1.dat  vnn_global.h             vnn_yolov3.c        yolov3.vcxproj
+input_0.dat  makefile.target_name    output1_26_26_255_1.dat  vnn_post_process.c       vnn_yolov3.h
+khadas@Khadas:~/hussain/minimal_first_working/yolov3_nbg_unify_416_hussainBR1$ ls *.h *.c
+debug.h  nn_detect_common.h  vnn_global.h        vnn_post_process.h  vnn_pre_process.h  vnn_yolov3.h      yolov3_process.h
+main.c   nn_detect_utils.h   vnn_post_process.c  vnn_pre_process.c   vnn_yolov3.c       yolov3_process.c
+khadas@Khadas:~/hussain/minimal_first_working/yolov3_nbg_unify_416_hussainBR1$ ls *.h *.c | count
+
+Command 'count' not found, did you mean:
+
+  command 'mount' from deb mount (2.34-0.1ubuntu9.3)
+  command 'ocount' from deb oprofile (1.3.0-0ubuntu13)
+
+Try: sudo apt install <deb name>
+
+khadas@Khadas:~/hussain/minimal_first_working/yolov3_nbg_unify_416_hussainBR1$ diff /media/khadas/SAJJAD/yolov3_nbg_unify_416_hussainA/main.c ./main.c
+26a27,28
+> #include "yolov3_process.h"
+>
+216a219
+>    DetectResult resultData;
+250a254,258
+>     //Sajjad
+>     MY_DBG("Yolo-v3 Like Post Processing...\n");
+>     yolov3_postprocess(graph, &resultData);
+>     MY_DBG("Post Processing Done.\n");
+>
+252c260,261
+<
+---
+>     MY_DBG("Status Checked!.\n");
+>     printf("\ndone!\n\n");
+254a264
+>     //printf("main3\n");
+255a266
+>     //printf("main4\n");
+khadas@Khadas:~/hussain/minimal_first_working/yolov3_nbg_unify_416_hussainBR1$ diff /media/khadas/SAJJAD/yolov3_nbg_unify_416_hussainA/vnn_global.h ./vnn_global.h
+9c9
+<
+---
+> #include "debug.h"//Sajjad
+khadas@Khadas:~/hussain/minimal_first_working/yolov3_nbg_unify_416_hussainBR1$ diff /media/khadas/SAJJAD/yolov3_nbg_unify_416_hussainA/vnn_pre_process.h ./vnn_pre_process.h
+khadas@Khadas:~/hussain/minimal_first_working/yolov3_nbg_unify_416_hussainBR1$ diff /media/khadas/SAJJAD/yolov3_nbg_unify_416_hussainA/vnn_pre_process.c ./vnn_pre_process.c
+17a18,27
+> //Sajjad
+> #include "nn_detect_common.h"
+> #include "yolov3_process.h"
+> #include<time.h>
+> //Sajjad
+> #define STB_IMAGE_IMPLEMENTATION
+> #include "stb_image/stb_image.h"
+> #define STB_IMAGE_WRITE_IMPLEMENTATION
+> #include "stb_image/stb_image_write.h"
+>
+173c183
+<         if(width * height * depth != bmpWidth * bmpHeight * channel)
+---
+>         /*if(width * height * depth != bmpWidth * bmpHeight * channel)
+178c188
+<         }
+---
+>         }*/
+193a204,205
+> //Sajjad
+> #ifdef GENERATE_TEMP_FILES
+194a207,218
+>     int offset  = 416*416*3/2;
+>     for (int i=(0+offset);i<(416*3+offset);i++)
+>     {
+>             bmpData[i] = 0;
+>     }
+>     if(bmpData == NULL) {
+>         printf("Error in loading the image\n");
+>         exit(1);
+>     }
+>     stbi_write_jpg("temp_jpeg_to_bmp.jpg",416, 416,3, bmpData, 100);
+> #endif
+> //Sajjad
+240a265
+>     MY_DBG("_imageData_to_float32 sz=%d\n",sz);
+247a273,287
+> //Sajjad
+> #ifdef GENERATE_TEMP_FILES
+>
+>     int offset  = 416*416*3/2;
+>     for (int i=(0+offset);i<(416*3+offset);i++)
+>     {
+>             fdata[i] = 0;
+>     }
+>     if(fdata == NULL) {
+>         printf("Error in loading the image\n");
+>         exit(1);
+>     }
+>     stbi_write_jpg("temp_imageData_to_float32.jpg",416, 416,3, fdata, 100);
+> #endif
+> //Sajjad
+272a313,314
+>
+>       MY_DBG("_decode_jpeg:1\n");
+281a324,341
+>       MY_DBG("_decode_jpeg:2\n");
+> //Sajjad
+> #ifdef GENERATE_TEMP_FILES
+>
+>     int offset  = 416*416*3/2;
+>     for (int i=(0+offset);i<(416*3+offset);i++)
+>     {
+>             bmpData[i] = 0;
+>     }
+>     if(bmpData == NULL) {
+>         printf("Error in loading the image\n");
+>         exit(1);
+>     }
+>     stbi_write_jpg("temp_decode_jpeg.jpg",416, 416,3, bmpData, 100);
+> #endif
+> //Sajjad
+>
+>
+362a423,439
+>
+> //Sajjad
+> #ifdef GENERATE_TEMP_FILES
+>
+>     int offset  = 416*416*3/2;
+>     for (int i=(0+offset);i<(416*3+offset);i++)
+>     {
+>             fdata[i] = 0;
+>     }
+>     if(fdata == NULL) {
+>         printf("Error in loading the image\n");
+>         exit(1);
+>     }
+>     stbi_write_jpg("temp_data_scale.jpg",416, 416,3, fdata, 100);
+> #endif
+> //Sajjad
+>
+389a467,481
+> //Sajjad
+> #ifdef GENERATE_TEMP_FILES
+>
+>     int offset1  = 416*416*3/2;
+>     for (int i=(0+offset1);i<(416*3+offset1);i++)
+>     {
+>             fdata[i] = 0;
+>     }
+>     if(fdata == NULL) {
+>         printf("Error in loading the image\n");
+>         exit(1);
+>     }
+>     stbi_write_jpg("temp_data_mean.jpg",416, 416,3, fdata, 100);
+> #endif
+> //Sajjad
+438a531,546
+> //Sajjad
+> #ifdef GENERATE_TEMP_FILES
+>
+>     int offset1  = 416*416*3/2;
+>     for (int i=(0+offset1);i<(416*3+offset1);i++)
+>     {
+>             fdata[i] = 0;
+>     }
+>     if(fdata == NULL) {
+>         printf("Error in loading the image\n");
+>         exit(1);
+>     }
+>     stbi_write_jpg("temp_data_transform.jpg",416, 416,3, fdata, 100);
+> #endif
+> //Sajjad
+>
+604c712,713
+<
+---
+>
+>       MY_DBG("_get_jpeg_data:1\n");
+605a715
+>       MY_DBG("_get_jpeg_data:2\n");
+621a732
+>           MY_DBG("VNN_PREPRO_NONE\n");
+623a735
+>           MY_DBG("VNN_PREPRO_REORDER\n");
+626a739
+>           MY_DBG("VNN_PREPRO_MEAN\n");
+629a743
+>           MY_DBG("VNN_PREPRO_SCALE\n");
+638a753,769
+> //Sajjad
+> #ifdef GENERATE_TEMP_FILES
+>
+>     int offset  = 416*416*3/2;
+>     for (int i=(0+offset);i<(416*3+offset);i++)
+>     {
+>             data[i] = 0;
+>     }
+>     if(data == NULL) {
+>         printf("Error in loading the image\n");
+>         exit(1);
+>     }
+>     stbi_write_jpg("temp_get_jpeg_fdata.jpg",416, 416,3, fdata, 100);
+>     stbi_write_jpg("temp_get_jpeg_data.jpg",416, 416,3, data, 100);
+> #endif
+> //Sajjad
+>
+732a864,866
+>     input_image_t image;//sajjad
+>     uint8_t *pdata;//sajjad
+>     int nn_height, nn_width, nn_channel;//, img_width, img_height;
+736a871
+>       MY_DBG("_handle_multiple_inputs:1\n");
+737a873
+>       MY_DBG("_handle_multiple_inputs:2\n");
+738a875
+>       MY_DBG("_handle_multiple_inputs:3\n");
+740a878
+>       MY_DBG("_handle_multiple_inputs:4\n");
+743a882
+>               MY_DBG("_handle_multiple_inputs:5\n");
+744a884,885
+>       data = _decode_jpeg(input_file, tensor);
+>               MY_DBG("_handle_multiple_inputs:6\n");
+763c904
+<
+---
+>       MY_DBG("_handle_multiple_inputs:7\n");
+765,766c906,925
+<     status = vsi_nn_CopyDataToTensor(graph, tensor, data);
+<     TEST_CHECK_STATUS(status, final);
+---
+>     //Sajjad
+>       if (graph) {
+>               vsi_nn_tensor_t *tensor = NULL;
+>               tensor = vsi_nn_GetTensor(graph, graph->input.tensors[0] );
+>
+>               nn_width = tensor->attr.size[0];
+>               nn_height = tensor->attr.size[1];
+>               nn_channel = tensor->attr.size[2];
+>       }
+>       printf("model.width:%d model.height:%d model.channel:%d\n",nn_width,nn_height,nn_channel);
+>
+>       pdata = (uint8_t*) malloc(nn_width * nn_height * nn_channel * sizeof(uint8_t));//sajjad
+>
+>       image.data      = (unsigned char*)data;//amlge2d.ge2dinfo.dst_info.vaddr[0];;
+>       image.width     = nn_width;
+>       image.height    = nn_height;
+>       image.channel   = 3;
+>       image.pixel_format = PIX_FMT_RGB888;
+>       //model_setinput(image, pdata);
+>       yolov3_preprocess_nbg(image,pdata,graph,nn_width,nn_height,3);
+767a927,931
+>     status = vsi_nn_CopyDataToTensor(graph, tensor, pdata);
+>       //status = vsi_nn_CopyDataToTensor(graph, tensor, data);
+>     TEST_CHECK_STATUS(status, final);
+>
+>       MY_DBG("_handle_multiple_inputs:8\n");
+770a935,1076
+>
+>       MY_DBG("_handle_multiple_inputs:9\n");
+>
+>     //dump the jpeg file
+>     //unsigned char *img = stbi_load("person_416.jpg", &width, &height, &channels, 0);
+>     //int offset  = 416*416*3/2;
+>     //for (int i=(0+offset);i<(416*3+offset);i++)
+>     //{
+>     //        data[i] = 0;
+>     //}
+>     /*
+>       //Draw a rectangle leaving 200 pixel from top and bottom and 100 pixel from left and right
+>     int o1 = 158*416*3;
+>     int o2 = 108;
+>     for (int i=(0+o1+o2);i<(416*3+o1-o2);i++)
+>             data[i] = 0;
+>     int o3 = 258*416*3;
+>     for (int i=(0+o3+o2);i<(416*3+o3-o2);i++)
+>             data[i] = 0;
+>     //verticals
+>     for (int i=(o1+o2);i<(o3+o2+416*2);i=i+416*3)
+>      {data[i] = 0;data[i+1] = 0;data[i+2] = 0;}
+>     for (int i=(416*3+o1-o2);i<(416*3+o3-o2+416*2);i=i+416*3)
+>      {data[i] = 0;data[i+1] = 0;data[i+2] = 0;}
+>     */
+>       /*
+>     //Draw a rectangle using left top right bottom
+>       int left = 108;
+>     int right = 318;
+>     int top = 158;
+>     int bot = 258;
+>     int o1 = top*416*3;
+>     int o2 = left;
+>     int o4 = 416-right;
+>     for (int i=(0+o1+o2);i<(416*3+o1-o4);i++)
+>             data[i] = 0;
+>     int o3 = bot*416*3;
+>     for (int i=(0+o3+o2);i<(416*3+o3-o4);i++)
+>             data[i] = 0;
+>     //verticals
+>     for (int i=(o1+o2);i<(o3+o2+416*2);i=i+416*3)
+>      {data[i] = 0;data[i+1] = 0;data[i+2] = 0;}
+>     for (int i=(416*3+o1-o4);i<(416*3+o3-o4+416*2);i=i+416*3)
+>      {data[i] = 0;data[i+1] = 0;data[i+2] = 0;}
+> */
+> /*
+>     int left = 300;
+>     int right = 318;
+>     int top = 300;
+>     int bot = 350;
+>     int o1 = top*416*3;
+>     int o2 = left;
+>     int o4 = 416-right;
+>     for (int i=(0+o1+o2);i<(416*3+o1-o4);i++)
+>             data[i] = 0;
+>     int o3 = bot*416*3;
+>     for (int i=(0+o3+o2);i<(416*3+o3-o4);i++)
+>             data[i] = 0;
+>     //verticals
+>     for (int i=(o1+o2);i<(o3+o2+416*2);i=i+416*3)
+>      {data[i] = 0;data[i+1] = 0;data[i+2] = 0;}
+>     for (int i=(416*3+o1-o4);i<(416*3+o3-o4+416*2);i=i+416*3)
+>      {data[i] = 0;data[i+1] = 0;data[i+2] = 0;}
+> */
+>     printf(">>>>>>>>>>><<<<<<<<<<<<<<\n");
+>     printf("Draw rectangle for 3 detections of person_416.jpg\n");
+>     printf(">>>>>>>>>>><<<<<<<<<<<<<<\n");
+>     srand(time(0));
+>       //No.0: Names and Prob: horse, 100%
+>       //left=0.643893,top=0.334159,right=0.935944,bot=0.810121
+>       //No.1: Names and Prob: dog, 100%
+>       //left=0.101499,top=0.613176,right=0.318664,bot=0.829522
+>       //No.2: Names and Prob: person, 100%
+>       //left=0.296863,top=0.257292,right=0.438690,bot=0.862876
+>       //Drwa first Rectangle
+>     int left = 0.643893f * 416;
+>     int right = 0.935944f * 416;
+>     int top = 0.334159f  * 416;
+>     int bot = 0.810121f * 416;
+>     int o1 = top*416*3;
+>     int o2 = left;
+>     int o4 = 416-right;
+>     int c = rand()%(255);//0;
+>     for (int i=(0+o1+o2);i<(416*3+o1-o4);i++)
+>             data[i] = c;
+>     int o3 = bot*416*3;
+>     for (int i=(0+o3+o2);i<(416*3+o3-o4);i++)
+>             data[i] = c;
+>     //verticals
+>     for (int i=(o1+o2);i<(o3+o2+416*2);i=i+416*3)
+>      {data[i] = c;data[i+1] = c;data[i+2] = c;}
+>     for (int i=(416*3+o1-o4);i<(416*3+o3-o4+416*2);i=i+416*3)
+>      {data[i] = c;data[i+1] = c;data[i+2] = c;}
+>       //Drwa 2nd Rectangle
+>       //left=0.101499,top=0.613176,right=0.318664,bot=0.829522
+>     left = 0.101499f * 416;
+>     right = 0.318664f * 416;
+>     top = 0.613176f  * 416;
+>     bot = 0.829522f * 416;
+>     o1 = top*416*3;
+>     o2 = left;
+>     o4 = 416-right;
+>     c = rand()%(255);//0;
+>     for (int i=(0+o1+o2);i<(416*3+o1-o4);i++)
+>             data[i] = c;
+>     o3 = bot*416*3;
+>     for (int i=(0+o3+o2);i<(416*3+o3-o4);i++)
+>             data[i] = c;
+>     //verticals
+>     for (int i=(o1+o2);i<(o3+o2+416*2);i=i+416*3)
+>      {data[i] = c;data[i+1] = c;data[i+2] = c;}
+>     for (int i=(416*3+o1-o4);i<(416*3+o3-o4+416*2);i=i+416*3)
+>      {data[i] = c;data[i+1] = c;data[i+2] = c;}
+>       //Drwa 3rd Rectangle
+>       //left=0.296863,top=0.257292,right=0.438690,bot=0.862876
+>     left = 0.296863f * 416;
+>     right = 0.438690f * 416;
+>     top = 0.257292f  * 416;
+>     bot = 0.862876f * 416;
+>     o1 = top*416*3;
+>     o2 = left;
+>     o4 = 416-right;
+>     c = rand()%(255);//0;
+>     for (int i=(0+o1+o2);i<(416*3+o1-o4);i++)
+>             data[i] = c;
+>     o3 = bot*416*3;
+>     for (int i=(0+o3+o2);i<(416*3+o3-o4);i++)
+>             data[i] = c;
+>     //verticals
+>     for (int i=(o1+o2);i<(o3+o2+416*2);i=i+416*3)
+>      {data[i] = c;data[i+1] = c;data[i+2] = c;}
+>     for (int i=(416*3+o1-o4);i<(416*3+o3-o4+416*2);i=i+416*3)
+>      {data[i] = c;data[i+1] = c;data[i+2] = c;}
+>       //
+>     if(data == NULL) {
+>         printf("Error in loading the image\n");
+>         exit(1);
+>     }
+>
+>     stbi_write_jpg("output.jpg",nn_width, nn_height, nn_channel, data, 100);
+>
+>     //stbi_image_free(data);
+881a1188
+>       MY_DBG("vnn_PreProcessYolov3:1\n");
+882a1190
+>       MY_DBG("vnn_PreProcessYolov3:2\n");
+891c1199,1200
+<         status = _handle_multiple_inputs(graph, i, inputs[i]);
+---
+>         MY_DBG("vnn_PreProcessYolov3:3\n");
+>               status = _handle_multiple_inputs(graph, i, inputs[i]);
+khadas@Khadas:~/hussain/minimal_first_working/yolov3_nbg_unify_416_hussainBR1$ diff /media/khadas/SAJJAD/yolov3_nbg_unify_416_hussainA/vnn_post_process.h ./vnn_post_process.h
+khadas@Khadas:~/hussain/minimal_first_working/yolov3_nbg_unify_416_hussainBR1$ diff /media/khadas/SAJJAD/yolov3_nbg_unify_416_hussainA/vnn_post_process.c ./vnn_post_process.c
+khadas@Khadas:~/hussain/minimal_first_working/yolov3_nbg_unify_416_hussainBR1$ diff /media/khadas/SAJJAD/yolov3_nbg_unify_416_hussainA/vnn_yolov3.h ./vnn_yolov3.h
+khadas@Khadas:~/hussain/minimal_first_working/yolov3_nbg_unify_416_hussainBR1$ diff /media/khadas/SAJJAD/yolov3_nbg_unify_416_hussainA/vnn_yolov3.c ./vnn_yolov3.c
+khadas@Khadas:~/hussain/minimal_first_working/yolov3_nbg_unify_416_hussainBR1$

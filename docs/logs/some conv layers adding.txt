@@ -1,0 +1,78 @@
+class CNN(nn.Module):
+    def __init__(self):
+        super(CNN, self).__init__()
+        self.conv1 = nn.Conv2d(3, 20, 5, 1)		
+        self.conv2 = nn.Conv2d(20, 50, 5, 1)	
+        self.fc1 = nn.Linear(4*4*50, 500)
+        self.fc2 = nn.Linear(500, 10)
+
+    def forward(self, x):
+        x = F.relu(self.conv1(x))				input=28x28x3=2352 ch=20 k=5x5 s=1 w=20x(3x5x5+1)=1520
+												ouput=(28+2x0-5)/1+1=24x24, ch=20 = 24x24x20=11,520
+        x = F.max_pool2d(x, 2, 2)				stride=2, input=24x24x20=11,520
+												output=(24-2)/2+1=12x12x20=2880
+        x = F.relu(self.conv2(x))				input=12x12, ch=20 12x12x20=2880
+												output: ch=50 k=5x5 s=1 w=50x(20x5x5+1)=25050
+												output=(12+2x0-5)/1+1=8x8 ch=50 channels each
+        x = F.max_pool2d(x, 2, 2)				stride=2, input=8x8x50=3200
+												output=(8-2)/2+1=4x4x50=800
+        x = x.view(-1, 4*4*50)
+        x = F.relu(self.fc1(x))					input=4x4x50=800 w=4x4x50x500+500=400,500	
+												output=500
+        x = self.fc2(x)							input=500 w=500x10+50=5,050
+												output=10
+        return F.log_softmax(x, dim=1)			
+		
+		Total parameters = 1520 + 25,050 + 400,500 + 5,050 = 432120 floats
+		432120
+		522240
+		1048576
+===================================
+Generalized dimensions can be given as:
+
+Input: n X n X nc
+Filter: f X f X nc
+Padding: p
+Stride: s
+Output: [(n+2p-f)/s+1] X [(n+2p-f)/s+1] X nc’
+Here, nc is the number of channels in the input and filter, while nc’ is the number of filters.
+=====================================
+(24+2x0-5)/2+1
+(12+2x0-5)/1+1
+
+
+
+
+
+
+
+
+
+
+
+
+class CNN(nn.Module):
+    def __init__(self):
+        super(CNN, self).__init__()
+        self.conv1 = nn.Conv2d(3, 200, 3, 1)		
+        self.conv2 = nn.Conv2d(200, 500, 3, 1)	
+        self.fc1 = nn.Linear(6*6*500, 5000)
+        self.fc2 = nn.Linear(5000, 10)
+
+    def forward(self, x):
+        x = F.relu(self.conv1(x))				input=28x28x3=2352 ch=200 k=3x3 s=1 
+												ouput=(28+2x0-3)/1+1=26x26, ch=200 = 26x26x200=
+        x = F.max_pool2d(x, 2, 2)				stride=2, input=26x26x200=
+												output=(26+2x0-2)/2+1=13x13x200=
+        x = F.relu(self.conv2(x))				input=13x13, ch=200 13x13x200=
+												output: ch=500 k=3x3 s=1 
+												output=(13+2x0-3)/1+1=11x11 ch=500 channels each
+        x = F.max_pool2d(x, 2, 2)				stride=2, input=11x11x500=
+												output=(11+2x0-2)/2+1=6x6x500=
+        x = x.view(-1, 6*6*500)
+        x = F.relu(self.fc1(x))					input=6x6x50= w=6x6x500x500+500=
+												output=5000
+        x = self.fc2(x)							input=5000 w=5000x10+500=
+												output=10
+        return F.log_softmax(x, dim=1)			
+		

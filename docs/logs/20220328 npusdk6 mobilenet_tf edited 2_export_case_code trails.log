@@ -1,0 +1,1601 @@
+sajjad@teco:~/npusdk5/aml_npu_sdk/acuity-toolkit/demo$ cd
+sajjad@teco:~$ cd npusdk6/
+sajjad@teco:~/npusdk6$ cd aml_npu_sdk/
+sajjad@teco:~/npusdk6/aml_npu_sdk$ ls
+acuity-toolkit  android_sdk  Dockerfile  docs  LICENSE  linux_sdk  README.md
+sajjad@teco:~/npusdk6/aml_npu_sdk$ cd acuity-toolkit/
+sajjad@teco:~/npusdk6/aml_npu_sdk/acuity-toolkit$ ls
+bin  demo  python  ReadMe.txt  requirements.txt
+sajjad@teco:~/npusdk6/aml_npu_sdk/acuity-toolkit$ cd demo/
+sajjad@teco:~/npusdk6/aml_npu_sdk/acuity-toolkit/demo$ ls
+0_import_model.sh  1_quantize_model.sh  2_export_case_code.sh  data  extractoutput.py  inference.sh  model
+sajjad@teco:~/npusdk6/aml_npu_sdk/acuity-toolkit/demo$ vim 2_export_case_code.sh ^C
+sajjad@teco:~/npusdk6/aml_npu_sdk/acuity-toolkit/demo$ bash 0_import_model.sh && bash 1_quantize_model.sh && bash 2_export_case_code.sh 
+2022-03-29 18:44:48.380326: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/npusdk6/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-03-29 18:44:48.380361: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Start importing tensorflow...
+W:tensorflow:From acuitylib/converter/tensorflowloader.py:66: extract_sub_graph (from tensorflow.python.framework.graph_util_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.compat.v1.graph_util.extract_sub_graph`
+I Current TF Model producer version 0 min consumer version 0 bad consumer version []
+I short-cut MobilenetV1/Conv2d_6_pointwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_6_pointwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_8_pointwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_8_pointwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_9_pointwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_9_pointwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_8_pointwise/weights:out0 - MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D:in1 skip MobilenetV1/Conv2d_8_pointwise/weights/read
+I short-cut MobilenetV1/Conv2d_0/weights:out0 - MobilenetV1/MobilenetV1/Conv2d_0/Conv2D:in1 skip MobilenetV1/Conv2d_0/weights/read
+I short-cut MobilenetV1/Conv2d_10_pointwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_10_pointwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Logits/Conv2d_1c_1x1/weights:out0 - MobilenetV1/Logits/Conv2d_1c_1x1/Conv2D:in1 skip MobilenetV1/Logits/Conv2d_1c_1x1/weights/read
+I short-cut MobilenetV1/Conv2d_6_pointwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_6_pointwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_1_pointwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_1_pointwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_8_pointwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_8_pointwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_3_depthwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_3_depthwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Logits/Conv2d_1c_1x1/biases:out0 - MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd:in1 skip MobilenetV1/Logits/Conv2d_1c_1x1/biases/read
+I short-cut MobilenetV1/Conv2d_13_pointwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_13_pointwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_1_depthwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_1_depthwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_1_pointwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_1_pointwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_4_pointwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_4_pointwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_12_pointwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_12_pointwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_13_depthwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_13_depthwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_8_depthwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_8_depthwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_8_depthwise/depthwise_weights:out0 - MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise:in1 skip MobilenetV1/Conv2d_8_depthwise/depthwise_weights/read
+I short-cut MobilenetV1/Conv2d_4_depthwise/depthwise_weights:out0 - MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise:in1 skip MobilenetV1/Conv2d_4_depthwise/depthwise_weights/read
+I short-cut MobilenetV1/Conv2d_12_pointwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_12_pointwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_2_pointwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_2_pointwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_12_depthwise/depthwise_weights:out0 - MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise:in1 skip MobilenetV1/Conv2d_12_depthwise/depthwise_weights/read
+I short-cut MobilenetV1/Conv2d_11_depthwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_11_depthwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_6_depthwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_6_depthwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_13_depthwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_13_depthwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_1_depthwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_1_depthwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_4_depthwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_4_depthwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_10_pointwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_10_pointwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_7_pointwise/weights:out0 - MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D:in1 skip MobilenetV1/Conv2d_7_pointwise/weights/read
+I short-cut MobilenetV1/Conv2d_7_depthwise/depthwise_weights:out0 - MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise:in1 skip MobilenetV1/Conv2d_7_depthwise/depthwise_weights/read
+I short-cut MobilenetV1/Conv2d_9_pointwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_9_pointwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_2_depthwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_2_depthwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_9_depthwise/depthwise_weights:out0 - MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise:in1 skip MobilenetV1/Conv2d_9_depthwise/depthwise_weights/read
+I short-cut MobilenetV1/Conv2d_1_pointwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_1_pointwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_13_depthwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_13_depthwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_7_depthwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_7_depthwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_1_pointwise/weights:out0 - MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D:in1 skip MobilenetV1/Conv2d_1_pointwise/weights/read
+I short-cut MobilenetV1/Conv2d_5_depthwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_5_depthwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_7_pointwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_7_pointwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_11_pointwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_11_pointwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_12_pointwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_12_pointwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_6_pointwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_6_pointwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_6_pointwise/weights:out0 - MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D:in1 skip MobilenetV1/Conv2d_6_pointwise/weights/read
+I short-cut MobilenetV1/Conv2d_6_pointwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_6_pointwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_8_depthwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_8_depthwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_11_depthwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_11_depthwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_13_pointwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_13_pointwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_6_depthwise/depthwise_weights:out0 - MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise:in1 skip MobilenetV1/Conv2d_6_depthwise/depthwise_weights/read
+I short-cut MobilenetV1/Conv2d_2_depthwise/depthwise_weights:out0 - MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise:in1 skip MobilenetV1/Conv2d_2_depthwise/depthwise_weights/read
+I short-cut MobilenetV1/Conv2d_13_depthwise/depthwise_weights:out0 - MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise:in1 skip MobilenetV1/Conv2d_13_depthwise/depthwise_weights/read
+I short-cut MobilenetV1/Conv2d_12_pointwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_12_pointwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_4_depthwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_4_depthwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_4_pointwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_4_pointwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_5_depthwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_5_depthwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_7_depthwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_7_depthwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_5_pointwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_5_pointwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_10_depthwise/depthwise_weights:out0 - MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise:in1 skip MobilenetV1/Conv2d_10_depthwise/depthwise_weights/read
+I short-cut MobilenetV1/Conv2d_3_pointwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_3_pointwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_9_depthwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_9_depthwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_10_depthwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_10_depthwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Logits/AvgPool_1a/AvgPool:out0 - MobilenetV1/Logits/Conv2d_1c_1x1/Conv2D:in0 skip MobilenetV1/Logits/Dropout_1b/Identity
+I short-cut MobilenetV1/Conv2d_11_depthwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_11_depthwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_11_pointwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_11_pointwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_9_pointwise/weights:out0 - MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D:in1 skip MobilenetV1/Conv2d_9_pointwise/weights/read
+I short-cut MobilenetV1/Conv2d_2_pointwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_2_pointwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_11_depthwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_11_depthwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_12_pointwise/weights:out0 - MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D:in1 skip MobilenetV1/Conv2d_12_pointwise/weights/read
+I short-cut MobilenetV1/Conv2d_9_pointwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_9_pointwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_11_pointwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_11_pointwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_3_depthwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_3_depthwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_13_depthwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_13_depthwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_0/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_0/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_5_depthwise/depthwise_weights:out0 - MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise:in1 skip MobilenetV1/Conv2d_5_depthwise/depthwise_weights/read
+I short-cut MobilenetV1/Conv2d_12_depthwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_12_depthwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_5_pointwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_5_pointwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_10_pointwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_10_pointwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_1_depthwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_1_depthwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_12_depthwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_12_depthwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_7_pointwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_7_pointwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_6_depthwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_6_depthwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_6_depthwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_6_depthwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_0/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_0/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_8_depthwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_8_depthwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_4_depthwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_4_depthwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_7_depthwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_7_depthwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_0/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_0/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_4_pointwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_4_pointwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_3_depthwise/depthwise_weights:out0 - MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise:in1 skip MobilenetV1/Conv2d_3_depthwise/depthwise_weights/read
+I short-cut MobilenetV1/Conv2d_9_depthwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_9_depthwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_10_depthwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_10_depthwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_5_pointwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_5_pointwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_3_pointwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_3_pointwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_7_pointwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_7_pointwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_13_pointwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_13_pointwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_10_depthwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_10_depthwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_11_depthwise/depthwise_weights:out0 - MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise:in1 skip MobilenetV1/Conv2d_11_depthwise/depthwise_weights/read
+I short-cut MobilenetV1/Conv2d_6_depthwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_6_depthwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_2_depthwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_2_depthwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_5_depthwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_5_depthwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_3_depthwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_3_depthwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_13_pointwise/weights:out0 - MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D:in1 skip MobilenetV1/Conv2d_13_pointwise/weights/read
+I short-cut MobilenetV1/Conv2d_5_pointwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_5_pointwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_3_pointwise/weights:out0 - MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D:in1 skip MobilenetV1/Conv2d_3_pointwise/weights/read
+I short-cut MobilenetV1/Conv2d_3_depthwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_3_depthwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_0/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_0/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_2_pointwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_2_pointwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_13_pointwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_13_pointwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_5_pointwise/weights:out0 - MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D:in1 skip MobilenetV1/Conv2d_5_pointwise/weights/read
+I short-cut MobilenetV1/Conv2d_2_depthwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_2_depthwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_8_depthwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_8_depthwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_7_depthwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_7_depthwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_3_pointwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_3_pointwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_10_pointwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_10_pointwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_4_pointwise/weights:out0 - MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D:in1 skip MobilenetV1/Conv2d_4_pointwise/weights/read
+I short-cut MobilenetV1/Conv2d_2_depthwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_2_depthwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_1_pointwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_1_pointwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_11_pointwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_11_pointwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_9_depthwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_9_depthwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_1_depthwise/depthwise_weights:out0 - MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise:in1 skip MobilenetV1/Conv2d_1_depthwise/depthwise_weights/read
+I short-cut MobilenetV1/Conv2d_10_pointwise/weights:out0 - MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D:in1 skip MobilenetV1/Conv2d_10_pointwise/weights/read
+I short-cut MobilenetV1/Conv2d_4_pointwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_4_pointwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_12_depthwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_12_depthwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_9_depthwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_9_depthwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_11_pointwise/weights:out0 - MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D:in1 skip MobilenetV1/Conv2d_11_pointwise/weights/read
+I short-cut MobilenetV1/Conv2d_8_pointwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_8_pointwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_1_depthwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_1_depthwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_12_depthwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_12_depthwise/BatchNorm/moving_variance/read
+I short-cut MobilenetV1/Conv2d_8_pointwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_8_pointwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_2_pointwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_2_pointwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_10_depthwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_10_depthwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_3_pointwise/BatchNorm/moving_mean:out0 - MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/FusedBatchNorm:in3 skip MobilenetV1/Conv2d_3_pointwise/BatchNorm/moving_mean/read
+I short-cut MobilenetV1/Conv2d_9_pointwise/BatchNorm/beta:out0 - MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/FusedBatchNorm:in2 skip MobilenetV1/Conv2d_9_pointwise/BatchNorm/beta/read
+I short-cut MobilenetV1/Conv2d_2_pointwise/weights:out0 - MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D:in1 skip MobilenetV1/Conv2d_2_pointwise/weights/read
+I short-cut MobilenetV1/Conv2d_7_pointwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_7_pointwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_5_depthwise/BatchNorm/gamma:out0 - MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/FusedBatchNorm:in1 skip MobilenetV1/Conv2d_5_depthwise/BatchNorm/gamma/read
+I short-cut MobilenetV1/Conv2d_4_depthwise/BatchNorm/moving_variance:out0 - MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/FusedBatchNorm:in4 skip MobilenetV1/Conv2d_4_depthwise/BatchNorm/moving_variance/read
+I Have 0 tensors convert to const tensor
+I build output layer attach_MobilenetV1/Predictions/Softmax:out0
+I build input layer input:out0
+D Try match Softmax MobilenetV1/Predictions/Softmax
+I Match softmax [['MobilenetV1/Predictions/Softmax']] [['Softmax']] to [['softmax']]
+D Try match Reshape MobilenetV1/Predictions/Reshape
+I Match reshape [['MobilenetV1/Predictions/Reshape', 'MobilenetV1/Predictions/Reshape/shape']] [['Reshape', 'C']] to [['reshape']]
+D Try match Squeeze MobilenetV1/Logits/SpatialSqueeze
+I Match squeeze [['MobilenetV1/Logits/SpatialSqueeze']] [['Squeeze']] to [['reshape']]
+2022-03-29 18:44:50.590500: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/npusdk6/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-03-29 18:44:50.590524: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-03-29 18:44:50.590544: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (teco): /proc/driver/nvidia/version does not exist
+2022-03-29 18:44:50.590703: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-03-29 18:44:50.618276: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792795000 Hz
+2022-03-29 18:44:50.619081: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x53f7270 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-03-29 18:44:50.619114: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+D Try match BiasAdd MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd
+I Match convolution_biasadd [['MobilenetV1/Logits/Conv2d_1c_1x1/biases', 'MobilenetV1/Logits/Conv2d_1c_1x1/Conv2D', 'MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd', 'MobilenetV1/Logits/Conv2d_1c_1x1/weights']] [['BiasAdd', 'Conv', 'C', 'C_1']] to [['convolution']]
+D Try match AvgPool MobilenetV1/Logits/AvgPool_1a/AvgPool
+I Match avgpool [['MobilenetV1/Logits/AvgPool_1a/AvgPool']] [['AvgPool']] to [['pooling']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_13_pointwise/BatchNorm/beta', 'MobilenetV1/Conv2d_13_pointwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_13_pointwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_13_pointwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match Conv2D MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D
+I Match single_convolution [['MobilenetV1/Conv2d_13_pointwise/weights', 'MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D']] [['Conv', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_13_depthwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_13_depthwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_13_depthwise/BatchNorm/beta', 'MobilenetV1/Conv2d_13_depthwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_13_depthwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_13_depthwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match DepthwiseConv2dNative MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise
+I Match dwconv [['MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise', 'MobilenetV1/Conv2d_13_depthwise/depthwise_weights']] [['DepthwiseConv2dNative', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_12_pointwise/BatchNorm/beta', 'MobilenetV1/Conv2d_12_pointwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_12_pointwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_12_pointwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match Conv2D MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D
+I Match single_convolution [['MobilenetV1/Conv2d_12_pointwise/weights', 'MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D']] [['Conv', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_12_depthwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_12_depthwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_12_depthwise/BatchNorm/beta', 'MobilenetV1/Conv2d_12_depthwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_12_depthwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_12_depthwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match DepthwiseConv2dNative MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise
+I Match dwconv [['MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise', 'MobilenetV1/Conv2d_12_depthwise/depthwise_weights']] [['DepthwiseConv2dNative', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_11_pointwise/BatchNorm/beta', 'MobilenetV1/Conv2d_11_pointwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_11_pointwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_11_pointwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match Conv2D MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D
+I Match single_convolution [['MobilenetV1/Conv2d_11_pointwise/weights', 'MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D']] [['Conv', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_11_depthwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_11_depthwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_11_depthwise/BatchNorm/beta', 'MobilenetV1/Conv2d_11_depthwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_11_depthwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_11_depthwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match DepthwiseConv2dNative MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise
+I Match dwconv [['MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise', 'MobilenetV1/Conv2d_11_depthwise/depthwise_weights']] [['DepthwiseConv2dNative', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_10_pointwise/BatchNorm/beta', 'MobilenetV1/Conv2d_10_pointwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_10_pointwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_10_pointwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match Conv2D MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D
+I Match single_convolution [['MobilenetV1/Conv2d_10_pointwise/weights', 'MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D']] [['Conv', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_10_depthwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_10_depthwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_10_depthwise/BatchNorm/beta', 'MobilenetV1/Conv2d_10_depthwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_10_depthwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_10_depthwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match DepthwiseConv2dNative MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise
+I Match dwconv [['MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise', 'MobilenetV1/Conv2d_10_depthwise/depthwise_weights']] [['DepthwiseConv2dNative', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_9_pointwise/BatchNorm/beta', 'MobilenetV1/Conv2d_9_pointwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_9_pointwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_9_pointwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match Conv2D MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D
+I Match single_convolution [['MobilenetV1/Conv2d_9_pointwise/weights', 'MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D']] [['Conv', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_9_depthwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_9_depthwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_9_depthwise/BatchNorm/beta', 'MobilenetV1/Conv2d_9_depthwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_9_depthwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_9_depthwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match DepthwiseConv2dNative MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise
+I Match dwconv [['MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise', 'MobilenetV1/Conv2d_9_depthwise/depthwise_weights']] [['DepthwiseConv2dNative', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_8_pointwise/BatchNorm/beta', 'MobilenetV1/Conv2d_8_pointwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_8_pointwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_8_pointwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match Conv2D MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D
+I Match single_convolution [['MobilenetV1/Conv2d_8_pointwise/weights', 'MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D']] [['Conv', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_8_depthwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_8_depthwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_8_depthwise/BatchNorm/beta', 'MobilenetV1/Conv2d_8_depthwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_8_depthwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_8_depthwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match DepthwiseConv2dNative MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise
+I Match dwconv [['MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise', 'MobilenetV1/Conv2d_8_depthwise/depthwise_weights']] [['DepthwiseConv2dNative', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_7_pointwise/BatchNorm/beta', 'MobilenetV1/Conv2d_7_pointwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_7_pointwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_7_pointwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match Conv2D MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D
+I Match single_convolution [['MobilenetV1/Conv2d_7_pointwise/weights', 'MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D']] [['Conv', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_7_depthwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_7_depthwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_7_depthwise/BatchNorm/beta', 'MobilenetV1/Conv2d_7_depthwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_7_depthwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_7_depthwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match DepthwiseConv2dNative MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise
+I Match dwconv [['MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise', 'MobilenetV1/Conv2d_7_depthwise/depthwise_weights']] [['DepthwiseConv2dNative', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_6_pointwise/BatchNorm/beta', 'MobilenetV1/Conv2d_6_pointwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_6_pointwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_6_pointwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match Conv2D MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D
+I Match single_convolution [['MobilenetV1/Conv2d_6_pointwise/weights', 'MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D']] [['Conv', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_6_depthwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_6_depthwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_6_depthwise/BatchNorm/beta', 'MobilenetV1/Conv2d_6_depthwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_6_depthwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_6_depthwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match DepthwiseConv2dNative MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise
+I Match dwconv [['MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise', 'MobilenetV1/Conv2d_6_depthwise/depthwise_weights']] [['DepthwiseConv2dNative', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_5_pointwise/BatchNorm/beta', 'MobilenetV1/Conv2d_5_pointwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_5_pointwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_5_pointwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match Conv2D MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D
+I Match single_convolution [['MobilenetV1/Conv2d_5_pointwise/weights', 'MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D']] [['Conv', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_5_depthwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_5_depthwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_5_depthwise/BatchNorm/beta', 'MobilenetV1/Conv2d_5_depthwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_5_depthwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_5_depthwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match DepthwiseConv2dNative MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise
+I Match dwconv [['MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise', 'MobilenetV1/Conv2d_5_depthwise/depthwise_weights']] [['DepthwiseConv2dNative', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_4_pointwise/BatchNorm/beta', 'MobilenetV1/Conv2d_4_pointwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_4_pointwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_4_pointwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match Conv2D MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D
+I Match single_convolution [['MobilenetV1/Conv2d_4_pointwise/weights', 'MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D']] [['Conv', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_4_depthwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_4_depthwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_4_depthwise/BatchNorm/beta', 'MobilenetV1/Conv2d_4_depthwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_4_depthwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_4_depthwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match DepthwiseConv2dNative MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise
+I Match dwconv [['MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise', 'MobilenetV1/Conv2d_4_depthwise/depthwise_weights']] [['DepthwiseConv2dNative', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_3_pointwise/BatchNorm/beta', 'MobilenetV1/Conv2d_3_pointwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_3_pointwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_3_pointwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match Conv2D MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D
+I Match single_convolution [['MobilenetV1/Conv2d_3_pointwise/weights', 'MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D']] [['Conv', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_3_depthwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_3_depthwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_3_depthwise/BatchNorm/beta', 'MobilenetV1/Conv2d_3_depthwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_3_depthwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_3_depthwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match DepthwiseConv2dNative MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise
+I Match dwconv [['MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise', 'MobilenetV1/Conv2d_3_depthwise/depthwise_weights']] [['DepthwiseConv2dNative', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_2_pointwise/BatchNorm/beta', 'MobilenetV1/Conv2d_2_pointwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_2_pointwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_2_pointwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match Conv2D MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D
+I Match single_convolution [['MobilenetV1/Conv2d_2_pointwise/weights', 'MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D']] [['Conv', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_2_depthwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_2_depthwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_2_depthwise/BatchNorm/beta', 'MobilenetV1/Conv2d_2_depthwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_2_depthwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_2_depthwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match DepthwiseConv2dNative MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise
+I Match dwconv [['MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise', 'MobilenetV1/Conv2d_2_depthwise/depthwise_weights']] [['DepthwiseConv2dNative', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_1_pointwise/BatchNorm/beta', 'MobilenetV1/Conv2d_1_pointwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_1_pointwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_1_pointwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match Conv2D MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D
+I Match single_convolution [['MobilenetV1/Conv2d_1_pointwise/weights', 'MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D']] [['Conv', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_1_depthwise/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_1_depthwise/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_1_depthwise/BatchNorm/beta', 'MobilenetV1/Conv2d_1_depthwise/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_1_depthwise/BatchNorm/gamma', 'MobilenetV1/Conv2d_1_depthwise/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match DepthwiseConv2dNative MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise
+I Match dwconv [['MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise', 'MobilenetV1/Conv2d_1_depthwise/depthwise_weights']] [['DepthwiseConv2dNative', 'C']] to [['convolution']]
+D Try match Relu6 MobilenetV1/MobilenetV1/Conv2d_0/Relu6
+I Match relu6 [['MobilenetV1/MobilenetV1/Conv2d_0/Relu6']] [['Relu6']] to [['relun']]
+D Try match FusedBatchNorm MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/FusedBatchNorm
+I Match fusebatchnorm [['MobilenetV1/Conv2d_0/BatchNorm/beta', 'MobilenetV1/Conv2d_0/BatchNorm/moving_mean', 'MobilenetV1/Conv2d_0/BatchNorm/gamma', 'MobilenetV1/Conv2d_0/BatchNorm/moving_variance', 'MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/FusedBatchNorm']] [['FusedBatchNorm', 'C', 'C_1', 'C_2', 'C_3']] to [['batchnormalize']]
+D Try match Conv2D MobilenetV1/MobilenetV1/Conv2d_0/Conv2D
+I Match single_convolution [['MobilenetV1/Conv2d_0/weights', 'MobilenetV1/MobilenetV1/Conv2d_0/Conv2D']] [['Conv', 'C']] to [['convolution']]
+D connect MobilenetV1/Predictions/Reshape_3 0  ~ MobilenetV1/Predictions/Softmax_2 0
+D connect MobilenetV1/Logits/SpatialSqueeze_4 0  ~ MobilenetV1/Predictions/Reshape_3 0
+D connect MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd_5 0  ~ MobilenetV1/Logits/SpatialSqueeze_4 0
+D connect MobilenetV1/Logits/AvgPool_1a/AvgPool_6 0  ~ MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd_5 0
+D connect MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Relu6_7 0  ~ MobilenetV1/Logits/AvgPool_1a/AvgPool_6 0
+D connect MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/FusedBatchNorm_8 0  ~ MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Relu6_7 0
+D connect MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D_9 0  ~ MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/FusedBatchNorm_8 0
+D connect MobilenetV1/MobilenetV1/Conv2d_13_depthwise/Relu6_10 0  ~ MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D_9 0
+D connect MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/FusedBatchNorm_11 0  ~ MobilenetV1/MobilenetV1/Conv2d_13_depthwise/Relu6_10 0
+D connect MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise_12 0  ~ MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/FusedBatchNorm_11 0
+D connect MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Relu6_13 0  ~ MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise_12 0
+D connect MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/FusedBatchNorm_14 0  ~ MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Relu6_13 0
+D connect MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D_15 0  ~ MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/FusedBatchNorm_14 0
+D connect MobilenetV1/MobilenetV1/Conv2d_12_depthwise/Relu6_16 0  ~ MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D_15 0
+D connect MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/FusedBatchNorm_17 0  ~ MobilenetV1/MobilenetV1/Conv2d_12_depthwise/Relu6_16 0
+D connect MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise_18 0  ~ MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/FusedBatchNorm_17 0
+D connect MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Relu6_19 0  ~ MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise_18 0
+D connect MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/FusedBatchNorm_20 0  ~ MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Relu6_19 0
+D connect MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D_21 0  ~ MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/FusedBatchNorm_20 0
+D connect MobilenetV1/MobilenetV1/Conv2d_11_depthwise/Relu6_22 0  ~ MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D_21 0
+D connect MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/FusedBatchNorm_23 0  ~ MobilenetV1/MobilenetV1/Conv2d_11_depthwise/Relu6_22 0
+D connect MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise_24 0  ~ MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/FusedBatchNorm_23 0
+D connect MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Relu6_25 0  ~ MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise_24 0
+D connect MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/FusedBatchNorm_26 0  ~ MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Relu6_25 0
+D connect MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D_27 0  ~ MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/FusedBatchNorm_26 0
+D connect MobilenetV1/MobilenetV1/Conv2d_10_depthwise/Relu6_28 0  ~ MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D_27 0
+D connect MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/FusedBatchNorm_29 0  ~ MobilenetV1/MobilenetV1/Conv2d_10_depthwise/Relu6_28 0
+D connect MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise_30 0  ~ MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/FusedBatchNorm_29 0
+D connect MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Relu6_31 0  ~ MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise_30 0
+D connect MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/FusedBatchNorm_32 0  ~ MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Relu6_31 0
+D connect MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D_33 0  ~ MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/FusedBatchNorm_32 0
+D connect MobilenetV1/MobilenetV1/Conv2d_9_depthwise/Relu6_34 0  ~ MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D_33 0
+D connect MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/FusedBatchNorm_35 0  ~ MobilenetV1/MobilenetV1/Conv2d_9_depthwise/Relu6_34 0
+D connect MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise_36 0  ~ MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/FusedBatchNorm_35 0
+D connect MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Relu6_37 0  ~ MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise_36 0
+D connect MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/FusedBatchNorm_38 0  ~ MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Relu6_37 0
+D connect MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D_39 0  ~ MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/FusedBatchNorm_38 0
+D connect MobilenetV1/MobilenetV1/Conv2d_8_depthwise/Relu6_40 0  ~ MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D_39 0
+D connect MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/FusedBatchNorm_41 0  ~ MobilenetV1/MobilenetV1/Conv2d_8_depthwise/Relu6_40 0
+D connect MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise_42 0  ~ MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/FusedBatchNorm_41 0
+D connect MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Relu6_43 0  ~ MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise_42 0
+D connect MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/FusedBatchNorm_44 0  ~ MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Relu6_43 0
+D connect MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D_45 0  ~ MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/FusedBatchNorm_44 0
+D connect MobilenetV1/MobilenetV1/Conv2d_7_depthwise/Relu6_46 0  ~ MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D_45 0
+D connect MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/FusedBatchNorm_47 0  ~ MobilenetV1/MobilenetV1/Conv2d_7_depthwise/Relu6_46 0
+D connect MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise_48 0  ~ MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/FusedBatchNorm_47 0
+D connect MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Relu6_49 0  ~ MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise_48 0
+D connect MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/FusedBatchNorm_50 0  ~ MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Relu6_49 0
+D connect MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D_51 0  ~ MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/FusedBatchNorm_50 0
+D connect MobilenetV1/MobilenetV1/Conv2d_6_depthwise/Relu6_52 0  ~ MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D_51 0
+D connect MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/FusedBatchNorm_53 0  ~ MobilenetV1/MobilenetV1/Conv2d_6_depthwise/Relu6_52 0
+D connect MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise_54 0  ~ MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/FusedBatchNorm_53 0
+D connect MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Relu6_55 0  ~ MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise_54 0
+D connect MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/FusedBatchNorm_56 0  ~ MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Relu6_55 0
+D connect MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D_57 0  ~ MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/FusedBatchNorm_56 0
+D connect MobilenetV1/MobilenetV1/Conv2d_5_depthwise/Relu6_58 0  ~ MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D_57 0
+D connect MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/FusedBatchNorm_59 0  ~ MobilenetV1/MobilenetV1/Conv2d_5_depthwise/Relu6_58 0
+D connect MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise_60 0  ~ MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/FusedBatchNorm_59 0
+D connect MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Relu6_61 0  ~ MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise_60 0
+D connect MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/FusedBatchNorm_62 0  ~ MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Relu6_61 0
+D connect MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D_63 0  ~ MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/FusedBatchNorm_62 0
+D connect MobilenetV1/MobilenetV1/Conv2d_4_depthwise/Relu6_64 0  ~ MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D_63 0
+D connect MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/FusedBatchNorm_65 0  ~ MobilenetV1/MobilenetV1/Conv2d_4_depthwise/Relu6_64 0
+D connect MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise_66 0  ~ MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/FusedBatchNorm_65 0
+D connect MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Relu6_67 0  ~ MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise_66 0
+D connect MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/FusedBatchNorm_68 0  ~ MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Relu6_67 0
+D connect MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D_69 0  ~ MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/FusedBatchNorm_68 0
+D connect MobilenetV1/MobilenetV1/Conv2d_3_depthwise/Relu6_70 0  ~ MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D_69 0
+D connect MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/FusedBatchNorm_71 0  ~ MobilenetV1/MobilenetV1/Conv2d_3_depthwise/Relu6_70 0
+D connect MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise_72 0  ~ MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/FusedBatchNorm_71 0
+D connect MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Relu6_73 0  ~ MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise_72 0
+D connect MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/FusedBatchNorm_74 0  ~ MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Relu6_73 0
+D connect MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D_75 0  ~ MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/FusedBatchNorm_74 0
+D connect MobilenetV1/MobilenetV1/Conv2d_2_depthwise/Relu6_76 0  ~ MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D_75 0
+D connect MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/FusedBatchNorm_77 0  ~ MobilenetV1/MobilenetV1/Conv2d_2_depthwise/Relu6_76 0
+D connect MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise_78 0  ~ MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/FusedBatchNorm_77 0
+D connect MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Relu6_79 0  ~ MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise_78 0
+D connect MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/FusedBatchNorm_80 0  ~ MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Relu6_79 0
+D connect MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D_81 0  ~ MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/FusedBatchNorm_80 0
+D connect MobilenetV1/MobilenetV1/Conv2d_1_depthwise/Relu6_82 0  ~ MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D_81 0
+D connect MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/FusedBatchNorm_83 0  ~ MobilenetV1/MobilenetV1/Conv2d_1_depthwise/Relu6_82 0
+D connect MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise_84 0  ~ MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/FusedBatchNorm_83 0
+D connect MobilenetV1/MobilenetV1/Conv2d_0/Relu6_85 0  ~ MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise_84 0
+D connect MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/FusedBatchNorm_86 0  ~ MobilenetV1/MobilenetV1/Conv2d_0/Relu6_85 0
+D connect MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87 0  ~ MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/FusedBatchNorm_86 0
+D connect attach_input/out0_1 0  ~ MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87 0
+D connect MobilenetV1/Predictions/Softmax_2 0  ~ attach_MobilenetV1/Predictions/Softmax/out0_0 0
+D Process attach_input/out0_1 ...
+D Acuity output shape(input): (0 224 224 3)
+D Tensor @attach_input/out0_1:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87 ...
+D Acuity output shape(convolution): (0 112 112 32)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/FusedBatchNorm_86 ...
+D Acuity output shape(batchnormalize): (0 112 112 32)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/FusedBatchNorm_86:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_0/Relu6_85 ...
+D Acuity output shape(relun): (0 112 112 32)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_0/Relu6_85:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise_84 ...
+D Acuity output shape(convolution): (0 112 112 32)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise_84:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/FusedBatchNorm_83 ...
+D Acuity output shape(batchnormalize): (0 112 112 32)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/FusedBatchNorm_83:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_1_depthwise/Relu6_82 ...
+D Acuity output shape(relun): (0 112 112 32)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_1_depthwise/Relu6_82:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D_81 ...
+D Acuity output shape(convolution): (0 112 112 64)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D_81:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/FusedBatchNorm_80 ...
+D Acuity output shape(batchnormalize): (0 112 112 64)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/FusedBatchNorm_80:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Relu6_79 ...
+D Acuity output shape(relun): (0 112 112 64)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Relu6_79:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise_78 ...
+D Acuity output shape(convolution): (0 56 56 64)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise_78:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/FusedBatchNorm_77 ...
+D Acuity output shape(batchnormalize): (0 56 56 64)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/FusedBatchNorm_77:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_2_depthwise/Relu6_76 ...
+D Acuity output shape(relun): (0 56 56 64)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_2_depthwise/Relu6_76:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D_75 ...
+D Acuity output shape(convolution): (0 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D_75:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/FusedBatchNorm_74 ...
+D Acuity output shape(batchnormalize): (0 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/FusedBatchNorm_74:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Relu6_73 ...
+D Acuity output shape(relun): (0 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Relu6_73:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise_72 ...
+D Acuity output shape(convolution): (0 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise_72:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/FusedBatchNorm_71 ...
+D Acuity output shape(batchnormalize): (0 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/FusedBatchNorm_71:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_3_depthwise/Relu6_70 ...
+D Acuity output shape(relun): (0 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_3_depthwise/Relu6_70:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D_69 ...
+D Acuity output shape(convolution): (0 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D_69:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/FusedBatchNorm_68 ...
+D Acuity output shape(batchnormalize): (0 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/FusedBatchNorm_68:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Relu6_67 ...
+D Acuity output shape(relun): (0 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Relu6_67:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise_66 ...
+D Acuity output shape(convolution): (0 28 28 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise_66:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/FusedBatchNorm_65 ...
+D Acuity output shape(batchnormalize): (0 28 28 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/FusedBatchNorm_65:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_4_depthwise/Relu6_64 ...
+D Acuity output shape(relun): (0 28 28 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_4_depthwise/Relu6_64:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D_63 ...
+D Acuity output shape(convolution): (0 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D_63:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/FusedBatchNorm_62 ...
+D Acuity output shape(batchnormalize): (0 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/FusedBatchNorm_62:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Relu6_61 ...
+D Acuity output shape(relun): (0 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Relu6_61:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise_60 ...
+D Acuity output shape(convolution): (0 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise_60:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/FusedBatchNorm_59 ...
+D Acuity output shape(batchnormalize): (0 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/FusedBatchNorm_59:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_5_depthwise/Relu6_58 ...
+D Acuity output shape(relun): (0 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_5_depthwise/Relu6_58:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D_57 ...
+D Acuity output shape(convolution): (0 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D_57:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/FusedBatchNorm_56 ...
+D Acuity output shape(batchnormalize): (0 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/FusedBatchNorm_56:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Relu6_55 ...
+D Acuity output shape(relun): (0 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Relu6_55:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise_54 ...
+D Acuity output shape(convolution): (0 14 14 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise_54:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/FusedBatchNorm_53 ...
+D Acuity output shape(batchnormalize): (0 14 14 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/FusedBatchNorm_53:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_6_depthwise/Relu6_52 ...
+D Acuity output shape(relun): (0 14 14 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_6_depthwise/Relu6_52:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D_51 ...
+D Acuity output shape(convolution): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D_51:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/FusedBatchNorm_50 ...
+D Acuity output shape(batchnormalize): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/FusedBatchNorm_50:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Relu6_49 ...
+D Acuity output shape(relun): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Relu6_49:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise_48 ...
+D Acuity output shape(convolution): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise_48:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/FusedBatchNorm_47 ...
+D Acuity output shape(batchnormalize): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/FusedBatchNorm_47:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_7_depthwise/Relu6_46 ...
+D Acuity output shape(relun): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_7_depthwise/Relu6_46:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D_45 ...
+D Acuity output shape(convolution): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D_45:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/FusedBatchNorm_44 ...
+D Acuity output shape(batchnormalize): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/FusedBatchNorm_44:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Relu6_43 ...
+D Acuity output shape(relun): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Relu6_43:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise_42 ...
+D Acuity output shape(convolution): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise_42:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/FusedBatchNorm_41 ...
+D Acuity output shape(batchnormalize): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/FusedBatchNorm_41:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_8_depthwise/Relu6_40 ...
+D Acuity output shape(relun): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_8_depthwise/Relu6_40:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D_39 ...
+D Acuity output shape(convolution): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D_39:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/FusedBatchNorm_38 ...
+D Acuity output shape(batchnormalize): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/FusedBatchNorm_38:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Relu6_37 ...
+D Acuity output shape(relun): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Relu6_37:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise_36 ...
+D Acuity output shape(convolution): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise_36:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/FusedBatchNorm_35 ...
+D Acuity output shape(batchnormalize): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/FusedBatchNorm_35:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_9_depthwise/Relu6_34 ...
+D Acuity output shape(relun): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_9_depthwise/Relu6_34:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D_33 ...
+D Acuity output shape(convolution): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D_33:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/FusedBatchNorm_32 ...
+D Acuity output shape(batchnormalize): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/FusedBatchNorm_32:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Relu6_31 ...
+D Acuity output shape(relun): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Relu6_31:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise_30 ...
+D Acuity output shape(convolution): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise_30:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/FusedBatchNorm_29 ...
+D Acuity output shape(batchnormalize): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/FusedBatchNorm_29:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_10_depthwise/Relu6_28 ...
+D Acuity output shape(relun): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_10_depthwise/Relu6_28:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D_27 ...
+D Acuity output shape(convolution): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D_27:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/FusedBatchNorm_26 ...
+D Acuity output shape(batchnormalize): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/FusedBatchNorm_26:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Relu6_25 ...
+D Acuity output shape(relun): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Relu6_25:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise_24 ...
+D Acuity output shape(convolution): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise_24:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/FusedBatchNorm_23 ...
+D Acuity output shape(batchnormalize): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/FusedBatchNorm_23:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_11_depthwise/Relu6_22 ...
+D Acuity output shape(relun): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_11_depthwise/Relu6_22:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D_21 ...
+D Acuity output shape(convolution): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D_21:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/FusedBatchNorm_20 ...
+D Acuity output shape(batchnormalize): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/FusedBatchNorm_20:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Relu6_19 ...
+D Acuity output shape(relun): (0 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Relu6_19:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise_18 ...
+D Acuity output shape(convolution): (0 7 7 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise_18:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/FusedBatchNorm_17 ...
+D Acuity output shape(batchnormalize): (0 7 7 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/FusedBatchNorm_17:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_12_depthwise/Relu6_16 ...
+D Acuity output shape(relun): (0 7 7 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_12_depthwise/Relu6_16:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D_15 ...
+D Acuity output shape(convolution): (0 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D_15:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/FusedBatchNorm_14 ...
+D Acuity output shape(batchnormalize): (0 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/FusedBatchNorm_14:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Relu6_13 ...
+D Acuity output shape(relun): (0 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Relu6_13:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise_12 ...
+D Acuity output shape(convolution): (0 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise_12:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/FusedBatchNorm_11 ...
+D Acuity output shape(batchnormalize): (0 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/FusedBatchNorm_11:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_13_depthwise/Relu6_10 ...
+D Acuity output shape(relun): (0 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_13_depthwise/Relu6_10:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D_9 ...
+D Acuity output shape(convolution): (0 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D_9:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/FusedBatchNorm_8 ...
+D Acuity output shape(batchnormalize): (0 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/FusedBatchNorm_8:out0 type: float32
+D Process MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Relu6_7 ...
+D Acuity output shape(relun): (0 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Relu6_7:out0 type: float32
+D Process MobilenetV1/Logits/AvgPool_1a/AvgPool_6 ...
+D Acuity output shape(pooling): (0 1 1 1024)
+D Tensor @MobilenetV1/Logits/AvgPool_1a/AvgPool_6:out0 type: float32
+D Process MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd_5 ...
+D Acuity output shape(convolution): (0 1 1 1001)
+D Tensor @MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd_5:out0 type: float32
+D Process MobilenetV1/Logits/SpatialSqueeze_4 ...
+D Acuity output shape(reshape): (1 1001)
+D Tensor @MobilenetV1/Logits/SpatialSqueeze_4:out0 type: float32
+D Process MobilenetV1/Predictions/Reshape_3 ...
+D Acuity output shape(reshape): (1 1001)
+D Tensor @MobilenetV1/Predictions/Reshape_3:out0 type: float32
+D Process MobilenetV1/Predictions/Softmax_2 ...
+D Acuity output shape(softmax): (1 1001)
+D Tensor @MobilenetV1/Predictions/Softmax_2:out0 type: float32
+D Process attach_MobilenetV1/Predictions/Softmax/out0_0 ...
+D Acuity output shape(output): (1 1001)
+D Tensor @attach_MobilenetV1/Predictions/Softmax/out0_0:out0 type: float32
+I Build mobilenet_v1 complete.
+D Optimizing network with force_1d_tensor, swapper, merge_duplicate_quantize_dequantize, merge_layer, auto_fill_bn, auto_fill_l2normalizescale, auto_fill_instancenormalize, resize_nearest_transformer, auto_fill_multiply, compute_gather_negative, auto_fill_zero_bias, proposal_opt_import, special_add_to_conv2d, extend_gather_to_gather_reshape
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D_9', 'MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/FusedBatchNorm_8'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise_12', 'MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/FusedBatchNorm_11'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D_15', 'MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/FusedBatchNorm_14'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise_18', 'MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/FusedBatchNorm_17'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D_21', 'MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/FusedBatchNorm_20'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise_24', 'MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/FusedBatchNorm_23'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D_27', 'MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/FusedBatchNorm_26'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise_30', 'MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/FusedBatchNorm_29'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D_33', 'MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/FusedBatchNorm_32'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise_36', 'MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/FusedBatchNorm_35'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D_39', 'MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/FusedBatchNorm_38'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise_42', 'MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/FusedBatchNorm_41'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D_45', 'MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/FusedBatchNorm_44'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise_48', 'MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/FusedBatchNorm_47'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D_51', 'MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/FusedBatchNorm_50'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise_54', 'MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/FusedBatchNorm_53'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D_57', 'MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/FusedBatchNorm_56'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise_60', 'MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/FusedBatchNorm_59'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D_63', 'MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/FusedBatchNorm_62'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise_66', 'MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/FusedBatchNorm_65'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D_69', 'MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/FusedBatchNorm_68'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise_72', 'MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/FusedBatchNorm_71'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D_75', 'MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/FusedBatchNorm_74'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise_78', 'MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/FusedBatchNorm_77'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D_81', 'MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/FusedBatchNorm_80'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise_84', 'MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/FusedBatchNorm_83'] (convolution)
+D Merge ['MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87', 'MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/FusedBatchNorm_86'] (convolution)
+D Optimizing network with conv2d_big_kernel_size_transform
+D Optimizing network with auto_fill_zero_bias, auto_fill_tf_quantize, align_quantize, broadcast_quantize, qnt_adjust_coef, qnt_adjust_param
+I End importing tensorflow...
+I Dump net to mobilenet_tf.json
+I Save net to mobilenet_tf.data
+I ----------------Error(0),Warning(0)----------------
+2022-03-29 18:44:51.880061: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/npusdk6/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-03-29 18:44:51.880083: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Namespace(action='quantization', batch_size=100, caffe_mean_file=None, capture_format='nchw', capture_quantized=False, channel_mean_value='128 128 128 128', config=None, data_output=None, debug=False, device=None, divergence_first_quantize_bits=11, dtype='float32', epochs=1, epochs_per_decay=100, force_gray=False, fpfs_delta0=1, fpfs_epochs=0, fpfs_reduce_target=0, input_fitting='scale', input_normalization=None, lr=0.1, mean_file=None, model_data='mobilenet_tf.data', model_data_format='zone', model_input='mobilenet_tf.json', model_quantize=None, optimizer='momentum', output_dir=None, output_num=5, pb_name=None, pfps_delta0=1, pfps_epochs=0, pfps_reduce_target=0, prune_epochs=10, prune_loss=1, quantized_algorithm='normal', quantized_divergence_nbins=0, quantized_dtype='asymmetric_affine-u8', quantized_hybrid=False, quantized_moving_alpha=0.0, quantized_rebuild=True, quantized_rebuild_all=False, random_brightness=None, random_contrast=None, random_crop=False, random_flip=False, random_mirror=False, reorder_channel='0 1 2', restart=False, samples=-1, source='text', source_file='data/validation_tf.txt', task='classification', validation_output='validation.csv', without_update_masked_grad=False)
+2022-03-29 18:44:53.242488: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-03-29 18:44:53.266300: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792795000 Hz
+2022-03-29 18:44:53.267615: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x6ae4db0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-03-29 18:44:53.267671: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-03-29 18:44:53.270946: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/npusdk6/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-03-29 18:44:53.270961: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-03-29 18:44:53.270977: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (teco): /proc/driver/nvidia/version does not exist
+I Load model in mobilenet_tf.json
+I Load data in mobilenet_tf.data
+W:tensorflow:From acuitylib/app/tensorzone/workspace.py:26: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, there are two
+    options available in V2.
+    - tf.py_function takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+    - tf.numpy_function maintains the semantics of the deprecated tf.py_func
+    (it is not differentiable, and manipulates numpy arrays). It drops the
+    stateful argument making all functions stateful.
+    
+I Fitting image with scale.
+I Reorder channels.
+I Channel mean value [128.0, 128.0, 128.0, 128.0]
+I [TRAINER]Quantization start...
+[TRAINER]Quantization start...
+I Init validate tensor provider.
+I Enqueue samples 1
+I Init provider with 1 samples.
+D set up a quantize net
+D Process attach_input/out0_1 ...
+D Acuity output shape(input): (1 224 224 3)
+D Tensor @attach_input/out0_1:out0 type: asymmetric_affine
+D Real output shape: (1, 224, 224, 3)
+D Process MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87 ...
+D Acuity output shape(convolution): (1 112 112 32)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87:out0 type: asymmetric_affine
+D Real output shape: (1, 112, 112, 32)
+D Process MobilenetV1/MobilenetV1/Conv2d_0/Relu6_85 ...
+D Acuity output shape(relun): (1 112 112 32)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_0/Relu6_85:out0 type: asymmetric_affine
+D Real output shape: (1, 112, 112, 32)
+D Process MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise_84 ...
+D Acuity output shape(convolution): (1 112 112 32)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise_84:out0 type: asymmetric_affine
+D Real output shape: (1, 112, 112, 32)
+D Process MobilenetV1/MobilenetV1/Conv2d_1_depthwise/Relu6_82 ...
+D Acuity output shape(relun): (1 112 112 32)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_1_depthwise/Relu6_82:out0 type: asymmetric_affine
+D Real output shape: (1, 112, 112, 32)
+D Process MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D_81 ...
+D Acuity output shape(convolution): (1 112 112 64)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D_81:out0 type: asymmetric_affine
+D Real output shape: (1, 112, 112, 64)
+D Process MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Relu6_79 ...
+D Acuity output shape(relun): (1 112 112 64)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Relu6_79:out0 type: asymmetric_affine
+D Real output shape: (1, 112, 112, 64)
+D Process MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise_78 ...
+D Acuity output shape(convolution): (1 56 56 64)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise_78:out0 type: asymmetric_affine
+D Real output shape: (1, 56, 56, 64)
+D Process MobilenetV1/MobilenetV1/Conv2d_2_depthwise/Relu6_76 ...
+D Acuity output shape(relun): (1 56 56 64)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_2_depthwise/Relu6_76:out0 type: asymmetric_affine
+D Real output shape: (1, 56, 56, 64)
+D Process MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D_75 ...
+D Acuity output shape(convolution): (1 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D_75:out0 type: asymmetric_affine
+D Real output shape: (1, 56, 56, 128)
+D Process MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Relu6_73 ...
+D Acuity output shape(relun): (1 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Relu6_73:out0 type: asymmetric_affine
+D Real output shape: (1, 56, 56, 128)
+D Process MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise_72 ...
+D Acuity output shape(convolution): (1 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise_72:out0 type: asymmetric_affine
+D Real output shape: (1, 56, 56, 128)
+D Process MobilenetV1/MobilenetV1/Conv2d_3_depthwise/Relu6_70 ...
+D Acuity output shape(relun): (1 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_3_depthwise/Relu6_70:out0 type: asymmetric_affine
+D Real output shape: (1, 56, 56, 128)
+D Process MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D_69 ...
+D Acuity output shape(convolution): (1 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D_69:out0 type: asymmetric_affine
+D Real output shape: (1, 56, 56, 128)
+D Process MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Relu6_67 ...
+D Acuity output shape(relun): (1 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Relu6_67:out0 type: asymmetric_affine
+D Real output shape: (1, 56, 56, 128)
+D Process MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise_66 ...
+D Acuity output shape(convolution): (1 28 28 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise_66:out0 type: asymmetric_affine
+D Real output shape: (1, 28, 28, 128)
+D Process MobilenetV1/MobilenetV1/Conv2d_4_depthwise/Relu6_64 ...
+D Acuity output shape(relun): (1 28 28 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_4_depthwise/Relu6_64:out0 type: asymmetric_affine
+D Real output shape: (1, 28, 28, 128)
+D Process MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D_63 ...
+D Acuity output shape(convolution): (1 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D_63:out0 type: asymmetric_affine
+D Real output shape: (1, 28, 28, 256)
+D Process MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Relu6_61 ...
+D Acuity output shape(relun): (1 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Relu6_61:out0 type: asymmetric_affine
+D Real output shape: (1, 28, 28, 256)
+D Process MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise_60 ...
+D Acuity output shape(convolution): (1 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise_60:out0 type: asymmetric_affine
+D Real output shape: (1, 28, 28, 256)
+D Process MobilenetV1/MobilenetV1/Conv2d_5_depthwise/Relu6_58 ...
+D Acuity output shape(relun): (1 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_5_depthwise/Relu6_58:out0 type: asymmetric_affine
+D Real output shape: (1, 28, 28, 256)
+D Process MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D_57 ...
+D Acuity output shape(convolution): (1 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D_57:out0 type: asymmetric_affine
+D Real output shape: (1, 28, 28, 256)
+D Process MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Relu6_55 ...
+D Acuity output shape(relun): (1 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Relu6_55:out0 type: asymmetric_affine
+D Real output shape: (1, 28, 28, 256)
+D Process MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise_54 ...
+D Acuity output shape(convolution): (1 14 14 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise_54:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 256)
+D Process MobilenetV1/MobilenetV1/Conv2d_6_depthwise/Relu6_52 ...
+D Acuity output shape(relun): (1 14 14 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_6_depthwise/Relu6_52:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 256)
+D Process MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D_51 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D_51:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Relu6_49 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Relu6_49:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise_48 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise_48:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_7_depthwise/Relu6_46 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_7_depthwise/Relu6_46:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D_45 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D_45:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Relu6_43 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Relu6_43:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise_42 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise_42:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_8_depthwise/Relu6_40 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_8_depthwise/Relu6_40:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D_39 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D_39:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Relu6_37 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Relu6_37:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise_36 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise_36:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_9_depthwise/Relu6_34 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_9_depthwise/Relu6_34:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D_33 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D_33:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Relu6_31 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Relu6_31:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise_30 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise_30:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_10_depthwise/Relu6_28 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_10_depthwise/Relu6_28:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D_27 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D_27:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Relu6_25 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Relu6_25:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise_24 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise_24:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_11_depthwise/Relu6_22 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_11_depthwise/Relu6_22:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D_21 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D_21:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Relu6_19 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Relu6_19:out0 type: asymmetric_affine
+D Real output shape: (1, 14, 14, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise_18 ...
+D Acuity output shape(convolution): (1 7 7 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise_18:out0 type: asymmetric_affine
+D Real output shape: (1, 7, 7, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_12_depthwise/Relu6_16 ...
+D Acuity output shape(relun): (1 7 7 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_12_depthwise/Relu6_16:out0 type: asymmetric_affine
+D Real output shape: (1, 7, 7, 512)
+D Process MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D_15 ...
+D Acuity output shape(convolution): (1 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D_15:out0 type: asymmetric_affine
+D Real output shape: (1, 7, 7, 1024)
+D Process MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Relu6_13 ...
+D Acuity output shape(relun): (1 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Relu6_13:out0 type: asymmetric_affine
+D Real output shape: (1, 7, 7, 1024)
+D Process MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise_12 ...
+D Acuity output shape(convolution): (1 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise_12:out0 type: asymmetric_affine
+D Real output shape: (1, 7, 7, 1024)
+D Process MobilenetV1/MobilenetV1/Conv2d_13_depthwise/Relu6_10 ...
+D Acuity output shape(relun): (1 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_13_depthwise/Relu6_10:out0 type: asymmetric_affine
+D Real output shape: (1, 7, 7, 1024)
+D Process MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D_9 ...
+D Acuity output shape(convolution): (1 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D_9:out0 type: asymmetric_affine
+D Real output shape: (1, 7, 7, 1024)
+D Process MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Relu6_7 ...
+D Acuity output shape(relun): (1 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Relu6_7:out0 type: asymmetric_affine
+D Real output shape: (1, 7, 7, 1024)
+D Process MobilenetV1/Logits/AvgPool_1a/AvgPool_6 ...
+D Acuity output shape(pooling): (1 1 1 1024)
+D Tensor @MobilenetV1/Logits/AvgPool_1a/AvgPool_6:out0 type: asymmetric_affine
+D Real output shape: (1, 1, 1, 1024)
+D Process MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd_5 ...
+D Acuity output shape(convolution): (1 1 1 1001)
+D Tensor @MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd_5:out0 type: asymmetric_affine
+D Real output shape: (1, 1, 1, 1001)
+D Process MobilenetV1/Logits/SpatialSqueeze_4 ...
+D Acuity output shape(reshape): (1 1001)
+D Tensor @MobilenetV1/Logits/SpatialSqueeze_4:out0 type: float32
+D Real output shape: (1, 1001)
+D Process MobilenetV1/Predictions/Reshape_3 ...
+D Acuity output shape(reshape): (1 1001)
+D Tensor @MobilenetV1/Predictions/Reshape_3:out0 type: float32
+D Real output shape: (1, 1001)
+D Process MobilenetV1/Predictions/Softmax_2 ...
+D Acuity output shape(softmax): (1 1001)
+D Tensor @MobilenetV1/Predictions/Softmax_2:out0 type: float32
+D Real output shape: (1, 1001)
+D Process attach_MobilenetV1/Predictions/Softmax/out0_0 ...
+D Acuity output shape(output): (1 1001)
+D Tensor @attach_MobilenetV1/Predictions/Softmax/out0_0:out0 type: float32
+D Real output shape: (1, 1001)
+I Build mobilenet_v1 complete.
+I Generated network graph with 1 outputs.
+I  @attach_MobilenetV1/Predictions/Softmax/out0_0:out0: (1, 1001)
+D Init coefficients ...
+I Start tensor porvider ... 
+I Runing 1 epochs, algorithm: normal
+I iterations: 0
+D Quantize tensor @attach_input/out0_1:out0.
+D Quantize tensor @MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd_5:out0.
+D Quantize tensor @MobilenetV1/Logits/AvgPool_1a/AvgPool_6:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Relu6_7:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D_9:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_13_depthwise/Relu6_10:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise_12:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Relu6_13:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D_15:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_12_depthwise/Relu6_16:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise_18:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Relu6_19:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D_21:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_11_depthwise/Relu6_22:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise_24:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Relu6_25:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D_27:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_10_depthwise/Relu6_28:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise_30:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Relu6_31:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D_33:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_9_depthwise/Relu6_34:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise_36:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Relu6_37:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D_39:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_8_depthwise/Relu6_40:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise_42:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Relu6_43:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D_45:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_7_depthwise/Relu6_46:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise_48:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Relu6_49:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D_51:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_6_depthwise/Relu6_52:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise_54:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Relu6_55:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D_57:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_5_depthwise/Relu6_58:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise_60:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Relu6_61:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D_63:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_4_depthwise/Relu6_64:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise_66:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Relu6_67:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D_69:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_3_depthwise/Relu6_70:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise_72:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Relu6_73:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D_75:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_2_depthwise/Relu6_76:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise_78:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Relu6_79:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D_81:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_1_depthwise/Relu6_82:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise_84:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_0/Relu6_85:out0.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87:out0.
+D Quantize tensor @MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd_5:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D_9:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise_12:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D_15:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise_18:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D_21:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise_24:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D_27:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise_30:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D_33:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise_36:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D_39:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise_42:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D_45:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise_48:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D_51:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise_54:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D_57:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise_60:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D_63:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise_66:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D_69:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise_72:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D_75:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise_78:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D_81:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise_84:weight.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87:weight.
+D Quantize tensor @MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd_5:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D_9:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise_12:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D_15:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise_18:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D_21:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise_24:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D_27:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise_30:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D_33:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise_36:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D_39:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise_42:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D_45:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise_48:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D_51:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise_54:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D_57:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise_60:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D_63:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise_66:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D_69:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise_72:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D_75:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise_78:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D_81:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise_84:bias.
+D Quantize tensor @MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87:bias.
+I Clean.
+D Optimizing network with align_quantize, broadcast_quantize, qnt_adjust_coef, qnt_adjust_param
+D Quantize tensor(@MobilenetV1/Logits/SpatialSqueeze_4:out0) with tensor(@MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd_5:out0)
+D Quantize tensor(@MobilenetV1/Predictions/Reshape_3:out0) with tensor(@MobilenetV1/Logits/SpatialSqueeze_4:out0)
+I Dump net quantize tensor table to mobilenet_tf.quantize
+I [TRAINER]Quantization complete.
+[TRAINER]Quantization complete.
+I Save net to mobilenet_tf.data
+I Clean.
+I ----------------Error(0),Warning(0)----------------
+2022-03-29 18:45:03.089379: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/npusdk6/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-03-29 18:45:03.089408: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Load model in mobilenet_tf.json
+I Load data in mobilenet_tf.data
+I Load quantization tensor table mobilenet_tf.quantize
+2022-03-29 18:45:05.132408: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-03-29 18:45:05.154321: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792795000 Hz
+2022-03-29 18:45:05.154914: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5643960 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-03-29 18:45:05.154956: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-03-29 18:45:05.157179: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/npusdk6/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-03-29 18:45:05.157197: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-03-29 18:45:05.157221: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (teco): /proc/driver/nvidia/version does not exist
+D Process attach_input/out0_1 ...
+D Acuity output shape(input): (1 224 224 3)
+D Tensor @attach_input/out0_1:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87 ...
+D Acuity output shape(convolution): (1 112 112 32)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_0/Relu6_85 ...
+D Acuity output shape(relun): (1 112 112 32)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_0/Relu6_85:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise_84 ...
+D Acuity output shape(convolution): (1 112 112 32)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise_84:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_1_depthwise/Relu6_82 ...
+D Acuity output shape(relun): (1 112 112 32)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_1_depthwise/Relu6_82:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D_81 ...
+D Acuity output shape(convolution): (1 112 112 64)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D_81:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Relu6_79 ...
+D Acuity output shape(relun): (1 112 112 64)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Relu6_79:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise_78 ...
+D Acuity output shape(convolution): (1 56 56 64)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise_78:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_2_depthwise/Relu6_76 ...
+D Acuity output shape(relun): (1 56 56 64)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_2_depthwise/Relu6_76:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D_75 ...
+D Acuity output shape(convolution): (1 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D_75:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Relu6_73 ...
+D Acuity output shape(relun): (1 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Relu6_73:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise_72 ...
+D Acuity output shape(convolution): (1 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise_72:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_3_depthwise/Relu6_70 ...
+D Acuity output shape(relun): (1 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_3_depthwise/Relu6_70:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D_69 ...
+D Acuity output shape(convolution): (1 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D_69:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Relu6_67 ...
+D Acuity output shape(relun): (1 56 56 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Relu6_67:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise_66 ...
+D Acuity output shape(convolution): (1 28 28 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise_66:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_4_depthwise/Relu6_64 ...
+D Acuity output shape(relun): (1 28 28 128)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_4_depthwise/Relu6_64:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D_63 ...
+D Acuity output shape(convolution): (1 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D_63:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Relu6_61 ...
+D Acuity output shape(relun): (1 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Relu6_61:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise_60 ...
+D Acuity output shape(convolution): (1 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise_60:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_5_depthwise/Relu6_58 ...
+D Acuity output shape(relun): (1 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_5_depthwise/Relu6_58:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D_57 ...
+D Acuity output shape(convolution): (1 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D_57:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Relu6_55 ...
+D Acuity output shape(relun): (1 28 28 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Relu6_55:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise_54 ...
+D Acuity output shape(convolution): (1 14 14 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise_54:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_6_depthwise/Relu6_52 ...
+D Acuity output shape(relun): (1 14 14 256)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_6_depthwise/Relu6_52:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D_51 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D_51:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Relu6_49 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Relu6_49:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise_48 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise_48:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_7_depthwise/Relu6_46 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_7_depthwise/Relu6_46:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D_45 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D_45:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Relu6_43 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Relu6_43:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise_42 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise_42:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_8_depthwise/Relu6_40 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_8_depthwise/Relu6_40:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D_39 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D_39:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Relu6_37 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Relu6_37:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise_36 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise_36:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_9_depthwise/Relu6_34 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_9_depthwise/Relu6_34:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D_33 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D_33:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Relu6_31 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Relu6_31:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise_30 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise_30:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_10_depthwise/Relu6_28 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_10_depthwise/Relu6_28:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D_27 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D_27:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Relu6_25 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Relu6_25:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise_24 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise_24:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_11_depthwise/Relu6_22 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_11_depthwise/Relu6_22:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D_21 ...
+D Acuity output shape(convolution): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D_21:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Relu6_19 ...
+D Acuity output shape(relun): (1 14 14 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Relu6_19:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise_18 ...
+D Acuity output shape(convolution): (1 7 7 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise_18:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_12_depthwise/Relu6_16 ...
+D Acuity output shape(relun): (1 7 7 512)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_12_depthwise/Relu6_16:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D_15 ...
+D Acuity output shape(convolution): (1 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D_15:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Relu6_13 ...
+D Acuity output shape(relun): (1 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Relu6_13:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise_12 ...
+D Acuity output shape(convolution): (1 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise_12:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_13_depthwise/Relu6_10 ...
+D Acuity output shape(relun): (1 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_13_depthwise/Relu6_10:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D_9 ...
+D Acuity output shape(convolution): (1 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D_9:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Relu6_7 ...
+D Acuity output shape(relun): (1 7 7 1024)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Relu6_7:out0 type: asymmetric_affine
+D Process MobilenetV1/Logits/AvgPool_1a/AvgPool_6 ...
+D Acuity output shape(pooling): (1 1 1 1024)
+D Tensor @MobilenetV1/Logits/AvgPool_1a/AvgPool_6:out0 type: asymmetric_affine
+D Process MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd_5 ...
+D Acuity output shape(convolution): (1 1 1 1001)
+D Tensor @MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd_5:out0 type: asymmetric_affine
+D Process MobilenetV1/Logits/SpatialSqueeze_4 ...
+D Acuity output shape(reshape): (1 1001)
+D Tensor @MobilenetV1/Logits/SpatialSqueeze_4:out0 type: asymmetric_affine
+D Process MobilenetV1/Predictions/Reshape_3 ...
+D Acuity output shape(reshape): (1 1001)
+D Tensor @MobilenetV1/Predictions/Reshape_3:out0 type: asymmetric_affine
+D Process MobilenetV1/Predictions/Softmax_2 ...
+D Acuity output shape(softmax): (1 1001)
+D Tensor @MobilenetV1/Predictions/Softmax_2:out0 type: float32
+D Process attach_MobilenetV1/Predictions/Softmax/out0_0 ...
+D Acuity output shape(output): (1 1001)
+D Tensor @attach_MobilenetV1/Predictions/Softmax/out0_0:out0 type: float32
+I Build mobilenet_v1 complete.
+I Initialzing network optimizer by Default ...
+D Optimizing network with merge_ximum, qnt_adjust_coef, multiply_transform, add_extra_io, format_input_ops, auto_fill_zero_bias, conv_kernel_transform, strip_op, extend_unstack_split, merge_layer, transform_layer, broadcast_op, strip_op, auto_fill_reshape_zero, adjust_output_attrs, insert_dtype_converter
+D Strip layer MobilenetV1/Predictions/Reshape_3(reshape)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Relu6_7(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_13_depthwise/Relu6_10(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Relu6_13(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_12_depthwise/Relu6_16(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Relu6_19(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_11_depthwise/Relu6_22(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Relu6_25(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_10_depthwise/Relu6_28(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Relu6_31(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_9_depthwise/Relu6_34(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Relu6_37(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_8_depthwise/Relu6_40(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Relu6_43(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_7_depthwise/Relu6_46(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Relu6_49(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_6_depthwise/Relu6_52(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Relu6_55(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_5_depthwise/Relu6_58(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Relu6_61(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_4_depthwise/Relu6_64(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Relu6_67(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_3_depthwise/Relu6_70(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Relu6_73(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_2_depthwise/Relu6_76(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Relu6_79(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_1_depthwise/Relu6_82(relun)
+D Strip layer MobilenetV1/MobilenetV1/Conv2d_0/Relu6_85(relun)
+I Start T2C Switcher...
+D Optimizing network with broadcast_op, t2c_fc
+D insert permute MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87_acuity_mark_perm_8 before MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87
+D insert permute MobilenetV1/Logits/SpatialSqueeze_4_acuity_mark_perm_11 before MobilenetV1/Logits/SpatialSqueeze_4
+I End T2C Switcher...
+D Process attach_input/out0_1 ...
+D Acuity output shape(input): (1 224 224 3)
+D Tensor @attach_input/out0_1:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87_acuity_mark_perm_8 ...
+D Acuity output shape(permute): (1 3 224 224)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87_acuity_mark_perm_8:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87 ...
+D Acuity output shape(convolution): (1 32 112 112)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise_84 ...
+D Acuity output shape(convolution): (1 32 112 112)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise_84:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D_81 ...
+D Acuity output shape(convolution): (1 64 112 112)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D_81:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise_78 ...
+D Acuity output shape(convolution): (1 64 56 56)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise_78:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D_75 ...
+D Acuity output shape(convolution): (1 128 56 56)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D_75:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise_72 ...
+D Acuity output shape(convolution): (1 128 56 56)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise_72:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D_69 ...
+D Acuity output shape(convolution): (1 128 56 56)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D_69:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise_66 ...
+D Acuity output shape(convolution): (1 128 28 28)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise_66:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D_63 ...
+D Acuity output shape(convolution): (1 256 28 28)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D_63:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise_60 ...
+D Acuity output shape(convolution): (1 256 28 28)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise_60:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D_57 ...
+D Acuity output shape(convolution): (1 256 28 28)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D_57:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise_54 ...
+D Acuity output shape(convolution): (1 256 14 14)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise_54:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D_51 ...
+D Acuity output shape(convolution): (1 512 14 14)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D_51:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise_48 ...
+D Acuity output shape(convolution): (1 512 14 14)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise_48:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D_45 ...
+D Acuity output shape(convolution): (1 512 14 14)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D_45:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise_42 ...
+D Acuity output shape(convolution): (1 512 14 14)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise_42:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D_39 ...
+D Acuity output shape(convolution): (1 512 14 14)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D_39:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise_36 ...
+D Acuity output shape(convolution): (1 512 14 14)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise_36:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D_33 ...
+D Acuity output shape(convolution): (1 512 14 14)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D_33:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise_30 ...
+D Acuity output shape(convolution): (1 512 14 14)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise_30:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D_27 ...
+D Acuity output shape(convolution): (1 512 14 14)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D_27:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise_24 ...
+D Acuity output shape(convolution): (1 512 14 14)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise_24:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D_21 ...
+D Acuity output shape(convolution): (1 512 14 14)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D_21:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise_18 ...
+D Acuity output shape(convolution): (1 512 7 7)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise_18:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D_15 ...
+D Acuity output shape(convolution): (1 1024 7 7)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D_15:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise_12 ...
+D Acuity output shape(convolution): (1 1024 7 7)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise_12:out0 type: asymmetric_affine
+D Process MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D_9 ...
+D Acuity output shape(convolution): (1 1024 7 7)
+D Tensor @MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D_9:out0 type: asymmetric_affine
+D Process MobilenetV1/Logits/AvgPool_1a/AvgPool_6 ...
+D Acuity output shape(pooling): (1 1024 1 1)
+D Tensor @MobilenetV1/Logits/AvgPool_1a/AvgPool_6:out0 type: asymmetric_affine
+D Process MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd_5 ...
+D Acuity output shape(convolution): (1 1001 1 1)
+D Tensor @MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd_5:out0 type: asymmetric_affine
+D Process MobilenetV1/Logits/SpatialSqueeze_4_acuity_mark_perm_11 ...
+D Acuity output shape(permute): (1 1 1 1001)
+D Tensor @MobilenetV1/Logits/SpatialSqueeze_4_acuity_mark_perm_11:out0 type: asymmetric_affine
+D Process MobilenetV1/Logits/SpatialSqueeze_4 ...
+D Acuity output shape(reshape): (1 1001)
+D Tensor @MobilenetV1/Logits/SpatialSqueeze_4:out0 type: asymmetric_affine
+D Process MobilenetV1/Predictions/Softmax_2 ...
+D Acuity output shape(softmax): (1 1001)
+D Tensor @MobilenetV1/Predictions/Softmax_2:out0 type: float32
+D Process attach_MobilenetV1/Predictions/Softmax/out0_0 ...
+D Acuity output shape(output): (1 1001)
+D Tensor @attach_MobilenetV1/Predictions/Softmax/out0_0:out0 type: float32
+I Build mobilenet_v1 complete.
+D Optimizing network with conv_1xn_transform, proposal_opt, c2drv_convert_axis, c2drv_convert_shape, c2drv_convert_array, c2drv_cast_dtype, c2drv_trans_data
+I Building data ...
+I Packing data ...
+D Packing MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd_5 ...
+D Quantize @MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd_5:bias to asymmetric_affine.
+D Quantize @MobilenetV1/Logits/Conv2d_1c_1x1/BiasAdd_5:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_0/Conv2D_87:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise_30 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise_30:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise_30:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D_27 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D_27:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D_27:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise_24 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise_24:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise_24:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D_21 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D_21:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D_21:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise_18 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise_18:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise_18:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D_15 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D_15:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D_15:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise_12 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise_12:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise_12:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D_9 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D_9:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D_9:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise_84 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise_84:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise_84:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D_81 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D_81:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D_81:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise_78 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise_78:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise_78:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D_75 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D_75:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D_75:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise_72 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise_72:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise_72:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D_69 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D_69:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D_69:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise_66 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise_66:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise_66:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D_63 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D_63:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D_63:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise_60 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise_60:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise_60:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D_57 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D_57:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D_57:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise_54 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise_54:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise_54:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D_51 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D_51:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D_51:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise_48 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise_48:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise_48:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D_45 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D_45:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D_45:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise_42 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise_42:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise_42:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D_39 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D_39:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D_39:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise_36 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise_36:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise_36:weight to asymmetric_affine.
+D Packing MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D_33 ...
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D_33:bias to asymmetric_affine.
+D Quantize @MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D_33:weight to asymmetric_affine.
+I Saving data to mobilenet_tf.export.data
+I Save vx network source file to /home/sajjad/npusdk6/aml_npu_sdk/acuity-toolkit/demo/vnn_mobilenettf.c
+I Save vx network source file to /home/sajjad/npusdk6/aml_npu_sdk/acuity-toolkit/demo/vnn_mobilenettf.h
+I Save vx network source file to /home/sajjad/npusdk6/aml_npu_sdk/acuity-toolkit/demo/vnn_post_process.c
+I Save vx network source file to /home/sajjad/npusdk6/aml_npu_sdk/acuity-toolkit/demo/vnn_post_process.h
+I Save vx network source file to /home/sajjad/npusdk6/aml_npu_sdk/acuity-toolkit/demo/vnn_pre_process.c
+I Save vx network source file to /home/sajjad/npusdk6/aml_npu_sdk/acuity-toolkit/demo/vnn_pre_process.h
+I Save vx network source file to /home/sajjad/npusdk6/aml_npu_sdk/acuity-toolkit/demo/vnn_global.h
+I Save vx network source file to /home/sajjad/npusdk6/aml_npu_sdk/acuity-toolkit/demo/main.c
+I Save vx network source file to /home/sajjad/npusdk6/aml_npu_sdk/acuity-toolkit/demo/Android.mk
+I Save vx network source file to /home/sajjad/npusdk6/aml_npu_sdk/acuity-toolkit/demo/BUILD
+I Save vx network source file to /home/sajjad/npusdk6/aml_npu_sdk/acuity-toolkit/demo/mobilenettf.vcxproj
+I Save vx network source file to /home/sajjad/npusdk6/aml_npu_sdk/acuity-toolkit/demo/makefile.linux
+I Save vx network source file to /home/sajjad/npusdk6/aml_npu_sdk/acuity-toolkit/demo/.cproject
+I Save vx network source file to /home/sajjad/npusdk6/aml_npu_sdk/acuity-toolkit/demo/.project
+I ----------------Error(0),Warning(0)----------------
+sajjad@teco:~/npusdk6/aml_npu_sdk/acuity-toolkit/demo$ ls
+0_import_model.sh      BUILD             main.c                    mobilenet_tf.json      vnn_global.h        vnn_post_process.h
+1_quantize_model.sh    data              makefile.linux            mobilenet_tf.quantize  vnn_mobilenettf.c   vnn_pre_process.c
+2_export_case_code.sh  extractoutput.py  mobilenet_tf.data         mobilenettf.vcxproj    vnn_mobilenettf.h   vnn_pre_process.h
+Android.mk             inference.sh      mobilenet_tf.export.data  model                  vnn_post_process.c
+sajjad@teco:~/npusdk6/aml_npu_sdk/acuity-toolkit/demo$ ls ../
+bin  demo  python  ReadMe.txt  requirements.txt
+sajjad@teco:~/npusdk6/aml_npu_sdk/acuity-toolkit/demo$ ls
+0_import_model.sh      main.c                    vnn_global.h
+1_quantize_model.sh    makefile.linux            vnn_mobilenettf.c
+2_export_case_code.sh  mobilenet_tf.data         vnn_mobilenettf.h
+Android.mk             mobilenet_tf.export.data  vnn_post_process.c
+BUILD                  mobilenet_tf.json         vnn_post_process.h
+data                   mobilenet_tf.quantize     vnn_pre_process.c
+extractoutput.py       mobilenettf.vcxproj       vnn_pre_process.h
+inference.sh           model
+sajjad@teco:~/npusdk6/aml_npu_sdk/acuity-toolkit/demo$ mkdir op_test6
+sajjad@teco:~/npusdk6/aml_npu_sdk/acuity-toolkit/demo$ cp *.c *.h *export.data op_test6
+sajjad@teco:~/npusdk6/aml_npu_sdk/acuity-toolkit/demo$ ls op_test6/
+main.c                    vnn_mobilenettf.c   vnn_post_process.h
+mobilenet_tf.export.data  vnn_mobilenettf.h   vnn_pre_process.c
+vnn_global.h              vnn_post_process.c  vnn_pre_process.h
+sajjad@teco:~/npusdk6/aml_npu_sdk/acuity-toolkit/demo$ 
+

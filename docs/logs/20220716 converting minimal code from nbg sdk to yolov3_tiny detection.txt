@@ -1,0 +1,227 @@
+===============================================================================
+converting minimal code from nbg sdk converting code to yolov3_tiny detection
+===============================================================================
+khadas@Khadas:~/hussain$ mkdir minimal_first_working_tiny
+khadas@Khadas:~/hussain$ cd minimal_first_working
+khadas@Khadas:~/hussain/minimal_first_working$ mkdir yolotiny_nbg_unify
+khadas@Khadas:~/hussain/minimal_first_working$ cd yolotiny_nbg_unify/
+khadas@Khadas:~/hussain/minimal_first_working/yolotiny_nbg_unify$ cd ..
+khadas@Khadas:~/hussain/minimal_first_working$ rm -rf yolotiny_nbg_unify/
+khadas@Khadas:~/hussain/minimal_first_working$ cd ../minimal_first_working_tiny/
+khadas@Khadas:~/hussain/minimal_first_working_tiny$ mkdir yolotiny_nbg_unify
+khadas@Khadas:~/hussain/minimal_first_working_tiny$ cd yolotiny_nbg_unify/
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ copied the c,h files^C
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ cp ../../minimal_first_working/yolov3_nbg_unify_416_hussainBR1/debug.h ../../minimal_first_working/yolov3_nbg_unify_416_hussainBR1/nn_detect_common.h . ../../minimal_first_working/yolov3_nbg_unify_416_hussainBR1/nn_detect_utils.h .
+cp: -r not specified; omitting directory '.'
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ cp -r ../../minimal_first_working/yolov3_nbg_unify_416_hussainBR1/debug.h ../../minimal_first_working/yolov3_nbg_unify_416_hussainBR1/nn_detect_common.h ../../minimal_first_working/yolov3_nbg_unify_416_hussainBR1/nn_detect_utils.h .
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ cp -r ../../sample_demo_x11_tinyA/vnn_yolotiny.c ../../sample_demo_x11_tinyA/include/vnn_yolotiny.h ../../sample_demo_x11_tinyA/yolo_tiny_process.c ../../sample_demo_x11_tinyA/include/yolo_tiny_process.h .
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ vim main.c
+
+Add:
+#include "yolov3_process.h"//Sajjad
+
+in the main()
+Add:
+    DetectResult resultData;//Sajjad
+	
+	
+    /* Post process output data */
+    status = vnn_PostProcessNeuralNetwork( graph );
+    //Sajjad
+    MY_DBG("Yolo-v3 Like Post Processing...\n");
+    yolov3_postprocess(graph, &resultData);
+    MY_DBG("Post Processing Done.\n");
+    TEST_CHECK_STATUS( status, final );
+    MY_DBG("Status Checked!.\n");
+
+final:
+    vnn_ReleaseNeuralNetwork( graph );
+    printf("\ndone!\n\n");
+    fflush(stdout);
+    fflush(stderr);
+    return status;
+
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ vim vnn_global.h
+Add:
+#include "debug.h"//Sajjad
+
+
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ vim vnn_pre_process.h
+Add:
+//Sajjad
+#include "nn_detect_common.h"
+#include "yolov3_process.h"
+#include<time.h>
+ //Sajjad
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image/stb_image.h"
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include "stb_image/stb_image_write.h"
+
+Add into _handle_multiple_inputs():
+    input_image_t image;//sajjad
+    uint8_t *pdata;//sajjad
+    int nn_height, nn_width, nn_channel;//, img_width, img_height;
+	
+    case NN_FILE_JPG:
+        //data = _get_jpeg_data(tensor, &meta, input_file);
+        data = _decode_jpeg(input_file, tensor);
+
+       //Sajjad
+       if (graph) {
+                vsi_nn_tensor_t *tensor = NULL;
+                tensor = vsi_nn_GetTensor(graph, graph->input.tensors[0] );
+
+                nn_width = tensor->attr.size[0];
+                nn_height = tensor->attr.size[1];
+                nn_channel = tensor->attr.size[2];
+        }
+        printf("model.width:%d model.height:%d model.channel:%d\n",nn_width,nn_height,nn_channel);
+
+        pdata = (uint8_t*) malloc(nn_width * nn_height * nn_channel * sizeof(uint8_t));//sajjad
+
+        image.data      = (unsigned char*)data;//amlge2d.ge2dinfo.dst_info.vaddr[0];;
+        image.width     = nn_width;
+        image.height    = nn_height;
+        image.channel   = 3;
+        image.pixel_format = PIX_FMT_RGB888;
+        //model_setinput(image, pdata);
+        yolov3_preprocess_nbg(image,pdata,graph,nn_width,nn_height,3);
+
+    /* Copy the Pre-processed data to input tensor */
+    //status = vsi_nn_CopyDataToTensor(graph, tensor, data);
+    status = vsi_nn_CopyDataToTensor(graph, tensor, pdata);
+
+
+    //Sajjad
+    stbi_write_jpg("output.jpg",nn_width, nn_height, nn_channel, data, 100);
+
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ vim yolo_tiny_process.h
+
+//void yolo_tiny_preprocess(input_image_t imageData, uint8_t *ptr);
+void yolo_tiny_postprocess(vsi_nn_graph_t *graph, pDetResult resultData);
+void yolo_tiny_preprocess_nbg(input_image_t imageData, uint8_t *ptr,vsi_nn_graph_t *graph,int nn_width, int nn_height, int channels);
+
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ vim yolo_tiny_process.c
+Add:
+//void yolo_tiny_preprocess(input_image_t imageData, uint8_t *ptr)
+void yolo_tiny_preprocess_nbg(input_image_t imageData, uint8_t *ptr, vsi_nn_graph_t *graph,int nn_width, int nn_height, int channels)
+{
+    //int nn_width, nn_height, channels, tmpdata;
+    int tmpdata;
+    int offset=0, i=0, j=0;
+    uint8_t *src = (uint8_t *)imageData.data;
+
+    //model_getsize(&nn_width, &nn_height, &channels);
+    memset(ptr, 0, nn_width * nn_height * channels * sizeof(uint8_t));
+
+    if (imageData.pixel_format == PIX_FMT_NV21) {
+        offset = nn_width * nn_height;
+
+
+Add in get_detections_result():
+            ///Sajjad
+            printf("No.%d: Names and Prob: %s, %0.f%%\n",detect_num, names[classId], prob*100);
+            printf("left=%f,top=%f,right=%f,bot=%f\n",left,top,right,bot);
+            ///Sajjad End
+
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ ls -w1
+bin_r_cv4
+build_vx.sh
+debug.h
+main.c
+makefile.linux
+makefile.linux.def
+makefile.target_name
+nn_detect_common.h
+nn_detect_utils.h
+vnn_global.h
+vnn_post_process.c
+vnn_post_process.h
+vnn_pre_process.c
+vnn_pre_process.h
+vnn_yolotiny.c
+vnn_yolotiny.h
+yolo_tiny_process.c
+yolo_tiny_process.h
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/minimal_first_working_tiny/yolotiny_nbg_unify/yolo_tiny_process.c
+  COMPILE /home/khadas/hussain/minimal_first_working_tiny/yolotiny_nbg_unify/vnn_pre_process.c
+vnn_pre_process.c:598:17: warning: ‘_get_jpeg_data’ defined but not used [-Wunused-function]
+  598 | static uint8_t *_get_jpeg_data
+      |                 ^~~~~~~~~~~~~~
+  COMPILE /home/khadas/hussain/minimal_first_working_tiny/yolotiny_nbg_unify/vnn_yolotiny.c
+vnn_yolotiny.c: In function ‘vnn_CreateYolotiny’:
+vnn_yolotiny.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_yolotiny.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/hussain/minimal_first_working_tiny/yolotiny_nbg_unify/main.c
+  COMPILE /home/khadas/hussain/minimal_first_working_tiny/yolotiny_nbg_unify/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ ./bin_r_cv4/yolotiny ./yolotiny_88.nb ~/hussain/img/416/person_416.jpg  Create Neural Network: 123ms or 123742us
+model.width:416 model.height:416 model.channel:3
+Verify...
+Verify Graph: 0ms or 664us
+Start run graph [1] times...
+Run the 1 time: 5.00ms or 5008.00us
+vxProcessGraph execution time:
+Total   5.00ms or 5041.00us
+Average 5.04ms or 5041.00us
+ --- Top5 ---
+15305: 7.750000
+15292: 6.250000
+3668: 5.750000
+3669: 5.500000
+3655: 4.500000
+No.0: Names and Prob: person, 96%
+left=0.287282,top=0.232607,right=0.440573,bot=0.902400
+No.1: Names and Prob: dog, 88%
+left=0.140916,top=0.622792,right=0.292557,bot=0.819907
+
+done!
+
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ vim main.c
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ vim vnn_global.h
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ vim vnn_post_process.h
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ vim vnn_pre_process.h
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ vim vnn_yolotiny.h
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ vim yolo_tiny_process.h
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ ls
+bin_r_cv4               main.c                nn_detect_utils.h        vnn_global.h        vnn_yolotiny.c
+build_vx.sh             makefile.linux        output0_13_13_255_1.dat  vnn_post_process.c  vnn_yolotiny.h
+debug.h                 makefile.linux.def    output1_26_26_255_1.dat  vnn_post_process.h  yolotiny_88.nb
+input_0.dat             makefile.target_name  output.jpg               vnn_pre_process.c   yolo_tiny_process.c
+linux_build_sample.log  nn_detect_common.h    stb_image                vnn_pre_process.h   yolo_tiny_process.h
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ vim nn_detect_common.h
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ vim nn_detect_utils.h
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$ ./bin_r_cv4/yolotiny ./yolotiny_88.nb ~/hussain/img/416/kite_416.jpg
+Create Neural Network: 21ms or 21159us
+model.width:416 model.height:416 model.channel:3
+Verify...
+Verify Graph: 0ms or 705us
+Start run graph [1] times...
+Run the 1 time: 5.00ms or 5014.00us
+vxProcessGraph execution time:
+Total   5.00ms or 5056.00us
+Average 5.06ms or 5056.00us
+ --- Top5 ---
+6440: 4.000000
+6452: 3.750000
+6439: 3.500000
+6441: 3.500000
+6453: 3.500000
+No.0: Names and Prob: kite, 61%
+left=0.459194,top=0.100795,right=0.477915,bot=0.144007
+No.1: Names and Prob: person, 72%
+left=0.087806,top=0.718996,right=0.113922,bot=0.802334
+No.2: Names and Prob: person, 92%
+left=0.158701,top=0.807170,right=0.192235,bot=0.914179
+
+done!
+
+khadas@Khadas:~/hussain/minimal_first_working_tiny/yolotiny_nbg_unify$

@@ -1,0 +1,65 @@
+  COMPILE /home/khadas/hussain/novelsense_git/khadas/standalone/newscripts/sample_demo_x11B/detect_log.c
+  COMPILE /home/khadas/hussain/novelsense_git/khadas/standalone/newscripts/sample_demo_x11B/yolov3_process.c
+  COMPILE /home/khadas/hussain/novelsense_git/khadas/standalone/newscripts/sample_demo_x11B/vnn_pre_process.c
+vnn_pre_process.c: In function ‘_handle_multiple_inputs_nbg’:
+vnn_pre_process.c:738:10: warning: unused variable ‘dumpInput’ [-Wunused-variable]
+  738 |     char dumpInput[128];
+      |          ^~~~~~~~~
+vnn_pre_process.c:733:16: warning: variable ‘status’ set but not used [-Wunused-but-set-variable]
+  733 |     vsi_status status;
+      |                ^~~~~~
+vnn_pre_process.c: In function ‘vnn_PreProcessYolov3_nbg’:
+vnn_pre_process.c:1079:1: warning: label ‘final’ defined but not used [-Wunused-label]
+ 1079 | final:
+      | ^~~~~
+vnn_pre_process.c:1052:16: warning: variable ‘status’ set but not used [-Wunused-but-set-variable]
+ 1052 |     vsi_status status;
+      |                ^~~~~~
+vnn_pre_process.c:1081:12: warning: ‘data’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+ 1081 |     return data;
+      |            ^~~~
+  COMPILE /home/khadas/hussain/novelsense_git/khadas/standalone/newscripts/sample_demo_x11B/vnn_yolov3.c
+vnn_yolov3.c: In function ‘vnn_CreateYolov3’:
+vnn_yolov3.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_yolov3.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/hussain/novelsense_git/khadas/standalone/newscripts/sample_demo_x11B/yolo_v3.c
+yolo_v3.c: In function ‘model_create_nbg’:
+yolo_v3.c:81:22: warning: variable ‘ret’ set but not used [-Wunused-but-set-variable]
+   81 |         det_status_t ret = DET_STATUS_ERROR;
+      |                      ^~~
+  COMPILE /home/khadas/hussain/novelsense_git/khadas/standalone/newscripts/sample_demo_x11B/vnn_post_process.c
+  COMPILE /home/khadas/hussain/novelsense_git/khadas/standalone/newscripts/sample_demo_x11B/main.cpp
+main.cpp: In function ‘int run_detect_model(int, char**)’:
+main.cpp:349:10: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+  349 |   return NULL;
+      |          ^~~~
+main.cpp:279:39: warning: unused variable ‘img_width’ [-Wunused-variable]
+  279 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                       ^~~~~~~~~
+main.cpp:279:50: warning: unused variable ‘img_height’ [-Wunused-variable]
+  279 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                                  ^~~~~~~~~~
+main.cpp:286:18: warning: unused variable ‘graph’ [-Wunused-variable]
+  286 |  vsi_nn_graph_t *graph;
+      |                  ^~~~~
+main.cpp: At global scope:
+main.cpp:252:13: warning: ‘void crop_face(cv::Mat, cv::Mat&, DetectResult, int, int)’ defined but not used [-Wunused-function]
+  252 | static void crop_face(cv::Mat sourceFrame, cv::Mat& imageROI, DetectResult resultData, int img_height, int img_width) {
+      |             ^~~~~~~~~
+main.cpp:100:17: warning: ‘screensize’ defined but not used [-Wunused-variable]
+  100 | static long int screensize = 0;
+      |                 ^~~~~~~~~~
+main.cpp:99:33: warning: ‘finfo’ defined but not used [-Wunused-variable]
+   99 | static struct fb_fix_screeninfo finfo;
+      |                                 ^~~~~
+main.cpp:98:33: warning: ‘vinfo’ defined but not used [-Wunused-variable]
+   98 | static struct fb_var_screeninfo vinfo;
+      |                                 ^~~~~
+main.cpp:97:12: warning: ‘fbfd’ defined but not used [-Wunused-variable]
+   97 | static int fbfd = 0;
+      |            ^~~~

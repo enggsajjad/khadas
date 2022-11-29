@@ -1,0 +1,39 @@
+khadas@Khadas:~$ ifconfig
+eth0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether c8:63:14:70:af:0e  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device interrupt 14  
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1  (Local Loopback)
+        RX packets 26  bytes 2683 (2.6 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 26  bytes 2683 (2.6 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.178.139  netmask 255.255.255.0  broadcast 192.168.178.255
+        inet6 2003:c9:7f21:af00:7021:1104:357:4312  prefixlen 64  scopeid 0x0<global>
+        inet6 fe80::2d9d:6c3f:f011:ba5  prefixlen 64  scopeid 0x20<link>
+        inet6 2003:c9:7f21:af00:432:3ccb:c56b:8c8b  prefixlen 64  scopeid 0x0<global>
+        ether 10:2c:6b:5c:a9:28  txqueuelen 1000  (Ethernet)
+        RX packets 8349  bytes 6982206 (6.9 MB)
+        RX errors 0  dropped 70  overruns 0  frame 0
+        TX packets 6017  bytes 1056279 (1.0 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+khadas@Khadas:~$ 
+
+
+
+
+Wie Ist Meine IP?
+Ihre IPv4 Adresse ist: 79.235.176.213
+Ihre IPv6 Adresse ist: 2003:c9:7f21:af00:7021:1104:357:4312
+Ort: Karlsruhe, BW DE
+ISP: Deutsche Telekom AG 

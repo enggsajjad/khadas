@@ -1,0 +1,1999 @@
+=======================
+SSH and Internet Works both fine
+=======================
+connected to wifi using WG21.5, unplug the ethernet cable
+
+=================
+
+=================
+Last login: Fri May 27 15:23:30 2022 from 192.168.178.33
+khadas@Khadas-teco:~$ cd hussain/aml_npu_
+aml_npu_app/           aml_npu_demo_binaries/
+khadas@Khadas-teco:~$ cd hussain/aml_npu_demo_binaries/
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries$ Clone to the board through the git command.^C
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries$ Inception Model^C
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries$ cd inceptionv3/VIM3/
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/inceptionv3/VIM3$ ls
+inceptionv3  inception_v3.nb  run.sh
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/inceptionv3/VIM3$ ./run.sh
+Create Neural Network: 1950ms or 1950394us
+Verify...
+Verify Graph: 4ms or 4395us
+Start run graph [1] times...
+Run the 1 time: 38.00ms or 38159.00us
+vxProcessGraph execution time:
+Total   38.00ms or 38658.00us
+Average 38.66ms or 38658.00us
+ --- Top5 ---
+  2: 0.937988
+795: 0.003521
+408: 0.001695
+974: 0.001484
+393: 0.000872
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/inceptionv3/VIM3$ vim run.sh
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/inceptionv3/VIM3$ ls ..
+dog_299x299.jpg  goldfish_299x299.jpg  imagenet_slim_labels.txt  VIM3  VIM3L
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/inceptionv3/VIM3$ vim ../imagenet_slim_labels.txt
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/inceptionv3/VIM3$ head -5 ../imagenet_slim_labels.txt
+dummy
+tench
+goldfish
+great white shark
+tiger shark
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/inceptionv3/VIM3$
+
+
+===============================
+Yolo 0 face detected
+===============================
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/inceptionv3/VIM3$ cd ../../detect_demo_picture/
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ Yolo Series Model^C
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ Picture Recognition^C
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ 0 : yoloface model^C
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 0 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:967.347 right:1266.4 top:63.3736 bottom:518.165
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ the face is detected with a rectangular around the face.^C
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$
+
+==============================
+Yoloo3 Object detetection default gives the errors
+==============================
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ yolov3 object detection^C
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ ls
+1080p.bmp  detect_demo_fb  detect_demo_x11  INSTALL  lib  nn_data  output.bmp  README.md  UNINSTALL
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ ls nn_data/
+yolo_face_88.nb  yolotiny_88.nb  yolov2_88.nb  yolov3_88.nb  yolov4_88.nb
+yolo_face_99.nb  yolotiny_99.nb  yolov2_99.nb  yolov3_99.nb  yolov4_99.nb
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$
+==============================
+Yoloo3 Object detetection after ./INSTALL
+==============================
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ ./INSTALL
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:419.831 right:1464 top:6.80861 bottom:1080
+left:429.831 top-10:40
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ person detected with 100% detection rate.^C
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ cat ./INSTALL
+#!/bin/bash
+
+cp -arf lib/* /usr/lib
+
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$
+
+====================================================
+Application Source Code gives errors
+====================================================
+
+khadas@Khadas-teco:~$ cd hussain/aml_npu_app/
+DDK_6.3.3.4/    DDK_6.4.0.3/    DDK_6.4.3/      DDK_6.4.4.3/    detect_library/ .git/           NN_SLT/
+khadas@Khadas-teco:~$ cd hussain/aml_npu_app/
+khadas@Khadas-teco:~/hussain/aml_npu_app$ Application Source Code^C
+khadas@Khadas-teco:~/hussain/aml_npu_app$ Get Source Code^C
+khadas@Khadas-teco:~/hussain/aml_npu_app$ $ git clone https://github.com/khadas/aml_npu_app
+$: command not found
+khadas@Khadas-teco:~/hussain/aml_npu_app$ Library Description^C
+khadas@Khadas-teco:~/hussain/aml_npu_app$ Enter the directory of the library source code, which is the directory of the DDK.
+Enter: command not found
+khadas@Khadas-teco:~/hussain/aml_npu_app$
+khadas@Khadas-teco:~/hussain/aml_npu_app$ cd detect_library/model_code
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code$ ls
+detect_mtcnn  detect_yoloface  detect_yolo_v2  detect_yolo_v3  detect_yolo_v3_tiny  detect_yolo_v4  facenet
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code$ Take detect_yolo_v3 as an example to illustrate the structure of each directory^C
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code$ vnn_yolov3.c - SDK The converted model processing file is mainly used to interface with the nb file^C
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code$ yolo_v3.c - Specify the called nb file, and define all the interfaces of the model call^C
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code$ yolov3_process.c - Mainly defines the pre-processing and post-processing of the model^C
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library$ Application Description^C
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library$ sample_demo_x11 - Compile detect_demo_x11 of the aml_npu_demo_binaries repository for image recognition under X11^C
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library$ cd sample_demo_x11/
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11$ ls
+1080p.bmp    detect.h  main.cpp        makefile.linux.def    nn_detect_common.h  nn_detect_utils.h  result
+build_vx.sh  emb.db    makefile.linux  makefile.target_name  nn_detect.h         ReadMe.txt
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11$ cd ../model_code/detect_yolo
+detect_yoloface/     detect_yolo_v2/      detect_yolo_v3/      detect_yolo_v3_tiny/ detect_yolo_v4/
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11$ cd ../model_code/detect_yolo_v3/
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ls
+build_vx.sh  include  makefile.linux  makefile.linux.def  makefile.target_name  vnn_yolov3.c  yolo_v3.c  yolov3_process.c
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ To compile the library, just enter the directory of the corresponding library and compile it. Here is yolov3 as an example^C
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3/yolov3_process.c
+  COMPILE /home/khadas/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3/vnn_yolov3.c
+In file included from /usr/include/vsi_nn_node_type.h:29,
+                 from /usr/include/vsi_nn_node.h:35,
+                 from /usr/include/vsi_nn_pub.h:39,
+                 from vnn_yolov3.c:13:
+./include/vnn_yolov3.h:24:1: error: size of array ‘assert_failed_CASE_VERSION_is_higher_than_OVXLIB_VERSION_24’ is negative
+   24 | _version_assert(VNN_RUNTIME_VERSION <= VSI_NN_VERSION,
+      | ^~~~~~~~~~~~~~~
+vnn_yolov3.c: In function ‘vnn_CreateYolov3’:
+vnn_yolov3.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_yolov3.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+make: *** [makefile.linux:52: bin_r/vnn_yolov3.o] Error 1
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$  sudo apt update
+[sudo] password for khadas:
+Hit:1 http://ports.ubuntu.com focal InRelease
+Get:2 http://ports.ubuntu.com focal-security InRelease [114 kB]
+Hit:3 http://deb.anydesk.com all InRelease
+Hit:4 http://dl.khadas.com/repos/vim3 focal InRelease
+Hit:5 https://linux.teamviewer.com/deb stable InRelease
+Get:6 http://ports.ubuntu.com focal-updates InRelease [114 kB]
+Get:7 http://ports.ubuntu.com focal-backports InRelease [108 kB]
+Get:8 http://ports.ubuntu.com focal-security/main arm64 DEP-11 Metadata [40.7 kB]
+Get:9 http://ports.ubuntu.com focal-security/universe arm64 DEP-11 Metadata [66.2 kB]
+Get:10 http://ports.ubuntu.com focal-updates/main arm64 DEP-11 Metadata [278 kB]
+Get:11 http://ports.ubuntu.com focal-updates/universe arm64 DEP-11 Metadata [389 kB]
+Get:12 http://ports.ubuntu.com focal-backports/main arm64 DEP-11 Metadata [7,996 B]
+Get:13 http://ports.ubuntu.com focal-backports/universe arm64 DEP-11 Metadata [30.8 kB]
+Fetched 1,149 kB in 2s (573 kB/s)
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+145 packages can be upgraded. Run 'apt list --upgradable' to see them.
+N: Skipping acquire of configured file 'main/binary-arm64/Packages' as repository 'http://deb.anydesk.com all InRelease' doesn't support architecture 'arm64'
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ sudo apt install libopencv-dev python3-opencv
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+libopencv-dev is already the newest version (4.2.0+dfsg-5).
+python3-opencv is already the newest version (4.2.0+dfsg-5).
+The following packages were automatically installed and are no longer required:
+  libfwupdplugin1 libllvm11
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 145 not upgraded.
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3/vnn_yolov3.c
+In file included from /usr/include/vsi_nn_node_type.h:29,
+                 from /usr/include/vsi_nn_node.h:35,
+                 from /usr/include/vsi_nn_pub.h:39,
+                 from vnn_yolov3.c:13:
+./include/vnn_yolov3.h:24:1: error: size of array ‘assert_failed_CASE_VERSION_is_higher_than_OVXLIB_VERSION_24’ is negative
+   24 | _version_assert(VNN_RUNTIME_VERSION <= VSI_NN_VERSION,
+      | ^~~~~~~~~~~~~~~
+vnn_yolov3.c: In function ‘vnn_CreateYolov3’:
+vnn_yolov3.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_yolov3.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+make: *** [makefile.linux:52: bin_r/vnn_yolov3.o] Error 1
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ls
+bin_r  build_vx.sh  include  makefile.linux  makefile.linux.def  makefile.target_name  vnn_yolov3.c  yolo_v3.c  yolov3_process.c
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ vim include/vnn_yolov3.h
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ diff include/vnn_yolov3.h ~/sajjad/
+eachoptime/     ksnn/           NPUApp/         NPUApp2_qtest1/ npusdk1/
+eachoptime1/    npu1/           NPUApp1/        NPUApp2_qtest2/
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ diff include/vnn_yolov3.h ~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/vnn_yolov3.h
+2,3c2,3
+< *   Generated by ACUITY 6.0.12
+< *   Match ovxlib 1.1.34
+---
+> *   Generated by ACUITY 5.11.0
+> *   Match ovxlib 1.1.21
+20c20
+< #define VNN_VERSION_PATCH 34
+---
+> #define VNN_VERSION_PATCH 21
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$
+==================================================
+update
+====================================================
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ cd
+khadas@Khadas-teco:~$ sudo apt update
+Hit:1 http://deb.anydesk.com all InRelease
+Hit:2 http://dl.khadas.com/repos/vim3 focal InRelease
+Hit:3 https://linux.teamviewer.com/deb stable InRelease
+Hit:4 http://ports.ubuntu.com focal InRelease
+Hit:5 http://ports.ubuntu.com focal-security InRelease
+Hit:6 http://ports.ubuntu.com focal-updates InRelease
+Hit:7 http://ports.ubuntu.com focal-backports InRelease
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+145 packages can be upgraded. Run 'apt list --upgradable' to see them.
+N: Skipping acquire of configured file 'main/binary-arm64/Packages' as repository 'http://deb.anydesk.com all InRelease' doesn't support architecture 'arm64'
+khadas@Khadas-teco:~$ sudo apt full-upgrade
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Calculating upgrade... Done
+The following packages were automatically installed and are no longer required:
+  libfwupdplugin1 libllvm11
+Use 'sudo apt autoremove' to remove them.
+The following packages will be upgraded:
+  aml-npu apport apport-gtk apt apt-transport-https apt-utils bash bolt cpp-9 curl dbus dbus-user-session dbus-x11 distro-info-data
+  dnsmasq-base dpkg dpkg-dev fenix-updater-package-focal-vim3-4.9 firefox g++-9 gcc-9 gcc-9-base gfortran-9 gir1.2-javascriptcoregtk-4.0
+  gir1.2-webkit2-4.0 git git-man gnome-control-center gnome-control-center-data gnome-control-center-faces gvfs gvfs-backends gvfs-bin
+  gvfs-common gvfs-daemons gvfs-fuse gvfs-libs gzip iio-sensor-proxy klibc-utils libapt-pkg6.0 libarchive13 libasan5 libc-bin libc-dev-bin
+  libc6 libc6:armhf libc6-dbg libc6-dev libcurl3-gnutls libcurl4 libdbus-1-3 libdbus-1-3:armhf libdbus-1-dev libdpkg-perl libevdev2
+  libfprint-2-2 libfribidi0 libfribidi0:armhf libgcc-9-dev libgfortran-9-dev libinput-bin libinput10 libjavascriptcoregtk-4.0-18 libklibc
+  libldap-2.4-2 libldap-common liblzma-dev liblzma5 liblzma5:armhf libmysqlclient21 libnss-myhostname libnss3 libpam-systemd libpcre3
+  libpcre3:armhf libpcrecpp0v5 libpq5 libpython3.8 libpython3.8-dev libpython3.8-minimal libpython3.8-stdlib libsensors-config libsensors5
+  libsensors5:armhf libsepol1 libsmbclient libsqlite3-0 libssl-dev libssl1.1 libssl1.1:armhf libstdc++-9-dev libsystemd0 libsystemd0:armhf
+  libtiff-dev libtiff5 libtiff5:armhf libtiffxx5 libudev1 libwbclient0 libwebkit2gtk-4.0-37 libxml2 linux-board-package-focal-vim3
+  linux-dtb-amlogic-4.9 linux-gpu-mali-fbdev linux-headers-amlogic-4.9 linux-image-amlogic-4.9 linux-libc-dev linux-u-boot-vim3-vendor
+  lm-sensors locales login networkd-dispatcher openssh-client openssh-server openssh-sftp-server openssl orca passwd python3-apport
+  python3-distupgrade python3-paramiko python3-problem-report python3.8 python3.8-dev python3.8-minimal python3.8-venv rsync rsyslog
+  samba-libs snapd systemd systemd-sysv teamviewer thunderbird tzdata ubuntu-advantage-tools ubuntu-drivers-common
+  ubuntu-release-upgrader-core ubuntu-release-upgrader-gtk udev xz-utils zlib1g zlib1g:armhf zlib1g-dev
+145 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+86 standard security updates
+Need to get 370 MB of archives.
+After this operation, 50.1 MB disk space will be freed.
+Do you want to continue? [Y/n] y
+Get:1 http://ports.ubuntu.com focal-security/main arm64 bash arm64 5.0-6ubuntu1.2 [603 kB]
+Get:2 http://dl.khadas.com/repos/vim3 focal/main arm64 linux-gpu-mali-fbdev arm64 1.0.11-r12p0 [11.9 MB]
+Get:3 https://linux.teamviewer.com/deb stable/main arm64 teamviewer arm64 15.30.3 [65.1 MB]
+Get:4 http://ports.ubuntu.com focal-security/main arm64 dpkg arm64 1.19.7ubuntu3.2 [1,112 kB]
+Get:5 http://ports.ubuntu.com focal-security/main arm64 gzip arm64 1.10-0ubuntu4.1 [92.8 kB]
+Get:6 http://ports.ubuntu.com focal-updates/main arm64 login arm64 1:4.8.1-1ubuntu5.20.04.2 [218 kB]
+Get:7 http://ports.ubuntu.com focal-updates/main arm64 libc6-dbg arm64 2.31-0ubuntu9.9 [16.8 MB]
+Get:8 http://ports.ubuntu.com focal-updates/main arm64 libc6-dev arm64 2.31-0ubuntu9.9 [2,069 kB]
+Get:9 http://ports.ubuntu.com focal-updates/main arm64 libc-dev-bin arm64 2.31-0ubuntu9.9 [64.2 kB]
+Get:10 http://ports.ubuntu.com focal-security/main arm64 linux-libc-dev arm64 5.4.0-113.127 [1,083 kB]
+Get:11 http://ports.ubuntu.com focal-updates/main arm64 libc6 arm64 2.31-0ubuntu9.9 [2,281 kB]
+Get:12 http://ports.ubuntu.com focal-updates/main armhf libc6 armhf 2.31-0ubuntu9.9 [2,455 kB]
+Get:13 http://ports.ubuntu.com focal-updates/main arm64 locales all 2.31-0ubuntu9.9 [3,869 kB]
+Get:14 http://ports.ubuntu.com focal-updates/main arm64 libc-bin arm64 2.31-0ubuntu9.9 [508 kB]
+Get:15 http://ports.ubuntu.com focal-security/main arm64 liblzma-dev arm64 5.2.4-1ubuntu1.1 [144 kB]
+Get:16 http://ports.ubuntu.com focal-security/main armhf liblzma5 armhf 5.2.4-1ubuntu1.1 [83.6 kB]
+Get:17 http://ports.ubuntu.com focal-security/main arm64 liblzma5 arm64 5.2.4-1ubuntu1.1 [88.1 kB]
+Get:18 http://ports.ubuntu.com focal-updates/main arm64 libudev1 arm64 245.4-4ubuntu3.17 [70.0 kB]
+Get:19 http://ports.ubuntu.com focal-updates/main arm64 udev arm64 245.4-4ubuntu3.17 [1,321 kB]
+Get:20 http://ports.ubuntu.com focal-updates/main arm64 systemd-sysv arm64 245.4-4ubuntu3.17 [10.3 kB]
+Get:21 http://ports.ubuntu.com focal-updates/main arm64 libpam-systemd arm64 245.4-4ubuntu3.17 [175 kB]
+Get:22 http://ports.ubuntu.com focal-updates/main arm64 systemd arm64 245.4-4ubuntu3.17 [3,495 kB]
+Get:23 http://ports.ubuntu.com focal-updates/main armhf libsystemd0 armhf 245.4-4ubuntu3.17 [248 kB]
+Get:24 http://ports.ubuntu.com focal-updates/main arm64 libsystemd0 arm64 245.4-4ubuntu3.17 [247 kB]
+Get:25 http://ports.ubuntu.com focal-security/main arm64 dbus arm64 1.12.16-2ubuntu2.2 [142 kB]
+Get:26 http://ports.ubuntu.com focal-security/main arm64 libdbus-1-dev arm64 1.12.16-2ubuntu2.2 [165 kB]
+Get:27 http://ports.ubuntu.com focal-security/main arm64 dbus-user-session arm64 1.12.16-2ubuntu2.2 [9,416 B]
+Get:28 http://ports.ubuntu.com focal-security/main arm64 dbus-x11 arm64 1.12.16-2ubuntu2.2 [21.7 kB]
+Get:29 http://ports.ubuntu.com focal-security/main armhf libdbus-1-3 armhf 1.12.16-2ubuntu2.2 [156 kB]
+Get:30 http://ports.ubuntu.com focal-security/main arm64 libdbus-1-3 arm64 1.12.16-2ubuntu2.2 [169 kB]
+Get:31 http://ports.ubuntu.com focal-security/main arm64 zlib1g-dev arm64 1:1.2.11.dfsg-2ubuntu1.3 [154 kB]
+Get:32 http://ports.ubuntu.com focal-security/main armhf zlib1g armhf 1:1.2.11.dfsg-2ubuntu1.3 [49.0 kB]
+Get:33 http://ports.ubuntu.com focal-security/main arm64 zlib1g arm64 1:1.2.11.dfsg-2ubuntu1.3 [51.3 kB]
+Get:34 http://ports.ubuntu.com focal-updates/main arm64 libapt-pkg6.0 arm64 2.0.8 [763 kB]
+Get:35 http://ports.ubuntu.com focal-updates/main arm64 apt arm64 2.0.8 [1,243 kB]
+Get:36 http://ports.ubuntu.com focal-updates/main arm64 apt-utils arm64 2.0.8 [201 kB]
+Get:37 http://ports.ubuntu.com focal-security/main arm64 python3.8-dev arm64 3.8.10-0ubuntu1~20.04.4 [515 kB]
+Get:38 http://ports.ubuntu.com focal-security/main arm64 libpython3.8-dev arm64 3.8.10-0ubuntu1~20.04.4 [3,757 kB]
+Get:39 http://ports.ubuntu.com focal-security/main arm64 libpython3.8 arm64 3.8.10-0ubuntu1~20.04.4 [1,491 kB]
+Get:40 http://ports.ubuntu.com focal-security/main arm64 libssl-dev arm64 1.1.1f-1ubuntu2.13 [1,462 kB]
+Get:41 http://ports.ubuntu.com focal-security/main armhf libssl1.1 armhf 1.1.1f-1ubuntu2.13 [1,082 kB]
+Get:42 http://ports.ubuntu.com focal-security/main arm64 libssl1.1 arm64 1.1.1f-1ubuntu2.13 [1,158 kB]
+Get:43 http://ports.ubuntu.com focal-security/universe arm64 python3.8-venv arm64 3.8.10-0ubuntu1~20.04.4 [5,448 B]
+Get:44 http://ports.ubuntu.com focal-security/main arm64 python3.8 arm64 3.8.10-0ubuntu1~20.04.4 [387 kB]
+Get:45 http://ports.ubuntu.com focal-security/main arm64 libpython3.8-stdlib arm64 3.8.10-0ubuntu1~20.04.4 [1,648 kB]
+Get:46 http://ports.ubuntu.com focal-security/main arm64 python3.8-minimal arm64 3.8.10-0ubuntu1~20.04.4 [1,830 kB]
+Get:47 http://ports.ubuntu.com focal-security/main arm64 libpython3.8-minimal arm64 3.8.10-0ubuntu1~20.04.4 [714 kB]
+Get:48 http://ports.ubuntu.com focal-security/main arm64 libsqlite3-0 arm64 3.31.1-4ubuntu0.3 [506 kB]
+Get:49 http://ports.ubuntu.com focal-security/main arm64 rsyslog arm64 8.2001.0-1ubuntu1.3 [403 kB]
+Get:50 http://ports.ubuntu.com focal-security/main arm64 rsync arm64 3.1.3-8ubuntu0.3 [304 kB]
+Get:51 http://ports.ubuntu.com focal-updates/main arm64 libsmbclient arm64 2:4.13.17~dfsg-0ubuntu0.21.04.2 [54.9 kB]
+Get:52 http://ports.ubuntu.com focal-security/main arm64 libldap-common all 2.4.49+dfsg-2ubuntu1.9 [16.6 kB]
+Get:53 http://ports.ubuntu.com focal-security/main arm64 libldap-2.4-2 arm64 2.4.49+dfsg-2ubuntu1.9 [145 kB]
+Get:54 http://ports.ubuntu.com focal-updates/main arm64 libwbclient0 arm64 2:4.13.17~dfsg-0ubuntu0.21.04.2 [203 kB]
+Get:55 http://ports.ubuntu.com focal-updates/main arm64 samba-libs arm64 2:4.13.17~dfsg-0ubuntu0.21.04.2 [5,131 kB]
+Get:56 http://ports.ubuntu.com focal-updates/main arm64 ubuntu-drivers-common arm64 1:0.9.0~0.20.04.7 [29.6 kB]
+Get:57 http://ports.ubuntu.com focal-security/main armhf libpcre3 armhf 2:8.39-12ubuntu0.1 [212 kB]
+Get:58 http://ports.ubuntu.com focal-security/main arm64 libpcre3 arm64 2:8.39-12ubuntu0.1 [209 kB]
+Get:59 http://ports.ubuntu.com focal-security/main arm64 libsepol1 arm64 3.0-1ubuntu0.1 [231 kB]
+Get:60 http://ports.ubuntu.com focal-updates/main arm64 passwd arm64 1:4.8.1-1ubuntu5.20.04.2 [772 kB]
+Get:61 http://ports.ubuntu.com focal-security/main arm64 distro-info-data all 0.43ubuntu1.10 [4,704 B]
+Get:62 http://ports.ubuntu.com focal-security/main arm64 libfribidi0 arm64 1.0.8-2ubuntu0.1 [24.1 kB]
+Get:63 http://ports.ubuntu.com focal-security/main armhf libfribidi0 armhf 1.0.8-2ubuntu0.1 [22.2 kB]
+Get:64 http://ports.ubuntu.com focal-security/main arm64 libxml2 arm64 2.9.10+dfsg-5ubuntu0.20.04.3 [570 kB]
+Get:65 http://ports.ubuntu.com focal-security/main arm64 networkd-dispatcher all 2.1-2~ubuntu20.04.3 [15.5 kB]
+Get:66 http://ports.ubuntu.com focal-security/main arm64 openssl arm64 1.1.1f-1ubuntu2.13 [599 kB]
+Get:67 http://ports.ubuntu.com focal-security/main arm64 tzdata all 2022a-0ubuntu0.20.04 [294 kB]
+Get:68 http://ports.ubuntu.com focal-updates/main arm64 ubuntu-advantage-tools arm64 27.8~20.04.1 [795 kB]
+Get:69 http://ports.ubuntu.com focal-security/main arm64 xz-utils arm64 5.2.4-1ubuntu1.1 [81.4 kB]
+Get:70 http://ports.ubuntu.com focal-updates/main arm64 openssh-sftp-server arm64 1:8.2p1-4ubuntu0.5 [48.3 kB]
+Get:71 http://ports.ubuntu.com focal-updates/main arm64 openssh-server arm64 1:8.2p1-4ubuntu0.5 [354 kB]
+Get:72 http://ports.ubuntu.com focal-security/main arm64 git-man all 1:2.25.1-1ubuntu3.4 [885 kB]
+Get:73 http://ports.ubuntu.com focal-security/main arm64 libcurl3-gnutls arm64 7.68.0-1ubuntu2.11 [213 kB]
+Get:74 http://ports.ubuntu.com focal-security/main arm64 git arm64 1:2.25.1-1ubuntu3.4 [4,345 kB]
+Get:75 http://ports.ubuntu.com focal-updates/main arm64 openssh-client arm64 1:8.2p1-4ubuntu0.5 [637 kB]
+Get:76 http://ports.ubuntu.com focal-security/main arm64 libwebkit2gtk-4.0-37 arm64 2.36.2-0ubuntu0.20.04.1 [14.2 MB]
+Get:77 http://ports.ubuntu.com focal-security/main arm64 libjavascriptcoregtk-4.0-18 arm64 2.36.2-0ubuntu0.20.04.1 [5,651 kB]
+Get:78 http://ports.ubuntu.com focal-security/main arm64 gir1.2-webkit2-4.0 arm64 2.36.2-0ubuntu0.20.04.1 [80.1 kB]
+Get:79 http://ports.ubuntu.com focal-security/main arm64 gir1.2-javascriptcoregtk-4.0 arm64 2.36.2-0ubuntu0.20.04.1 [28.8 kB]
+Get:80 http://ports.ubuntu.com focal-updates/main arm64 ubuntu-release-upgrader-gtk all 1:20.04.38 [9,356 B]
+Get:81 http://ports.ubuntu.com focal-updates/main arm64 ubuntu-release-upgrader-core all 1:20.04.38 [24.3 kB]
+Get:82 http://ports.ubuntu.com focal-updates/main arm64 python3-distupgrade all 1:20.04.38 [104 kB]
+Get:83 http://ports.ubuntu.com focal-security/main arm64 python3-problem-report all 2.20.11-0ubuntu27.24 [10.2 kB]
+Get:84 http://ports.ubuntu.com focal-security/main arm64 python3-apport all 2.20.11-0ubuntu27.24 [86.4 kB]
+Get:85 http://ports.ubuntu.com focal-security/main arm64 apport all 2.20.11-0ubuntu27.24 [129 kB]
+Get:86 http://ports.ubuntu.com focal-security/main arm64 apport-gtk all 2.20.11-0ubuntu27.24 [9,728 B]
+Get:87 http://ports.ubuntu.com focal-updates/universe arm64 apt-transport-https all 2.0.8 [1,704 B]
+Get:88 http://ports.ubuntu.com focal-updates/main arm64 bolt arm64 0.9.1-2~ubuntu20.04.1 [133 kB]
+Get:89 http://ports.ubuntu.com focal-security/main arm64 gfortran-9 arm64 9.4.0-1ubuntu1~20.04.1 [6,395 kB]
+Get:90 http://ports.ubuntu.com focal-security/main arm64 libgfortran-9-dev arm64 9.4.0-1ubuntu1~20.04.1 [390 kB]
+Get:91 http://ports.ubuntu.com focal-security/main arm64 libasan5 arm64 9.4.0-1ubuntu1~20.04.1 [2,692 kB]
+Get:92 http://ports.ubuntu.com focal-security/main arm64 g++-9 arm64 9.4.0-1ubuntu1~20.04.1 [6,843 kB]
+Get:93 http://ports.ubuntu.com focal-security/main arm64 gcc-9 arm64 9.4.0-1ubuntu1~20.04.1 [6,738 kB]
+Get:94 http://ports.ubuntu.com focal-security/main arm64 libstdc++-9-dev arm64 9.4.0-1ubuntu1~20.04.1 [1,688 kB]
+Get:95 http://ports.ubuntu.com focal-security/main arm64 libgcc-9-dev arm64 9.4.0-1ubuntu1~20.04.1 [920 kB]
+Get:96 http://ports.ubuntu.com focal-security/main arm64 cpp-9 arm64 9.4.0-1ubuntu1~20.04.1 [5,986 kB]
+Get:97 http://ports.ubuntu.com focal-security/main arm64 gcc-9-base arm64 9.4.0-1ubuntu1~20.04.1 [19.4 kB]
+Get:98 http://ports.ubuntu.com focal-security/main arm64 curl arm64 7.68.0-1ubuntu2.11 [157 kB]
+Get:99 http://ports.ubuntu.com focal-security/main arm64 libcurl4 arm64 7.68.0-1ubuntu2.11 [215 kB]
+Get:100 http://ports.ubuntu.com focal-security/main arm64 dnsmasq-base arm64 2.80-1.1ubuntu1.5 [296 kB]
+Get:101 http://ports.ubuntu.com focal-security/main arm64 dpkg-dev all 1.19.7ubuntu3.2 [679 kB]
+Get:102 http://ports.ubuntu.com focal-security/main arm64 libdpkg-perl all 1.19.7ubuntu3.2 [231 kB]
+Get:103 http://ports.ubuntu.com focal-security/main arm64 firefox arm64 100.0.2+build1-0ubuntu0.20.04.1 [50.4 MB]
+Get:104 http://ports.ubuntu.com focal-updates/main arm64 gnome-control-center-data all 1:3.36.5-0ubuntu4 [328 kB]
+Get:105 http://ports.ubuntu.com focal-updates/main arm64 gnome-control-center arm64 1:3.36.5-0ubuntu4 [1,644 kB]
+Get:106 http://ports.ubuntu.com focal-updates/main arm64 gnome-control-center-faces all 1:3.36.5-0ubuntu4 [1,216 kB]
+Get:107 http://ports.ubuntu.com focal-updates/main arm64 gvfs-backends arm64 1.44.1-1ubuntu1.1 [310 kB]
+Get:108 http://ports.ubuntu.com focal-updates/main arm64 gvfs-fuse arm64 1.44.1-1ubuntu1.1 [16.5 kB]
+Get:109 http://ports.ubuntu.com focal-updates/main arm64 gvfs arm64 1.44.1-1ubuntu1.1 [107 kB]
+Get:110 http://ports.ubuntu.com focal-updates/main arm64 gvfs-daemons arm64 1.44.1-1ubuntu1.1 [107 kB]
+Get:111 http://ports.ubuntu.com focal-updates/main arm64 gvfs-libs arm64 1.44.1-1ubuntu1.1 [91.3 kB]
+Get:112 http://ports.ubuntu.com focal-updates/main arm64 gvfs-bin arm64 1.44.1-1ubuntu1.1 [5,040 B]
+Get:113 http://ports.ubuntu.com focal-updates/main arm64 gvfs-common all 1.44.1-1ubuntu1.1 [20.0 kB]
+Get:114 http://ports.ubuntu.com focal-security/main arm64 libarchive13 arm64 3.4.0-2ubuntu1.2 [304 kB]
+Get:115 http://ports.ubuntu.com focal-updates/main arm64 iio-sensor-proxy arm64 2.8-1ubuntu2 [34.1 kB]
+Get:116 http://ports.ubuntu.com focal-security/main arm64 klibc-utils arm64 2.0.7-1ubuntu5.1 [98.8 kB]
+Get:117 http://ports.ubuntu.com focal-security/main arm64 libklibc arm64 2.0.7-1ubuntu5.1 [45.3 kB]
+Get:118 http://ports.ubuntu.com focal-security/main arm64 libnss3 arm64 2:3.49.1-1ubuntu1.7 [1,179 kB]
+Get:119 http://ports.ubuntu.com focal-updates/main arm64 libfprint-2-2 arm64 1:1.90.2+tod1-0ubuntu1~20.04.7 [191 kB]
+Get:120 http://ports.ubuntu.com focal-security/main arm64 libevdev2 arm64 1.9.0+dfsg-1ubuntu0.2 [29.7 kB]
+Get:121 http://ports.ubuntu.com focal-security/main arm64 libinput-bin arm64 1.15.5-1ubuntu0.3 [19.2 kB]
+Get:122 http://ports.ubuntu.com focal-security/main arm64 libinput10 arm64 1.15.5-1ubuntu0.3 [101 kB]
+Get:123 http://ports.ubuntu.com focal-security/main arm64 libmysqlclient21 arm64 8.0.29-0ubuntu0.20.04.3 [1,261 kB]
+Get:124 http://ports.ubuntu.com focal-security/main arm64 libpcrecpp0v5 arm64 2:8.39-12ubuntu0.1 [14.7 kB]
+Get:125 http://ports.ubuntu.com focal-security/main arm64 libpq5 arm64 12.11-0ubuntu0.20.04.1 [110 kB]
+Get:126 http://ports.ubuntu.com focal-updates/main arm64 libsensors-config all 1:3.6.0-2ubuntu1.1 [6,052 B]
+Get:127 http://ports.ubuntu.com focal-updates/main arm64 libsensors5 arm64 1:3.6.0-2ubuntu1.1 [26.0 kB]
+Get:128 http://ports.ubuntu.com focal-updates/main armhf libsensors5 armhf 1:3.6.0-2ubuntu1.1 [24.1 kB]
+Get:129 http://ports.ubuntu.com focal-security/main arm64 libtiff-dev arm64 4.1.0+git191117-2ubuntu0.20.04.3 [274 kB]
+Get:130 http://ports.ubuntu.com focal-security/main armhf libtiff5 armhf 4.1.0+git191117-2ubuntu0.20.04.3 [143 kB]
+Get:131 http://ports.ubuntu.com focal-security/main arm64 libtiff5 arm64 4.1.0+git191117-2ubuntu0.20.04.3 [151 kB]
+Get:132 http://ports.ubuntu.com focal-security/main arm64 libtiffxx5 arm64 4.1.0+git191117-2ubuntu0.20.04.3 [5,876 B]
+Get:133 http://ports.ubuntu.com focal-security/main arm64 orca all 3.36.2-1ubuntu1~20.04.2 [509 kB]
+Get:134 http://ports.ubuntu.com focal-security/main arm64 python3-paramiko all 2.6.0-2ubuntu0.1 [122 kB]
+Get:135 http://ports.ubuntu.com focal-updates/main arm64 snapd arm64 2.54.3+20.04.1ubuntu0.3 [30.1 MB]
+Get:136 http://ports.ubuntu.com focal-security/main arm64 thunderbird arm64 1:91.9.1+build1-0ubuntu0.20.04.1 [47.5 MB]
+Get:137 http://ports.ubuntu.com focal-updates/main arm64 libnss-myhostname arm64 245.4-4ubuntu3.17 [39.6 kB]
+Get:138 http://ports.ubuntu.com focal-updates/universe arm64 lm-sensors arm64 1:3.6.0-2ubuntu1.1 [78.4 kB]
+Get:139 http://dl.khadas.com/repos/vim3 focal/main arm64 aml-npu arm64 6.4.8.7.1.1.1-1 [5,816 kB]
+Get:140 http://dl.khadas.com/repos/vim3 focal/main arm64 fenix-updater-package-focal-vim3-4.9 arm64 1.0.11 [872 B]
+Get:141 http://dl.khadas.com/repos/vim3 focal/main arm64 linux-board-package-focal-vim3 arm64 1.0.11 [1,487 kB]
+Get:142 http://dl.khadas.com/repos/vim3 focal/main arm64 linux-dtb-amlogic-4.9 arm64 1.0.11 [39.6 kB]
+Get:143 http://dl.khadas.com/repos/vim3 focal/main arm64 linux-headers-amlogic-4.9 arm64 1.0.11 [10.8 MB]
+Get:144 http://dl.khadas.com/repos/vim3 focal/main arm64 linux-image-amlogic-4.9 arm64 1.0.11 [12.5 MB]
+Get:145 http://dl.khadas.com/repos/vim3 focal/main arm64 linux-u-boot-vim3-vendor arm64 1.0.11-2015.01 [734 kB]
+Fetched 370 MB in 1min 3s (5,901 kB/s)
+Extracting templates from packages: 100%
+Preconfiguring packages ...
+(Reading database ... 253335 files and directories currently installed.)
+Preparing to unpack .../bash_5.0-6ubuntu1.2_arm64.deb ...
+Unpacking bash (5.0-6ubuntu1.2) over (5.0-6ubuntu1.1) ...
+Setting up bash (5.0-6ubuntu1.2) ...
+update-alternatives: using /usr/share/man/man7/bash-builtins.7.gz to provide /usr/share/man/man7/builtins.7.gz (builtins.7.gz) in auto mode
+(Reading database ... 253335 files and directories currently installed.)
+Preparing to unpack .../dpkg_1.19.7ubuntu3.2_arm64.deb ...
+Unpacking dpkg (1.19.7ubuntu3.2) over (1.19.7ubuntu3) ...
+Setting up dpkg (1.19.7ubuntu3.2) ...
+(Reading database ... 253335 files and directories currently installed.)
+Preparing to unpack .../gzip_1.10-0ubuntu4.1_arm64.deb ...
+Unpacking gzip (1.10-0ubuntu4.1) over (1.10-0ubuntu4) ...
+Setting up gzip (1.10-0ubuntu4.1) ...
+(Reading database ... 253335 files and directories currently installed.)
+Preparing to unpack .../login_1%3a4.8.1-1ubuntu5.20.04.2_arm64.deb ...
+Unpacking login (1:4.8.1-1ubuntu5.20.04.2) over (1:4.8.1-1ubuntu5.20.04.1) ...
+Setting up login (1:4.8.1-1ubuntu5.20.04.2) ...
+(Reading database ... 253335 files and directories currently installed.)
+Preparing to unpack .../0-libc6-dbg_2.31-0ubuntu9.9_arm64.deb ...
+Unpacking libc6-dbg:arm64 (2.31-0ubuntu9.9) over (2.31-0ubuntu9.7) ...
+Preparing to unpack .../1-libc6-dev_2.31-0ubuntu9.9_arm64.deb ...
+Unpacking libc6-dev:arm64 (2.31-0ubuntu9.9) over (2.31-0ubuntu9.7) ...
+Preparing to unpack .../2-libc-dev-bin_2.31-0ubuntu9.9_arm64.deb ...
+Unpacking libc-dev-bin (2.31-0ubuntu9.9) over (2.31-0ubuntu9.7) ...
+Preparing to unpack .../3-linux-libc-dev_5.4.0-113.127_arm64.deb ...
+Unpacking linux-libc-dev:arm64 (5.4.0-113.127) over (5.4.0-104.118) ...
+Preparing to unpack .../4-libc6_2.31-0ubuntu9.9_armhf.deb ...
+De-configuring libc6:arm64 (2.31-0ubuntu9.7) ...
+Unpacking libc6:armhf (2.31-0ubuntu9.9) over (2.31-0ubuntu9.7) ...
+Preparing to unpack .../5-libc6_2.31-0ubuntu9.9_arm64.deb ...
+Unpacking libc6:arm64 (2.31-0ubuntu9.9) over (2.31-0ubuntu9.7) ...
+Setting up libc6:arm64 (2.31-0ubuntu9.9) ...
+(Reading database ... 253476 files and directories currently installed.)
+Preparing to unpack .../locales_2.31-0ubuntu9.9_all.deb ...
+Unpacking locales (2.31-0ubuntu9.9) over (2.31-0ubuntu9.7) ...
+Preparing to unpack .../libc-bin_2.31-0ubuntu9.9_arm64.deb ...
+Unpacking libc-bin (2.31-0ubuntu9.9) over (2.31-0ubuntu9.7) ...
+Setting up libc-bin (2.31-0ubuntu9.9) ...
+/sbin/ldconfig.real: /lib/ is not a symbolic link
+
+(Reading database ... 253476 files and directories currently installed.)
+Preparing to unpack .../liblzma-dev_5.2.4-1ubuntu1.1_arm64.deb ...
+Unpacking liblzma-dev:arm64 (5.2.4-1ubuntu1.1) over (5.2.4-1ubuntu1) ...
+Preparing to unpack .../liblzma5_5.2.4-1ubuntu1.1_arm64.deb ...
+De-configuring liblzma5:armhf (5.2.4-1ubuntu1) ...
+Unpacking liblzma5:arm64 (5.2.4-1ubuntu1.1) over (5.2.4-1ubuntu1) ...
+Preparing to unpack .../liblzma5_5.2.4-1ubuntu1.1_armhf.deb ...
+Unpacking liblzma5:armhf (5.2.4-1ubuntu1.1) over (5.2.4-1ubuntu1) ...
+Preparing to unpack .../libudev1_245.4-4ubuntu3.17_arm64.deb ...
+Unpacking libudev1:arm64 (245.4-4ubuntu3.17) over (245.4-4ubuntu3.15) ...
+Setting up libudev1:arm64 (245.4-4ubuntu3.17) ...
+(Reading database ... 253476 files and directories currently installed.)
+Preparing to unpack .../udev_245.4-4ubuntu3.17_arm64.deb ...
+Unpacking udev (245.4-4ubuntu3.17) over (245.4-4ubuntu3.15) ...
+Preparing to unpack .../systemd-sysv_245.4-4ubuntu3.17_arm64.deb ...
+Unpacking systemd-sysv (245.4-4ubuntu3.17) over (245.4-4ubuntu3.15) ...
+Preparing to unpack .../libpam-systemd_245.4-4ubuntu3.17_arm64.deb ...
+Unpacking libpam-systemd:arm64 (245.4-4ubuntu3.17) over (245.4-4ubuntu3.15) ...
+Setting up liblzma5:arm64 (5.2.4-1ubuntu1.1) ...
+(Reading database ... 253476 files and directories currently installed.)
+Preparing to unpack .../systemd_245.4-4ubuntu3.17_arm64.deb ...
+Unpacking systemd (245.4-4ubuntu3.17) over (245.4-4ubuntu3.15) ...
+Setting up libc6:armhf (2.31-0ubuntu9.9) ...
+Setting up liblzma5:armhf (5.2.4-1ubuntu1.1) ...
+(Reading database ... 253476 files and directories currently installed.)
+Preparing to unpack .../00-libsystemd0_245.4-4ubuntu3.17_arm64.deb ...
+De-configuring libsystemd0:armhf (245.4-4ubuntu3.15) ...
+Unpacking libsystemd0:arm64 (245.4-4ubuntu3.17) over (245.4-4ubuntu3.15) ...
+Preparing to unpack .../01-libsystemd0_245.4-4ubuntu3.17_armhf.deb ...
+Unpacking libsystemd0:armhf (245.4-4ubuntu3.17) over (245.4-4ubuntu3.15) ...
+Preparing to unpack .../02-dbus_1.12.16-2ubuntu2.2_arm64.deb ...
+Unpacking dbus (1.12.16-2ubuntu2.2) over (1.12.16-2ubuntu2.1) ...
+Preparing to unpack .../03-libdbus-1-dev_1.12.16-2ubuntu2.2_arm64.deb ...
+Unpacking libdbus-1-dev:arm64 (1.12.16-2ubuntu2.2) over (1.12.16-2ubuntu2.1) ...
+Preparing to unpack .../04-dbus-user-session_1.12.16-2ubuntu2.2_arm64.deb ...
+Unpacking dbus-user-session (1.12.16-2ubuntu2.2) over (1.12.16-2ubuntu2.1) ...
+Preparing to unpack .../05-dbus-x11_1.12.16-2ubuntu2.2_arm64.deb ...
+Unpacking dbus-x11 (1.12.16-2ubuntu2.2) over (1.12.16-2ubuntu2.1) ...
+Preparing to unpack .../06-libdbus-1-3_1.12.16-2ubuntu2.2_arm64.deb ...
+De-configuring libdbus-1-3:armhf (1.12.16-2ubuntu2.1) ...
+Unpacking libdbus-1-3:arm64 (1.12.16-2ubuntu2.2) over (1.12.16-2ubuntu2.1) ...
+Preparing to unpack .../07-libdbus-1-3_1.12.16-2ubuntu2.2_armhf.deb ...
+Unpacking libdbus-1-3:armhf (1.12.16-2ubuntu2.2) over (1.12.16-2ubuntu2.1) ...
+Preparing to unpack .../08-zlib1g-dev_1%3a1.2.11.dfsg-2ubuntu1.3_arm64.deb ...
+Unpacking zlib1g-dev:arm64 (1:1.2.11.dfsg-2ubuntu1.3) over (1:1.2.11.dfsg-2ubuntu1.2) ...
+Preparing to unpack .../09-zlib1g_1%3a1.2.11.dfsg-2ubuntu1.3_arm64.deb ...
+De-configuring zlib1g:armhf (1:1.2.11.dfsg-2ubuntu1.2) ...
+Unpacking zlib1g:arm64 (1:1.2.11.dfsg-2ubuntu1.3) over (1:1.2.11.dfsg-2ubuntu1.2) ...
+Preparing to unpack .../10-zlib1g_1%3a1.2.11.dfsg-2ubuntu1.3_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-2ubuntu1.3) over (1:1.2.11.dfsg-2ubuntu1.2) ...
+Preparing to unpack .../11-libapt-pkg6.0_2.0.8_arm64.deb ...
+Unpacking libapt-pkg6.0:arm64 (2.0.8) over (2.0.6) ...
+Setting up libsystemd0:arm64 (245.4-4ubuntu3.17) ...
+Setting up zlib1g:arm64 (1:1.2.11.dfsg-2ubuntu1.3) ...
+Setting up libapt-pkg6.0:arm64 (2.0.8) ...
+(Reading database ... 253476 files and directories currently installed.)
+Preparing to unpack .../archives/apt_2.0.8_arm64.deb ...
+Unpacking apt (2.0.8) over (2.0.6) ...
+Setting up apt (2.0.8) ...
+Removing obsolete conffile /etc/kernel/postinst.d/apt-auto-removal ...
+(Reading database ... 253475 files and directories currently installed.)
+Preparing to unpack .../00-apt-utils_2.0.8_arm64.deb ...
+Unpacking apt-utils (2.0.8) over (2.0.6) ...
+Preparing to unpack .../01-python3.8-dev_3.8.10-0ubuntu1~20.04.4_arm64.deb ...
+Unpacking python3.8-dev (3.8.10-0ubuntu1~20.04.4) over (3.8.10-0ubuntu1~20.04.2) ...
+Preparing to unpack .../02-libpython3.8-dev_3.8.10-0ubuntu1~20.04.4_arm64.deb ...
+Unpacking libpython3.8-dev:arm64 (3.8.10-0ubuntu1~20.04.4) over (3.8.10-0ubuntu1~20.04.2) ...
+Preparing to unpack .../03-libpython3.8_3.8.10-0ubuntu1~20.04.4_arm64.deb ...
+Unpacking libpython3.8:arm64 (3.8.10-0ubuntu1~20.04.4) over (3.8.10-0ubuntu1~20.04.2) ...
+Preparing to unpack .../04-libssl-dev_1.1.1f-1ubuntu2.13_arm64.deb ...
+Unpacking libssl-dev:arm64 (1.1.1f-1ubuntu2.13) over (1.1.1f-1ubuntu2.12) ...
+Preparing to unpack .../05-libssl1.1_1.1.1f-1ubuntu2.13_arm64.deb ...
+De-configuring libssl1.1:armhf (1.1.1f-1ubuntu2.12) ...
+Unpacking libssl1.1:arm64 (1.1.1f-1ubuntu2.13) over (1.1.1f-1ubuntu2.12) ...
+Preparing to unpack .../06-libssl1.1_1.1.1f-1ubuntu2.13_armhf.deb ...
+Unpacking libssl1.1:armhf (1.1.1f-1ubuntu2.13) over (1.1.1f-1ubuntu2.12) ...
+Preparing to unpack .../07-python3.8-venv_3.8.10-0ubuntu1~20.04.4_arm64.deb ...
+Unpacking python3.8-venv (3.8.10-0ubuntu1~20.04.4) over (3.8.10-0ubuntu1~20.04.2) ...
+Preparing to unpack .../08-python3.8_3.8.10-0ubuntu1~20.04.4_arm64.deb ...
+Unpacking python3.8 (3.8.10-0ubuntu1~20.04.4) over (3.8.10-0ubuntu1~20.04.2) ...
+Preparing to unpack .../09-libpython3.8-stdlib_3.8.10-0ubuntu1~20.04.4_arm64.deb ...
+Unpacking libpython3.8-stdlib:arm64 (3.8.10-0ubuntu1~20.04.4) over (3.8.10-0ubuntu1~20.04.2) ...
+Preparing to unpack .../10-python3.8-minimal_3.8.10-0ubuntu1~20.04.4_arm64.deb ...
+Unpacking python3.8-minimal (3.8.10-0ubuntu1~20.04.4) over (3.8.10-0ubuntu1~20.04.2) ...
+Preparing to unpack .../11-libpython3.8-minimal_3.8.10-0ubuntu1~20.04.4_arm64.deb ...
+Unpacking libpython3.8-minimal:arm64 (3.8.10-0ubuntu1~20.04.4) over (3.8.10-0ubuntu1~20.04.2) ...
+Preparing to unpack .../12-libsqlite3-0_3.31.1-4ubuntu0.3_arm64.deb ...
+Unpacking libsqlite3-0:arm64 (3.31.1-4ubuntu0.3) over (3.31.1-4ubuntu0.2) ...
+Preparing to unpack .../13-rsyslog_8.2001.0-1ubuntu1.3_arm64.deb ...
+Unpacking rsyslog (8.2001.0-1ubuntu1.3) over (8.2001.0-1ubuntu1.1) ...
+Preparing to unpack .../14-rsync_3.1.3-8ubuntu0.3_arm64.deb ...
+Unpacking rsync (3.1.3-8ubuntu0.3) over (3.1.3-8ubuntu0.2) ...
+Preparing to unpack .../15-libsmbclient_2%3a4.13.17~dfsg-0ubuntu0.21.04.2_arm64.deb ...
+Unpacking libsmbclient:arm64 (2:4.13.17~dfsg-0ubuntu0.21.04.2) over (2:4.13.17~dfsg-0ubuntu0.21.04.1) ...
+Preparing to unpack .../16-libldap-common_2.4.49+dfsg-2ubuntu1.9_all.deb ...
+Unpacking libldap-common (2.4.49+dfsg-2ubuntu1.9) over (2.4.49+dfsg-2ubuntu1.8) ...
+Preparing to unpack .../17-libldap-2.4-2_2.4.49+dfsg-2ubuntu1.9_arm64.deb ...
+Unpacking libldap-2.4-2:arm64 (2.4.49+dfsg-2ubuntu1.9) over (2.4.49+dfsg-2ubuntu1.8) ...
+Preparing to unpack .../18-libwbclient0_2%3a4.13.17~dfsg-0ubuntu0.21.04.2_arm64.deb ...
+Unpacking libwbclient0:arm64 (2:4.13.17~dfsg-0ubuntu0.21.04.2) over (2:4.13.17~dfsg-0ubuntu0.21.04.1) ...
+Preparing to unpack .../19-samba-libs_2%3a4.13.17~dfsg-0ubuntu0.21.04.2_arm64.deb ...
+Unpacking samba-libs:arm64 (2:4.13.17~dfsg-0ubuntu0.21.04.2) over (2:4.13.17~dfsg-0ubuntu0.21.04.1) ...
+Preparing to unpack .../20-ubuntu-drivers-common_1%3a0.9.0~0.20.04.7_arm64.deb ...
+Unpacking ubuntu-drivers-common (1:0.9.0~0.20.04.7) over (1:0.9.0~0.20.04.5) ...
+Preparing to unpack .../21-libpcre3_2%3a8.39-12ubuntu0.1_arm64.deb ...
+De-configuring libpcre3:armhf (2:8.39-12build1) ...
+Unpacking libpcre3:arm64 (2:8.39-12ubuntu0.1) over (2:8.39-12build1) ...
+Preparing to unpack .../22-libpcre3_2%3a8.39-12ubuntu0.1_armhf.deb ...
+Unpacking libpcre3:armhf (2:8.39-12ubuntu0.1) over (2:8.39-12build1) ...
+Preparing to unpack .../23-libsepol1_3.0-1ubuntu0.1_arm64.deb ...
+Unpacking libsepol1:arm64 (3.0-1ubuntu0.1) over (3.0-1) ...
+Setting up libsepol1:arm64 (3.0-1ubuntu0.1) ...
+(Reading database ... 253475 files and directories currently installed.)
+Preparing to unpack .../passwd_1%3a4.8.1-1ubuntu5.20.04.2_arm64.deb ...
+Unpacking passwd (1:4.8.1-1ubuntu5.20.04.2) over (1:4.8.1-1ubuntu5.20.04.1) ...
+Setting up passwd (1:4.8.1-1ubuntu5.20.04.2) ...
+(Reading database ... 253475 files and directories currently installed.)
+Preparing to unpack .../00-distro-info-data_0.43ubuntu1.10_all.deb ...
+Unpacking distro-info-data (0.43ubuntu1.10) over (0.43ubuntu1.9) ...
+Preparing to unpack .../01-libfribidi0_1.0.8-2ubuntu0.1_arm64.deb ...
+De-configuring libfribidi0:armhf (1.0.8-2) ...
+Unpacking libfribidi0:arm64 (1.0.8-2ubuntu0.1) over (1.0.8-2) ...
+Preparing to unpack .../02-libfribidi0_1.0.8-2ubuntu0.1_armhf.deb ...
+Unpacking libfribidi0:armhf (1.0.8-2ubuntu0.1) over (1.0.8-2) ...
+Preparing to unpack .../03-libxml2_2.9.10+dfsg-5ubuntu0.20.04.3_arm64.deb ...
+Unpacking libxml2:arm64 (2.9.10+dfsg-5ubuntu0.20.04.3) over (2.9.10+dfsg-5ubuntu0.20.04.2) ...
+Preparing to unpack .../04-networkd-dispatcher_2.1-2~ubuntu20.04.3_all.deb ...
+Unpacking networkd-dispatcher (2.1-2~ubuntu20.04.3) over (2.1-2~ubuntu20.04.1) ...
+Preparing to unpack .../05-openssl_1.1.1f-1ubuntu2.13_arm64.deb ...
+Unpacking openssl (1.1.1f-1ubuntu2.13) over (1.1.1f-1ubuntu2.12) ...
+Preparing to unpack .../06-tzdata_2022a-0ubuntu0.20.04_all.deb ...
+Unpacking tzdata (2022a-0ubuntu0.20.04) over (2021e-0ubuntu0.20.04) ...
+Preparing to unpack .../07-ubuntu-advantage-tools_27.8~20.04.1_arm64.deb ...
+Unpacking ubuntu-advantage-tools (27.8~20.04.1) over (27.6~20.04.1) ...
+Preparing to unpack .../08-xz-utils_5.2.4-1ubuntu1.1_arm64.deb ...
+Unpacking xz-utils (5.2.4-1ubuntu1.1) over (5.2.4-1ubuntu1) ...
+Preparing to unpack .../09-openssh-sftp-server_1%3a8.2p1-4ubuntu0.5_arm64.deb ...
+Unpacking openssh-sftp-server (1:8.2p1-4ubuntu0.5) over (1:8.2p1-4ubuntu0.4) ...
+Preparing to unpack .../10-openssh-server_1%3a8.2p1-4ubuntu0.5_arm64.deb ...
+Unpacking openssh-server (1:8.2p1-4ubuntu0.5) over (1:8.2p1-4ubuntu0.4) ...
+Preparing to unpack .../11-git-man_1%3a2.25.1-1ubuntu3.4_all.deb ...
+Unpacking git-man (1:2.25.1-1ubuntu3.4) over (1:2.25.1-1ubuntu3.2) ...
+Preparing to unpack .../12-libcurl3-gnutls_7.68.0-1ubuntu2.11_arm64.deb ...
+Unpacking libcurl3-gnutls:arm64 (7.68.0-1ubuntu2.11) over (7.68.0-1ubuntu2.7) ...
+Preparing to unpack .../13-git_1%3a2.25.1-1ubuntu3.4_arm64.deb ...
+Unpacking git (1:2.25.1-1ubuntu3.4) over (1:2.25.1-1ubuntu3.3) ...
+Preparing to unpack .../14-openssh-client_1%3a8.2p1-4ubuntu0.5_arm64.deb ...
+Unpacking openssh-client (1:8.2p1-4ubuntu0.5) over (1:8.2p1-4ubuntu0.4) ...
+Preparing to unpack .../15-linux-gpu-mali-fbdev_1.0.11-r12p0_arm64.deb ...
+Unpacking linux-gpu-mali-fbdev (1.0.11-r12p0) over (1.0.10-r12p0) ...
+Preparing to unpack .../16-libwebkit2gtk-4.0-37_2.36.2-0ubuntu0.20.04.1_arm64.deb ...
+Unpacking libwebkit2gtk-4.0-37:arm64 (2.36.2-0ubuntu0.20.04.1) over (2.34.6-0ubuntu0.20.04.1) ...
+Preparing to unpack .../17-libjavascriptcoregtk-4.0-18_2.36.2-0ubuntu0.20.04.1_arm64.deb ...
+Unpacking libjavascriptcoregtk-4.0-18:arm64 (2.36.2-0ubuntu0.20.04.1) over (2.34.6-0ubuntu0.20.04.1) ...
+Preparing to unpack .../18-gir1.2-webkit2-4.0_2.36.2-0ubuntu0.20.04.1_arm64.deb ...
+Unpacking gir1.2-webkit2-4.0:arm64 (2.36.2-0ubuntu0.20.04.1) over (2.34.6-0ubuntu0.20.04.1) ...
+Preparing to unpack .../19-gir1.2-javascriptcoregtk-4.0_2.36.2-0ubuntu0.20.04.1_arm64.deb ...
+Unpacking gir1.2-javascriptcoregtk-4.0:arm64 (2.36.2-0ubuntu0.20.04.1) over (2.34.6-0ubuntu0.20.04.1) ...
+Preparing to unpack .../20-ubuntu-release-upgrader-gtk_1%3a20.04.38_all.deb ...
+Unpacking ubuntu-release-upgrader-gtk (1:20.04.38) over (1:20.04.37) ...
+Preparing to unpack .../21-ubuntu-release-upgrader-core_1%3a20.04.38_all.deb ...
+Unpacking ubuntu-release-upgrader-core (1:20.04.38) over (1:20.04.37) ...
+Preparing to unpack .../22-python3-distupgrade_1%3a20.04.38_all.deb ...
+Unpacking python3-distupgrade (1:20.04.38) over (1:20.04.37) ...
+Preparing to unpack .../23-aml-npu_6.4.8.7.1.1.1-1_arm64.deb ...
+Unpacking aml-npu (6.4.8.7.1.1.1-1) over (6.4.6.2.5.3.2) ...
+Preparing to unpack .../24-python3-problem-report_2.20.11-0ubuntu27.24_all.deb ...
+Unpacking python3-problem-report (2.20.11-0ubuntu27.24) over (2.20.11-0ubuntu27.21) ...
+Preparing to unpack .../25-python3-apport_2.20.11-0ubuntu27.24_all.deb ...
+Unpacking python3-apport (2.20.11-0ubuntu27.24) over (2.20.11-0ubuntu27.21) ...
+Preparing to unpack .../26-apport_2.20.11-0ubuntu27.24_all.deb ...
+Unpacking apport (2.20.11-0ubuntu27.24) over (2.20.11-0ubuntu27.21) ...
+Preparing to unpack .../27-apport-gtk_2.20.11-0ubuntu27.24_all.deb ...
+Unpacking apport-gtk (2.20.11-0ubuntu27.24) over (2.20.11-0ubuntu27.21) ...
+Preparing to unpack .../28-apt-transport-https_2.0.8_all.deb ...
+Unpacking apt-transport-https (2.0.8) over (2.0.6) ...
+Preparing to unpack .../29-bolt_0.9.1-2~ubuntu20.04.1_arm64.deb ...
+Unpacking bolt (0.9.1-2~ubuntu20.04.1) over (0.8-4ubuntu1) ...
+Preparing to unpack .../30-gfortran-9_9.4.0-1ubuntu1~20.04.1_arm64.deb ...
+Unpacking gfortran-9 (9.4.0-1ubuntu1~20.04.1) over (9.4.0-1ubuntu1~20.04) ...
+Preparing to unpack .../31-libgfortran-9-dev_9.4.0-1ubuntu1~20.04.1_arm64.deb ...
+Unpacking libgfortran-9-dev:arm64 (9.4.0-1ubuntu1~20.04.1) over (9.4.0-1ubuntu1~20.04) ...
+Preparing to unpack .../32-libasan5_9.4.0-1ubuntu1~20.04.1_arm64.deb ...
+Unpacking libasan5:arm64 (9.4.0-1ubuntu1~20.04.1) over (9.4.0-1ubuntu1~20.04) ...
+Preparing to unpack .../33-g++-9_9.4.0-1ubuntu1~20.04.1_arm64.deb ...
+Unpacking g++-9 (9.4.0-1ubuntu1~20.04.1) over (9.4.0-1ubuntu1~20.04) ...
+Preparing to unpack .../34-gcc-9_9.4.0-1ubuntu1~20.04.1_arm64.deb ...
+Unpacking gcc-9 (9.4.0-1ubuntu1~20.04.1) over (9.4.0-1ubuntu1~20.04) ...
+Preparing to unpack .../35-libstdc++-9-dev_9.4.0-1ubuntu1~20.04.1_arm64.deb ...
+Unpacking libstdc++-9-dev:arm64 (9.4.0-1ubuntu1~20.04.1) over (9.4.0-1ubuntu1~20.04) ...
+Preparing to unpack .../36-libgcc-9-dev_9.4.0-1ubuntu1~20.04.1_arm64.deb ...
+Unpacking libgcc-9-dev:arm64 (9.4.0-1ubuntu1~20.04.1) over (9.4.0-1ubuntu1~20.04) ...
+Preparing to unpack .../37-cpp-9_9.4.0-1ubuntu1~20.04.1_arm64.deb ...
+Unpacking cpp-9 (9.4.0-1ubuntu1~20.04.1) over (9.4.0-1ubuntu1~20.04) ...
+Preparing to unpack .../38-gcc-9-base_9.4.0-1ubuntu1~20.04.1_arm64.deb ...
+Unpacking gcc-9-base:arm64 (9.4.0-1ubuntu1~20.04.1) over (9.4.0-1ubuntu1~20.04) ...
+Preparing to unpack .../39-curl_7.68.0-1ubuntu2.11_arm64.deb ...
+Unpacking curl (7.68.0-1ubuntu2.11) over (7.68.0-1ubuntu2.7) ...
+Preparing to unpack .../40-libcurl4_7.68.0-1ubuntu2.11_arm64.deb ...
+Unpacking libcurl4:arm64 (7.68.0-1ubuntu2.11) over (7.68.0-1ubuntu2.7) ...
+Preparing to unpack .../41-dnsmasq-base_2.80-1.1ubuntu1.5_arm64.deb ...
+Unpacking dnsmasq-base (2.80-1.1ubuntu1.5) over (2.80-1.1ubuntu1.4) ...
+Preparing to unpack .../42-dpkg-dev_1.19.7ubuntu3.2_all.deb ...
+Unpacking dpkg-dev (1.19.7ubuntu3.2) over (1.19.7ubuntu3) ...
+Preparing to unpack .../43-libdpkg-perl_1.19.7ubuntu3.2_all.deb ...
+Unpacking libdpkg-perl (1.19.7ubuntu3.2) over (1.19.7ubuntu3) ...
+Preparing to unpack .../44-fenix-updater-package-focal-vim3-4.9_1.0.11_arm64.deb ...
+Unpacking fenix-updater-package-focal-vim3-4.9 (1.0.11) over (1.0.10) ...
+Preparing to unpack .../45-firefox_100.0.2+build1-0ubuntu0.20.04.1_arm64.deb ...
+Unpacking firefox (100.0.2+build1-0ubuntu0.20.04.1) over (98.0.1+build2-0ubuntu0.20.04.1) ...
+Preparing to unpack .../46-gnome-control-center-data_1%3a3.36.5-0ubuntu4_all.deb ...
+Unpacking gnome-control-center-data (1:3.36.5-0ubuntu4) over (1:3.36.5-0ubuntu3) ...
+Preparing to unpack .../47-gnome-control-center_1%3a3.36.5-0ubuntu4_arm64.deb ...
+Unpacking gnome-control-center (1:3.36.5-0ubuntu4) over (1:3.36.5-0ubuntu3) ...
+Preparing to unpack .../48-gnome-control-center-faces_1%3a3.36.5-0ubuntu4_all.deb ...
+Unpacking gnome-control-center-faces (1:3.36.5-0ubuntu4) over (1:3.36.5-0ubuntu3) ...
+Preparing to unpack .../49-gvfs-backends_1.44.1-1ubuntu1.1_arm64.deb ...
+Unpacking gvfs-backends (1.44.1-1ubuntu1.1) over (1.44.1-1ubuntu1) ...
+Preparing to unpack .../50-gvfs-fuse_1.44.1-1ubuntu1.1_arm64.deb ...
+Unpacking gvfs-fuse (1.44.1-1ubuntu1.1) over (1.44.1-1ubuntu1) ...
+Preparing to unpack .../51-gvfs_1.44.1-1ubuntu1.1_arm64.deb ...
+Unpacking gvfs:arm64 (1.44.1-1ubuntu1.1) over (1.44.1-1ubuntu1) ...
+Preparing to unpack .../52-gvfs-daemons_1.44.1-1ubuntu1.1_arm64.deb ...
+Unpacking gvfs-daemons (1.44.1-1ubuntu1.1) over (1.44.1-1ubuntu1) ...
+Preparing to unpack .../53-gvfs-libs_1.44.1-1ubuntu1.1_arm64.deb ...
+Unpacking gvfs-libs:arm64 (1.44.1-1ubuntu1.1) over (1.44.1-1ubuntu1) ...
+Preparing to unpack .../54-gvfs-bin_1.44.1-1ubuntu1.1_arm64.deb ...
+Unpacking gvfs-bin (1.44.1-1ubuntu1.1) over (1.44.1-1ubuntu1) ...
+Preparing to unpack .../55-gvfs-common_1.44.1-1ubuntu1.1_all.deb ...
+Unpacking gvfs-common (1.44.1-1ubuntu1.1) over (1.44.1-1ubuntu1) ...
+Preparing to unpack .../56-libarchive13_3.4.0-2ubuntu1.2_arm64.deb ...
+Unpacking libarchive13:arm64 (3.4.0-2ubuntu1.2) over (3.4.0-2ubuntu1.1) ...
+Preparing to unpack .../57-iio-sensor-proxy_2.8-1ubuntu2_arm64.deb ...
+Unpacking iio-sensor-proxy (2.8-1ubuntu2) over (2.8-1ubuntu1) ...
+Preparing to unpack .../58-klibc-utils_2.0.7-1ubuntu5.1_arm64.deb ...
+Unpacking klibc-utils (2.0.7-1ubuntu5.1) over (2.0.7-1ubuntu5) ...
+Preparing to unpack .../59-libklibc_2.0.7-1ubuntu5.1_arm64.deb ...
+Unpacking libklibc:arm64 (2.0.7-1ubuntu5.1) over (2.0.7-1ubuntu5) ...
+Preparing to unpack .../60-libnss3_2%3a3.49.1-1ubuntu1.7_arm64.deb ...
+Unpacking libnss3:arm64 (2:3.49.1-1ubuntu1.7) over (2:3.49.1-1ubuntu1.6) ...
+Preparing to unpack .../61-libfprint-2-2_1%3a1.90.2+tod1-0ubuntu1~20.04.7_arm64.deb ...
+Unpacking libfprint-2-2:arm64 (1:1.90.2+tod1-0ubuntu1~20.04.7) over (1:1.90.2+tod1-0ubuntu1~20.04.6) ...
+Preparing to unpack .../62-libevdev2_1.9.0+dfsg-1ubuntu0.2_arm64.deb ...
+Unpacking libevdev2:arm64 (1.9.0+dfsg-1ubuntu0.2) over (1.9.0+dfsg-1ubuntu0.1) ...
+Preparing to unpack .../63-libinput-bin_1.15.5-1ubuntu0.3_arm64.deb ...
+Unpacking libinput-bin (1.15.5-1ubuntu0.3) over (1.15.5-1ubuntu0.2) ...
+Preparing to unpack .../64-libinput10_1.15.5-1ubuntu0.3_arm64.deb ...
+Unpacking libinput10:arm64 (1.15.5-1ubuntu0.3) over (1.15.5-1ubuntu0.2) ...
+Preparing to unpack .../65-libmysqlclient21_8.0.29-0ubuntu0.20.04.3_arm64.deb ...
+Unpacking libmysqlclient21:arm64 (8.0.29-0ubuntu0.20.04.3) over (8.0.28-0ubuntu0.20.04.3) ...
+Preparing to unpack .../66-libpcrecpp0v5_2%3a8.39-12ubuntu0.1_arm64.deb ...
+Unpacking libpcrecpp0v5:arm64 (2:8.39-12ubuntu0.1) over (2:8.39-12build1) ...
+Preparing to unpack .../67-libpq5_12.11-0ubuntu0.20.04.1_arm64.deb ...
+Unpacking libpq5:arm64 (12.11-0ubuntu0.20.04.1) over (12.9-0ubuntu0.20.04.1) ...
+Preparing to unpack .../68-libsensors-config_1%3a3.6.0-2ubuntu1.1_all.deb ...
+Unpacking libsensors-config (1:3.6.0-2ubuntu1.1) over (1:3.6.0-2ubuntu1) ...
+Preparing to unpack .../69-libsensors5_1%3a3.6.0-2ubuntu1.1_arm64.deb ...
+De-configuring libsensors5:armhf (1:3.6.0-2ubuntu1) ...
+Unpacking libsensors5:arm64 (1:3.6.0-2ubuntu1.1) over (1:3.6.0-2ubuntu1) ...
+Preparing to unpack .../70-libsensors5_1%3a3.6.0-2ubuntu1.1_armhf.deb ...
+Unpacking libsensors5:armhf (1:3.6.0-2ubuntu1.1) over (1:3.6.0-2ubuntu1) ...
+Preparing to unpack .../71-libtiff-dev_4.1.0+git191117-2ubuntu0.20.04.3_arm64.deb ...
+Unpacking libtiff-dev:arm64 (4.1.0+git191117-2ubuntu0.20.04.3) over (4.1.0+git191117-2ubuntu0.20.04.2) ...
+Preparing to unpack .../72-libtiff5_4.1.0+git191117-2ubuntu0.20.04.3_arm64.deb ...
+De-configuring libtiff5:armhf (4.1.0+git191117-2ubuntu0.20.04.2) ...
+Unpacking libtiff5:arm64 (4.1.0+git191117-2ubuntu0.20.04.3) over (4.1.0+git191117-2ubuntu0.20.04.2) ...
+Preparing to unpack .../73-libtiff5_4.1.0+git191117-2ubuntu0.20.04.3_armhf.deb ...
+Unpacking libtiff5:armhf (4.1.0+git191117-2ubuntu0.20.04.3) over (4.1.0+git191117-2ubuntu0.20.04.2) ...
+Preparing to unpack .../74-libtiffxx5_4.1.0+git191117-2ubuntu0.20.04.3_arm64.deb ...
+Unpacking libtiffxx5:arm64 (4.1.0+git191117-2ubuntu0.20.04.3) over (4.1.0+git191117-2ubuntu0.20.04.2) ...
+Preparing to unpack .../75-linux-board-package-focal-vim3_1.0.11_arm64.deb ...
+Unpacking linux-board-package-focal-vim3 (1.0.11) over (1.0.10) ...
+Preparing to unpack .../76-linux-dtb-amlogic-4.9_1.0.11_arm64.deb ...
+Unpacking linux-dtb-amlogic-4.9 (1.0.11) over (1.0.10) ...
+Preparing to unpack .../77-linux-headers-amlogic-4.9_1.0.11_arm64.deb ...
+Unpacking linux-headers-amlogic-4.9 (1.0.11) over (1.0.10) ...
+Preparing to unpack .../78-linux-image-amlogic-4.9_1.0.11_arm64.deb ...
+Unpacking linux-image-amlogic-4.9 (1.0.11) over (1.0.10) ...
+Preparing to unpack .../79-linux-u-boot-vim3-vendor_1.0.11-2015.01_arm64.deb ...
+Unpacking linux-u-boot-vim3-vendor (1.0.11-2015.01) over (1.0.10-2015.01) ...
+Preparing to unpack .../80-orca_3.36.2-1ubuntu1~20.04.2_all.deb ...
+Unpacking orca (3.36.2-1ubuntu1~20.04.2) over (3.36.2-1ubuntu1~20.04.1) ...
+Preparing to unpack .../81-python3-paramiko_2.6.0-2ubuntu0.1_all.deb ...
+Unpacking python3-paramiko (2.6.0-2ubuntu0.1) over (2.6.0-2) ...
+Preparing to unpack .../82-snapd_2.54.3+20.04.1ubuntu0.3_arm64.deb ...
+Unpacking snapd (2.54.3+20.04.1ubuntu0.3) over (2.54.3+20.04.1ubuntu0.2) ...
+Preparing to unpack .../83-teamviewer_15.30.3_arm64.deb ...
+Removed /etc/systemd/system/multi-user.target.wants/teamviewerd.service.
+Unpacking teamviewer (15.30.3) over (15.27.3) ...
+Preparing to unpack .../84-thunderbird_1%3a91.9.1+build1-0ubuntu0.20.04.1_arm64.deb ...
+Unpacking thunderbird (1:91.9.1+build1-0ubuntu0.20.04.1) over (1:91.5.0+build1-0ubuntu0.20.04.1) ...
+Preparing to unpack .../85-libnss-myhostname_245.4-4ubuntu3.17_arm64.deb ...
+Unpacking libnss-myhostname:arm64 (245.4-4ubuntu3.17) over (245.4-4ubuntu3.15) ...
+Preparing to unpack .../86-lm-sensors_1%3a3.6.0-2ubuntu1.1_arm64.deb ...
+Unpacking lm-sensors (1:3.6.0-2ubuntu1.1) over (1:3.6.0-2ubuntu1) ...
+Setting up iio-sensor-proxy (2.8-1ubuntu2) ...
+iio-sensor-proxy.service is a disabled or a static unit, not starting it.
+Setting up apt-utils (2.0.8) ...
+Setting up apt-transport-https (2.0.8) ...
+Setting up python3-problem-report (2.20.11-0ubuntu27.24) ...
+Setting up distro-info-data (0.43ubuntu1.10) ...
+Setting up libssl1.1:arm64 (1.1.1f-1ubuntu2.13) ...
+Setting up libssl1.1:armhf (1.1.1f-1ubuntu2.13) ...
+Setting up libsqlite3-0:arm64 (3.31.1-4ubuntu0.3) ...
+Setting up rsyslog (8.2001.0-1ubuntu1.3) ...
+The user `syslog' is already a member of `adm'.
+The user `syslog' is already a member of `tty'.
+Setting up libsensors-config (1:3.6.0-2ubuntu1.1) ...
+Setting up libjavascriptcoregtk-4.0-18:arm64 (2.36.2-0ubuntu0.20.04.1) ...
+Setting up linux-libc-dev:arm64 (5.4.0-113.127) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-2ubuntu1.3) ...
+Setting up systemd (245.4-4ubuntu3.17) ...
+Setting up libnss3:arm64 (2:3.49.1-1ubuntu1.7) ...
+Setting up gir1.2-javascriptcoregtk-4.0:arm64 (2.36.2-0ubuntu0.20.04.1) ...
+Setting up linux-board-package-focal-vim3 (1.0.11) ...
+update-initramfs: deferring update (trigger activated)
+Setting up python3-distupgrade (1:20.04.38) ...
+Setting up locales (2.31-0ubuntu9.9) ...
+Generating locales (this might take a while)...
+  en_US.UTF-8... done
+Generation complete.
+Setting up libldap-common (2.4.49+dfsg-2ubuntu1.9) ...
+Setting up libwbclient0:arm64 (2:4.13.17~dfsg-0ubuntu0.21.04.2) ...
+Setting up linux-u-boot-vim3-vendor (1.0.11-2015.01) ...
+Updating u-boot on /dev/mmcblk1
+Reseting u-boot environment variables ...
+Setting up libsystemd0:armhf (245.4-4ubuntu3.17) ...
+Setting up python3-apport (2.20.11-0ubuntu27.24) ...
+Setting up libc6-dbg:arm64 (2.31-0ubuntu9.9) ...
+Setting up tzdata (2022a-0ubuntu0.20.04) ...
+
+Current default time zone: 'Europe/Berlin'
+Local time is now:      Sat May 28 17:34:49 CEST 2022.
+Universal Time is now:  Sat May 28 15:34:49 UTC 2022.
+Run 'dpkg-reconfigure tzdata' if you wish to change it.
+
+Setting up libklibc:arm64 (2.0.7-1ubuntu5.1) ...
+Setting up libpcre3:arm64 (2:8.39-12ubuntu0.1) ...
+Setting up libpcre3:armhf (2:8.39-12ubuntu0.1) ...
+Setting up fenix-updater-package-focal-vim3-4.9 (1.0.11) ...
+Setting up gnome-control-center-data (1:3.36.5-0ubuntu4) ...
+Setting up linux-image-amlogic-4.9 (1.0.11) ...
+update-initramfs: Generating /boot/initrd.img-4.9.241
+update-initramfs: Converting to u-boot format
+Setting up libdbus-1-3:arm64 (1.12.16-2ubuntu2.2) ...
+Setting up libdbus-1-3:armhf (1.12.16-2ubuntu2.2) ...
+Setting up dbus (1.12.16-2ubuntu2.2) ...
+A reboot is required to replace the running dbus-daemon.
+Please reboot the system when convenient.
+Setting up xz-utils (5.2.4-1ubuntu1.1) ...
+Setting up aml-npu (6.4.8.7.1.1.1-1) ...
+Setting up libfribidi0:arm64 (1.0.8-2ubuntu0.1) ...
+Setting up libfribidi0:armhf (1.0.8-2ubuntu0.1) ...
+Setting up libssl-dev:arm64 (1.1.1f-1ubuntu2.13) ...
+Setting up udev (245.4-4ubuntu3.17) ...
+update-initramfs: deferring update (trigger activated)
+Setting up libnss-myhostname:arm64 (245.4-4ubuntu3.17) ...
+Setting up ubuntu-release-upgrader-core (1:20.04.38) ...
+Setting up linux-headers-amlogic-4.9 (1.0.11) ...
+Compiling headers - please wait ...
+Setting up libsensors5:arm64 (1:3.6.0-2ubuntu1.1) ...
+Setting up libsensors5:armhf (1:3.6.0-2ubuntu1.1) ...
+Setting up linux-gpu-mali-fbdev (1.0.11-r12p0) ...
+Setting up libdpkg-perl (1.19.7ubuntu3.2) ...
+Setting up linux-dtb-amlogic-4.9 (1.0.11) ...
+Setting up lm-sensors (1:3.6.0-2ubuntu1.1) ...
+Setting up liblzma-dev:arm64 (5.2.4-1ubuntu1.1) ...
+Setting up gnome-control-center-faces (1:3.36.5-0ubuntu4) ...
+Setting up dbus-x11 (1.12.16-2ubuntu2.2) ...
+Setting up git-man (1:2.25.1-1ubuntu3.4) ...
+Setting up thunderbird (1:91.9.1+build1-0ubuntu0.20.04.1) ...
+Setting up orca (3.36.2-1ubuntu1~20.04.2) ...
+Setting up libtiff5:arm64 (4.1.0+git191117-2ubuntu0.20.04.3) ...
+Setting up libtiff5:armhf (4.1.0+git191117-2ubuntu0.20.04.3) ...
+Setting up ubuntu-advantage-tools (27.8~20.04.1) ...
+Installing new version of config file /etc/logrotate.d/ubuntu-advantage-tools ...
+Installing new version of config file /etc/ubuntu-advantage/help_data.yaml ...
+Setting up python3-paramiko (2.6.0-2ubuntu0.1) ...
+Setting up libc-dev-bin (2.31-0ubuntu9.9) ...
+Setting up klibc-utils (2.0.7-1ubuntu5.1) ...
+Setting up openssl (1.1.1f-1ubuntu2.13) ...
+Setting up gvfs-common (1.44.1-1ubuntu1.1) ...
+Setting up libevdev2:arm64 (1.9.0+dfsg-1ubuntu0.2) ...
+Setting up libxml2:arm64 (2.9.10+dfsg-5ubuntu0.20.04.3) ...
+Setting up rsync (3.1.3-8ubuntu0.3) ...
+Setting up bolt (0.9.1-2~ubuntu20.04.1) ...
+bolt.service is a disabled or a static unit not running, not starting it.
+Setting up libtiffxx5:arm64 (4.1.0+git191117-2ubuntu0.20.04.3) ...
+Setting up gcc-9-base:arm64 (9.4.0-1ubuntu1~20.04.1) ...
+Setting up libfprint-2-2:arm64 (1:1.90.2+tod1-0ubuntu1~20.04.7) ...
+Setting up libpcrecpp0v5:arm64 (2:8.39-12ubuntu0.1) ...
+Setting up networkd-dispatcher (2.1-2~ubuntu20.04.3) ...
+Setting up systemd-sysv (245.4-4ubuntu3.17) ...
+Setting up libmysqlclient21:arm64 (8.0.29-0ubuntu0.20.04.3) ...
+Setting up libpython3.8-minimal:arm64 (3.8.10-0ubuntu1~20.04.4) ...
+Setting up ubuntu-drivers-common (1:0.9.0~0.20.04.7) ...
+Setting up firefox (100.0.2+build1-0ubuntu0.20.04.1) ...
+Installing new version of config file /etc/apparmor.d/usr.bin.firefox ...
+Please restart all running instances of firefox, or you will experience problems.
+Setting up libarchive13:arm64 (3.4.0-2ubuntu1.2) ...
+Setting up openssh-client (1:8.2p1-4ubuntu0.5) ...
+Setting up libldap-2.4-2:arm64 (2.4.49+dfsg-2ubuntu1.9) ...
+Setting up libcurl3-gnutls:arm64 (7.68.0-1ubuntu2.11) ...
+Setting up dnsmasq-base (2.80-1.1ubuntu1.5) ...
+Setting up teamviewer (15.30.3) ...
+Setting up apport (2.20.11-0ubuntu27.24) ...
+Installing new version of config file /etc/init.d/apport ...
+apport-autoreport.service is a disabled or a static unit, not starting it.
+Setting up dpkg-dev (1.19.7ubuntu3.2) ...
+Setting up libinput-bin (1.15.5-1ubuntu0.3) ...
+Setting up libasan5:arm64 (9.4.0-1ubuntu1~20.04.1) ...
+Setting up libdbus-1-dev:arm64 (1.12.16-2ubuntu2.2) ...
+Setting up gvfs-bin (1.44.1-1ubuntu1.1) ...
+Setting up gvfs-libs:arm64 (1.44.1-1ubuntu1.1) ...
+Setting up git (1:2.25.1-1ubuntu3.4) ...
+Setting up apport-gtk (2.20.11-0ubuntu27.24) ...
+Setting up python3.8-minimal (3.8.10-0ubuntu1~20.04.4) ...
+Setting up libwebkit2gtk-4.0-37:arm64 (2.36.2-0ubuntu0.20.04.1) ...
+Setting up libpam-systemd:arm64 (245.4-4ubuntu3.17) ...
+Setting up cpp-9 (9.4.0-1ubuntu1~20.04.1) ...
+Setting up libcurl4:arm64 (7.68.0-1ubuntu2.11) ...
+Setting up libc6-dev:arm64 (2.31-0ubuntu9.9) ...
+Setting up curl (7.68.0-1ubuntu2.11) ...
+Setting up libpython3.8-stdlib:arm64 (3.8.10-0ubuntu1~20.04.4) ...
+Setting up python3.8 (3.8.10-0ubuntu1~20.04.4) ...
+Setting up libinput10:arm64 (1.15.5-1ubuntu0.3) ...
+Setting up snapd (2.54.3+20.04.1ubuntu0.3) ...
+snapd.failure.service is a disabled or a static unit not running, not starting it.
+snapd.snap-repair.service is a disabled or a static unit not running, not starting it.
+Setting up openssh-sftp-server (1:8.2p1-4ubuntu0.5) ...
+Setting up gir1.2-webkit2-4.0:arm64 (2.36.2-0ubuntu0.20.04.1) ...
+Setting up openssh-server (1:8.2p1-4ubuntu0.5) ...
+rescue-ssh.target is a disabled or a static unit, not starting it.
+Setting up libpq5:arm64 (12.11-0ubuntu0.20.04.1) ...
+Setting up gvfs-daemons (1.44.1-1ubuntu1.1) ...
+Setting up libgcc-9-dev:arm64 (9.4.0-1ubuntu1~20.04.1) ...
+Setting up dbus-user-session (1.12.16-2ubuntu2.2) ...
+Setting up libpython3.8:arm64 (3.8.10-0ubuntu1~20.04.4) ...
+Setting up python3.8-venv (3.8.10-0ubuntu1~20.04.4) ...
+Setting up zlib1g-dev:arm64 (1:1.2.11.dfsg-2ubuntu1.3) ...
+Setting up ubuntu-release-upgrader-gtk (1:20.04.38) ...
+Setting up gcc-9 (9.4.0-1ubuntu1~20.04.1) ...
+Setting up gvfs:arm64 (1.44.1-1ubuntu1.1) ...
+Setting up libstdc++-9-dev:arm64 (9.4.0-1ubuntu1~20.04.1) ...
+Setting up libgfortran-9-dev:arm64 (9.4.0-1ubuntu1~20.04.1) ...
+Setting up samba-libs:arm64 (2:4.13.17~dfsg-0ubuntu0.21.04.2) ...
+Setting up libtiff-dev:arm64 (4.1.0+git191117-2ubuntu0.20.04.3) ...
+Setting up libpython3.8-dev:arm64 (3.8.10-0ubuntu1~20.04.4) ...
+Setting up g++-9 (9.4.0-1ubuntu1~20.04.1) ...
+Setting up libsmbclient:arm64 (2:4.13.17~dfsg-0ubuntu0.21.04.2) ...
+Setting up python3.8-dev (3.8.10-0ubuntu1~20.04.4) ...
+Setting up gvfs-fuse (1.44.1-1ubuntu1.1) ...
+Setting up gfortran-9 (9.4.0-1ubuntu1~20.04.1) ...
+Setting up gvfs-backends (1.44.1-1ubuntu1.1) ...
+Processing triggers for desktop-file-utils (0.24-1ubuntu3) ...
+Processing triggers for mime-support (3.64ubuntu1) ...
+Processing triggers for initramfs-tools (0.136ubuntu6.7) ...
+ln: failed to create hard link '/boot/initrd.img-4.9.241.dpkg-bak' => '/boot/initrd.img-4.9.241': Operation not permitted
+update-initramfs: Generating /boot/initrd.img-4.9.241
+update-initramfs: Converting to u-boot format
+Processing triggers for hicolor-icon-theme (0.17-2) ...
+Processing triggers for gnome-menus (3.36.0-1ubuntu1) ...
+Processing triggers for libglib2.0-0:armhf (2.64.6-1~ubuntu20.04.4) ...
+Processing triggers for libglib2.0-0:arm64 (2.64.6-1~ubuntu20.04.4) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.9) ...
+Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for sgml-base (1.29.1) ...
+Setting up gnome-control-center (1:3.36.5-0ubuntu4) ...
+Processing triggers for systemd (245.4-4ubuntu3.17) ...
+khadas@Khadas-teco:~$ sudo do-fenix-full-upgrade
+Hit:1 http://ports.ubuntu.com focal InRelease
+Hit:2 http://ports.ubuntu.com focal-security InRelease
+Hit:3 http://deb.anydesk.com all InRelease
+Hit:4 http://dl.khadas.com/repos/vim3 focal InRelease
+Hit:5 http://ports.ubuntu.com focal-updates InRelease
+Hit:6 http://ports.ubuntu.com focal-backports InRelease
+Hit:7 https://linux.teamviewer.com/deb stable InRelease
+Reading package lists... Done
+N: Skipping acquire of configured file 'main/binary-arm64/Packages' as repository 'http://deb.anydesk.com all InRelease' doesn't support architecture 'arm64'
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Calculating upgrade... Done
+The following packages were automatically installed and are no longer required:
+  libfwupdplugin1 libllvm11
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing basic denpendencies ...
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+automake is already the newest version (1:1.16.1-4ubuntu6).
+bash-completion is already the newest version (1:2.10-1ubuntu1).
+bc is already the newest version (1.07.1-2build1).
+bison is already the newest version (2:3.5.1+dfsg-1).
+bridge-utils is already the newest version (1.6-2ubuntu1).
+btrfs-progs is already the newest version (5.4.1-2).
+cracklib-runtime is already the newest version (2.9.6-3.2).
+device-tree-compiler is already the newest version (1.5.1-1).
+dosfstools is already the newest version (4.1-2).
+ethtool is already the newest version (1:5.4-1).
+fbset is already the newest version (2.1-31).
+flex is already the newest version (2.6.4-6.2).
+fonts-dejavu-core is already the newest version (2.37-1).
+fonts-liberation is already the newest version (1:1.07.4-11).
+gcc is already the newest version (4:9.3.0-1ubuntu2).
+gstreamer1.0-tools is already the newest version (1.16.2-2).
+hdparm is already the newest version (9.58+ds-4).
+htop is already the newest version (2.2.0-2build1).
+iotop is already the newest version (0.6-24-g733f3f8-1).
+iptables is already the newest version (1.8.4-3ubuntu2).
+iputils-arping is already the newest version (3:20190709-3).
+iw is already the newest version (5.4-1).
+kbd is already the newest version (2.0.4-4ubuntu2).
+keyboard-configuration is already the newest version (1.194ubuntu3).
+libao-dev is already the newest version (1.2.2+20180113-1ubuntu1).
+libao4 is already the newest version (1.2.2+20180113-1ubuntu1).
+libcdio18 is already the newest version (2.0.0-2).
+libcrack2 is already the newest version (2.9.6-3.2).
+libfuse2 is already the newest version (2.9.9-3).
+libgif7 is already the newest version (5.1.9-1).
+liblcms2-2 is already the newest version (2.9-4).
+libnfs13 is already the newest version (4.0.0-1).
+libnl-3-dev is already the newest version (3.4.0-1).
+libnl-genl-3-dev is already the newest version (3.4.0-1).
+libtag1v5 is already the newest version (1.11.1+dfsg.1-0.3ubuntu2).
+libvorbisfile3 is already the newest version (1.3.6-2ubuntu1).
+libwayland-cursor0 is already the newest version (1.18.0-1).
+libwrap0-dev is already the newest version (7.6.q-30).
+libxcb-dri2-0 is already the newest version (1.14-2).
+libxcb1 is already the newest version (1.14-2).
+libxkbcommon0 is already the newest version (0.10.0-1).
+libxslt1.1 is already the newest version (1.1.34-4).
+libyajl2 is already the newest version (2.1.0-3).
+make is already the newest version (4.2.1-1.2).
+man-db is already the newest version (2.9.1-1).
+mobile-broadband-provider-info is already the newest version (20190618-3).
+nano is already the newest version (4.8-1ubuntu1).
+ncurses-term is already the newest version (6.2-0ubuntu2).
+net-tools is already the newest version (1.60+git20180626.aebd88e-1ubuntu1).
+ocl-icd-libopencl1 is already the newest version (2.2.11-1ubuntu1).
+psmisc is already the newest version (23.3-1).
+pv is already the newest version (1.6.6-1).
+sysfsutils is already the newest version (2.1.0+repack-6).
+unzip is already the newest version (6.0-25ubuntu1).
+usbutils is already the newest version (1:012-2).
+wireless-tools is already the newest version (30~pre9-13ubuntu1).
+x11-utils is already the newest version (7.7+5).
+abootimg is already the newest version (0.6-1build1).
+aptitude is already the newest version (0.8.12-1ubuntu4).
+bluez-tools is already the newest version (2.0~20170911.0.7cb788c-2build1).
+clinfo is already the newest version (2.2.18.04.06-1).
+cpufrequtils is already the newest version (008-1.1).
+debconf-utils is already the newest version (1.5.73).
+dialog is already the newest version (1.3-20190808-1).
+evtest is already the newest version (1:1.34-1).
+expect is already the newest version (5.45.4-2build1).
+f2fs-tools is already the newest version (1.11.0-1.1ubuntu1).
+f3 is already the newest version (7.2-1).
+fake-hwclock is already the newest version (0.11).
+figlet is already the newest version (2.2.5-3).
+fping is already the newest version (4.2-1).
+gstreamer1.0-libav is already the newest version (1.16.2-2).
+gstreamer1.0-plugins-bad is already the newest version (1.16.2-2.1ubuntu1).
+haveged is already the newest version (1.9.1-6ubuntu1).
+hddtemp is already the newest version (0.3-beta15-53).
+html2text is already the newest version (1.3.2a-25).
+i2c-tools is already the newest version (4.1-2build2).
+ifenslave is already the newest version (2.9ubuntu1).
+iperf3 is already the newest version (3.7-3).
+libaacs0 is already the newest version (0.9.0-2).
+libass9 is already the newest version (1:0.14.0-2).
+libatlas3-base is already the newest version (3.10.3-8ubuntu7).
+libbluray2 is already the newest version (1:1.2.0-1).
+libconfig++9v5 is already the newest version (1.5-0.4build1).
+libconfig9 is already the newest version (1.5-0.4build1).
+libcrossguid0 is already the newest version (0.0+git200150803-4build1).
+libdigest-sha-perl is already the newest version (6.02-1build2).
+libfstrcmp0 is already the newest version (0.7.D001-1.1build1).
+libjpeg9 is already the newest version (1:9d-1).
+libmicrohttpd12 is already the newest version (0.9.66-1).
+libproc-processtable-perl is already the newest version (0.59-2).
+libsndio7.0 is already the newest version (1.5.0-3).
+libtinyxml2.6.2v5 is already the newest version (2.6.2-4build1).
+lrzip is already the newest version (0.631+git180528-1build1).
+lzip is already the newest version (1.21-6build1).
+lzop is already the newest version (1.04-1).
+mc is already the newest version (3:4.8.24-2ubuntu1).
+mesa-utils is already the newest version (8.4.0-1build1).
+mmc-utils is already the newest version (0+git20180327.b4fe0c8c-1).
+ncompress is already the newest version (4.2.4.6-1).
+nocache is already the newest version (1.1-1).
+p7zip is already the newest version (16.02+dfsg-7build1).
+p7zip-full is already the newest version (16.02+dfsg-7build1).
+python-bluez is already the newest version (0.22+really0.22-1build2).
+python-pil is already the newest version (6.2.1-3).
+python-simplejson is already the newest version (3.16.0-2ubuntu2).
+qrencode is already the newest version (4.0.2-2).
+resolvconf is already the newest version (1.82).
+stress is already the newest version (1.0.4-6).
+sysbench is already the newest version (1.0.18+ds-1).
+toilet is already the newest version (0.3-1.2).
+unar is already the newest version (1.10.1-2build7).
+unicode-data is already the newest version (13.0.0-2build1).
+watchdog is already the newest version (5.15-2).
+iozone3 is already the newest version (489-1).
+avahi-autoipd is already the newest version (0.7-4ubuntu7.1).
+bluez is already the newest version (5.53-0ubuntu3.5).
+chrony is already the newest version (3.5-6ubuntu6.2).
+curl is already the newest version (7.68.0-1ubuntu2.11).
+dnsmasq-base is already the newest version (2.80-1.1ubuntu1.5).
+git is already the newest version (1:2.25.1-1ubuntu3.4).
+gstreamer1.0-alsa is already the newest version (1.16.2-4ubuntu0.1).
+gstreamer1.0-plugins-base is already the newest version (1.16.2-4ubuntu0.1).
+gstreamer1.0-plugins-good is already the newest version (1.16.2-1ubuntu2.1).
+libavahi-client3 is already the newest version (0.7-4ubuntu7.1).
+libavahi-common3 is already the newest version (0.7-4ubuntu7.1).
+libavahi-compat-libdnssd-dev is already the newest version (0.7-4ubuntu7.1).
+libdrm2 is already the newest version (2.4.107-8ubuntu1~20.04.2).
+libfreetype6 is already the newest version (2.10.1-2ubuntu0.1).
+libgnutls30 is already the newest version (3.6.13-2ubuntu1.6).
+libinput10 is already the newest version (1.15.5-1ubuntu0.3).
+libpcrecpp0v5 is already the newest version (2:8.39-12ubuntu0.1).
+libssl-dev is already the newest version (1.1.1f-1ubuntu2.13).
+libstdc++6 is already the newest version (10.3.0-1ubuntu1~20.04).
+libx11-6 is already the newest version (2:1.6.9-2ubuntu1.2).
+libx11-xcb1 is already the newest version (2:1.6.9-2ubuntu1.2).
+networkd-dispatcher is already the newest version (2.1-2~ubuntu20.04.3).
+ntfs-3g is already the newest version (1:2017.3.23AR.3-3ubuntu1.1).
+ppp is already the newest version (2.4.7-2+4.1ubuntu5.1).
+rfkill is already the newest version (2.34-0.1ubuntu9.3).
+rsyslog is already the newest version (8.2001.0-1ubuntu1.3).
+screen is already the newest version (4.8.0-1ubuntu0.1).
+vim is already the newest version (2:8.1.2269-1ubuntu5.7).
+wpasupplicant is already the newest version (2:2.9-1ubuntu4.3).
+zlib1g-dev is already the newest version (1:1.2.11.dfsg-2ubuntu1.3).
+bluetooth is already the newest version (5.53-0ubuntu3.5).
+dnsutils is already the newest version (1:9.16.1-0ubuntu2.10).
+hostapd is already the newest version (2:2.9-1ubuntu4.3).
+libgcc1 is already the newest version (1:10.3.0-1ubuntu1~20.04).
+libpython2.7 is already the newest version (2.7.18-1~20.04.1).
+zstd is already the newest version (1.4.4+dfsg-3ubuntu0.1).
+alsa-utils is already the newest version (1.2.2-1ubuntu2.1).
+build-essential is already the newest version (12.8ubuntu1.1).
+command-not-found is already the newest version (20.04.6).
+dirmngr is already the newest version (2.2.19-3ubuntu2.1).
+libc6 is already the newest version (2.31-0ubuntu9.9).
+libc6-dev is already the newest version (2.31-0ubuntu9.9).
+libgtk-3-0 is already the newest version (3.24.20-0ubuntu1.1).
+libnss-myhostname is already the newest version (245.4-4ubuntu3.17).
+libpulse0 is already the newest version (1:13.99.1-1ubuntu3.13).
+libsmbclient is already the newest version (2:4.13.17~dfsg-0ubuntu0.21.04.2).
+lsof is already the newest version (4.93.2+dfsg-1ubuntu0.20.04.1).
+modemmanager is already the newest version (1.16.6-2~20.04.1).
+network-manager is already the newest version (1.22.10-1ubuntu2.3).
+openssh-server is already the newest version (1:8.2p1-4ubuntu0.5).
+parted is already the newest version (3.3-4ubuntu0.20.04.1).
+pciutils is already the newest version (1:3.6.4-1ubuntu0.20.04.1).
+plymouth is already the newest version (0.9.4git20200323-0ubuntu6.2).
+python3-apt is already the newest version (2.0.0ubuntu0.20.04.7).
+software-properties-common is already the newest version (0.99.9.8).
+sysstat is already the newest version (12.2.0-2ubuntu0.1).
+u-boot-tools is already the newest version (2021.01+dfsg-3ubuntu0~20.04.4).
+unattended-upgrades is already the newest version (2.3ubuntu0.1).
+wget is already the newest version (1.20.3-1ubuntu2).
+gnupg2 is already the newest version (2.2.19-3ubuntu2.1).
+jq is already the newest version (1.6-1ubuntu0.20.04.1).
+lirc is already the newest version (0.10.1-6.1ubuntu1.1).
+plymouth-themes is already the newest version (0.9.4git20200323-0ubuntu6.2).
+vlan is already the newest version (2.0.4ubuntu1.20.04.1).
+edid-decode is already the newest version (0.1~git20200331.11f97037).
+libcec4 is already the newest version (4.0.4.2~focal1).
+The following packages were automatically installed and are no longer required:
+  libfwupdplugin1 libllvm11
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Installing Fenix updater: fenix-updater-package-focal-vim3-4.9 ...
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+fenix-updater-package-focal-vim3-4.9 is already the newest version (1.0.11).
+The following packages were automatically installed and are no longer required:
+  libfwupdplugin1 libllvm11
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+khadas@Khadas-teco:~$ sync
+khadas@Khadas-teco:~$ sudo reboot
+
+=======================================
+Application Source Code sample_demo_x11 using libnn_detect.so
+=======================================
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to khadas@192.168.178.139                              │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+
+Welcome to Fenix 1.0.11 Ubuntu 20.04.4 LTS Linux 4.9.241
+ _  ___               _            __     _____ __  __ _____
+| |/ / |__   __ _  __| | __ _ ___  \ \   / /_ _|  \/  |___ /
+| ' /| '_ \ / _` |/ _` |/ _` / __|  \ \ / / | || |\/| | |_ \
+| . \| | | | (_| | (_| | (_| \__ \   \ V /  | || |  | |___) |
+|_|\_\_| |_|\__,_|\__,_|\__,_|___/    \_/  |___|_|  |_|____/
+
+
+ * Website:        https://www.khadas.com
+ * Documentation:  https://docs.khadas.com
+ * Forum:          https://forum.khadas.com
+
+Last login: Sat May 28 15:41:46 2022 from 192.168.178.33
+khadas@Khadas-teco:~$ cd ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ Compile Library
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ To compile the library, just enter the directory of the corresponding library and compile it. Here is yolov3 as an example
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3/vnn_yolov3.c
+vnn_yolov3.c: In function ‘vnn_CreateYolov3’:
+vnn_yolov3.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_yolov3.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3/yolo_v3.c
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ cd ../
+detect_mtcnn/        detect_yolo_v2/      detect_yolo_v3_tiny/ facenet/
+detect_yoloface/     detect_yolo_v3/      detect_yolo_v4/
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ cd ../
+detect_mtcnn/        detect_yolo_v2/      detect_yolo_v3_tiny/ facenet/
+detect_yoloface/     detect_yolo_v3/      detect_yolo_v4/
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code$ ls
+detect_mtcnn  detect_yoloface  detect_yolo_v2  detect_yolo_v3  detect_yolo_v3_tiny  detect_yolo_v4  facenet
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code$ ls
+detect_mtcnn  detect_yoloface  detect_yolo_v2  detect_yolo_v3  detect_yolo_v3_tiny  detect_yolo_v4  facenet
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library$ ls
+inception   sample_demo_fb   source_code        yolo_demo_fb_usb    yolo_demo_x11_usb
+model_code  sample_demo_x11  yolo_demo_fb_mipi  yolo_demo_x11_mipi
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_app$ ls
+DDK_6.3.3.4  DDK_6.4.0.3  DDK_6.4.3  DDK_6.4.4.3  detect_library  LICENSE  NN_SLT
+khadas@Khadas-teco:~/hussain/aml_npu_app$ cd detect_library/
+inception/          sample_demo_fb/     source_code/        yolo_demo_fb_usb/   yolo_demo_x11_usb/
+model_code/         sample_demo_x11/    yolo_demo_fb_mipi/  yolo_demo_x11_mipi/
+khadas@Khadas-teco:~/hussain/aml_npu_app$ cd detect_library/source_code/
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/source_code$ ls
+build_vx.sh  detect.c  detect_log.c  include  Makefile  makefile.linux  makefile.linux.def
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/source_code$ Compile libnn_detect.so^C
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/source_code$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/aml_npu_app/detect_library/source_code/detect_log.c
+  COMPILE /home/khadas/hussain/aml_npu_app/detect_library/source_code/detect.c
+detect.c:109:12: warning: ‘find_string_index’ defined but not used [-Wunused-function]
+  109 | static int find_string_index(char* buffer, char* str, int lenght)
+      |            ^~~~~~~~~~~~~~~~~
+tee: /linux_build_sample.log: Permission denied
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/source_code$ sudo ./build_vx.sh
+[sudo] password for khadas:
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/source_code$ ll bin_r/
+total 52
+drwxrwxr-x 2 khadas khadas  4096 May 28 18:22 ./
+drwxrwxr-x 4 khadas khadas  4096 May 28 18:22 ../
+-rw-rw-r-- 1 khadas khadas  4840 May 28 18:22 detect_log.o
+-rw-rw-r-- 1 khadas khadas 14040 May 28 18:22 detect.o
+-rwxrwxr-x 1 khadas khadas 18744 May 28 18:22 libnn_detect.so*
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/source_code$ Compile Application Demo^C
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/source_code$ cd ../sample_demo_x11/
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11$ ls
+1080p.bmp    detect.h  main.cpp        makefile.linux.def    nn_detect_common.h  nn_detect_utils.h  result
+build_vx.sh  emb.db    makefile.linux  makefile.target_name  nn_detect.h         ReadMe.txt
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/aml_npu_app/detect_library/sample_demo_x11/main.cpp
+main.cpp: In function ‘int run_detect_model(int, char**)’:
+main.cpp:329:10: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+  329 |   return NULL;
+      |          ^~~~
+main.cpp:275:39: warning: unused variable ‘img_width’ [-Wunused-variable]
+  275 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                       ^~~~~~~~~
+main.cpp:275:50: warning: unused variable ‘img_height’ [-Wunused-variable]
+  275 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                                  ^~~~~~~~~~
+main.cpp: In function ‘int run_detect_facent(int, char**)’:
+main.cpp:412:10: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+  412 |   return NULL;
+      |          ^~~~
+main.cpp:368:39: warning: unused variable ‘img_width’ [-Wunused-variable]
+  368 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                       ^~~~~~~~~
+main.cpp:368:50: warning: unused variable ‘img_height’ [-Wunused-variable]
+  368 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                                  ^~~~~~~~~~
+main.cpp: In function ‘int init_fb()’:
+main.cpp:538:11: warning: unused variable ‘i’ [-Wunused-variable]
+  538 |  long int i;
+      |           ^
+main.cpp: At global scope:
+main.cpp:536:12: warning: ‘int init_fb()’ defined but not used [-Wunused-function]
+  536 | static int init_fb(void)
+      |            ^~~~~~~
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11$ ll bin_r_cv4/
+total 136
+drwxrwxr-x 2 khadas khadas  4096 May 28 18:23 ./
+drwxrwxr-x 4 khadas khadas  4096 May 28 18:23 ../
+-rwxrwxr-x 1 khadas khadas 49496 May 28 18:23 detect_demo_x11*
+-rw-rw-r-- 1 khadas khadas 75008 May 28 18:23 main.o
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11$ cd bin_r_cv4/
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [vnn_CreateYolov3:168]Open file nn_data/yolov3_88.nb failed.
+E [model_create:61]CHECK PTR 61
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls ..
+1080p.bmp  build_vx.sh  emb.db                  main.cpp        makefile.linux.def    nn_detect_common.h  nn_detect_utils.h  result
+bin_r_cv4  detect.h     linux_build_sample.log  makefile.linux  makefile.target_name  nn_detect.h         ReadMe.txt
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls ../../source_code/
+bin_r/              detect.c            include/            makefile.linux
+build_vx.sh         detect_log.c        Makefile            makefile.linux.def
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls ../../source_code/bin_r/
+detect_log.o  detect.o  libnn_detect.so
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls ../../model_code/detect_yolo_v3
+bin_r        include                 makefile.linux      makefile.target_name  yolo_v3.c
+build_vx.sh  linux_build_sample.log  makefile.linux.def  vnn_yolov3.c          yolov3_process.c
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls ../../model_code/detect_yolo_v3/bin_r/
+libnn_yolo_v3.so  vnn_yolov3.o  yolo_v3.o  yolov3_process.o
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls /home/khadas/hussain/aml_npu_demo_binaries/detect_demo_picture/
+1080p.bmp        detect_demo_x11  lib/             output.bmp       UNINSTALL
+detect_demo_fb   INSTALL          nn_data/         README.md
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls /home/khadas/hussain/aml_npu_demo_binaries/detect_demo_picture/lib/
+libnn_detect.so  libnn_facenet.so  libnn_yoloface.so  libnn_yolo_tiny.so  libnn_yolo_v2.so  libnn_yolo_v3.so  libnn_yolo_v4.so
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls /home/khadas/hussain/aml_npu_demo_binaries/detect_demo_picture/nn_data/
+yolo_face_88.nb  yolotiny_88.nb  yolov2_88.nb  yolov3_88.nb  yolov4_88.nb
+yolo_face_99.nb  yolotiny_99.nb  yolov2_99.nb  yolov3_99.nb  yolov4_99.nb
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ mkdir nn_data
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ cp /home/khadas/hussain/aml_npu_demo_binaries/detect_demo_picture/nn_data/yolov3_88.nb ./nn_data/.
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ mkdir lib
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ cp ../../source_code/bin_r/libnn_detect.so ./lib/.
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:419.831 right:1464 top:6.80861 bottom:1080
+left:429.831 top-10:40
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ detection example works fine 100% detection.^C
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$
+
+
+=====================================
+sample_demo_x11 using libnn_yolo_v3.so
+=====================================
+
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ cd lib/
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4/lib$ rm libnn_detect.so
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4/lib$ ls ../../model_code/detect_yolo_v3/bin_r/               ls: cannot access '../../model_code/detect_yolo_v3/bin_r/': No such file or directory
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4/lib$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls ../../model_code/detect_yolo_v3/bin_r/
+libnn_yolo_v3.so  vnn_yolov3.o  yolo_v3.o  yolov3_process.o
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ cp ../../model_code/detect_yolo_v3/bin_r/libnn_yolo_v3.so lib/.
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:419.831 right:1464 top:6.80861 bottom:1080
+left:429.831 top-10:40
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ this also ^Ctection example works fine 100% detection.
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$
+================================================================================
+convert and call your own model through NPU, and test teh yolov3 
+================================================================================
+
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library$ cd model_code
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code$ cd detect_yolo_v3
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ls
+bin_r        include                 makefile.linux      makefile.target_name  yolo_v3.c
+build_vx.sh  linux_build_sample.log  makefile.linux.def  vnn_yolov3.c          yolov3_process.c
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ll
+total 92
+drwxrwxr-x 4 khadas khadas  4096 May 28 17:42 ./
+drwxrwxr-x 9 khadas khadas  4096 May 27 14:59 ../
+drwxrwxr-x 2 khadas khadas  4096 May 28 17:42 bin_r/
+-rwxrwxr-x 1 khadas khadas  9340 May 27 14:59 build_vx.sh*
+drwxrwxr-x 2 khadas khadas  4096 May 28 17:20 include/
+-rw-rw-r-- 1 khadas khadas    36 May 28 17:42 linux_build_sample.log
+-rw-rw-r-- 1 khadas khadas  1340 May 27 14:59 makefile.linux
+-rw-rw-r-- 1 khadas khadas 16406 May 27 14:59 makefile.linux.def
+-rw-rw-r-- 1 khadas khadas    31 May 27 14:59 makefile.target_name
+-rw-rw-r-- 1 khadas khadas  9856 May 29 00:33 vnn_yolov3.c
+-rw-rw-r-- 1 khadas khadas  2579 May 27 14:59 yolo_v3.c
+-rw-rw-r-- 1 khadas khadas 12425 May 27 14:59 yolov3_process.c
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ll include/
+total 44
+drwxrwxr-x 2 khadas khadas 4096 May 28 17:20 ./
+drwxrwxr-x 4 khadas khadas 4096 May 28 17:42 ../
+lrwxrwxrwx 1 khadas khadas   68 May 27 14:59 nn_detect_common.h -> ../../../../../detect_library/source_code/include/nn_detect_common.h
+-rw-rw-r-- 1 khadas khadas  877 May 27 14:59 nn_detect.h
+-rw-rw-r-- 1 khadas khadas  484 May 27 14:59 nn_detect_utils.h
+-rw-rw-r-- 1 khadas khadas  772 May 27 14:59 vnn_global.h
+-rw-rw-r-- 1 khadas khadas  572 May 29 00:33 vnn_post_process.h
+-rw-rw-r-- 1 khadas khadas 1646 May 29 00:33 vnn_pre_process.h
+-rw-rw-r-- 1 khadas khadas 1161 May 29 00:33 vnn_yolov3.h
+-rw-rw-r-- 1 khadas khadas  443 May 27 14:59 yolo_v3.h
+-rw-rw-r-- 1 khadas khadas  332 May 27 14:59 yolov3_process.h
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3/vnn_yolov3.c
+vnn_yolov3.c: In function ‘vnn_CreateYolov3’:
+vnn_yolov3.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_yolov3.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ll bin_r/
+total 68
+drwxrwxr-x 2 khadas khadas  4096 May 29 00:33 ./
+drwxrwxr-x 4 khadas khadas  4096 May 28 17:42 ../
+-rwxrwxr-x 1 khadas khadas 28872 May 29 00:33 libnn_yolo_v3.so*
+-rw-rw-r-- 1 khadas khadas  5720 May 29 00:33 vnn_yolov3.o
+-rw-rw-r-- 1 khadas khadas  5632 May 28 17:42 yolo_v3.o
+-rw-rw-r-- 1 khadas khadas 11496 May 28 17:14 yolov3_process.o
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3$ cd ~/hussain/aml_npu_demo_binaries/
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries$ cp -r detect_demo_picture detect_demo_picture_npusdk2_basis
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries$ cd detect_demo_picture_npusdk2_basis/
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ cd lib/
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis/lib$ ls
+libnn_detect.so  libnn_facenet.so  libnn_yoloface.so  libnn_yolo_tiny.so  libnn_yolo_v2.so  libnn_yolo_v3.so  libnn_yolo_v4.so
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis/lib$ rm -rf *.so
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis/lib$ ls
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis/lib$ cd ../nn_data/
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis/nn_data$ ls
+yolo_face_88.nb  yolotiny_88.nb  yolov2_88.nb  yolov3_88.nb  yolov4_88.nb
+yolo_face_99.nb  yolotiny_99.nb  yolov2_99.nb  yolov3_99.nb  yolov4_99.nb
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis/nn_data$ rm -rf *.nb
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis/nn_data$ ls
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis/nn_data$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ cp ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/bin_r/libnn_yolo_v3.so ./lib/.
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ copy from ubunutu host^C
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ll lib/
+total 40
+drwxrwxr-x 2 khadas khadas  4096 May 29 00:39 ./
+drwxrwxr-x 4 khadas khadas  4096 May 29 00:36 ../
+-rwxrwxr-x 1 khadas khadas 28872 May 29 00:39 libnn_yolo_v3.so*
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ll nn_data/
+total 61400
+drwxrwxr-x 2 khadas khadas     4096 May 29 00:40 ./
+drwxrwxr-x 4 khadas khadas     4096 May 29 00:36 ../
+-rw-rw-r-- 1 khadas khadas       55 May 29 00:36 .git
+-rw-r--r-- 1 khadas khadas 62853690 May 29 00:40 yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ls
+1080p.bmp  detect_demo_fb  detect_demo_x11  INSTALL  lib  nn_data  output.bmp  README.md  UNINSTALL
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./INSTALL
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ cp ../detect_demo_picture/nn_data/
+.git             yolo_face_99.nb  yolotiny_99.nb   yolov2_99.nb     yolov3_99.nb     yolov4_99.nb
+yolo_face_88.nb  yolotiny_88.nb   yolov2_88.nb     yolov3_88.nb     yolov4_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ cp ../detect_demo_picture/nn_data/yolov3_88.nb ./nn_data/.
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ll nn_data/
+total 60652
+drwxrwxr-x 2 khadas khadas     4096 May 29 00:40 ./
+drwxrwxr-x 4 khadas khadas     4096 May 29 00:36 ../
+-rw-rw-r-- 1 khadas khadas       55 May 29 00:36 .git
+-rw-r--r-- 1 khadas khadas 62155962 May 29 00:43 yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./detect_demo_x11 -m 2 -p ./1080p.bmp                    W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ cp ../detect_demo_picture/lib/libnn_
+libnn_detect.so     libnn_facenet.so    libnn_yoloface.so   libnn_yolo_tiny.so  libnn_yolo_v2.so    libnn_yolo_v3.so    libnn_yolo_v4.so
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ cp ../detect_demo_picture/lib/libnn_yolo_v3.so ./lib/.
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ll lib/
+total 40
+drwxrwxr-x 2 khadas khadas  4096 May 29 00:39 ./
+drwxrwxr-x 4 khadas khadas  4096 May 29 00:36 ../
+-rwxrwxr-x 1 khadas khadas 28880 May 29 00:44 libnn_yolo_v3.so*
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ cd ../detect_demo_picture
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ ./INSTALL
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:419.831 right:1464 top:6.80861 bottom:1080
+left:429.831 top-10:40
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ cd -
+/home/khadas/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./INSTALL
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:419.831 right:1464 top:6.80861 bottom:1080
+left:429.831 top-10:40
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ copy the nb file again from the ubuntu PC^C
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ll nn_data/
+total 61400
+drwxrwxr-x 2 khadas khadas     4096 May 29 00:40 ./
+drwxrwxr-x 4 khadas khadas     4096 May 29 00:36 ../
+-rw-rw-r-- 1 khadas khadas       55 May 29 00:36 .git
+-rw-r--r-- 1 khadas khadas 62853690 May 29 00:48 yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./INSTALL
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ may be reorder-channel values is different, regenerate the nb file and try again.^C
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ll nn_data/
+total 61400
+drwxrwxr-x 2 khadas khadas     4096 May 29 00:40 ./
+drwxrwxr-x 4 khadas khadas     4096 May 29 00:36 ../
+-rw-rw-r-- 1 khadas khadas       55 May 29 00:36 .git
+-rw-r--r-- 1 khadas khadas 62853690 May 29 00:54 yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ cd /home/khadas/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3/
+khadas@Khadas-teco:~/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3$ ll
+total 92
+drwxrwxr-x 4 khadas khadas  4096 May 28 17:42 ./
+drwxrwxr-x 9 khadas khadas  4096 May 27 14:59 ../
+drwxrwxr-x 2 khadas khadas  4096 May 29 00:33 bin_r/
+-rwxrwxr-x 1 khadas khadas  9340 May 27 14:59 build_vx.sh*
+drwxrwxr-x 2 khadas khadas  4096 May 28 17:20 include/
+-rw-rw-r-- 1 khadas khadas    36 May 29 00:33 linux_build_sample.log
+-rw-rw-r-- 1 khadas khadas  1340 May 27 14:59 makefile.linux
+-rw-rw-r-- 1 khadas khadas 16406 May 27 14:59 makefile.linux.def
+-rw-rw-r-- 1 khadas khadas    31 May 27 14:59 makefile.target_name
+-rw-rw-r-- 1 khadas khadas  9856 May 29 00:58 vnn_yolov3.c
+-rw-rw-r-- 1 khadas khadas  2579 May 27 14:59 yolo_v3.c
+-rw-rw-r-- 1 khadas khadas 12425 May 27 14:59 yolov3_process.c
+khadas@Khadas-teco:~/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3$ ll include/
+total 44
+drwxrwxr-x 2 khadas khadas 4096 May 28 17:20 ./
+drwxrwxr-x 4 khadas khadas 4096 May 28 17:42 ../
+lrwxrwxrwx 1 khadas khadas   68 May 27 14:59 nn_detect_common.h -> ../../../../../detect_library/source_code/include/nn_detect_common.h
+-rw-rw-r-- 1 khadas khadas  877 May 27 14:59 nn_detect.h
+-rw-rw-r-- 1 khadas khadas  484 May 27 14:59 nn_detect_utils.h
+-rw-rw-r-- 1 khadas khadas  772 May 27 14:59 vnn_global.h
+-rw-rw-r-- 1 khadas khadas  572 May 29 00:58 vnn_post_process.h
+-rw-rw-r-- 1 khadas khadas 1646 May 29 00:58 vnn_pre_process.h
+-rw-rw-r-- 1 khadas khadas 1161 May 29 00:58 vnn_yolov3.h
+-rw-rw-r-- 1 khadas khadas  443 May 27 14:59 yolo_v3.h
+-rw-rw-r-- 1 khadas khadas  332 May 27 14:59 yolov3_process.h
+khadas@Khadas-teco:~/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3/vnn_yolov3.c
+vnn_yolov3.c: In function ‘vnn_CreateYolov3’:
+vnn_yolov3.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_yolov3.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3$ ll bin_r/
+total 68
+drwxrwxr-x 2 khadas khadas  4096 May 29 00:59 ./
+drwxrwxr-x 4 khadas khadas  4096 May 28 17:42 ../
+-rwxrwxr-x 1 khadas khadas 28872 May 29 00:59 libnn_yolo_v3.so*
+-rw-rw-r-- 1 khadas khadas  5720 May 29 00:59 vnn_yolov3.o
+-rw-rw-r-- 1 khadas khadas  5632 May 28 17:42 yolo_v3.o
+-rw-rw-r-- 1 khadas khadas 11496 May 28 17:14 yolov3_process.o
+khadas@Khadas-teco:~/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3$ cd -
+/home/khadas/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ cp ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/bin_r/libnn_yolo_v3.so ./lib/.
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ll lib/
+total 40
+drwxrwxr-x 2 khadas khadas  4096 May 29 00:39 ./
+drwxrwxr-x 4 khadas khadas  4096 May 29 00:36 ../
+-rwxrwxr-x 1 khadas khadas 28872 May 29 01:00 libnn_yolo_v3.so*
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./INSTALL
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./detect_demo_x11 -m 2 -p ./1080p.bmp                    W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ls
+1080p.bmp  detect_demo_fb  detect_demo_x11  INSTALL  lib  nn_data  output.bmp  README.md  UNINSTALL
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ls nn_data/
+yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ cp ../detect_demo_picture/lib/libnn_detect.so ./lib/.
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ll lib/
+total 60
+drwxrwxr-x 2 khadas khadas  4096 May 29 01:03 ./
+drwxrwxr-x 4 khadas khadas  4096 May 29 00:36 ../
+-rwxrwxr-x 1 khadas khadas 18744 May 29 01:03 libnn_detect.so*
+-rwxrwxr-x 1 khadas khadas 28872 May 29 01:00 libnn_yolo_v3.so*
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./INSTALL
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ cp ../detect_demo_picture/lib/libnn_yolo ./lib/.
+libnn_yoloface.so   libnn_yolo_tiny.so  libnn_yolo_v2.so    libnn_yolo_v3.so    libnn_yolo_v4.so
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ cp ../detect_demo_picture/lib/libnn_yolo_v3.so ./lib/.
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ cp ../detect_demo_picture/nn_data/yolov3_88.nb ./nn_data/.
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./detect_demo_x11 -m 2 -p ./1080p.bmp                    W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./INSTALL
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:419.831 right:1464 top:6.80861 bottom:1080
+left:429.831 top-10:40
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ cat ./INSTALL
+#!/bin/bash
+
+cp -arf lib/* /usr/lib
+
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ cp ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/bin_r/libnn_yolo_v3.so ./lib/.
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ cat ./INSTALL
+#!/bin/bash
+
+cp -arf lib/* /usr/lib
+
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./INSTALL
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ls
+1080p.bmp  detect_demo_fb  detect_demo_x11  INSTALL  lib  nn_data  output.bmp  README.md  UNINSTALL
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./detect_demo_x11 -m 2 -p 1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ cd -
+/home/khadas/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3
+khadas@Khadas-teco:~/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_app/DDK_6.3.3.4/detect_library$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_app/DDK_6.3.3.4$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_app$ cd detect_library/
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library$ ls
+inception   sample_demo_fb   source_code        yolo_demo_fb_usb    yolo_demo_x11_usb
+model_code  sample_demo_x11  yolo_demo_fb_mipi  yolo_demo_x11_mipi
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library$ cp -r sample_demo_x11 sample_demo_x11_npusdk2_basis
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library$ cd sample_demo_x11_npusdk2_basis/
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis$ ls
+1080p.bmp  build_vx.sh  emb.db                  main.cpp        makefile.linux.def    nn_detect_common.h  nn_detect_utils.h  result
+bin_r_cv4  detect.h     linux_build_sample.log  makefile.linux  makefile.target_name  nn_detect.h         ReadMe.txt
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis$ ls bin_r_cv4/
+detect_demo_x11  lib  main.o  nn_data  output.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis$ cd bin_r_cv4/
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ ls lib/
+libnn_yolo_v3.so
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ ls nn_data/
+yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ cp ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/bin_r/libnn_yolo_v3.so ./lib/.
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ ll lib/
+total 40
+drwxrwxr-x 2 khadas khadas  4096 May 29 01:09 ./
+drwxrwxr-x 4 khadas khadas  4096 May 29 01:09 ../
+-rwxrwxr-x 1 khadas khadas 28872 May 29 01:10 libnn_yolo_v3.so*
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ copy nb from the ubuntu^C
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ ll nn_data/
+total 61396
+drwxrwxr-x 2 khadas khadas     4096 May 29 01:09 ./
+drwxrwxr-x 4 khadas khadas     4096 May 29 01:09 ../
+-rw-rw-r-- 1 khadas khadas 62853690 May 29 01:12 yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ ls
+detect_demo_x11  lib  main.o  nn_data  output.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ ls
+detect_demo_x11  lib  main.o  nn_data  output.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ display output.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ cd /home/khadas/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3/include/
+khadas@Khadas-teco:~/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3/include$ ll
+total 44
+drwxrwxr-x 2 khadas khadas 4096 May 28 17:20 ./
+drwxrwxr-x 4 khadas khadas 4096 May 28 17:42 ../
+lrwxrwxrwx 1 khadas khadas   68 May 27 14:59 nn_detect_common.h -> ../../../../../detect_library/source_code/include/nn_detect_common.h
+-rw-rw-r-- 1 khadas khadas  877 May 27 14:59 nn_detect.h
+-rw-rw-r-- 1 khadas khadas  484 May 27 14:59 nn_detect_utils.h
+-rw-rw-r-- 1 khadas khadas  772 May 27 14:59 vnn_global.h
+-rw-rw-r-- 1 khadas khadas  572 May 29 01:56 vnn_post_process.h
+-rw-rw-r-- 1 khadas khadas 1646 May 29 01:56 vnn_pre_process.h
+-rw-rw-r-- 1 khadas khadas 1161 May 29 01:56 vnn_yolov3.h
+-rw-rw-r-- 1 khadas khadas  443 May 27 14:59 yolo_v3.h
+-rw-rw-r-- 1 khadas khadas  332 May 27 14:59 yolov3_process.h
+khadas@Khadas-teco:~/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3/include$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3$ ll
+total 92
+drwxrwxr-x 4 khadas khadas  4096 May 28 17:42 ./
+drwxrwxr-x 9 khadas khadas  4096 May 27 14:59 ../
+drwxrwxr-x 2 khadas khadas  4096 May 29 00:59 bin_r/
+-rwxrwxr-x 1 khadas khadas  9340 May 27 14:59 build_vx.sh*
+drwxrwxr-x 2 khadas khadas  4096 May 28 17:20 include/
+-rw-rw-r-- 1 khadas khadas    36 May 29 00:59 linux_build_sample.log
+-rw-rw-r-- 1 khadas khadas  1340 May 27 14:59 makefile.linux
+-rw-rw-r-- 1 khadas khadas 16406 May 27 14:59 makefile.linux.def
+-rw-rw-r-- 1 khadas khadas    31 May 27 14:59 makefile.target_name
+-rw-rw-r-- 1 khadas khadas  9856 May 29 01:55 vnn_yolov3.c
+-rw-rw-r-- 1 khadas khadas  2579 May 27 14:59 yolo_v3.c
+-rw-rw-r-- 1 khadas khadas 12425 May 27 14:59 yolov3_process.c
+khadas@Khadas-teco:~/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3/vnn_yolov3.c
+vnn_yolov3.c: In function ‘vnn_CreateYolov3’:
+vnn_yolov3.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_yolov3.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3$ ls bin_r/
+libnn_yolo_v3.so  vnn_yolov3.o  yolo_v3.o  yolov3_process.o
+khadas@Khadas-teco:~/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3$ ll bin_r/
+total 68
+drwxrwxr-x 2 khadas khadas  4096 May 29 01:57 ./
+drwxrwxr-x 4 khadas khadas  4096 May 28 17:42 ../
+-rwxrwxr-x 1 khadas khadas 28872 May 29 01:57 libnn_yolo_v3.so*
+-rw-rw-r-- 1 khadas khadas  5720 May 29 01:57 vnn_yolov3.o
+-rw-rw-r-- 1 khadas khadas  5632 May 28 17:42 yolo_v3.o
+-rw-rw-r-- 1 khadas khadas 11496 May 28 17:14 yolov3_process.o
+khadas@Khadas-teco:~/hussain/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3$ cd /home/khadas/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis/
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ll lib/
+total 60
+drwxrwxr-x 2 khadas khadas  4096 May 29 01:03 ./
+drwxrwxr-x 4 khadas khadas  4096 May 29 00:36 ../
+-rwxrwxr-x 1 khadas khadas 18744 May 29 01:03 libnn_detect.so*
+-rwxrwxr-x 1 khadas khadas 28872 May 29 01:58 libnn_yolo_v3.so*
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ll nn_data/
+total 61400
+drwxrwxr-x 2 khadas khadas     4096 May 29 00:40 ./
+drwxrwxr-x 4 khadas khadas     4096 May 29 00:36 ../
+-rw-rw-r-- 1 khadas khadas       55 May 29 00:36 .git
+-rw-r--r-- 1 khadas khadas 62853690 May 29 01:58 yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ls
+1080p.bmp  detect_demo_fb  detect_demo_x11  INSTALL  lib  nn_data  output.bmp  README.md  UNINSTALL
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./INSTALL
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ls
+1080p.bmp  detect_demo_fb  detect_demo_x11  INSTALL  lib  nn_data  output.bmp  README.md  UNINSTALL
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ cp nn_data/yolov3_88.nb .
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ls
+1080p.bmp  detect_demo_fb  detect_demo_x11  INSTALL  lib  nn_data  output.bmp  README.md  UNINSTALL  yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./UNINSTALL
+rm: cannot remove '/usr/lib/libnn_detect.so': Permission denied
+rm: cannot remove '/usr/lib/libnn_facenet.so': Permission denied
+rm: cannot remove '/usr/lib/libnn_yoloface.so': Permission denied
+rm: cannot remove '/usr/lib/libnn_yolo_v2.so': Permission denied
+rm: cannot remove '/usr/lib/libnn_yolo_v3.so': Permission denied
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ sudo ./UNINSTALL
+[sudo] password for khadas:
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./INSTALL
+cp: cannot create regular file '/usr/lib/libnn_detect.so': Permission denied
+cp: cannot create regular file '/usr/lib/libnn_yolo_v3.so': Permission denied
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ sudo ./INSTALL
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ./detect_demo_x11 -m 0 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E Detect_api:[check_and_set_function:177]dlopen libnn_yoloface.so failed!
+E Detect_api:[det_set_model:218]ModelType so open failed or Not support now!!
+det_set_model fail. ret=-1
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ls lib/
+libnn_detect.so  libnn_yolo_v3.so
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ls
+1080p.bmp  detect_demo_fb  detect_demo_x11  INSTALL  lib  nn_data  output.bmp  README.md  UNINSTALL  yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ ^C
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binaries/detect_demo_picture_npusdk2_basis$ cd /home/khadas/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4/
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ ls
+detect_demo_x11  lib  main.o  nn_data  output.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ display output.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ ls
+detect_demo_x11  lib  main.o  nn_data  output.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ cp ../../sample_demo_x11/bin_r_cv4/lib/libnn_yolo_v3.so ./lib/.
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ cp ../../sample_demo_x11/bin_r_cv4/nn_data/yolov3_88.nb nn_data/.
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp        W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ ls
+detect_demo_x11  lib  main.o  nn_data  output.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis$ ls
+1080p.bmp  build_vx.sh  emb.db                  main.cpp        makefile.linux.def    nn_detect_common.h  nn_detect_utils.h  result
+bin_r_cv4  detect.h     linux_build_sample.log  makefile.linux  makefile.target_name  nn_detect.h         ReadMe.txt
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis$ ./build_vx.sh
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis$ cd -
+/home/khadas/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ rm -rf detect_demo_x11
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis/bin_r_cv4$ cd -
+/home/khadas/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis$ ./build_vx.sh
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11_npusdk2_basis$ cd ../sample_demo_x11
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11$ cd bin_r_cv4/
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls
+detect_demo_x11  lib  main.o  nn_data  output.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$

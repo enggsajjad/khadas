@@ -1,0 +1,130 @@
+    - Press <return> to exit tab
+    - Press R to restart session
+    - Press S to save terminal output to file
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to khadas@192.168.178.139                              │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+
+Welcome to Fenix 1.0.11 Ubuntu 20.04.4 LTS Linux 4.9.241
+ _  ___               _            __     _____ __  __ _____
+| |/ / |__   __ _  __| | __ _ ___  \ \   / /_ _|  \/  |___ /
+| ' /| '_ \ / _` |/ _` |/ _` / __|  \ \ / / | || |\/| | |_ \
+| . \| | | | (_| | (_| | (_| \__ \   \ V /  | || |  | |___) |
+|_|\_\_| |_|\__,_|\__,_|\__,_|___/    \_/  |___|_|  |_|____/
+
+
+ * Website:        https://www.khadas.com
+ * Documentation:  https://docs.khadas.com
+ * Forum:          https://forum.khadas.com
+
+Last login: Tue Jun 14 03:09:21 2022 from 192.168.178.33
+khadas@Khadas-teco:~$ cd /home/khadas/sajjad/
+khadas@Khadas-teco:~/sajjad$ mkdir 3_compile_and_run_using_c_code
+khadas@Khadas-teco:~/sajjad$ cd 3_compile_and_run_using_c_code/
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ chmod +x ./build_vx.sh
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ ./build_vx.sh
+  COMPILE /home/khadas/sajjad/3_compile_and_run_using_c_code/vnn_pre_process.c
+vnn_pre_process.c:397:13: warning: ‘_data_transform’ defined but not used [-Wunused-function]
+  397 | static void _data_transform
+      |             ^~~~~~~~~~~~~~~
+vnn_pre_process.c:365:13: warning: ‘_data_mean’ defined but not used [-Wunused-function]
+  365 | static void _data_mean
+      |             ^~~~~~~~~~
+vnn_pre_process.c:343:13: warning: ‘_data_scale’ defined but not used [-Wunused-function]
+  343 | static void _data_scale
+      |             ^~~~~~~~~~~
+vnn_pre_process.c:200:17: warning: ‘_float32_to_dtype’ defined but not used [-Wunused-function]
+  200 | static uint8_t *_float32_to_dtype
+      |                 ^~~~~~~~~~~~~~~~~
+  COMPILE /home/khadas/sajjad/3_compile_and_run_using_c_code/vnn_nopnet.c
+vnn_nopnet.c: In function ‘vnn_CreateNopnet’:
+vnn_nopnet.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_nopnet.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/sajjad/3_compile_and_run_using_c_code/main.c
+main.c: In function ‘main’:
+main.c:245:9: warning: "/*" within comment [-Wcomment]
+  245 |         /* Dump all node outputs */
+      |
+  COMPILE /home/khadas/sajjad/3_compile_and_run_using_c_code/vnn_post_process.c
+vnn_post_process.c: In function ‘save_output_data’:
+vnn_post_process.c:37:10: warning: unused variable ‘filename’ [-Wunused-variable]
+   37 |     char filename[_DUMP_FILE_LENGTH] = {0}, shape[_DUMP_SHAPE_LENGTH] = {0};
+      |          ^~~~~~~~
+vnn_post_process.c: In function ‘getVXTypeString’:
+vnn_post_process.c:99:5: warning: enumeration value ‘VSI_NN_TYPE_BOOL8’ not handled in switch [-Wswitch]
+   99 |     switch (vx_type)
+      |     ^~~~~~
+vnn_post_process.c:99:5: warning: enumeration value ‘VSI_NN_TYPE_BFLOAT16’ not handled in switch [-Wswitch]
+vnn_post_process.c:99:5: warning: enumeration value ‘VSI_NN_TYPE_VDATA’ not handled in switch [-Wswitch]
+vnn_post_process.c: In function ‘show_top5’:
+vnn_post_process.c:168:1: warning: label ‘final’ defined but not used [-Wunused-label]
+  168 | final:
+      | ^~~~~
+vnn_post_process.c:129:14: warning: unused variable ‘topk’ [-Wunused-variable]
+  129 |     uint32_t topk = 5;
+      |              ^~~~
+vnn_post_process.c:128:11: warning: unused variable ‘fMaxProb’ [-Wunused-variable]
+  128 |     float fMaxProb[5];
+      |           ^~~~~~~~
+vnn_post_process.c:127:14: warning: unused variable ‘MaxClass’ [-Wunused-variable]
+  127 |     uint32_t MaxClass[5];
+      |              ^~~~~~~~
+vnn_post_process.c: In function ‘getVXTypeString’:
+vnn_post_process.c:115:1: warning: control reaches end of non-void function [-Wreturn-type]
+  115 | }
+      | ^
+At top level:
+vnn_post_process.c:55:17: warning: ‘get_top’ defined but not used [-Wunused-function]
+   55 | static vsi_bool get_top
+      |                 ^~~~~~~
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ ls
+28x28.jpg  BUILD                   main.c              makefile.target_name  nopnet.vcxproj  vnn_nopnet.c        vnn_post_process.h
+bin_r_cv4  build_vx.sh             makefile.linux      nbg_meta.json         README.md       vnn_nopnet.h        vnn_pre_process.c
+black.jpg  linux_build_sample.log  makefile.linux.def  nopnet.nb             vnn_global.h    vnn_post_process.c  vnn_pre_process.h
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ ./bin_r_cv4/nopnet ./nopnet.nb 28x28.jpg
+
+Use img process: 0
+Create Neural Network: 12ms or 12533us
+
+---------------Output of file after jpg->rgb and before prepro
+c1      9f      83      c2      a1      82      c5      a4      85      b6      93      75      c2      9f      81      c2      9f     7f       cd      aa      8a      bc      99      79      b8      91      74      b9      85      6d      b0      7a      62      c9     a1       87      b9      9e      83      ca
+---------------
+
+---------------Output of file after jpg->rgb->float->prepro->uint8
+c1      9f      83      c2      a1      82      c5      a4      85      b6      93      75      c2      9f      81      c2      9f     7f       cd      aa      8a      bc      99      79      b8      91      74      b9      85      6d      b0      7a      62      c9     a1       87      b9      9e      83      ca
+---------------
+Verify...
+E [vnn_VerifyGraph:85]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E [main:237]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ ./bin_r_cv4/nopnet ./nopnet.nb black.jpg
+
+Use img process: 0
+Create Neural Network: 12ms or 12687us
+
+---------------Output of file after jpg->rgb and before prepro
+00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00     00       00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00     00       00      00      00      00      00
+---------------
+
+---------------Output of file after jpg->rgb->float->prepro->uint8
+00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00     00       00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00     00       00      00      00      00      00
+---------------
+Verify...
+E [vnn_VerifyGraph:85]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E [main:237]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$

@@ -1,0 +1,156 @@
+typedef struct
+{
+    uint8_t layerType;
+    uint64_t time;
+} measureMent;
+
+static measureMent *measurements;
+
+void TflmTimer::measureTime(uint8_t identifier)
+{
+    uint32_t currentTime = ARM_CM_DWT_CYCCNT;
+    measurements[ctr] = (measureMent){identifier, currentTime};
+    ctr++;
+}
+
+
+void TflmTimer::printMeasurements(Printer *printer)
+{
+    printer->println(TIMING, measurements, ctr);
+}
+
+
+void Printer::println(const char *command, measureMent *data, int dataLen)
+{
+    serial->print(command);
+    serial->print(" ");
+    for (int i = 0; i < dataLen; i++)
+    {
+        {
+            serial->print("(");
+            serial->print(data[i].layerType);
+            serial->print(",");
+            serial->print(data[i].time);
+            serial->print(")");
+            if (i < (dataLen - 1))
+            {
+                serial->print(",");
+            }
+        }
+    }
+    serial->println("");
+}
+
+
+TIMING (1,298183),(255,298345),(114,298595),(114,313027),(3,313211),(3,339969),(255,349230),(1,571487)
+
+const uint8_t CMSIS_AVG_POOLING = 1;
+const uint8_t TFLM_INVOKE = 255;
+const uint8_t QUANTIZE = 114;
+const uint8_t QUANTIZE = 114;
+const uint8_t CMSIS_CONV = 3;
+const uint8_t CMSIS_CONV = 3;
+const uint8_t TFLM_INVOKE = 255;
+const uint8_t CMSIS_AVG_POOLING = 1;
+
+
+50ms  3.15e-7
+dummy_line_prevent_strange_characters
+using tobias time measurement
+measureMent
+TIMING (204,14757395258967641292),(204,14757395258967641292),(204,14757395258967641292),(3,154629)
+using tobias DWT Timer
+cycles for delay: 50 is: 158320
+using tobias DWT Timer Another Way
+cycles for delay: 50 is: 158305
+
+
+5ms  1.92e-7
+dummy_line_prevent_strange_characters
+using tobias time measurement
+measureMent
+TIMING (204,14757395258967641292),(204,14757395258967641292),(204,14757395258967641292),(3,22363)
+using tobias DWT Timer
+cycles for delay: 5ms is: 26017
+using tobias DWT Timer Another Way
+cycles for delay: 5ms is: 26025
+
+
+
+1ms  9e-8
+dummy_line_prevent_strange_characters
+using tobias time measurement
+measureMent
+TIMING (204,14757395258967641292),(204,14757395258967641292),(204,14757395258967641292),(3,10491)
+using tobias DWT Timer
+cycles for delay: 1ms is: 11198
+using tobias DWT Timer Another Way
+cycles for delay: 1ms is: 11211
+
+
+TflmTimer::printMeasurements(printer);
+5ms  1.92e-7
+
+dummy_line_prevent_strange_characters
+using tobias time measurement
+measureMent
+TIMING (1,26249),(1,48756),(2,71216)
+measureMent
+TIMING (204,14757395258967641292),(204,14757395258967641292),(204,14757395258967641292),(3,23924)
+using tobias DWT Timer
+cycles for delay: 5ms is: 26158
+using tobias DWT Timer Another Way
+cycles for delay: 5ms is: 26212
+
+10ms 
+dummy_line_prevent_strange_characters
+using tobias time measurement
+measureMent
+TIMING (1,37961),(1,75118),(2,112308)
+measureMent
+TIMING (204,14757395258967641292),(204,14757395258967641292),(204,14757395258967641292),(3,37315)
+using tobias DWT Timer
+cycles for delay: 10ms is: 40902
+using tobias DWT Timer Another Way
+cycles for delay: 10ms is: 40902
+
+
+0.001ms
+dummy_line_prevent_strange_characters
+using tobias time measurement
+measureMent
+TIMING (1,676),(1,1311),(2,1943)
+measureMent
+TIMING (204,14757395258967641292),(204,14757395258967641292),(204,14757395258967641292),(3,676)
+using tobias DWT Timer
+cycles for delay: 1ms is: 623
+using tobias DWT Timer Another Way
+cycles for delay: 1ms is: 623
+
+
+
+
+0.01ms
+dummy_line_prevent_strange_characters
+using tobias time measurement
+measureMent
+TIMING (1,1227),(1,2422),(2,5383)
+measureMent
+TIMING (143,7673495070577981153),(93,7064711653381812424),(101,2680942482889411411),(3,1234)
+using tobias DWT Timer
+cycles for delay: 10ms is: 1178
+using tobias DWT Timer Another Way
+cycles for delay: 10ms is: 1194
+
+
+0.1ms
+dummy_line_prevent_strange_characters
+using tobias time measurement
+measureMent
+TIMING (1,6837),(1,13720),(2,20520)
+measureMent
+TIMING (143,7673495070577981153),(93,7064711653381812424),(101,2680942482889411411),(3,6920)
+using tobias DWT Timer
+cycles for delay: 100ms is: 6778
+using tobias DWT Timer Another Way
+cycles for delay: 100ms is: 6783

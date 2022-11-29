@@ -1,0 +1,55 @@
+khadas@Khadas:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 2 -p ~/hussain/img/416/person_416.jpg
+./detect_demo_x11: error while loading shared libraries: libnn_detect.so: cannot open shared object file: No such file or directory
+khadas@Khadas:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ cat ./INSTALL
+#!/bin/bash
+
+cp -arf lib/* /usr/lib
+
+khadas@Khadas:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ sudo cp -arf lib/libnn_detect.so /usr/lib
+[sudo] password for khadas:
+khadas@Khadas:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 2 -p ~/hussain/img/416/person_416.jpg
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E Detect_api:[check_and_set_function:177]dlopen libnn_yolo_v3.so failed!
+E Detect_api:[det_set_model:218]ModelType so open failed or Not support now!!
+det_set_model fail. ret=-1
+khadas@Khadas:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ sudo cp -arf lib/libnn_yolo /usr/lib
+libnn_yoloface.so      libnn_yolo_v2.so       libnn_yolo_v3.so
+libnn_yolo_tiny.so     libnn_yolo_v3_orig.so  libnn_yolo_v4.so
+khadas@Khadas:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ sudo cp -arf lib/libnn_yolo_v3.so /usr/lib
+khadas@Khadas:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 2 -p ~/hussain/img/416/person_416.jpg
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Segmentation fault
+khadas@Khadas:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 2 -w 416 -h 416 -p ~/hussain/img/416/person_416.jpg
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=3
+result type is 2
+i:3 left:249.126 right:405.126 top:141 bottom:339
+i:3 left:42.2234 right:132.564 top:255.081 bottom:345.081
+i:3 left:121.505 right:180.505 top:107.033 bottom:358.956
+khadas@Khadas:~/hussain/aml_npu_demo_binaries/detect_demo_picture$

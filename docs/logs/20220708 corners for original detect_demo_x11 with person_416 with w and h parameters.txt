@@ -1,0 +1,93 @@
+================================================================
+corners for original detect_demo_x11 with person_416 with w and h parameters
+================================================================
+khadas@Khadas:~/hussain/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 2 -w 416 -h 416 -p ~/hussain/img/416/person_416.jpg
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=3
+result type is 2
+i:3 left:249.126 right:405.126 top:141 bottom:339
+i:3 left:42.2234 right:132.564 top:255.081 bottom:345.081
+i:3 left:121.505 right:180.505 top:107.033 bottom:358.956
+khadas@Khadas:~/hussain/aml_npu_demo_binaries/detect_demo_picture$
+
+================================================================
+standalone_initial/newscripts/sample_demo_x11B/bin_r_cv4$
+================================================================
+khadas@Khadas:~/hussain/milestone/standalone_initial/newscripts/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -w 416 -h 416 -p ~/hussain/img/416/person_416.jpg
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+ --- Top5 ---
+15305: 11.750000
+15306: 9.250000
+15292: 8.250000
+795: 7.250000
+18184: 7.250000
+Det_get_result END
+
+resultData.detect_num=3
+result type is 2
+i:3 left:249.126 right:405.126 top:141 bottom:339
+i:3 left:42.2234 right:132.564 top:255.081 bottom:345.081
+i:3 left:121.505 right:180.505 top:107.033 bottom:358.956
+khadas@Khadas:~/hussain/milestone/standalone_initial/newscripts/sample_demo_x11B/bin_r_cv4$
+
+
+================================================================
+minimal_first_working/yolov3_nbg_unify_416_hussainBR1$
+================================================================
+khadas@Khadas:~/hussain/minimal_first_working/yolov3_nbg_unify_416_hussainBR1$ ./bin_r_cv4/yolov3test yolov3_88.nb ~/hussain/img/416/person_416.jpg
+Create Neural Network: 83ms or 83292us
+model.width:416 model.height:416 model.channel:3
+>>>>>>>>>>><<<<<<<<<<<<<<
+Draw rectangle for 3 detections of person_416.jpg
+>>>>>>>>>>><<<<<<<<<<<<<<
+Verify...
+Verify Graph: 3ms or 3403us
+Start run graph [1] times...
+Run the 1 time: 78.00ms or 78894.00us
+vxProcessGraph execution time:
+Total   78.00ms or 78949.00us
+Average 78.95ms or 78949.00us
+ --- Top5 ---
+15305: 10.500000
+15306: 8.250000
+15292: 7.750000
+3668: 7.000000
+15142: 7.000000
+
+>>>>>>>>>>><<<<<<<<<<<<<<
+>>The Detection Classes<<
+>>>>>>>>>>><<<<<<<<<<<<<<
+No.0: Names and Prob: horse, 100%
+left=0.602419,top=0.334159,right=0.977419,bot=0.810121
+No.1: Names and Prob: dog, 100%
+left=0.101499,top=0.613176,right=0.318664,bot=0.829522
+No.2: Names and Prob: person, 100%
+left=0.294471,top=0.259610,right=0.436298,bot=0.865194
+
+done!
+
+khadas@Khadas:~/hussain/minimal_first_working/yolov3_nbg_unify_416_hussainBR1$
+

@@ -1,0 +1,435 @@
+operation time gives error while exporting data from new recent sdk on old VIM image tried for mobilenet_tf and yolov3 and nopnet
+=======================================================
+khadas@Khadas-teco:~/sajjad/eachoptime$ cp op_test_nopnet/
+cp: missing destination file operand after 'op_test_nopnet/'
+Try 'cp --help' for more information.
+khadas@Khadas-teco:~/sajjad/eachoptime$ cd op_test_nopnet/
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ ls
+bin_r_cv4      linux_build_sample.log  makefile.linux.def        vnn_global.h       vnn_post_process.c  vnn_pre_process.h
+bin_r_cv4_old  main.c                  makefile.target_name      vnn_mobilenettf.c  vnn_post_process.h
+build_vx.sh    makefile.linux          mobilenet_tf.export.data  vnn_mobilenettf.h  vnn_pre_process.c
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ rm -rn bin_r_cv4*
+rm: invalid option -- 'n'
+Try 'rm --help' for more information.
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ rm -rf bin_r_cv4*
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ ls
+build_vx.sh             makefile.linux        mobilenet_tf.export.data  vnn_mobilenettf.h   vnn_pre_process.c
+linux_build_sample.log  makefile.linux.def    vnn_global.h              vnn_post_process.c  vnn_pre_process.h
+main.c                  makefile.target_name  vnn_mobilenettf.c         vnn_post_process.h
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ rm -rf *.c *.h mobilenet_tf.export.data
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ ls
+build_vx.sh  linux_build_sample.log  makefile.linux  makefile.linux.def  makefile.target_name
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ head makefile.target_name
+TARGET_NAME = detect_mobilnet
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ pwd
+/home/khadas/sajjad/eachoptime/op_test_nopnet
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ vim makefile.target_name
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ ./build_vx.sh
+  COMPILE /home/khadas/sajjad/eachoptime/op_test_nopnet/vnn_pre_process.c
+  COMPILE /home/khadas/sajjad/eachoptime/op_test_nopnet/vnn_nopnet.c
+vnn_nopnet.c: In function ‘vnn_CreateNopnet’:
+vnn_nopnet.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_nopnet.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/sajjad/eachoptime/op_test_nopnet/main.c
+  COMPILE /home/khadas/sajjad/eachoptime/op_test_nopnet/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ export VIVANTE_SDK_DIR=/home/khadas/sajjad/eachoptime/Just_for_get_op_time/datols
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ export LD_LIBRARY_PATH=/home/khadas/sajjad/eachoptime/Just_for_get_op_time/dats_64_exportdata
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ export VIV_VX_DEBUG_LEVEL=1
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ export CNN_PERF=1
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ export NN_LAYER_DUMP=1
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ cd bin_r_cv4/
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet/bin_r_cv4$ ls
+main.o  nopnet  vnn_nopnet.o  vnn_post_process.o  vnn_pre_process.o
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet/bin_r_cv4$ ./nopnet ../nopnet_88.nb ../black.jpg
+[     1] HAL user version 6.4.6.2.345497
+[     2] HAL kernel version 6.4.6.2.345497
+E [vnn_CreateNopnet:196]Create graph fail.
+E [vnn_CreateNeuralNetwork:196]CHECK PTR 196
+E [main:229]CHECK PTR 229
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet/bin_r_cv4$ ll ../nopnet.export.data
+-rw-r--r-- 1 khadas khadas 2352 Jun 15 01:47 ../nopnet.export.data
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet/bin_r_cv4$ ./nopnet ../nopnet.export.data ../black.jpg
+[     1] HAL user version 6.4.6.2.345497
+[     2] HAL kernel version 6.4.6.2.345497
+E [vnn_CreateNopnet:196]Create graph fail.
+E [vnn_CreateNeuralNetwork:196]CHECK PTR 196
+E [main:229]CHECK PTR 229
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet/bin_r_cv4$ cd
+khadas@Khadas-teco:~$ cd sajjad/
+khadas@Khadas-teco:~/sajjad$ mkdir eachoptime2
+khadas@Khadas-teco:~/sajjad$ cd eachoptime2/
+khadas@Khadas-teco:~/sajjad/eachoptime2$ ls ~/sajjad/eachoptime
+Just_for_get_op_time  op_test  op_test_nopnet
+khadas@Khadas-teco:~/sajjad/eachoptime2$ git clone https://github.com/yan-wyb/Just_for_get_op_time.git
+Cloning into 'Just_for_get_op_time'...
+remote: Enumerating objects: 944, done.
+remote: Total 944 (delta 0), reused 0 (delta 0), pack-reused 944
+Receiving objects: 100% (944/944), 115.32 MiB | 13.20 MiB/s, done.
+Resolving deltas: 100% (430/430), done.
+Updating files:   3% (31/922)
+Network error: Software caused connection abort
+
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Session stopped
+    - Press <return> to exit tab
+    - Press R to restart session
+    - Press S to save terminal output to file
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to khadas@192.168.178.139                              │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+
+Welcome to Fenix 1.0.11 Ubuntu 20.04.4 LTS Linux 4.9.241
+ _  ___               _            __     _____ __  __ _____
+| |/ / |__   __ _  __| | __ _ ___  \ \   / /_ _|  \/  |___ /
+| ' /| '_ \ / _` |/ _` |/ _` / __|  \ \ / / | || |\/| | |_ \
+| . \| | | | (_| | (_| | (_| \__ \   \ V /  | || |  | |___) |
+|_|\_\_| |_|\__,_|\__,_|\__,_|___/    \_/  |___|_|  |_|____/
+
+
+ * Website:        https://www.khadas.com
+ * Documentation:  https://docs.khadas.com
+ * Forum:          https://forum.khadas.com
+
+Last login: Wed Jun 15 01:19:23 2022 from 192.168.178.33
+khadas@Khadas-teco:~$ cd ~/sajjad/eachoptime2
+khadas@Khadas-teco:~/sajjad/eachoptime2$ git clone https://github.com/yan-wyb/Just_for_get_op_time.git
+fatal: destination path 'Just_for_get_op_time' already exists and is not an empty directory.
+khadas@Khadas-teco:~/sajjad/eachoptime2$ rm -rf Just_for_get_op_time/
+khadas@Khadas-teco:~/sajjad/eachoptime2$ git clone https://github.com/yan-wyb/Just_for_get_op_time.git
+Cloning into 'Just_for_get_op_time'...
+remote: Enumerating objects: 944, done.
+remote: Total 944 (delta 0), reused 0 (delta 0), pack-reused 944
+Receiving objects: 100% (944/944), 115.32 MiB | 10.54 MiB/s, done.
+Resolving deltas: 100% (430/430), done.
+Updating files:  29% (268/922)
+Network error: Software caused connection abort
+
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Session stopped
+    - Press <return> to exit tab
+    - Press R to restart session
+    - Press S to save terminal output to file
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to khadas@192.168.178.139                              │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+
+Welcome to Fenix 1.0.11 Ubuntu 20.04.4 LTS Linux 4.9.241
+ _  ___               _            __     _____ __  __ _____
+| |/ / |__   __ _  __| | __ _ ___  \ \   / /_ _|  \/  |___ /
+| ' /| '_ \ / _` |/ _` |/ _` / __|  \ \ / / | || |\/| | |_ \
+| . \| | | | (_| | (_| | (_| \__ \   \ V /  | || |  | |___) |
+|_|\_\_| |_|\__,_|\__,_|\__,_|___/    \_/  |___|_|  |_|____/
+
+
+ * Website:        https://www.khadas.com
+ * Documentation:  https://docs.khadas.com
+ * Forum:          https://forum.khadas.com
+
+Last login: Wed Jun 15 01:52:08 2022 from 192.168.178.33
+khadas@Khadas-teco:~$ cd ~/sajjad/eachoptime2
+khadas@Khadas-teco:~/sajjad/eachoptime2$ rm -rf Just_for_get_op_time/
+khadas@Khadas-teco:~/sajjad/eachoptime2$ git clone https://github.com/yan-wyb/Just_for_get_op_time.git
+Cloning into 'Just_for_get_op_time'...
+remote: Enumerating objects: 944, done.
+remote: Total 944 (delta 0), reused 0 (delta 0), pack-reused 944
+Receiving objects: 100% (944/944), 115.32 MiB | 12.81 MiB/s, done.
+Resolving deltas: 100% (430/430), done.
+Updating files: 100% (922/922), done.
+khadas@Khadas-teco:~/sajjad/eachoptime2$ ls
+Just_for_get_op_time
+khadas@Khadas-teco:~/sajjad/eachoptime2$ mv ../eachoptime1/
+build_vx.sh           Just_for_get_op_time/ makefile.linux        makefile.linux.def    makefile.target_name
+khadas@Khadas-teco:~/sajjad/eachoptime2$ mv ../eachoptime/op_test_nopnet op_test_nopnet
+khadas@Khadas-teco:~/sajjad/eachoptime2$ cd op_test_nopnet/
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ ls
+28x28.jpg  build_vx.sh             makefile.linux        nbg_meta.json       vnn_global.h  vnn_post_process.c  vnn_pre_process.h
+bin_r_cv4  linux_build_sample.log  makefile.linux.def    nopnet_88.nb        vnn_nopnet.c  vnn_post_process.h
+black.jpg  main.c                  makefile.target_name  nopnet.export.data  vnn_nopnet.h  vnn_pre_process.c
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ wget https://raw.githubusercontent.com/khadas/aml_npu_app/master/detect_libration/makefile.linux.def
+--2022-06-15 01:59:04--  https://raw.githubusercontent.com/khadas/aml_npu_app/master/detect_library/inception/makefile.linux.def
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 2606:50c0:8001::154, 2606:50c0:8003::154, 2606:50c0:8000::154, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|2606:50c0:8001::154|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 16406 (16K) [text/plain]
+Saving to: ‘makefile.linux.def.1’
+
+makefile.linux.def.1                100%[================================================================>]  16.02K  --.-KB/s    in 0
+
+2022-06-15 01:59:04 (10.6 MB/s) - ‘makefile.linux.def.1’ saved [16406/16406]
+
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ wget https://raw.githubusercontent.com/khadas/aml_npu_app/master/detect_libration/build_vx.sh
+--2022-06-15 01:59:18--  https://raw.githubusercontent.com/khadas/aml_npu_app/master/detect_library/inception/build_vx.sh
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 2606:50c0:8001::154, 2606:50c0:8003::154, 2606:50c0:8000::154, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|2606:50c0:8001::154|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9312 (9.1K) [text/plain]
+Saving to: ‘build_vx.sh.1’
+
+build_vx.sh.1                       100%[================================================================>]   9.09K  --.-KB/s    in 0
+
+2022-06-15 01:59:18 (1.86 MB/s) - ‘build_vx.sh.1’ saved [9312/9312]
+
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ echo "TARGET_NAME = nopnet"  > makefile.target_name
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ vim makefile.linux
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ ./build_vx.sh
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ rm -rf bin_r_cv4/
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ ./build_vx.sh
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_nopnet/vnn_pre_process.c
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_nopnet/vnn_nopnet.c
+vnn_nopnet.c: In function ‘vnn_CreateNopnet’:
+vnn_nopnet.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_nopnet.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_nopnet/main.c
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_nopnet/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ /home/khadas/sajjad/eachoptime2/Just_for_get_op_time/data/
+-bash: /home/khadas/sajjad/eachoptime2/Just_for_get_op_time/data/: Is a directory
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ export VIVANTE_SDK_DIR=/home/khadas/sajjad/eachoptime2/Just_for_get_op_time/dtools
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ export LD_LIBRARY_PATH=/home/khadas/sajjad/eachoptime2/Just_for_get_op_time/ders_64_exportdata
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ export VIV_VX_DEBUG_LEVEL=1
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ export CNN_PERF=1
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ export NN_LAYER_DUMP=1
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ cd bin_r_cv4/
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet/bin_r_cv4$ ./nopnet ../nopnet.export.data ../black.jpg
+[     1] HAL user version 6.4.6.2.345497
+[     2] HAL kernel version 6.4.6.2.345497
+E [vnn_CreateNopnet:196]Create graph fail.
+E [vnn_CreateNeuralNetwork:196]CHECK PTR 196
+E [main:229]CHECK PTR 229
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet/bin_r_cv4$ cd ..
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ cd ..
+khadas@Khadas-teco:~/sajjad/eachoptime2$ cp -r  op_test_nopnet op_test_nopnet_markus
+khadas@Khadas-teco:~/sajjad/eachoptime2$ cd op_test_nopnet_markus/
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet_markus$ pwd
+/home/khadas/sajjad/eachoptime2/op_test_nopnet_markus
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet_markus$ ls
+28x28.jpg    build_vx.sh.1           makefile.linux        makefile.target_name  nopnet.export.data  vnn_nopnet.c        vnn_post_pro
+black.jpg    linux_build_sample.log  makefile.linux.def    nbg_meta.json         nopnet.nb           vnn_nopnet.h        vnn_pre_proc
+build_vx.sh  main.c                  makefile.linux.def.1  nopnet_88.nb          vnn_global.h        vnn_post_process.c  vnn_pre_proc
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet_markus$ rm -rf *.h *.c nopnet.export.data *.nb *.1
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet_markus$ ls
+28x28.jpg  black.jpg  build_vx.sh  linux_build_sample.log  makefile.linux  makefile.linux.def  makefile.target_name  nbg_meta.json
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet_markus$ ls
+28x28.jpg  build_vx.sh             main.c          makefile.linux.def    nbg_meta.json  vnn_nopnet.c  vnn_post_process.c  vnn_pre_pro
+black.jpg  linux_build_sample.log  makefile.linux  makefile.target_name  nopnet.nb      vnn_nopnet.h  vnn_post_process.h  vnn_pre_pro
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet_markus$ ./build_vx.sh
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_nopnet_markus/vnn_pre_process.c
+vnn_pre_process.c:16:10: fatal error: vnn_global.h: No such file or directory
+   16 | #include "vnn_global.h"
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+make: *** [makefile.linux:67: bin_r_cv4/vnn_pre_process.o] Error 1
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet_markus$ ./build_vx.sh
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_nopnet_markus/vnn_pre_process.c
+vnn_pre_process.c:397:13: warning: ‘_data_transform’ defined but not used [-Wunused-function]
+  397 | static void _data_transform
+      |             ^~~~~~~~~~~~~~~
+vnn_pre_process.c:365:13: warning: ‘_data_mean’ defined but not used [-Wunused-function]
+  365 | static void _data_mean
+      |             ^~~~~~~~~~
+vnn_pre_process.c:343:13: warning: ‘_data_scale’ defined but not used [-Wunused-function]
+  343 | static void _data_scale
+      |             ^~~~~~~~~~~
+vnn_pre_process.c:200:17: warning: ‘_float32_to_dtype’ defined but not used [-Wunused-function]
+  200 | static uint8_t *_float32_to_dtype
+      |                 ^~~~~~~~~~~~~~~~~
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_nopnet_markus/vnn_nopnet.c
+vnn_nopnet.c: In function ‘vnn_CreateNopnet’:
+vnn_nopnet.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_nopnet.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_nopnet_markus/main.c
+main.c: In function ‘main’:
+main.c:245:9: warning: "/*" within comment [-Wcomment]
+  245 |         /* Dump all node outputs */
+      |
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_nopnet_markus/vnn_post_process.c
+vnn_post_process.c: In function ‘save_output_data’:
+vnn_post_process.c:37:10: warning: unused variable ‘filename’ [-Wunused-variable]
+   37 |     char filename[_DUMP_FILE_LENGTH] = {0}, shape[_DUMP_SHAPE_LENGTH] = {0};
+      |          ^~~~~~~~
+vnn_post_process.c: In function ‘getVXTypeString’:
+vnn_post_process.c:99:5: warning: enumeration value ‘VSI_NN_TYPE_BOOL8’ not handled in switch [-Wswitch]
+   99 |     switch (vx_type)
+      |     ^~~~~~
+vnn_post_process.c:99:5: warning: enumeration value ‘VSI_NN_TYPE_BFLOAT16’ not handled in switch [-Wswitch]
+vnn_post_process.c:99:5: warning: enumeration value ‘VSI_NN_TYPE_VDATA’ not handled in switch [-Wswitch]
+vnn_post_process.c: In function ‘show_top5’:
+vnn_post_process.c:168:1: warning: label ‘final’ defined but not used [-Wunused-label]
+  168 | final:
+      | ^~~~~
+vnn_post_process.c:129:14: warning: unused variable ‘topk’ [-Wunused-variable]
+  129 |     uint32_t topk = 5;
+      |              ^~~~
+vnn_post_process.c:128:11: warning: unused variable ‘fMaxProb’ [-Wunused-variable]
+  128 |     float fMaxProb[5];
+      |           ^~~~~~~~
+vnn_post_process.c:127:14: warning: unused variable ‘MaxClass’ [-Wunused-variable]
+  127 |     uint32_t MaxClass[5];
+      |              ^~~~~~~~
+vnn_post_process.c: In function ‘getVXTypeString’:
+vnn_post_process.c:115:1: warning: control reaches end of non-void function [-Wreturn-type]
+  115 | }
+      | ^
+At top level:
+vnn_post_process.c:55:17: warning: ‘get_top’ defined but not used [-Wunused-function]
+   55 | static vsi_bool get_top
+      |                 ^~~~~~~
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet_markus$ ls
+28x28.jpg  build_vx.sh             makefile.linux        nbg_meta.json  vnn_nopnet.c        vnn_post_process.h
+bin_r_cv4  linux_build_sample.log  makefile.linux.def    nopnet.nb      vnn_nopnet.h        vnn_pre_process.c
+black.jpg  main.c                  makefile.target_name  vnn_global.h   vnn_post_process.c  vnn_pre_process.h
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet_markus$ cd bin_r_cv4/
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet_markus/bin_r_cv4$ ./nopnet ../nopnet.nb ../black.jpg
+[     1] HAL user version 6.4.6.2.345497
+[     2] HAL kernel version 6.4.6.2.345497
+
+Use img process: 0
+E [vnn_CreateNopnet:189]Create graph fail.
+E [vnn_CreateNeuralNetwork:196]CHECK PTR 196
+E [main:229]CHECK PTR 229
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet_markus/bin_r_cv4$ cd ..
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet_markus$ cd ..
+khadas@Khadas-teco:~/sajjad/eachoptime2$ cp -r  op_test_nopnet op_test_yolov3
+khadas@Khadas-teco:~/sajjad/eachoptime2$ cd op_test_yolov3/
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3$ rm -rf *.h *.c nopnet.export.data *.nb *.1
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3$ ls
+28x28.jpg  black.jpg    linux_build_sample.log  makefile.linux.def    nbg_meta.json
+bin_r_cv4  build_vx.sh  makefile.linux          makefile.target_name
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3$ vim makefile.target_name
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3$ ./build_vx.sh
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_yolov3/vnn_pre_process.c
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_yolov3/vnn_yolov3.c
+vnn_yolov3.c: In function ‘vnn_CreateYolov3’:
+vnn_yolov3.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_yolov3.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_yolov3/main.c
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_yolov3/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3$ cd bin_r_cv4/
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3/bin_r_cv4$ ls
+main.o  nopnet  vnn_nopnet.o  vnn_post_process.o  vnn_pre_process.o  vnn_yolov3.o  yolov3
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3/bin_r_cv4$ ./yolov3 ../yolov3_88.nb ../black.jpg
+[     1] HAL user version 6.4.6.2.345497
+[     2] HAL kernel version 6.4.6.2.345497
+E [vnn_CreateYolov3:196]Create graph fail.
+E [vnn_CreateNeuralNetwork:196]CHECK PTR 196
+E [main:229]CHECK PTR 229
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3/bin_r_cv4$ pwd
+/home/khadas/sajjad/eachoptime2/op_test_yolov3/bin_r_cv4
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3/bin_r_cv4$ ./yolov3 ../yolov3_88.nb ../1080p.bmp
+[     1] HAL user version 6.4.6.2.345497
+[     2] HAL kernel version 6.4.6.2.345497
+E [vnn_CreateYolov3:196]Create graph fail.
+E [vnn_CreateNeuralNetwork:196]CHECK PTR 196
+E [main:229]CHECK PTR 229
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3/bin_r_cv4$ ./yolov3 ../yolov3.export.data ../1080p.bmp
+[     1] HAL user version 6.4.6.2.345497
+[     2] HAL kernel version 6.4.6.2.345497
+E [vnn_CreateYolov3:196]Create graph fail.
+E [vnn_CreateNeuralNetwork:196]CHECK PTR 196
+E [main:229]CHECK PTR 229
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3/bin_r_cv4$ cd ..
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3$ vim makefile.target_name
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3$ cp ../../eachoptime1/
+build_vx.sh           Just_for_get_op_time/ makefile.linux        makefile.linux.def    makefile.target_name
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3$ cp ../../
+20220512/                       eachoptime1/                    npu1/                           NPUApp2_qtest2/
+3_compile_and_run_using_c_code/ eachoptime2/                    NPUApp/                         npusdk1/
+416_sajjad/                     ksnn/                           NPUApp1/                        standalone_v3/
+eachoptime/                     minimal_nn_example/             NPUApp2_qtest1/                 yolov3_nbg_unify_608_hussain/
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3$ cp ../../eachoptime1/
+build_vx.sh           Just_for_get_op_time/ makefile.linux        makefile.linux.def    makefile.target_name
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3$ cp ../../eachoptime/
+Just_for_get_op_time/ op_test/
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3$ cp ../../eachoptime/op_test/
+bin_r_cv4/                main.c                    mobilenet_tf.export.data  vnn_post_process.c
+bin_r_cv4_old/            makefile.linux            vnn_global.h              vnn_post_process.h
+build_vx.sh               makefile.linux.def        vnn_mobilenettf.c         vnn_pre_process.c
+linux_build_sample.log    makefile.target_name      vnn_mobilenettf.h         vnn_pre_process.h
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3$ cp ../../eachoptime/op_test/makefile.target_name .
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3$ vim makefile.target_name
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3$ rm -rf bin_r_cv4/
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3$ ./build_vx.sh
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_yolov3/vnn_pre_process.c
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_yolov3/vnn_yolov3.c
+vnn_yolov3.c: In function ‘vnn_CreateYolov3’:
+vnn_yolov3.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_yolov3.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_yolov3/main.c
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_yolov3/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3$ cd bin_r_cv4/
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3/bin_r_cv4$ ./detect_mobilnet ../yolov3.export.data ../1080p.bmp
+[     1] HAL user version 6.4.6.2.345497
+[     2] HAL kernel version 6.4.6.2.345497
+E [vnn_CreateYolov3:196]Create graph fail.
+E [vnn_CreateNeuralNetwork:196]CHECK PTR 196
+E [main:229]CHECK PTR 229
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_yolov3/bin_r_cv4$ cd
+khadas@Khadas-teco:~$ cd sajjad/eachoptime/op_test/bin_r_cv4
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test/bin_r_cv4$ ls
+detect_mobilnet  input_0.dat  output0_1001_1.dat     vnn_mobilenettf.o   vnn_pre_process.o
+graph.json       main.o       space_shuttle_224.jpg  vnn_post_process.o
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test/bin_r_cv4$ ./detect_mobilnet ../
+bin_r_cv4/                main.c                    mobilenet_tf.export.data  vnn_post_process.c
+bin_r_cv4_old/            makefile.linux            vnn_global.h              vnn_post_process.h
+build_vx.sh               makefile.linux.def        vnn_mobilenettf.c         vnn_pre_process.c
+linux_build_sample.log    makefile.target_name      vnn_mobilenettf.h         vnn_pre_process.h
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test/bin_r_cv4$ ./detect_mobilnet ../mobilenet_tf.export.data ./space_shuttle_224.jpg
+[     1] HAL user version 6.4.6.2.345497
+[     2] HAL kernel version 6.4.6.2.345497
+E [vnn_CreateMobilenetTf:190]Create graph fail.
+E [vnn_CreateNeuralNetwork:196]CHECK PTR 196
+E [main:229]CHECK PTR 229
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test/bin_r_cv4$

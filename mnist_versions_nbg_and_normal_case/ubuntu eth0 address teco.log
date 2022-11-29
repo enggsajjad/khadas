@@ -1,0 +1,129 @@
+================================
+configure the PC in teco and connect the ethernet cable, check the internet
+================================
+sajjad@teco:~$ ifconfig
+docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+        ether 02:42:9f:04:95:2b  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+enp3s0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.10.254.178  netmask 255.255.0.0  broadcast 10.10.255.255
+        inet6 fe80::8474:8b8b:4b:a3c4  prefixlen 64  scopeid 0x20<link>
+        inet6 2a00:1398:5:32ea:c048:a95f:cdcd:77f3  prefixlen 64  scopeid 0x0<global>
+        inet6 2a00:1398:5:32ea:70e:efcf:b0f6:bf6e  prefixlen 64  scopeid 0x0<global>
+        ether 04:d9:f5:f6:a0:1b  txqueuelen 1000  (Ethernet)
+        RX packets 6262  bytes 6768288 (6.7 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 3325  bytes 598835 (598.8 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 780  bytes 78182 (78.1 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 780  bytes 78182 (78.1 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+sajjad@teco:~$ 
+
+
+
+
+================================
+after openvpn connected to teco
+===============================
+
+
+================================
+Connecte via ssh
+===============================
+
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to sajjad@10.10.254.178                                │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 5.4.0-107-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+26 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Last login: Thu Aug 18 23:37:59 2022 from 129.13.170.244
+sajjad@teco:~$
+
+
+
+================================
+checking ssh connections
+===============================
+
+sajjad@teco:~$ ssh khadas@10.10.254.119
+The authenticity of host '10.10.254.119 (10.10.254.119)' can't be established.
+ECDSA key fingerprint is SHA256:FSiwFBCvreWr6j/aeJ4HQsInSjyeqOJfRmQla9UAkrg.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '10.10.254.119' (ECDSA) to the list of known hosts.
+khadas@10.10.254.119's password:
+
+Welcome to Fenix 1.0.9 Ubuntu 20.04.3 LTS Linux 4.9.241
+ _  ___               _            __     _____ __  __ _____
+| |/ / |__   __ _  __| | __ _ ___  \ \   / /_ _|  \/  |___ /
+| ' /| '_ \ / _` |/ _` |/ _` / __|  \ \ / / | || |\/| | |_ \
+| . \| | | | (_| | (_| | (_| \__ \   \ V /  | || |  | |___) |
+|_|\_\_| |_|\__,_|\__,_|\__,_|___/    \_/  |___|_|  |_|____/
+
+
+ * Website:        https://www.khadas.com
+ * Documentation:  https://docs.khadas.com
+ * Forum:          https://forum.khadas.com
+
+Last login: Sat Aug 20 18:49:06 2022 from 129.13.170.244
+khadas@Khadas:~$ exit
+logout
+Connection to 10.10.254.119 closed.
+sajjad@teco:~$ echo "Sajjad Hussain Checking SCP at TECO" > scptest1.log
+sajjad@teco:~$ echo "Sajjad Hussain Checking SCP at TECO" > scptest2.log
+sajjad@teco:~$
+
+
+
+
+================================
+checking scp
+===============================
+
+sajjad@teco:~$ clear
+sajjad@teco:~$ scp khadas@10.10.254.119:~/scptest4.log scptest4_from_khadas.log
+khadas@10.10.254.119's password:
+scptest4.log                                                                                  100%   38    21.3KB/s   00:00
+sajjad@teco:~$ scp scptest2.log khadas@10.10.254.119:~/scptest2_from_ubuntu.log
+khadas@10.10.254.119's password:
+scptest2.log                                                                                  100%   36    20.2KB/s   00:00
+sajjad@teco:~$
+
+
+sajjad@teco:~$ ls scptest*
+scptest1.log  scptest2.log  scptest3_from_khads.log  scptest4_from_khadas.log
+sajjad@teco:~$
+
+
+
+
+

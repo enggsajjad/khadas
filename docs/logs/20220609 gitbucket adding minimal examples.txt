@@ -1,0 +1,330 @@
+khadas@Khadas-teco:~/sajjad$ git clone https://enggsajjad123@bitbucket.org/novelsense/minimal_nn_example.git
+Cloning into 'minimal_nn_example'...
+Password for 'https://enggsajjad123@bitbucket.org': AYE8gDCEf5wqVBFjMnPc
+remote: Enumerating objects: 41, done.
+remote: Counting objects: 100% (41/41), done.
+remote: Compressing objects: 100% (41/41), done.
+remote: Total 41 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (41/41), 46.91 MiB | 3.16 MiB/s, done.
+khadas@Khadas-teco:~/sajjad$
+khadas@Khadas-teco:~/sajjad$ cd minimal_nn_example/
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$ ls
+README.md
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$ cp -r /home/khadas/sajjad/NPUApp/aml_npu_app/detect_library/model_code/nbg_unify_yolov3 .
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$ vim README.md
+khadas@Khadas-teco:~/sajjad/minimal_nn_example/nbg_unify_yolov3$ ./bin_r_cv4/yolov3test ./yolov3.nb 1080p-608x608.jpg
+Create Neural Network: 81ms or 81379us
+Verify...
+E [vnn_VerifyGraph:85]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E [main:237]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+khadas@Khadas-teco:~/sajjad/minimal_nn_example/nbg_unify_yolov3$ cd ..
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$ vim README.md
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$ git add --all
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$ git commit -m "adding a minimal example with the old shell scripts"
+[main 6ae06e7] adding a minimal example with the old shell scripts
+ 28 files changed, 4019 insertions(+), 1 deletion(-)
+ create mode 100644 nbg_unify_yolov3/.cproject
+ create mode 100644 nbg_unify_yolov3/.project
+ create mode 100644 nbg_unify_yolov3/1080p-416x416.jpg
+ create mode 100644 nbg_unify_yolov3/1080p-608x608.jpg
+ create mode 100644 nbg_unify_yolov3/BUILD
+ create mode 100644 nbg_unify_yolov3/bin_r_cv4/main.o
+ create mode 100644 nbg_unify_yolov3/bin_r_cv4/vnn_post_process.o
+ create mode 100644 nbg_unify_yolov3/bin_r_cv4/vnn_pre_process.o
+ create mode 100644 nbg_unify_yolov3/bin_r_cv4/vnn_yolov3.o
+ create mode 100755 nbg_unify_yolov3/bin_r_cv4/yolov3test
+ create mode 100755 nbg_unify_yolov3/build_vx.sh
+ create mode 100644 nbg_unify_yolov3/input_0.dat
+ create mode 100644 nbg_unify_yolov3/main.c
+ create mode 100644 nbg_unify_yolov3/makefile.linux
+ create mode 100644 nbg_unify_yolov3/makefile.linux.def
+ create mode 100644 nbg_unify_yolov3/makefile.linux_backup
+ create mode 100644 nbg_unify_yolov3/makefile.target_name
+ create mode 100644 nbg_unify_yolov3/nbg_meta.json
+ create mode 100644 nbg_unify_yolov3/vnn_global.h
+ create mode 100644 nbg_unify_yolov3/vnn_post_process.c
+ create mode 100644 nbg_unify_yolov3/vnn_post_process.h
+ create mode 100644 nbg_unify_yolov3/vnn_pre_process.c
+ create mode 100644 nbg_unify_yolov3/vnn_pre_process.h
+ create mode 100644 nbg_unify_yolov3/vnn_yolov3.c
+ create mode 100644 nbg_unify_yolov3/vnn_yolov3.h
+ create mode 100644 nbg_unify_yolov3/yolov3.nb
+ create mode 100644 nbg_unify_yolov3/yolov3.vcxproj
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$ git push --all
+Password for 'https://enggsajjad123@bitbucket.org':
+Enumerating objects: 34, done.
+Counting objects: 100% (34/34), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (32/32), done.
+Writing objects: 100% (32/32), 40.08 MiB | 2.08 MiB/s, done.
+Total 32 (delta 2), reused 0 (delta 0)
+To https://bitbucket.org/novelsense/minimal_nn_example.git
+   61439e7..6ae06e7  main -> main
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$ cp -r /home/khadas/sajjad/NPUApp/aml_npu_app/detect_library/model_code/nbg_unify_lenet .
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$ cd nbg_unify_lenet/
+khadas@Khadas-teco:~/sajjad/minimal_nn_example/nbg_unify_lenet$ ./bin_r_cv4/lenettest ./lenet.nb ./bmp/1.jpg
+Create Neural Network: 12ms or 12345us
+Verify...
+E [vnn_VerifyGraph:85]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E [main:237]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+khadas@Khadas-teco:~/sajjad/minimal_nn_example/nbg_unify_lenet$
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$ git add --all
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$ git commit -m "adding a minimal example with the old shell scripts for lenet model"     [main cbbb0b6] adding a minimal example with the old shell scripts for lenet model
+ 42 files changed, 4076 insertions(+)
+ create mode 100644 nbg_unify_lenet/.cproject
+ create mode 100644 nbg_unify_lenet/.project
+ create mode 100644 nbg_unify_lenet/BUILD
+ create mode 100644 nbg_unify_lenet/bin_r_cv4/graph.json
+ create mode 100644 nbg_unify_lenet/bin_r_cv4/input_0.dat
+ create mode 100755 nbg_unify_lenet/bin_r_cv4/lenettest
+ create mode 100644 nbg_unify_lenet/bin_r_cv4/main.o
+ create mode 100644 nbg_unify_lenet/bin_r_cv4/output0_10_1.dat
+ create mode 100644 nbg_unify_lenet/bin_r_cv4/vnn_lenet.o
+ create mode 100644 nbg_unify_lenet/bin_r_cv4/vnn_post_process.o
+ create mode 100644 nbg_unify_lenet/bin_r_cv4/vnn_pre_process.o
+ create mode 100644 nbg_unify_lenet/bmp/0.bmp
+ create mode 100644 nbg_unify_lenet/bmp/1.bmp
+ create mode 100644 nbg_unify_lenet/bmp/1.jpg
+ create mode 100644 nbg_unify_lenet/bmp/2.bmp
+ create mode 100644 nbg_unify_lenet/bmp/3.bmp
+ create mode 100644 nbg_unify_lenet/bmp/4.bmp
+ create mode 100644 nbg_unify_lenet/bmp/5.bmp
+ create mode 100644 nbg_unify_lenet/bmp/6.bmp
+ create mode 100644 nbg_unify_lenet/bmp/7.bmp
+ create mode 100644 nbg_unify_lenet/bmp/8.bmp
+ create mode 100644 nbg_unify_lenet/bmp/9.bmp
+ create mode 100755 nbg_unify_lenet/build_vx.sh
+ create mode 100644 nbg_unify_lenet/input_0.dat
+ create mode 100644 nbg_unify_lenet/lenet.data
+ create mode 100644 nbg_unify_lenet/lenet.nb
+ create mode 100644 nbg_unify_lenet/lenet.vcxproj
+ create mode 100644 nbg_unify_lenet/main.c
+ create mode 100644 nbg_unify_lenet/makefile.linux
+ create mode 100644 nbg_unify_lenet/makefile.linux.def
+ create mode 100644 nbg_unify_lenet/makefile.linux_backup
+ create mode 100644 nbg_unify_lenet/makefile.target_name
+ create mode 100644 nbg_unify_lenet/nbg_meta.json
+ create mode 100644 nbg_unify_lenet/output0_10_1.dat
+ create mode 100644 nbg_unify_lenet/vnn_global.h
+ create mode 100644 nbg_unify_lenet/vnn_lenet.c
+ create mode 100644 nbg_unify_lenet/vnn_lenet.h
+ create mode 100644 nbg_unify_lenet/vnn_post_process.c
+ create mode 100644 nbg_unify_lenet/vnn_post_process.h
+ create mode 100644 nbg_unify_lenet/vnn_pre_process.c
+ create mode 100644 nbg_unify_lenet/vnn_pre_process.h
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$ git push --all
+Password for 'https://enggsajjad123@bitbucket.org':
+Enumerating objects: 41, done.
+Counting objects: 100% (41/41), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (38/38), done.
+Writing objects: 100% (39/39), 2.43 MiB | 2.29 MiB/s, done.
+Total 39 (delta 10), reused 0 (delta 0)
+To https://bitbucket.org/novelsense/minimal_nn_example.git
+   6ae06e7..cbbb0b6  main -> main
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$ cp -r /home/khadas/sajjad/yolov3_nbg_unify_608_hussain .
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$
+khadas@Khadas-teco:~/sajjad/minimal_nn_example/yolov3_nbg_unify_608_hussain/bin_r_cv4$ ./yolov3test ../yolov3_88.nb ../1080p-608x608.jpg
+Create Neural Network: 2428ms or 2428619us
+Verify...
+Verify Graph: 11ms or 11375us
+Start run graph [1] times...
+Run the 1 time: 339.00ms or 339429.00us
+vxProcessGraph execution time:
+Total   339.00ms or 339496.00us
+Average 339.50ms or 339496.00us
+ --- Top5 ---
+32638: 524288.000000
+1549: 491520.000000
+1763: 491520.000000
+50779: 491520.000000
+1742: 483328.000000
+khadas@Khadas-teco:~/sajjad/minimal_nn_example/yolov3_nbg_unify_608_hussain/bin_r_cv4$
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$ vim README.md
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$ git add --all
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$ git commit -m "adding a minimal example with the new shell scripts for yolov3 model"
+[main 1201df1] adding a minimal example with the new shell scripts for yolov3 model
+ 34 files changed, 3977 insertions(+)
+ create mode 100644 yolov3_nbg_unify_608_hussain/.cproject
+ create mode 100644 yolov3_nbg_unify_608_hussain/.project
+ create mode 100644 yolov3_nbg_unify_608_hussain/1080p-416x416.jpg
+ create mode 100644 yolov3_nbg_unify_608_hussain/1080p-608x608.jpg
+ create mode 100644 yolov3_nbg_unify_608_hussain/BUILD
+ create mode 100644 yolov3_nbg_unify_608_hussain/bin_r_cv4/input_0.dat
+ create mode 100644 yolov3_nbg_unify_608_hussain/bin_r_cv4/main.o
+ create mode 100644 yolov3_nbg_unify_608_hussain/bin_r_cv4/output0_19_19_255_1.dat
+ create mode 100644 yolov3_nbg_unify_608_hussain/bin_r_cv4/output1_38_38_255_1.dat
+ create mode 100644 yolov3_nbg_unify_608_hussain/bin_r_cv4/output2_76_76_255_1.dat
+ create mode 100644 yolov3_nbg_unify_608_hussain/bin_r_cv4/vnn_post_process.o
+ create mode 100644 yolov3_nbg_unify_608_hussain/bin_r_cv4/vnn_pre_process.o
+ create mode 100644 yolov3_nbg_unify_608_hussain/bin_r_cv4/vnn_yolov3.o
+ create mode 100755 yolov3_nbg_unify_608_hussain/bin_r_cv4/yolov3test
+ create mode 100755 yolov3_nbg_unify_608_hussain/build_vx.sh
+ create mode 100644 yolov3_nbg_unify_608_hussain/input_0.dat
+ create mode 100644 yolov3_nbg_unify_608_hussain/main.c
+ create mode 100644 yolov3_nbg_unify_608_hussain/makefile.linux
+ create mode 100644 yolov3_nbg_unify_608_hussain/makefile.linux.def
+ create mode 100644 yolov3_nbg_unify_608_hussain/makefile.target_name
+ create mode 100644 yolov3_nbg_unify_608_hussain/nbg_meta.json
+ create mode 100644 yolov3_nbg_unify_608_hussain/output0_19_19_255_1.dat
+ create mode 100644 yolov3_nbg_unify_608_hussain/output1_38_38_255_1.dat
+ create mode 100644 yolov3_nbg_unify_608_hussain/output2_76_76_255_1.dat
+ create mode 100644 yolov3_nbg_unify_608_hussain/vnn_global.h
+ create mode 100644 yolov3_nbg_unify_608_hussain/vnn_post_process.c
+ create mode 100644 yolov3_nbg_unify_608_hussain/vnn_post_process.h
+ create mode 100644 yolov3_nbg_unify_608_hussain/vnn_pre_process.c
+ create mode 100644 yolov3_nbg_unify_608_hussain/vnn_pre_process.h
+ create mode 100644 yolov3_nbg_unify_608_hussain/vnn_yolov3.c
+ create mode 100644 yolov3_nbg_unify_608_hussain/vnn_yolov3.h
+ create mode 100644 yolov3_nbg_unify_608_hussain/yolov3.vcxproj
+ create mode 100644 yolov3_nbg_unify_608_hussain/yolov3_88.nb
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$ git push --all
+Password for 'https://enggsajjad123@bitbucket.org':
+Enumerating objects: 23, done.
+Counting objects: 100% (23/23), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (21/21), done.
+Writing objects: 100% (21/21), 40.44 MiB | 2.17 MiB/s, done.
+Total 21 (delta 2), reused 0 (delta 0)
+To https://bitbucket.org/novelsense/minimal_nn_example.git
+   cbbb0b6..1201df1  main -> main
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$
+khadas@Khadas-teco:~/sajjad/minimal_nn_example$ cd ..
+khadas@Khadas-teco:~/sajjad$ git clone https://enggsajjad123@bitbucket.org/enggsajjad123/standalone_v3.git
+Cloning into 'standalone_v3'...
+Password for 'https://enggsajjad123@bitbucket.org':
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (4/4), 957 bytes | 191.00 KiB/s, done.
+khadas@Khadas-teco:~/sajjad$ cd standalone_v3/
+khadas@Khadas-teco:~/sajjad/standalone_v3$ 
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+Hello from yolo_v3.c
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:419.831 right:1464 top:6.80861 bottom:1080
+left:429.831 top-10:40
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ cd
+khadas@Khadas-teco:~$ cd sajjad/
+khadas@Khadas-teco:~/sajjad$ cd standalone_v3/
+khadas@Khadas-teco:~/sajjad/standalone_v3$ cp -r ~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B .
+khadas@Khadas-teco:~/sajjad/standalone_v3$
+
+khadas@Khadas-teco:~/sajjad/standalone_v3$ mkdir oldscripts
+khadas@Khadas-teco:~/sajjad/standalone_v3$ mkdir newscripts
+khadas@Khadas-teco:~/sajjad/standalone_v3$ mv sample_demo_x11B oldscripts/.
+khadas@Khadas-teco:~/sajjad/standalone_v3$ cp -r ~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1 newscripts/.
+khadas@Khadas-teco:~/sajjad/standalone_v3$ mv newscripts/sample_demo_x11B1 newscripts/sample_demo_x11B
+khadas@Khadas-teco:~/sajjad/standalone_v3$ vim README.md
+khadas@Khadas-teco:~/sajjad/standalone_v3$ git add --all
+khadas@Khadas-teco:~/sajjad/standalone_v3$ git commit -m "standealone application for yolov3 without any libnn so files"
+[master 3fafe92] standealone application for yolov3 without any libnn so files
+ 70 files changed, 5141 insertions(+), 1 deletion(-)
+ create mode 100644 newscripts/sample_demo_x11B/1.bmp
+ create mode 100755 newscripts/sample_demo_x11B/1080p.bmp
+ create mode 100755 newscripts/sample_demo_x11B/ReadMe.txt
+ create mode 100755 newscripts/sample_demo_x11B/bin_r_cv4/detect_demo_x11
+ create mode 100644 newscripts/sample_demo_x11B/bin_r_cv4/detect_log.o
+ create mode 100644 newscripts/sample_demo_x11B/bin_r_cv4/main.o
+ create mode 100755 newscripts/sample_demo_x11B/bin_r_cv4/nn_data/yolov3_88.nb
+ create mode 100755 newscripts/sample_demo_x11B/bin_r_cv4/output.bmp
+ create mode 100644 newscripts/sample_demo_x11B/bin_r_cv4/vnn_yolov3.o
+ create mode 100644 newscripts/sample_demo_x11B/bin_r_cv4/yolo_v3.o
+ create mode 100644 newscripts/sample_demo_x11B/bin_r_cv4/yolov3_process.o
+ create mode 120000 newscripts/sample_demo_x11B/build_vx.sh
+ create mode 100755 newscripts/sample_demo_x11B/detect_c
+ create mode 100755 newscripts/sample_demo_x11B/detect_log.c
+ create mode 100755 newscripts/sample_demo_x11B/emb.db
+ create mode 100755 newscripts/sample_demo_x11B/include/detect.h
+ create mode 100755 newscripts/sample_demo_x11B/include/detect_log.h
+ create mode 100644 newscripts/sample_demo_x11B/include/nbg_meta.json
+ create mode 100755 newscripts/sample_demo_x11B/include/nn_detect.h
+ create mode 100755 newscripts/sample_demo_x11B/include/nn_detect_common.h
+ create mode 100755 newscripts/sample_demo_x11B/include/nn_detect_utils.h
+ create mode 100755 newscripts/sample_demo_x11B/include/vnn_global.h
+ create mode 100755 newscripts/sample_demo_x11B/include/vnn_post_process.h
+ create mode 100755 newscripts/sample_demo_x11B/include/vnn_pre_process.h
+ create mode 100755 newscripts/sample_demo_x11B/include/vnn_yolov3.h
+ create mode 100755 newscripts/sample_demo_x11B/include/yolo_v3.h
+ create mode 100755 newscripts/sample_demo_x11B/include/yolov3_process.h
+ create mode 100755 newscripts/sample_demo_x11B/main.cpp
+ create mode 120000 newscripts/sample_demo_x11B/makefile.linux
+ create mode 120000 newscripts/sample_demo_x11B/makefile.linux.def
+ create mode 100755 newscripts/sample_demo_x11B/makefile.target_name
+ create mode 100755 newscripts/sample_demo_x11B/vnn_yolov3.c
+ create mode 100755 newscripts/sample_demo_x11B/yolo_v3.c
+ create mode 100755 newscripts/sample_demo_x11B/yolov3_process.c
+ create mode 100755 oldscripts/sample_demo_x11B/1080p.bmp
+ create mode 100755 oldscripts/sample_demo_x11B/ReadMe.txt
+ create mode 100755 oldscripts/sample_demo_x11B/bin_r_cv4/detect_demo_x11
+ create mode 100755 oldscripts/sample_demo_x11B/bin_r_cv4/detect_log.o
+ create mode 100755 oldscripts/sample_demo_x11B/bin_r_cv4/main.o
+ create mode 100755 oldscripts/sample_demo_x11B/bin_r_cv4/nn_data/yolov3_88.nb
+ create mode 100755 oldscripts/sample_demo_x11B/bin_r_cv4/output.bmp
+ create mode 100755 oldscripts/sample_demo_x11B/bin_r_cv4/vnn_yolov3.o
+ create mode 100755 oldscripts/sample_demo_x11B/bin_r_cv4/yolo_v3.o
+ create mode 100755 oldscripts/sample_demo_x11B/bin_r_cv4/yolov3_process.o
+ create mode 120000 oldscripts/sample_demo_x11B/build_vx.sh
+ create mode 100755 oldscripts/sample_demo_x11B/detect_c
+ create mode 100755 oldscripts/sample_demo_x11B/detect_log.c
+ create mode 100755 oldscripts/sample_demo_x11B/emb.db
+ create mode 100755 oldscripts/sample_demo_x11B/include/detect.h
+ create mode 100755 oldscripts/sample_demo_x11B/include/detect_log.h
+ create mode 100755 oldscripts/sample_demo_x11B/include/nn_detect.h
+ create mode 100755 oldscripts/sample_demo_x11B/include/nn_detect_common.h
+ create mode 100755 oldscripts/sample_demo_x11B/include/nn_detect_utils.h
+ create mode 100755 oldscripts/sample_demo_x11B/include/vnn_global.h
+ create mode 100755 oldscripts/sample_demo_x11B/include/vnn_post_process.h
+ create mode 100755 oldscripts/sample_demo_x11B/include/vnn_pre_process.h
+ create mode 100755 oldscripts/sample_demo_x11B/include/vnn_yolov3.h
+ create mode 100755 oldscripts/sample_demo_x11B/include/yolo_v3.h
+ create mode 100755 oldscripts/sample_demo_x11B/include/yolov3_process.h
+ create mode 100755 oldscripts/sample_demo_x11B/main.cpp
+ create mode 120000 oldscripts/sample_demo_x11B/makefile.linux
+ create mode 120000 oldscripts/sample_demo_x11B/makefile.linux.def
+ create mode 100755 oldscripts/sample_demo_x11B/makefile.target_name
+ create mode 100755 oldscripts/sample_demo_x11B/vnn_post_process.h
+ create mode 100755 oldscripts/sample_demo_x11B/vnn_pre_process.h
+ create mode 100755 oldscripts/sample_demo_x11B/vnn_yolov3.c
+ create mode 100755 oldscripts/sample_demo_x11B/vnn_yolov3.h
+ create mode 100755 oldscripts/sample_demo_x11B/yolo_v3.c
+ create mode 100755 oldscripts/sample_demo_x11B/yolov3_process.c
+khadas@Khadas-teco:~/sajjad/standalone_v3$ git push --all
+Password for 'https://enggsajjad123@bitbucket.org':
+Enumerating objects: 63, done.
+Counting objects: 100% (63/63), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (53/53), done.
+Writing objects: 100% (61/61), 46.23 MiB | 1.88 MiB/s, done.
+Total 61 (delta 19), reused 0 (delta 0)
+To https://bitbucket.org/enggsajjad123/standalone_v3.git
+   b5d0b4f..3fafe92  master -> master
+khadas@Khadas-teco:~/sajjad/standalone_v3$

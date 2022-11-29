@@ -1,0 +1,120 @@
+================================
+configure the PC in teco and connect the ethernet cable, check the internet
+================================
+khadas@Khadas:~$ ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.10.254.119  netmask 255.255.0.0  broadcast 10.10.255.255
+        inet6 2a00:1398:5:32ea:d5da:fe2:ec1e:4874  prefixlen 64  scopeid 0x0<global>
+        inet6 2a00:1398:5:32ea:c9e0:f29:5b5d:640a  prefixlen 64  scopeid 0x0<global>
+        inet6 fe80::1db9:efa2:e52c:f8d1  prefixlen 64  scopeid 0x20<link>
+        ether c8:63:14:70:af:0e  txqueuelen 1000  (Ethernet)
+        RX packets 151  bytes 10744 (10.7 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 146  bytes 16850 (16.8 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device interrupt 14  
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1  (Local Loopback)
+        RX packets 23  bytes 2458 (2.4 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 23  bytes 2458 (2.4 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether 10:2c:6b:5c:a9:28  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+khadas@Khadas:~$ 
+
+
+
+
+================================
+after openvpn connected to teco
+===============================
+
+
+
+
+================================
+Connecte via ssh
+===============================
+
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to khadas@10.10.254.119                                │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+
+Welcome to Fenix 1.0.9 Ubuntu 20.04.3 LTS Linux 4.9.241
+ _  ___               _            __     _____ __  __ _____
+| |/ / |__   __ _  __| | __ _ ___  \ \   / /_ _|  \/  |___ /
+| ' /| '_ \ / _` |/ _` |/ _` / __|  \ \ / / | || |\/| | |_ \
+| . \| | | | (_| | (_| | (_| \__ \   \ V /  | || |  | |___) |
+|_|\_\_| |_|\__,_|\__,_|\__,_|___/    \_/  |___|_|  |_|____/
+
+
+ * Website:        https://www.khadas.com
+ * Documentation:  https://docs.khadas.com
+ * Forum:          https://forum.khadas.com
+
+Last login: Thu Aug 18 21:52:05 2022 from 192.168.178.33
+khadas@Khadas:~$
+
+
+
+
+
+================================
+checking ssh connections
+===============================
+
+khadas@Khadas:~$ ssh sajjad@10.10.254.178
+sajjad@10.10.254.178's password:
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 5.4.0-107-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+26 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Last login: Sat Aug 20 20:48:41 2022 from 129.13.170.244
+sajjad@teco:~$ exit
+logout
+Connection to 10.10.254.178 closed.
+khadas@Khadas:~$ echo "Sajjad Hussain Checking SCP at khadas" > scptest3.log
+khadas@Khadas:~$ echo "Sajjad Hussain Checking SCP at khadas" > scptest4.log
+khadas@Khadas:~$
+
+================================
+checking scp
+===============================
+
+khadas@Khadas:~$ scp sajjad@10.10.254.178:~/scptest1.log scptest1_from_ubuntu.log
+sajjad@10.10.254.178's password:
+scptest1.log                                                                                  100%   36    31.8KB/s   00:00
+khadas@Khadas:~$ scp scptest3.log sajjad@10.10.254.178:~/scptest3_from_khads.log
+sajjad@10.10.254.178's password:
+scptest3.log                                                                                  100%   38    27.7KB/s   00:00
+khadas@Khadas:~$
+
+
+khadas@Khadas:~$ ls scptest*
+scptest1_from_ubuntu.log  scptest2_from_ubuntu.log  scptest3.log  scptest4.log
+khadas@Khadas:~$

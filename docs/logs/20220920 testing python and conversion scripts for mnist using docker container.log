@@ -1,0 +1,1417 @@
+
+========================
+Conversion Scripts
+========================
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ docker run --rm --name conv-test -it  --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/data,target=/acuity-toolkit/python/data  --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/network,target=/acuity-toolkit/python/network   --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/outputs,target=/acuity-toolkit/python/outputs  --entrypoint=/bin/bash   ghcr.io/scholz/aml-container:0.0.1
+root@a8d3a0ce3e3b:/acuity-toolkit# ls
+bin  demo  python  ReadMe.txt  requirements.txt
+root@a8d3a0ce3e3b:/acuity-toolkit# ls python/
+convert  data  network  outputs
+root@a8d3a0ce3e3b:/acuity-toolkit# ls python/network/
+convert-lenet-onnx-to-khadas.sh
+root@a8d3a0ce3e3b:/acuity-toolkit#exit
+
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ sudo docker run --rm --name conv-test -it  --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/data,target=/acuity-toolkit/python/data  --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/network,target=/acuity-toolkit/python/network   --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/outputs,target=/acuity-toolkit/python/outputs  --entrypoint=/acuity-toolkit/python/network/convert-lenet-onnx-to-khadas.sh   ghcr.io/scholz/aml-container:0.0.1
+[sudo] password for sajjad:
+docker: Error response from daemon: OCI runtime create failed: container_linux.go:348: starting container process caused "exec: \"/acuity-toolkit/python/network/convert-lenet-onnx-to-khadas.sh\": permission denied": unknown.
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$
+
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ cd network/
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network/network$ ls
+convert-lenet-onnx-to-khadas.sh
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network/network$ chmod +x convert-lenet-onnx-to-khadas.sh
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network/network$ ls
+convert-lenet-onnx-to-khadas.sh
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network/network$ cp convert-lenet-onnx-to-khadas.sh test.sh
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network/network$ vim test.sh
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network/network$ ls
+convert-lenet-onnx-to-khadas.sh  test.sh
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network/network$ sudo docker run --rm --name conv-test -it  --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/data,target=/acuity-toolkit/python/data  --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/network,target=/acuity-toolkit/python/network   --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/outputs,target=/acuity-toolkit/python/outputs  --entrypoint=/acuity-toolkit/python/network/test.sh   ghcr.io/scholz/aml-container:0.0.1
+/acuity-toolkit/python/
+Sajjad Hussain
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network/network$
+
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ clear
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ sudo docker run --rm --name conv-test -it  --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/data,target=/acuity-toolkit/python/data  --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/network,target=/acuity-toolkit/python/network   --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/outputs,target=/acuity-toolkit/python/outputs  --entrypoint=/acuity-toolkit/python/network/convert-lenet-onnx-to-khadas.sh   ghcr.io/scholz/aml-container:0.0.1
+
+
+--+ KSNN Convert tools v1.2 +--
+
+
+Start import model ...
+2022-09-19 23:26:54.728812: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /acuity-toolkit/bin/acuitylib:/tmp/_MEIOykwn5
+
+2022-09-19 23:26:54.728874: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+
+I Namespace(import='onnx', input_dtype_list=None, input_size_list='28,28,3', inputs='input', model='./network/lenet.onnx', output_data='Model.data', output_model='Model.json', outputs='output', size_with_batch=None, which='import')
+
+I Start importing onnx...
+
+I Current ONNX Model use ir_version 7 opset_version 7
+
+I Call acuity onnx optimize 'eliminate_option_const' success
+
+I Call acuity onnx optimize 'froze_const_branch' success
+
+I Call acuity onnx optimize 'froze_if' success
+
+I Call acuity onnx optimize 'merge_sequence_construct_concat_from_sequence' success
+
+I Call acuity onnx optimize 'merge_lrn_lowlevel_implement' success
+
+D Calc tensor Initializer_fc1.bias shape: [500]
+
+D Calc tensor Initializer_conv1.weight shape: [20, 1, 5, 5]
+
+D Calc tensor Initializer_conv2.weight shape: [50, 20, 5, 5]
+
+D Calc tensor Initializer_fc1.weight shape: [500, 800]
+
+D Calc tensor Initializer_conv2.bias shape: [50]
+
+D Calc tensor Initializer_fc2.bias shape: [10]
+
+D Calc tensor Constant_27 shape: []
+
+D Calc tensor Initializer_conv1.bias shape: [20]
+
+D Calc tensor Constant_28 shape: [4]
+
+D Calc tensor Initializer_fc2.weight shape: [10, 500]
+
+D Calc tensor Constant_29 shape: [2]
+
+D Calc tensor Constant_26 shape: [4]
+
+D Calc tensor Reshape_10 shape: [1, 3, 28, 28]
+
+D Calc tensor Gather_12 shape: [1, 28, 28]
+
+D Calc tensor Reshape_14 shape: [1, 1, 28, 28]
+
+D Calc tensor Conv_15 shape: [1, 20, 24, 24]
+
+D Calc tensor Relu_16 shape: [1, 20, 24, 24]
+
+D Calc tensor MaxPool_17 shape: [1, 20, 12, 12]
+
+D Calc tensor Conv_18 shape: [1, 50, 8, 8]
+
+D Calc tensor Relu_19 shape: [1, 50, 8, 8]
+
+D Calc tensor MaxPool_20 shape: [1, 50, 4, 4]
+
+D Calc tensor Reshape_22 shape: [1, 800]
+
+D Calc tensor Gemm_23 shape: [1, 500]
+
+D Calc tensor Relu_24 shape: [1, 500]
+
+D Calc tensor Gemm_output shape: [1, 10]
+
+I build output layer attach_Gemm_Gemm_20:out0
+
+I Try match Gemm_Gemm_20:out0
+
+I Match r_gemm_2_fc_wb [['Initializer_fc2.bias', 'Gemm_Gemm_20', 'Initializer_fc2.weight']] [['Gemm', 'Constant_0', 'Constant_1']] to [['fullconnect']]
+
+I Try match Relu_Relu_19:out0
+
+I Match r_relu [['Relu_Relu_19']] [['Relu']] to [['relu']]
+
+I Try match Gemm_Gemm_18:out0
+
+I Match r_gemm_2_fc_wb [['Initializer_fc1.bias', 'Gemm_Gemm_18', 'Initializer_fc1.weight']] [['Gemm', 'Constant_0', 'Constant_1']] to [['fullconnect']]
+
+I Try match Reshape_Reshape_17:out0
+
+I Match r_rsp_v5 [['Reshape_Reshape_17', 'Constant_Cast_16_29_as_const']] [['Reshape', 'Constant_0']] to [['reshape']]
+
+I Try match MaxPool_MaxPool_14:out0
+
+I Match r_maxpool [['MaxPool_MaxPool_14']] [['MaxPool']] to [['pooling']]
+
+I Try match Relu_Relu_13:out0
+
+I Match r_relu [['Relu_Relu_13']] [['Relu']] to [['relu']]
+
+I Try match Conv_Conv_12:out0
+
+I Match r_conv [['Initializer_conv2.bias', 'Conv_Conv_12', 'Initializer_conv2.weight']] [['Conv', 'Constant_0', 'Constant_1']] to [['convolution']]
+
+I Try match MaxPool_MaxPool_11:out0
+
+I Match r_maxpool [['MaxPool_MaxPool_11']] [['MaxPool']] to [['pooling']]
+
+I Try match Relu_Relu_10:out0
+
+I Match r_relu [['Relu_Relu_10']] [['Relu']] to [['relu']]
+
+I Try match Conv_Conv_9:out0
+
+I Match r_conv [['Initializer_conv1.bias', 'Conv_Conv_9', 'Initializer_conv1.weight']] [['Conv', 'Constant_0', 'Constant_1']] to [['convolution']]
+
+I Try match Reshape_Reshape_8:out0
+
+I Match r_rsp_v5 [['Reshape_Reshape_8', 'Constant_Cast_7_28_as_const']] [['Reshape', 'Constant_0']] to [['reshape']]
+
+I Try match Gather_Gather_5:out0
+
+I Match r_gather [['Gather_Gather_5']] [['Gather']] to [['gather']]
+
+I Try match Reshape_Reshape_2:out0
+
+I Match r_rsp_v5 [['Reshape_Reshape_2', 'Constant_Cast_1_26_as_const']] [['Reshape', 'Constant_0']] to [['reshape']]
+
+I Try match Constant_Cast_4_27_as_const:out0
+
+I Match r_variable [['Constant_Cast_4_27_as_const']] [['Constant']] to [['variable']]
+
+I build input layer input:out0
+
+D connect Relu_Relu_19_2 0  ~ Gemm_Gemm_20_1 0
+
+D connect Gemm_Gemm_18_3 0  ~ Relu_Relu_19_2 0
+
+D connect Reshape_Reshape_17_4 0  ~ Gemm_Gemm_18_3 0
+
+D connect MaxPool_MaxPool_14_5 0  ~ Reshape_Reshape_17_4 0
+
+D connect Relu_Relu_13_6 0  ~ MaxPool_MaxPool_14_5 0
+
+D connect Conv_Conv_12_7 0  ~ Relu_Relu_13_6 0
+
+D connect MaxPool_MaxPool_11_8 0  ~ Conv_Conv_12_7 0
+
+D connect Relu_Relu_10_9 0  ~ MaxPool_MaxPool_11_8 0
+
+D connect Conv_Conv_9_10 0  ~ Relu_Relu_10_9 0
+
+D connect Reshape_Reshape_8_11 0  ~ Conv_Conv_9_10 0
+
+D connect Gather_Gather_5_12 0  ~ Reshape_Reshape_8_11 0
+
+D connect Reshape_Reshape_2_13 0  ~ Gather_Gather_5_12 0
+
+D connect Constant_Cast_4_27_as_const_14 0  ~ Gather_Gather_5_12 1
+
+D connect input_15 0  ~ Reshape_Reshape_2_13 0
+
+D connect Gemm_Gemm_20_1 0  ~ attach_Gemm_Gemm_20/out0_0 0
+
+2022-09-19 23:26:56.702128: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+
+2022-09-19 23:26:56.734114: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792910000 Hz
+
+2022-09-19 23:26:56.734712: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x6542e40 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+
+2022-09-19 23:26:56.734737: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+
+2022-09-19 23:26:56.737703: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /acuity-toolkit/bin/acuitylib:/tmp/_MEIOykwn5
+
+2022-09-19 23:26:56.737727: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+
+2022-09-19 23:26:56.737745: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (502ccb441101): /proc/driver/nvidia/version does not exist
+
+D Process input_15 ...
+
+D Acuity output shape(input): (1 28 28 3)
+
+D Tensor @input_15:out0 type: float32
+
+D Process Reshape_Reshape_2_13 ...
+
+D Acuity output shape(reshape): (1 3 28 28)
+
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+
+D Process Constant_Cast_4_27_as_const_14 ...
+
+D Acuity output shape(variable): (1)
+
+D Process Gather_Gather_5_12 ...
+
+D Acuity output shape(gather): (1 28 28)
+
+D Tensor @Gather_Gather_5_12:out0 type: float32
+
+D Process Reshape_Reshape_8_11 ...
+
+D Acuity output shape(reshape): (1 1 28 28)
+
+D Tensor @Reshape_Reshape_8_11:out0 type: float32
+
+D Process Conv_Conv_9_10 ...
+
+D Acuity output shape(convolution): (1 20 24 24)
+
+D Tensor @Conv_Conv_9_10:out0 type: float32
+
+D Process Relu_Relu_10_9 ...
+
+D Acuity output shape(relu): (1 20 24 24)
+
+D Tensor @Relu_Relu_10_9:out0 type: float32
+
+D Process MaxPool_MaxPool_11_8 ...
+
+D Acuity output shape(pooling): (1 20 12 12)
+
+D Tensor @MaxPool_MaxPool_11_8:out0 type: float32
+
+D Process Conv_Conv_12_7 ...
+
+D Acuity output shape(convolution): (1 50 8 8)
+
+D Tensor @Conv_Conv_12_7:out0 type: float32
+
+D Process Relu_Relu_13_6 ...
+
+D Acuity output shape(relu): (1 50 8 8)
+
+D Tensor @Relu_Relu_13_6:out0 type: float32
+
+D Process MaxPool_MaxPool_14_5 ...
+
+D Acuity output shape(pooling): (1 50 4 4)
+
+D Tensor @MaxPool_MaxPool_14_5:out0 type: float32
+
+D Process Reshape_Reshape_17_4 ...
+
+D Acuity output shape(reshape): (1 800)
+
+D Tensor @Reshape_Reshape_17_4:out0 type: float32
+
+D Process Gemm_Gemm_18_3 ...
+
+D Acuity output shape(fullconnect): (1 500)
+
+D Tensor @Gemm_Gemm_18_3:out0 type: float32
+
+D Process Relu_Relu_19_2 ...
+
+D Acuity output shape(relu): (1 500)
+
+D Tensor @Relu_Relu_19_2:out0 type: float32
+
+D Process Gemm_Gemm_20_1 ...
+
+D Acuity output shape(fullconnect): (1 10)
+
+D Tensor @Gemm_Gemm_20_1:out0 type: float32
+
+D Process attach_Gemm_Gemm_20/out0_0 ...
+
+D Acuity output shape(output): (1 10)
+
+D Tensor @attach_Gemm_Gemm_20/out0_0:out0 type: float32
+
+I Build torch-jit-export complete.
+
+I Start C2T Switcher...
+
+D Optimizing network with broadcast_op
+
+D insert permute Reshape_Reshape_17_4_acuity_mark_perm_16 before Reshape_Reshape_17_4
+
+D insert permute Conv_Conv_9_10_acuity_mark_perm_17 before Conv_Conv_9_10
+
+I End C2T Switcher...
+
+D Process input_15 ...
+
+D Acuity output shape(input): (1 28 28 3)
+
+D Tensor @input_15:out0 type: float32
+
+D Process Reshape_Reshape_2_13 ...
+
+D Acuity output shape(reshape): (1 3 28 28)
+
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+
+D Process Constant_Cast_4_27_as_const_14 ...
+
+D Acuity output shape(variable): (1)
+
+D Process Gather_Gather_5_12 ...
+
+D Acuity output shape(gather): (1 28 28)
+
+D Tensor @Gather_Gather_5_12:out0 type: float32
+
+D Process Reshape_Reshape_8_11 ...
+
+D Acuity output shape(reshape): (1 1 28 28)
+
+D Tensor @Reshape_Reshape_8_11:out0 type: float32
+
+D Process Conv_Conv_9_10_acuity_mark_perm_17 ...
+
+D Acuity output shape(permute): (1 28 28 1)
+
+D Tensor @Conv_Conv_9_10_acuity_mark_perm_17:out0 type: float32
+
+D Process Conv_Conv_9_10 ...
+
+D Acuity output shape(convolution): (1 24 24 20)
+
+D Tensor @Conv_Conv_9_10:out0 type: float32
+
+D Process Relu_Relu_10_9 ...
+
+D Acuity output shape(relu): (1 24 24 20)
+
+D Tensor @Relu_Relu_10_9:out0 type: float32
+
+D Process MaxPool_MaxPool_11_8 ...
+
+D Acuity output shape(pooling): (1 12 12 20)
+
+D Tensor @MaxPool_MaxPool_11_8:out0 type: float32
+
+D Process Conv_Conv_12_7 ...
+
+D Acuity output shape(convolution): (1 8 8 50)
+
+D Tensor @Conv_Conv_12_7:out0 type: float32
+
+D Process Relu_Relu_13_6 ...
+
+D Acuity output shape(relu): (1 8 8 50)
+
+D Tensor @Relu_Relu_13_6:out0 type: float32
+
+D Process MaxPool_MaxPool_14_5 ...
+
+D Acuity output shape(pooling): (1 4 4 50)
+
+D Tensor @MaxPool_MaxPool_14_5:out0 type: float32
+
+D Process Reshape_Reshape_17_4_acuity_mark_perm_16 ...
+
+D Acuity output shape(permute): (1 50 4 4)
+
+D Tensor @Reshape_Reshape_17_4_acuity_mark_perm_16:out0 type: float32
+
+D Process Reshape_Reshape_17_4 ...
+
+D Acuity output shape(reshape): (1 800)
+
+D Tensor @Reshape_Reshape_17_4:out0 type: float32
+
+D Process Gemm_Gemm_18_3 ...
+
+D Acuity output shape(fullconnect): (1 500)
+
+D Tensor @Gemm_Gemm_18_3:out0 type: float32
+
+D Process Relu_Relu_19_2 ...
+
+D Acuity output shape(relu): (1 500)
+
+D Tensor @Relu_Relu_19_2:out0 type: float32
+
+D Process Gemm_Gemm_20_1 ...
+
+D Acuity output shape(fullconnect): (1 10)
+
+D Tensor @Gemm_Gemm_20_1:out0 type: float32
+
+D Process attach_Gemm_Gemm_20/out0_0 ...
+
+D Acuity output shape(output): (1 10)
+
+D Tensor @attach_Gemm_Gemm_20/out0_0:out0 type: float32
+
+I Build torch-jit-export complete.
+
+D Optimizing network with force_1d_tensor, swapper, merge_duplicate_quantize_dequantize, merge_layer, auto_fill_bn, auto_fill_l2normalizescale, auto_fill_instancenormalize, resize_nearest_transformer, auto_fill_multiply, compute_gather_negative, auto_fill_zero_bias, proposal_opt_import, special_add_to_conv2d, extend_gather_to_gather_reshape
+
+I End importing onnx...
+
+I Dump net to Model.json
+
+I Save net to Model.data
+
+I ----------------Error(0),Warning(0)----------------
+
+
+Done.import model success !!!
+
+
+Start to Generate inputmeta ...
+2022-09-19 23:26:57.388596: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /acuity-toolkit/bin/acuitylib:/tmp/_MEIOykwn5
+
+2022-09-19 23:26:57.388628: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+
+I Namespace(generate='inputmeta', input_meta_output=None, model='Model.json', separated_database=True, which='generate')
+
+I Load model in Model.json
+
+I Generate input meta Model_inputmeta.yml
+
+I ----------------Error(0),Warning(0)----------------
+
+
+[['127.5', '127.5', '127.5', '255.0']]
+./data/dataset/dataset_0.txt
+Done.Gerate inputmeta success !!!
+
+
+Start quantize ...
+2022-09-19 23:26:59.266547: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /acuity-toolkit/bin/acuitylib:/tmp/_MEIOykwn5
+
+2022-09-19 23:26:59.266578: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+
+I Namespace(algorithm='normal', batch_size=0, compute_entropy=False, device=None, divergence_first_quantize_bits=11, divergence_nbins=0, hybrid=False, iterations=1, model='Model.json', model_data='Model.data', model_quantize=None, moving_average_weight=0.01, output_dir=None, qtype='uint8', quantizer='asymmetric_affine', rebuild=True, rebuild_all=False, which='quantize', with_input_meta='Model_inputmeta.yml')
+
+2022-09-19 23:27:00.536410: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+
+2022-09-19 23:27:00.558145: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792910000 Hz
+
+2022-09-19 23:27:00.558585: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5276160 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+
+2022-09-19 23:27:00.558605: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+
+2022-09-19 23:27:00.560244: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /acuity-toolkit/bin/acuitylib:/tmp/_MEIOykwn5
+
+2022-09-19 23:27:00.560266: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+
+2022-09-19 23:27:00.560282: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (502ccb441101): /proc/driver/nvidia/version does not exist
+
+I Load model in Model.json
+
+I Load data in Model.data
+
+I Load input meta Model_inputmeta.yml
+
+I Start quantization...
+
+D set up a quantize net
+
+D Process input_15 ...
+
+D Acuity output shape(input): (1 28 28 3)
+
+D Tensor @input_15:out0 type: float32
+
+D Process Reshape_Reshape_2_13 ...
+
+D Acuity output shape(reshape): (1 3 28 28)
+
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+
+D Process Constant_Cast_4_27_as_const_14 ...
+
+D Acuity output shape(variable): (1)
+
+D Process Gather_Gather_5_12 ...
+
+D Acuity output shape(gather): (1 1 28 28)
+
+D Tensor @Gather_Gather_5_12:out0 type: float32
+
+D Process Gather_Gather_5_12_acuity_opt_gather_reshape_18 ...
+
+D Acuity output shape(reshape): (1 28 28)
+
+D Tensor @Gather_Gather_5_12_acuity_opt_gather_reshape_18:out0 type: float32
+
+D Process Reshape_Reshape_8_11 ...
+
+D Acuity output shape(reshape): (1 1 28 28)
+
+D Tensor @Reshape_Reshape_8_11:out0 type: float32
+
+D Process Conv_Conv_9_10_acuity_mark_perm_17 ...
+
+D Acuity output shape(permute): (1 28 28 1)
+
+D Tensor @Conv_Conv_9_10_acuity_mark_perm_17:out0 type: asymmetric_affine
+
+D Process Conv_Conv_9_10 ...
+
+D Acuity output shape(convolution): (1 24 24 20)
+
+D Tensor @Conv_Conv_9_10:out0 type: asymmetric_affine
+
+D Process Relu_Relu_10_9 ...
+
+D Acuity output shape(relu): (1 24 24 20)
+
+D Tensor @Relu_Relu_10_9:out0 type: asymmetric_affine
+
+D Process MaxPool_MaxPool_11_8 ...
+
+D Acuity output shape(pooling): (1 12 12 20)
+
+D Tensor @MaxPool_MaxPool_11_8:out0 type: asymmetric_affine
+
+D Process Conv_Conv_12_7 ...
+
+D Acuity output shape(convolution): (1 8 8 50)
+
+D Tensor @Conv_Conv_12_7:out0 type: asymmetric_affine
+
+D Process Relu_Relu_13_6 ...
+
+D Acuity output shape(relu): (1 8 8 50)
+
+D Tensor @Relu_Relu_13_6:out0 type: asymmetric_affine
+
+D Process MaxPool_MaxPool_14_5 ...
+
+D Acuity output shape(pooling): (1 4 4 50)
+
+D Tensor @MaxPool_MaxPool_14_5:out0 type: float32
+
+D Process Reshape_Reshape_17_4_acuity_mark_perm_16 ...
+
+D Acuity output shape(permute): (1 50 4 4)
+
+D Tensor @Reshape_Reshape_17_4_acuity_mark_perm_16:out0 type: float32
+
+D Process Reshape_Reshape_17_4 ...
+
+D Acuity output shape(reshape): (1 800)
+
+D Tensor @Reshape_Reshape_17_4:out0 type: asymmetric_affine
+
+D Process Gemm_Gemm_18_3 ...
+
+D Acuity output shape(fullconnect): (1 500)
+
+D Tensor @Gemm_Gemm_18_3:out0 type: asymmetric_affine
+
+D Process Relu_Relu_19_2 ...
+
+D Acuity output shape(relu): (1 500)
+
+D Tensor @Relu_Relu_19_2:out0 type: asymmetric_affine
+
+D Process Gemm_Gemm_20_1 ...
+
+D Acuity output shape(fullconnect): (1 10)
+
+D Tensor @Gemm_Gemm_20_1:out0 type: asymmetric_affine
+
+D Process attach_Gemm_Gemm_20/out0_0 ...
+
+D Acuity output shape(output): (1 10)
+
+D Tensor @attach_Gemm_Gemm_20/out0_0:out0 type: float32
+
+I Build torch-jit-export complete.
+
+D Thinning network with DeadChannelRemoval, to zeros: True.
+
+D Build analyzer ...
+
+D Forward analyze range.
+
+D Backward analyze range.
+
+D Forward analyze range.
+
+D Backward analyze range.
+
+D Analyze range done.
+
+D *********** Setup input meta ***********
+
+D *********** Setup database (1) ***********
+
+D Setup provider layer "text_input_layer":
+
+D Lids: ['input_15']
+
+D Layouts: ['nchw']
+
+D Shapes: [[1, 28, 28, 3]]
+
+D Data types: ['float32']
+
+D Sparse tensors: []
+
+D Tensor names(H5FS only): []
+
+D Add preprocess "[('reverse_channel', True), ('scale', 1.0), ('preproc_node_params', ordereddict([('add_preproc_node', False), ('preproc_type', 'IMAGE_RGB'), ('preproc_perm', [0, 1, 2, 3])]))]" for "input_15"
+
+D *********** Setup input meta complete ***********
+
+D Process input_15 ...
+
+D Acuity output shape(input): (1 28 28 3)
+
+D Tensor @input_15:out0 type: float32
+
+D Real output shape: (1, 28, 28, 3)
+
+D Process Reshape_Reshape_2_13 ...
+
+D Acuity output shape(reshape): (1 3 28 28)
+
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+
+D Real output shape: (1, 3, 28, 28)
+
+D Process Constant_Cast_4_27_as_const_14 ...
+
+D Acuity output shape(variable): (1)
+
+D Real output shape: (1,)
+
+D Process Gather_Gather_5_12 ...
+
+D Acuity output shape(gather): (1 1 28 28)
+
+D Tensor @Gather_Gather_5_12:out0 type: float32
+
+D Real output shape: (1, 1, 28, 28)
+
+D Process Gather_Gather_5_12_acuity_opt_gather_reshape_18 ...
+
+D Acuity output shape(reshape): (1 28 28)
+
+D Tensor @Gather_Gather_5_12_acuity_opt_gather_reshape_18:out0 type: float32
+
+D Real output shape: (1, 28, 28)
+
+D Process Reshape_Reshape_8_11 ...
+
+D Acuity output shape(reshape): (1 1 28 28)
+
+D Tensor @Reshape_Reshape_8_11:out0 type: float32
+
+D Real output shape: (1, 1, 28, 28)
+
+D Process Conv_Conv_9_10_acuity_mark_perm_17 ...
+
+D Acuity output shape(permute): (1 28 28 1)
+
+D Tensor @Conv_Conv_9_10_acuity_mark_perm_17:out0 type: asymmetric_affine
+
+D Real output shape: (1, 28, 28, 1)
+
+D Process Conv_Conv_9_10 ...
+
+D Acuity output shape(convolution): (1 24 24 20)
+
+D Tensor @Conv_Conv_9_10:out0 type: asymmetric_affine
+
+D Real output shape: (1, 24, 24, 20)
+
+D Process Relu_Relu_10_9 ...
+
+D Acuity output shape(relu): (1 24 24 20)
+
+D Tensor @Relu_Relu_10_9:out0 type: asymmetric_affine
+
+D Real output shape: (1, 24, 24, 20)
+
+D Process MaxPool_MaxPool_11_8 ...
+
+D Acuity output shape(pooling): (1 12 12 20)
+
+D Tensor @MaxPool_MaxPool_11_8:out0 type: asymmetric_affine
+
+D Real output shape: (1, 12, 12, 20)
+
+D Process Conv_Conv_12_7 ...
+
+D Acuity output shape(convolution): (1 8 8 50)
+
+D Tensor @Conv_Conv_12_7:out0 type: asymmetric_affine
+
+D Real output shape: (1, 8, 8, 50)
+
+D Process Relu_Relu_13_6 ...
+
+D Acuity output shape(relu): (1 8 8 50)
+
+D Tensor @Relu_Relu_13_6:out0 type: asymmetric_affine
+
+D Real output shape: (1, 8, 8, 50)
+
+D Process MaxPool_MaxPool_14_5 ...
+
+D Acuity output shape(pooling): (1 4 4 50)
+
+D Tensor @MaxPool_MaxPool_14_5:out0 type: float32
+
+D Real output shape: (1, 4, 4, 50)
+
+D Process Reshape_Reshape_17_4_acuity_mark_perm_16 ...
+
+D Acuity output shape(permute): (1 50 4 4)
+
+D Tensor @Reshape_Reshape_17_4_acuity_mark_perm_16:out0 type: float32
+
+D Real output shape: (1, 50, 4, 4)
+
+D Process Reshape_Reshape_17_4 ...
+
+D Acuity output shape(reshape): (1 800)
+
+D Tensor @Reshape_Reshape_17_4:out0 type: asymmetric_affine
+
+D Real output shape: (1, 800)
+
+D Process Gemm_Gemm_18_3 ...
+
+D Acuity output shape(fullconnect): (1 500)
+
+D Tensor @Gemm_Gemm_18_3:out0 type: asymmetric_affine
+
+D Real output shape: (1, 500)
+
+D Process Relu_Relu_19_2 ...
+
+D Acuity output shape(relu): (1 500)
+
+D Tensor @Relu_Relu_19_2:out0 type: asymmetric_affine
+
+D Real output shape: (1, 500)
+
+D Process Gemm_Gemm_20_1 ...
+
+D Acuity output shape(fullconnect): (1 10)
+
+D Tensor @Gemm_Gemm_20_1:out0 type: asymmetric_affine
+
+D Real output shape: (1, 10)
+
+D Process attach_Gemm_Gemm_20/out0_0 ...
+
+D Acuity output shape(output): (1 10)
+
+D Tensor @attach_Gemm_Gemm_20/out0_0:out0 type: float32
+
+D Real output shape: (1, 10)
+
+I Build torch-jit-export complete.
+
+I Running 1 iterations
+
+D 0(100.00%), Queue size 0
+
+I Queue cancelled.
+
+D Quantize tensor @Gemm_Gemm_20_1:out0.
+
+D Quantize tensor @Relu_Relu_19_2:out0.
+
+D Quantize tensor @Gemm_Gemm_18_3:out0.
+
+D Quantize tensor @Reshape_Reshape_17_4:out0.
+
+D Quantize tensor @Relu_Relu_13_6:out0.
+
+D Quantize tensor @Conv_Conv_12_7:out0.
+
+D Quantize tensor @MaxPool_MaxPool_11_8:out0.
+
+D Quantize tensor @Relu_Relu_10_9:out0.
+
+D Quantize tensor @Conv_Conv_9_10:out0.
+
+D Quantize tensor @Conv_Conv_9_10_acuity_mark_perm_17:out0.
+
+D Quantize tensor @Gemm_Gemm_20_1:weight.
+
+D Quantize tensor @Gemm_Gemm_18_3:weight.
+
+D Quantize tensor @Conv_Conv_12_7:weight.
+
+D Quantize tensor @Conv_Conv_9_10:weight.
+
+D Quantize tensor @Gemm_Gemm_20_1:bias.
+
+D Quantize tensor @Gemm_Gemm_18_3:bias.
+
+D Quantize tensor @Conv_Conv_12_7:bias.
+
+D Quantize tensor @Conv_Conv_9_10:bias.
+
+I Clean.
+
+D Optimizing network with align_quantize, broadcast_quantize, qnt_adjust_coef, qnt_adjust_param
+
+D Quantize tensor(@input_15:out0) with tensor(@Conv_Conv_9_10_acuity_mark_perm_17:out0)
+
+D Quantize tensor(@Reshape_Reshape_2_13:out0) with tensor(@input_15:out0)
+
+D Quantize tensor(@Gather_Gather_5_12:out0) with tensor(@Reshape_Reshape_2_13:out0)
+
+D Quantize tensor(@Gather_Gather_5_12_acuity_opt_gather_reshape_18:out0) with tensor(@Gather_Gather_5_12:out0)
+
+D Quantize tensor(@Reshape_Reshape_8_11:out0) with tensor(@Gather_Gather_5_12_acuity_opt_gather_reshape_18:out0)
+
+D Quantize tensor(@MaxPool_MaxPool_14_5:out0) with tensor(@Relu_Relu_13_6:out0)
+
+D Quantize tensor(@Reshape_Reshape_17_4_acuity_mark_perm_16:out0) with tensor(@MaxPool_MaxPool_14_5:out0)
+
+D Quantize tensor(@attach_Gemm_Gemm_20/out0_0:out0) with tensor(@Gemm_Gemm_20_1:out0)
+
+I End quantization...
+
+I Dump net quantize tensor table to Model.quantize
+
+I Save net to Model.data
+
+I ----------------Error(0),Warning(0)----------------
+
+
+Done.Quantize success !!!
+
+
+Start export model ...
+Done.Export model success !!!
+
+
+Start generate library...
+
+Done.Generate library success !!!
+
+
+All Done.
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$
+
+========================
+Conversion Scripts
+========================
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network/demo2$ clear
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network/demo2$ ls
+0_import_model_mnist.sh    1_quantize_model.sh                  2_export_case_code.sh  dataset           model
+0_import_model.sh          2_export_case_code_mnist_profile.sh  Android.mk             extractoutput.py  network
+1_quantize_model_mnist.sh  2_export_case_code_mnist.sh          data                   inference.sh
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network/demo2$ cd ..
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ docker run --rm --name conv-test -it  --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/data,target=/acuity-toolkit/python/data  --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/network,target=/acuity-toolkit/python/network   --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/outputs,target=/acuity-toolkit/python/outputs  --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/demo2,target=/acuity-toolkit/demo2 --entrypoint=/acuity-toolkit/python/network/test2.sh   ghcr.io/scholz/aml-container:0.0.1
+2022-09-20 00:00:55.810094: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /acuity-toolkit/bin/acuitylib
+2022-09-20 00:00:55.810124: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Start importing onnx...
+I Current ONNX Model use ir_version 7 opset_version 7
+I Call acuity onnx optimize 'eliminate_option_const' success
+I Call acuity onnx optimize 'froze_const_branch' success
+I Call acuity onnx optimize 'froze_if' success
+I Call acuity onnx optimize 'merge_sequence_construct_concat_from_sequence' success
+I Call acuity onnx optimize 'merge_lrn_lowlevel_implement' success
+D Calc tensor Initializer_conv3.weight shape: [50, 20, 1, 1]
+D Calc tensor Initializer_conv1.weight shape: [20, 3, 5, 5]
+D Calc tensor Initializer_fc2.weight shape: [10, 500]
+D Calc tensor Initializer_conv1.bias shape: [20]
+D Calc tensor Initializer_conv2.weight shape: [20, 20, 5, 5]
+D Calc tensor Initializer_fc1.bias shape: [500]
+D Calc tensor Initializer_fc1.weight shape: [500, 800]
+D Calc tensor Initializer_fc2.bias shape: [10]
+D Calc tensor Initializer_conv3.bias shape: [50]
+D Calc tensor Initializer_conv2.bias shape: [20]
+D Calc tensor Constant_25 shape: [2]
+D Calc tensor Conv_11 shape: [1, 20, 24, 24]
+D Calc tensor Relu_12 shape: [1, 20, 24, 24]
+D Calc tensor MaxPool_13 shape: [1, 20, 12, 12]
+D Calc tensor Conv_14 shape: [1, 20, 8, 8]
+D Calc tensor Relu_15 shape: [1, 20, 8, 8]
+D Calc tensor Conv_16 shape: [1, 50, 8, 8]
+D Calc tensor Relu_17 shape: [1, 50, 8, 8]
+D Calc tensor MaxPool_18 shape: [1, 50, 4, 4]
+D Calc tensor Reshape_20 shape: [1, 800]
+D Calc tensor Gemm_21 shape: [1, 500]
+D Calc tensor Relu_22 shape: [1, 500]
+D Calc tensor Gemm_23 shape: [1, 10]
+D Calc tensor LogSoftmax_output shape: [1, 10]
+I build output layer attach_LogSoftmax_LogSoftmax_14:out0
+I Try match LogSoftmax_LogSoftmax_14:out0
+I Match logsoftmax [['LogSoftmax_LogSoftmax_14']] [['LogSoftmax']] to [['log_softmax']]
+I Try match Gemm_Gemm_13:out0
+I Match r_gemm_2_fc_wb [['Gemm_Gemm_13', 'Initializer_fc2.weight', 'Initializer_fc2.bias']] [['Gemm', 'Constant_0', 'Constant_1']] to [['fullconnect']]
+I Try match Relu_Relu_12:out0
+I Match r_relu [['Relu_Relu_12']] [['Relu']] to [['relu']]
+I Try match Gemm_Gemm_11:out0
+I Match r_gemm_2_fc_wb [['Gemm_Gemm_11', 'Initializer_fc1.weight', 'Initializer_fc1.bias']] [['Gemm', 'Constant_0', 'Constant_1']] to [['fullconnect']]
+I Try match Reshape_Reshape_10:out0
+I Match r_rsp_v5 [['Constant_Cast_9_25_as_const', 'Reshape_Reshape_10']] [['Reshape', 'Constant_0']] to [['reshape']]
+I Try match MaxPool_MaxPool_7:out0
+I Match r_maxpool [['MaxPool_MaxPool_7']] [['MaxPool']] to [['pooling']]
+I Try match Relu_Relu_6:out0
+I Match r_relu [['Relu_Relu_6']] [['Relu']] to [['relu']]
+I Try match Conv_Conv_5:out0
+I Match r_conv [['Conv_Conv_5', 'Initializer_conv3.weight', 'Initializer_conv3.bias']] [['Conv', 'Constant_0', 'Constant_1']] to [['convolution']]
+I Try match Relu_Relu_4:out0
+I Match r_relu [['Relu_Relu_4']] [['Relu']] to [['relu']]
+I Try match Conv_Conv_3:out0
+I Match r_conv [['Conv_Conv_3', 'Initializer_conv2.weight', 'Initializer_conv2.bias']] [['Conv', 'Constant_0', 'Constant_1']] to [['convolution']]
+I Try match MaxPool_MaxPool_2:out0
+I Match r_maxpool [['MaxPool_MaxPool_2']] [['MaxPool']] to [['pooling']]
+I Try match Relu_Relu_1:out0
+I Match r_relu [['Relu_Relu_1']] [['Relu']] to [['relu']]
+I Try match Conv_Conv_0:out0
+I Match r_conv [['Conv_Conv_0', 'Initializer_conv1.weight', 'Initializer_conv1.bias']] [['Conv', 'Constant_0', 'Constant_1']] to [['convolution']]
+I build input layer input:out0
+D connect Gemm_Gemm_13_2 0  ~ LogSoftmax_LogSoftmax_14_1 0
+D connect Relu_Relu_12_3 0  ~ Gemm_Gemm_13_2 0
+D connect Gemm_Gemm_11_4 0  ~ Relu_Relu_12_3 0
+D connect Reshape_Reshape_10_5 0  ~ Gemm_Gemm_11_4 0
+D connect MaxPool_MaxPool_7_6 0  ~ Reshape_Reshape_10_5 0
+D connect Relu_Relu_6_7 0  ~ MaxPool_MaxPool_7_6 0
+D connect Conv_Conv_5_8 0  ~ Relu_Relu_6_7 0
+D connect Relu_Relu_4_9 0  ~ Conv_Conv_5_8 0
+D connect Conv_Conv_3_10 0  ~ Relu_Relu_4_9 0
+D connect MaxPool_MaxPool_2_11 0  ~ Conv_Conv_3_10 0
+D connect Relu_Relu_1_12 0  ~ MaxPool_MaxPool_2_11 0
+D connect Conv_Conv_0_13 0  ~ Relu_Relu_1_12 0
+D connect input_14 0  ~ Conv_Conv_0_13 0
+D connect LogSoftmax_LogSoftmax_14_1 0  ~ attach_LogSoftmax_LogSoftmax_14/out0_0 0
+2022-09-20 00:00:57.248251: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-09-20 00:00:57.270173: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792910000 Hz
+2022-09-20 00:00:57.270661: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x64499b0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-09-20 00:00:57.270683: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-09-20 00:00:57.272376: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /acuity-toolkit/bin/acuitylib
+2022-09-20 00:00:57.272408: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-09-20 00:00:57.272430: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (4347b6c0be7d): /proc/driver/nvidia/version does not exist
+D Process input_14 ...
+D Acuity output shape(input): (1 3 28 28)
+D Tensor @input_14:out0 type: float32
+D Process Conv_Conv_0_13 ...
+D Acuity output shape(convolution): (1 20 24 24)
+D Tensor @Conv_Conv_0_13:out0 type: float32
+D Process Relu_Relu_1_12 ...
+D Acuity output shape(relu): (1 20 24 24)
+D Tensor @Relu_Relu_1_12:out0 type: float32
+D Process MaxPool_MaxPool_2_11 ...
+D Acuity output shape(pooling): (1 20 12 12)
+D Tensor @MaxPool_MaxPool_2_11:out0 type: float32
+D Process Conv_Conv_3_10 ...
+D Acuity output shape(convolution): (1 20 8 8)
+D Tensor @Conv_Conv_3_10:out0 type: float32
+D Process Relu_Relu_4_9 ...
+D Acuity output shape(relu): (1 20 8 8)
+D Tensor @Relu_Relu_4_9:out0 type: float32
+D Process Conv_Conv_5_8 ...
+D Acuity output shape(convolution): (1 50 8 8)
+D Tensor @Conv_Conv_5_8:out0 type: float32
+D Process Relu_Relu_6_7 ...
+D Acuity output shape(relu): (1 50 8 8)
+D Tensor @Relu_Relu_6_7:out0 type: float32
+D Process MaxPool_MaxPool_7_6 ...
+D Acuity output shape(pooling): (1 50 4 4)
+D Tensor @MaxPool_MaxPool_7_6:out0 type: float32
+D Process Reshape_Reshape_10_5 ...
+D Acuity output shape(reshape): (1 800)
+D Tensor @Reshape_Reshape_10_5:out0 type: float32
+D Process Gemm_Gemm_11_4 ...
+D Acuity output shape(fullconnect): (1 500)
+D Tensor @Gemm_Gemm_11_4:out0 type: float32
+D Process Relu_Relu_12_3 ...
+D Acuity output shape(relu): (1 500)
+D Tensor @Relu_Relu_12_3:out0 type: float32
+D Process Gemm_Gemm_13_2 ...
+D Acuity output shape(fullconnect): (1 10)
+D Tensor @Gemm_Gemm_13_2:out0 type: float32
+D Process LogSoftmax_LogSoftmax_14_1 ...
+D Acuity output shape(log_softmax): (1 10)
+D Tensor @LogSoftmax_LogSoftmax_14_1:out0 type: float32
+D Process attach_LogSoftmax_LogSoftmax_14/out0_0 ...
+D Acuity output shape(output): (1 10)
+D Tensor @attach_LogSoftmax_LogSoftmax_14/out0_0:out0 type: float32
+I Build torch-jit-export complete.
+I Start C2T Switcher...
+D Optimizing network with broadcast_op
+D insert permute Reshape_Reshape_10_5_acuity_mark_perm_15 before Reshape_Reshape_10_5
+D insert permute Conv_Conv_0_13_acuity_mark_perm_16 before Conv_Conv_0_13
+I End C2T Switcher...
+D Process input_14 ...
+D Acuity output shape(input): (1 3 28 28)
+D Tensor @input_14:out0 type: float32
+D Process Conv_Conv_0_13_acuity_mark_perm_16 ...
+D Acuity output shape(permute): (1 28 28 3)
+D Tensor @Conv_Conv_0_13_acuity_mark_perm_16:out0 type: float32
+D Process Conv_Conv_0_13 ...
+D Acuity output shape(convolution): (1 24 24 20)
+D Tensor @Conv_Conv_0_13:out0 type: float32
+D Process Relu_Relu_1_12 ...
+D Acuity output shape(relu): (1 24 24 20)
+D Tensor @Relu_Relu_1_12:out0 type: float32
+D Process MaxPool_MaxPool_2_11 ...
+D Acuity output shape(pooling): (1 12 12 20)
+D Tensor @MaxPool_MaxPool_2_11:out0 type: float32
+D Process Conv_Conv_3_10 ...
+D Acuity output shape(convolution): (1 8 8 20)
+D Tensor @Conv_Conv_3_10:out0 type: float32
+D Process Relu_Relu_4_9 ...
+D Acuity output shape(relu): (1 8 8 20)
+D Tensor @Relu_Relu_4_9:out0 type: float32
+D Process Conv_Conv_5_8 ...
+D Acuity output shape(convolution): (1 8 8 50)
+D Tensor @Conv_Conv_5_8:out0 type: float32
+D Process Relu_Relu_6_7 ...
+D Acuity output shape(relu): (1 8 8 50)
+D Tensor @Relu_Relu_6_7:out0 type: float32
+D Process MaxPool_MaxPool_7_6 ...
+D Acuity output shape(pooling): (1 4 4 50)
+D Tensor @MaxPool_MaxPool_7_6:out0 type: float32
+D Process Reshape_Reshape_10_5_acuity_mark_perm_15 ...
+D Acuity output shape(permute): (1 50 4 4)
+D Tensor @Reshape_Reshape_10_5_acuity_mark_perm_15:out0 type: float32
+D Process Reshape_Reshape_10_5 ...
+D Acuity output shape(reshape): (1 800)
+D Tensor @Reshape_Reshape_10_5:out0 type: float32
+D Process Gemm_Gemm_11_4 ...
+D Acuity output shape(fullconnect): (1 500)
+D Tensor @Gemm_Gemm_11_4:out0 type: float32
+D Process Relu_Relu_12_3 ...
+D Acuity output shape(relu): (1 500)
+D Tensor @Relu_Relu_12_3:out0 type: float32
+D Process Gemm_Gemm_13_2 ...
+D Acuity output shape(fullconnect): (1 10)
+D Tensor @Gemm_Gemm_13_2:out0 type: float32
+D Process LogSoftmax_LogSoftmax_14_1 ...
+D Acuity output shape(log_softmax): (1 10)
+D Tensor @LogSoftmax_LogSoftmax_14_1:out0 type: float32
+D Process attach_LogSoftmax_LogSoftmax_14/out0_0 ...
+D Acuity output shape(output): (1 10)
+D Tensor @attach_LogSoftmax_LogSoftmax_14/out0_0:out0 type: float32
+I Build torch-jit-export complete.
+D Optimizing network with force_1d_tensor, swapper, merge_duplicate_quantize_dequantize, merge_layer, auto_fill_bn, auto_fill_l2normalizescale, auto_fill_instancenormalize, resize_nearest_transformer, auto_fill_multiply, compute_gather_negative, auto_fill_zero_bias, proposal_opt_import, special_add_to_conv2d, extend_gather_to_gather_reshape
+I End importing onnx...
+I Dump net to mnist.json
+I Save net to mnist.data
+I ----------------Error(0),Warning(0)----------------
+-------------------- QUANTIZATION SCRIPT
+2022-09-20 00:00:57.856667: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /acuity-toolkit/bin/acuitylib
+2022-09-20 00:00:57.856696: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Namespace(action='quantization', batch_size=1, caffe_mean_file=None, capture_format='nchw', capture_quantized=False, channel_mean_value='127 127 127 255', config=None, data_output=None, debug=True, device=None, divergence_first_quantize_bits=11, dtype='float', epochs=1, epochs_per_decay=100, force_gray=False, fpfs_delta0=1, fpfs_epochs=0, fpfs_reduce_target=0, input_fitting='scale', input_normalization=None, lr=0.1, mean_file=None, model_data='mnist.data', model_data_format='zone', model_input='mnist.json', model_quantize=None, optimizer='momentum', output_dir=None, output_num=5, pb_name=None, pfps_delta0=1, pfps_epochs=0, pfps_reduce_target=0, prune_epochs=10, prune_loss=1, quantized_algorithm='normal', quantized_divergence_nbins=0, quantized_dtype='asymmetric_affine-u8', quantized_hybrid=False, quantized_moving_alpha=0.0, quantized_rebuild=False, quantized_rebuild_all=True, random_brightness=None, random_contrast=None, random_crop=False, random_flip=False, random_mirror=False, reorder_channel=None, restart=False, samples=-1, source='text', source_file='dataset/dataset1.txt', task='classification', validation_output='validation.csv', without_update_masked_grad=False)
+2022-09-20 00:00:59.134331: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-09-20 00:00:59.158142: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792910000 Hz
+2022-09-20 00:00:59.158758: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5e23e10 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-09-20 00:00:59.158786: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-09-20 00:00:59.160571: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /acuity-toolkit/bin/acuitylib
+2022-09-20 00:00:59.160595: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-09-20 00:00:59.160611: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (4347b6c0be7d): /proc/driver/nvidia/version does not exist
+I Load model in mnist.json
+I Load data in mnist.data
+W:tensorflow:From acuitylib/app/tensorzone/workspace.py:26: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, there are two
+    options available in V2.
+    - tf.py_function takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+    - tf.numpy_function maintains the semantics of the deprecated tf.py_func
+    (it is not differentiable, and manipulates numpy arrays). It drops the
+    stateful argument making all functions stateful.
+
+I Fitting image with scale.
+I Channel mean value [127.0, 127.0, 127.0, 255.0]
+I [TRAINER]Quantization start...
+[TRAINER]Quantization start...
+I Init validate tensor provider.
+I Enqueue samples 1
+I Init provider with 1 samples.
+D set up a quantize net
+D Process input_14 ...
+D Acuity output shape(input): (1 3 28 28)
+D Tensor @input_14:out0 type: asymmetric_affine
+D Real output shape: (1, 3, 28, 28)
+D Process Conv_Conv_0_13_acuity_mark_perm_16 ...
+D Acuity output shape(permute): (1 28 28 3)
+D Tensor @Conv_Conv_0_13_acuity_mark_perm_16:out0 type: asymmetric_affine
+D Real output shape: (1, 28, 28, 3)
+D Process Conv_Conv_0_13 ...
+D Acuity output shape(convolution): (1 24 24 20)
+D Tensor @Conv_Conv_0_13:out0 type: asymmetric_affine
+D Real output shape: (1, 24, 24, 20)
+D Process Relu_Relu_1_12 ...
+D Acuity output shape(relu): (1 24 24 20)
+D Tensor @Relu_Relu_1_12:out0 type: asymmetric_affine
+D Real output shape: (1, 24, 24, 20)
+D Process MaxPool_MaxPool_2_11 ...
+D Acuity output shape(pooling): (1 12 12 20)
+D Tensor @MaxPool_MaxPool_2_11:out0 type: asymmetric_affine
+D Real output shape: (1, 12, 12, 20)
+D Process Conv_Conv_3_10 ...
+D Acuity output shape(convolution): (1 8 8 20)
+D Tensor @Conv_Conv_3_10:out0 type: asymmetric_affine
+D Real output shape: (1, 8, 8, 20)
+D Process Relu_Relu_4_9 ...
+D Acuity output shape(relu): (1 8 8 20)
+D Tensor @Relu_Relu_4_9:out0 type: asymmetric_affine
+D Real output shape: (1, 8, 8, 20)
+D Process Conv_Conv_5_8 ...
+D Acuity output shape(convolution): (1 8 8 50)
+D Tensor @Conv_Conv_5_8:out0 type: asymmetric_affine
+D Real output shape: (1, 8, 8, 50)
+D Process Relu_Relu_6_7 ...
+D Acuity output shape(relu): (1 8 8 50)
+D Tensor @Relu_Relu_6_7:out0 type: asymmetric_affine
+D Real output shape: (1, 8, 8, 50)
+D Process MaxPool_MaxPool_7_6 ...
+D Acuity output shape(pooling): (1 4 4 50)
+D Tensor @MaxPool_MaxPool_7_6:out0 type: asymmetric_affine
+D Real output shape: (1, 4, 4, 50)
+D Process Reshape_Reshape_10_5_acuity_mark_perm_15 ...
+D Acuity output shape(permute): (1 50 4 4)
+D Tensor @Reshape_Reshape_10_5_acuity_mark_perm_15:out0 type: asymmetric_affine
+D Real output shape: (1, 50, 4, 4)
+D Process Reshape_Reshape_10_5 ...
+D Acuity output shape(reshape): (1 800)
+D Tensor @Reshape_Reshape_10_5:out0 type: asymmetric_affine
+D Real output shape: (1, 800)
+D Process Gemm_Gemm_11_4 ...
+D Acuity output shape(fullconnect): (1 500)
+D Tensor @Gemm_Gemm_11_4:out0 type: asymmetric_affine
+D Real output shape: (1, 500)
+D Process Relu_Relu_12_3 ...
+D Acuity output shape(relu): (1 500)
+D Tensor @Relu_Relu_12_3:out0 type: asymmetric_affine
+D Real output shape: (1, 500)
+D Process Gemm_Gemm_13_2 ...
+D Acuity output shape(fullconnect): (1 10)
+D Tensor @Gemm_Gemm_13_2:out0 type: asymmetric_affine
+D Real output shape: (1, 10)
+D Process LogSoftmax_LogSoftmax_14_1 ...
+D Acuity output shape(log_softmax): (1 10)
+D Tensor @LogSoftmax_LogSoftmax_14_1:out0 type: asymmetric_affine
+D Real output shape: (1, 10)
+D Process attach_LogSoftmax_LogSoftmax_14/out0_0 ...
+D Acuity output shape(output): (1 10)
+D Tensor @attach_LogSoftmax_LogSoftmax_14/out0_0:out0 type: asymmetric_affine
+D Real output shape: (1, 10)
+I Build torch-jit-export complete.
+I Generated network graph with 1 outputs.
+I  @attach_LogSoftmax_LogSoftmax_14/out0_0:out0: (1, 10)
+D Init coefficients ...
+I Start tensor porvider ...
+I Runing 1 epochs, algorithm: normal
+I iterations: 0
+D Quantize tensor @attach_LogSoftmax_LogSoftmax_14/out0_0:out0.
+D Quantize tensor @LogSoftmax_LogSoftmax_14_1:out0.
+D Quantize tensor @Gemm_Gemm_13_2:out0.
+D Quantize tensor @Relu_Relu_12_3:out0.
+D Quantize tensor @Gemm_Gemm_11_4:out0.
+D Quantize tensor @Reshape_Reshape_10_5:out0.
+D Quantize tensor @MaxPool_MaxPool_7_6:out0.
+D Quantize tensor @Relu_Relu_6_7:out0.
+D Quantize tensor @Conv_Conv_5_8:out0.
+D Quantize tensor @Relu_Relu_4_9:out0.
+D Quantize tensor @Conv_Conv_3_10:out0.
+D Quantize tensor @MaxPool_MaxPool_2_11:out0.
+D Quantize tensor @Relu_Relu_1_12:out0.
+D Quantize tensor @Conv_Conv_0_13:out0.
+D Quantize tensor @input_14:out0.
+D Quantize tensor @Reshape_Reshape_10_5_acuity_mark_perm_15:out0.
+D Quantize tensor @Conv_Conv_0_13_acuity_mark_perm_16:out0.
+D Quantize tensor @Gemm_Gemm_13_2:weight.
+D Quantize tensor @Gemm_Gemm_11_4:weight.
+D Quantize tensor @Conv_Conv_5_8:weight.
+D Quantize tensor @Conv_Conv_3_10:weight.
+D Quantize tensor @Conv_Conv_0_13:weight.
+D Quantize tensor @Gemm_Gemm_13_2:bias.
+D Quantize tensor @Gemm_Gemm_11_4:bias.
+D Quantize tensor @Conv_Conv_5_8:bias.
+D Quantize tensor @Conv_Conv_3_10:bias.
+D Quantize tensor @Conv_Conv_0_13:bias.
+I Clean.
+D Optimizing network with align_quantize, broadcast_quantize, qnt_adjust_coef, qnt_adjust_param
+I Dump net quantize tensor table to mnist.quantize
+I [TRAINER]Quantization complete.
+[TRAINER]Quantization complete.
+I Save net to mnist.data
+I Clean.
+I ----------------Error(0),Warning(0)----------------
+-------------------- EXPORT CASE
+2022-09-20 00:01:01.005822: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /acuity-toolkit/bin/acuitylib
+2022-09-20 00:01:01.005853: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Load model in mnist.json
+I Load data in mnist.data
+I Load quantization tensor table mnist.quantize
+2022-09-20 00:01:02.448650: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-09-20 00:01:02.470164: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792910000 Hz
+2022-09-20 00:01:02.470700: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x6a42740 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-09-20 00:01:02.470726: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-09-20 00:01:02.472505: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /acuity-toolkit/bin/acuitylib
+2022-09-20 00:01:02.472533: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-09-20 00:01:02.472549: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (4347b6c0be7d): /proc/driver/nvidia/version does not exist
+D Process input_14 ...
+D Acuity output shape(input): (1 3 28 28)
+D Tensor @input_14:out0 type: asymmetric_affine
+D Process Conv_Conv_0_13_acuity_mark_perm_16 ...
+D Acuity output shape(permute): (1 28 28 3)
+D Tensor @Conv_Conv_0_13_acuity_mark_perm_16:out0 type: asymmetric_affine
+D Process Conv_Conv_0_13 ...
+D Acuity output shape(convolution): (1 24 24 20)
+D Tensor @Conv_Conv_0_13:out0 type: asymmetric_affine
+D Process Relu_Relu_1_12 ...
+D Acuity output shape(relu): (1 24 24 20)
+D Tensor @Relu_Relu_1_12:out0 type: asymmetric_affine
+D Process MaxPool_MaxPool_2_11 ...
+D Acuity output shape(pooling): (1 12 12 20)
+D Tensor @MaxPool_MaxPool_2_11:out0 type: asymmetric_affine
+D Process Conv_Conv_3_10 ...
+D Acuity output shape(convolution): (1 8 8 20)
+D Tensor @Conv_Conv_3_10:out0 type: asymmetric_affine
+D Process Relu_Relu_4_9 ...
+D Acuity output shape(relu): (1 8 8 20)
+D Tensor @Relu_Relu_4_9:out0 type: asymmetric_affine
+D Process Conv_Conv_5_8 ...
+D Acuity output shape(convolution): (1 8 8 50)
+D Tensor @Conv_Conv_5_8:out0 type: asymmetric_affine
+D Process Relu_Relu_6_7 ...
+D Acuity output shape(relu): (1 8 8 50)
+D Tensor @Relu_Relu_6_7:out0 type: asymmetric_affine
+D Process MaxPool_MaxPool_7_6 ...
+D Acuity output shape(pooling): (1 4 4 50)
+D Tensor @MaxPool_MaxPool_7_6:out0 type: asymmetric_affine
+D Process Reshape_Reshape_10_5_acuity_mark_perm_15 ...
+D Acuity output shape(permute): (1 50 4 4)
+D Tensor @Reshape_Reshape_10_5_acuity_mark_perm_15:out0 type: asymmetric_affine
+D Process Reshape_Reshape_10_5 ...
+D Acuity output shape(reshape): (1 800)
+D Tensor @Reshape_Reshape_10_5:out0 type: asymmetric_affine
+D Process Gemm_Gemm_11_4 ...
+D Acuity output shape(fullconnect): (1 500)
+D Tensor @Gemm_Gemm_11_4:out0 type: asymmetric_affine
+D Process Relu_Relu_12_3 ...
+D Acuity output shape(relu): (1 500)
+D Tensor @Relu_Relu_12_3:out0 type: asymmetric_affine
+D Process Gemm_Gemm_13_2 ...
+D Acuity output shape(fullconnect): (1 10)
+D Tensor @Gemm_Gemm_13_2:out0 type: asymmetric_affine
+D Process LogSoftmax_LogSoftmax_14_1 ...
+D Acuity output shape(log_softmax): (1 10)
+D Tensor @LogSoftmax_LogSoftmax_14_1:out0 type: asymmetric_affine
+D Process attach_LogSoftmax_LogSoftmax_14/out0_0 ...
+D Acuity output shape(output): (1 10)
+D Tensor @attach_LogSoftmax_LogSoftmax_14/out0_0:out0 type: asymmetric_affine
+I Build torch-jit-export complete.
+I Initialzing network optimizer by /acuity-toolkit/demo2/../bin/VIPNANOQI_PID0X88 ...
+D Optimizing network with merge_ximum, qnt_adjust_coef, multiply_transform, add_extra_io, format_input_ops, auto_fill_zero_bias, conv_kernel_transform, strip_op, extend_unstack_split, merge_layer, transform_layer, broadcast_op, strip_op, auto_fill_reshape_zero, adjust_output_attrs, insert_dtype_converter
+I Start T2C Switcher...
+D Optimizing network with broadcast_op, t2c_fc
+D insert permute Reshape_Reshape_10_5_acuity_mark_perm_15_acuity_mark_perm_17 before Reshape_Reshape_10_5_acuity_mark_perm_15
+D insert permute Conv_Conv_0_13_acuity_mark_perm_18 before Conv_Conv_0_13
+D remove permute Conv_Conv_0_13_acuity_mark_perm_16
+D remove permute Conv_Conv_0_13_acuity_mark_perm_18
+D remove permute Reshape_Reshape_10_5_acuity_mark_perm_15_acuity_mark_perm_17
+D remove permute Reshape_Reshape_10_5_acuity_mark_perm_15
+I End T2C Switcher...
+D Process input_14 ...
+D Acuity output shape(input): (1 3 28 28)
+D Tensor @input_14:out0 type: asymmetric_affine
+D Process Conv_Conv_0_13 ...
+D Acuity output shape(convolution): (1 20 24 24)
+D Tensor @Conv_Conv_0_13:out0 type: asymmetric_affine
+D Process Relu_Relu_1_12 ...
+D Acuity output shape(relu): (1 20 24 24)
+D Tensor @Relu_Relu_1_12:out0 type: asymmetric_affine
+D Process MaxPool_MaxPool_2_11 ...
+D Acuity output shape(pooling): (1 20 12 12)
+D Tensor @MaxPool_MaxPool_2_11:out0 type: asymmetric_affine
+D Process Conv_Conv_3_10 ...
+D Acuity output shape(convolution): (1 20 8 8)
+D Tensor @Conv_Conv_3_10:out0 type: asymmetric_affine
+D Process Relu_Relu_4_9 ...
+D Acuity output shape(relu): (1 20 8 8)
+D Tensor @Relu_Relu_4_9:out0 type: asymmetric_affine
+D Process Conv_Conv_5_8 ...
+D Acuity output shape(convolution): (1 50 8 8)
+D Tensor @Conv_Conv_5_8:out0 type: asymmetric_affine
+D Process Relu_Relu_6_7 ...
+D Acuity output shape(relu): (1 50 8 8)
+D Tensor @Relu_Relu_6_7:out0 type: asymmetric_affine
+D Process MaxPool_MaxPool_7_6 ...
+D Acuity output shape(pooling): (1 50 4 4)
+D Tensor @MaxPool_MaxPool_7_6:out0 type: asymmetric_affine
+D Process Reshape_Reshape_10_5 ...
+D Acuity output shape(reshape): (1 800)
+D Tensor @Reshape_Reshape_10_5:out0 type: asymmetric_affine
+D Process Gemm_Gemm_11_4 ...
+D Acuity output shape(fullconnect): (1 500)
+D Tensor @Gemm_Gemm_11_4:out0 type: asymmetric_affine
+D Process Relu_Relu_12_3 ...
+D Acuity output shape(relu): (1 500)
+D Tensor @Relu_Relu_12_3:out0 type: asymmetric_affine
+D Process Gemm_Gemm_13_2 ...
+D Acuity output shape(fullconnect): (1 10)
+D Tensor @Gemm_Gemm_13_2:out0 type: asymmetric_affine
+D Process LogSoftmax_LogSoftmax_14_1 ...
+D Acuity output shape(log_softmax): (1 10)
+D Tensor @LogSoftmax_LogSoftmax_14_1:out0 type: asymmetric_affine
+D Process attach_LogSoftmax_LogSoftmax_14/out0_0 ...
+D Acuity output shape(output): (1 10)
+D Tensor @attach_LogSoftmax_LogSoftmax_14/out0_0:out0 type: asymmetric_affine
+I Build torch-jit-export complete.
+D Optimizing network with conv_1xn_transform, proposal_opt, c2drv_convert_axis, c2drv_convert_shape, c2drv_convert_array, c2drv_cast_dtype, c2drv_trans_data
+I Building data ...
+I Packing data ...
+D Packing Conv_Conv_0_13 ...
+D Quantize @Conv_Conv_0_13:bias to asymmetric_affine.
+D Quantize @Conv_Conv_0_13:weight to asymmetric_affine.
+D Packing Conv_Conv_3_10 ...
+D Quantize @Conv_Conv_3_10:bias to asymmetric_affine.
+D Quantize @Conv_Conv_3_10:weight to asymmetric_affine.
+D Packing Conv_Conv_5_8 ...
+D Quantize @Conv_Conv_5_8:bias to asymmetric_affine.
+D Quantize @Conv_Conv_5_8:weight to asymmetric_affine.
+D Packing Gemm_Gemm_11_4 ...
+D Quantize @Gemm_Gemm_11_4:bias to asymmetric_affine.
+D Quantize @Gemm_Gemm_11_4:weight to asymmetric_affine.
+D Packing Gemm_Gemm_13_2 ...
+D Quantize @Gemm_Gemm_13_2:bias to asymmetric_affine.
+D Quantize @Gemm_Gemm_13_2:weight to asymmetric_affine.
+I Saving data to mnist.export.data
+I Save vx network source file to /acuity-toolkit/demo2/vnn_mnist.c
+I Save vx network source file to /acuity-toolkit/demo2/vnn_mnist.h
+I Save vx network source file to /acuity-toolkit/demo2/vnn_post_process.c
+I Save vx network source file to /acuity-toolkit/demo2/vnn_post_process.h
+I Save vx network source file to /acuity-toolkit/demo2/vnn_pre_process.c
+I Save vx network source file to /acuity-toolkit/demo2/vnn_pre_process.h
+I Save vx network source file to /acuity-toolkit/demo2/vnn_global.h
+I Save vx network source file to /acuity-toolkit/demo2/main.c
+I Save vx network source file to /acuity-toolkit/demo2/BUILD
+I Save vx network source file to /acuity-toolkit/demo2/mnist.vcxproj
+I Save vx network source file to /acuity-toolkit/demo2/makefile.linux
+I Save vx network source file to /acuity-toolkit/demo2/.cproject
+I Save vx network source file to /acuity-toolkit/demo2/.project
+D Generate fake input /acuity-toolkit/demo2/input_14_0.tensor
+mv: '/acuity-toolkit/demo2/network_binary.nb' and '/acuity-toolkit/demo2/network_binary.nb' are the same file
+mv: '/acuity-toolkit/demo2/input_0.dat' and '/acuity-toolkit/demo2/input_0.dat' are the same file
+mv: '/acuity-toolkit/demo2/output0_10_1.dat' and '/acuity-toolkit/demo2/output0_10_1.dat' are the same file
+I Dump nbg input meta to /acuity-toolkit/demo2_nbg_unify/nbg_meta.json
+I Save vx network source file to /acuity-toolkit/demo2_nbg_unify/vnn_mnist.c
+I Save vx network source file to /acuity-toolkit/demo2_nbg_unify/vnn_mnist.h
+I Save vx network source file to /acuity-toolkit/demo2_nbg_unify/vnn_post_process.c
+I Save vx network source file to /acuity-toolkit/demo2_nbg_unify/vnn_post_process.h
+I Save vx network source file to /acuity-toolkit/demo2_nbg_unify/vnn_pre_process.c
+I Save vx network source file to /acuity-toolkit/demo2_nbg_unify/vnn_pre_process.h
+I Save vx network source file to /acuity-toolkit/demo2_nbg_unify/vnn_global.h
+I Save vx network source file to /acuity-toolkit/demo2_nbg_unify/main.c
+I Save vx network source file to /acuity-toolkit/demo2_nbg_unify/BUILD
+I Save vx network source file to /acuity-toolkit/demo2_nbg_unify/mnist.vcxproj
+I Save vx network source file to /acuity-toolkit/demo2_nbg_unify/makefile.linux
+I Save vx network source file to /acuity-toolkit/demo2_nbg_unify/.cproject
+I Save vx network source file to /acuity-toolkit/demo2_nbg_unify/.project
+/acuity-toolkit/demo2_nbg_unify
+customer:input,0,1:output,0,0:
+*********************************
+/acuity-toolkit/demo2
+/
+/acuity-toolkit/demo2_nbg_unify
+I ----------------Error(0),Warning(0)----------------
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ ls demo2/
+0_import_model_mnist.sh    2_export_case_code_mnist_profile.sh  data              mnist_normal_case_demo
+0_import_model.sh          2_export_case_code_mnist.sh          dataset           model
+1_quantize_model_mnist.sh  2_export_case_code.sh                extractoutput.py  nbg_unify_mnist
+1_quantize_model.sh        Android.mk                           inference.sh      network
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$

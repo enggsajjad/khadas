@@ -1,0 +1,223 @@
+    - Press <return> to exit tab
+    - Press R to restart session
+    - Press S to save terminal output to file
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to khadas@192.168.178.139                              │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+
+Welcome to Fenix 1.0.11 Ubuntu 20.04.4 LTS Linux 4.9.241
+ _  ___               _            __     _____ __  __ _____
+| |/ / |__   __ _  __| | __ _ ___  \ \   / /_ _|  \/  |___ /
+| ' /| '_ \ / _` |/ _` |/ _` / __|  \ \ / / | || |\/| | |_ \
+| . \| | | | (_| | (_| | (_| \__ \   \ V /  | || |  | |___) |
+|_|\_\_| |_|\__,_|\__,_|\__,_|___/    \_/  |___|_|  |_|____/
+
+
+ * Website:        https://www.khadas.com
+ * Documentation:  https://docs.khadas.com
+ * Forum:          https://forum.khadas.com
+
+khadas@Khadas:~$ git clone https://github.com/yan-wyb/Just_for_get_op_time.git
+Cloning into 'Just_for_get_op_time'...
+remote: Enumerating objects: 944, done.
+remote: Total 944 (delta 0), reused 0 (delta 0), pack-reused 944
+Receiving objects: 100% (944/944), 115.32 MiB | 11.99 MiB/s, done.
+Resolving deltas: 100% (430/430), done.
+Updating files: 100% (922/922), done.
+khadas@Khadas:~$ cd Just_for_get_op_time/
+khadas@Khadas:~/Just_for_get_op_time$ ls
+data
+khadas@Khadas:~/Just_for_get_op_time$ cd data/
+khadas@Khadas:~/Just_for_get_op_time/data$ ls
+drivers_64_exportdata  vcmdtools
+khadas@Khadas:~/Just_for_get_op_time/data$  ls /usr/lib/*.so
+/usr/lib/klibc-lbL2PP0WqEKZBTt1bTcN7It5Usc.so  /usr/lib/libcook.so             /usr/lib/libnn_yolo_v4.so
+/usr/lib/libadpcm.so                           /usr/lib/libcurl_mod.so         /usr/lib/libOpenCL.so
+/usr/lib/libamadec.so                          /usr/lib/libcutils.so           /usr/lib/libOpenVX.so
+/usr/lib/libamavutils.so                       /usr/lib/libdash_mod.so         /usr/lib/libOpenVXU.so
+/usr/lib/libamcodec.so                         /usr/lib/libfaad.so             /usr/lib/libopus.so
+/usr/lib/libamffmpegdec.so                     /usr/lib/libflac.so             /usr/lib/libOvx12VXCBinary.so
+/usr/lib/libammad.so                           /usr/lib/libGAL.so              /usr/lib/libovxlib.so
+/usr/lib/libamplayer.so                        /usr/lib/liblibpcm_wfd.so       /usr/lib/libpcm.so
+/usr/lib/libamr.so                             /usr/lib/libNNArchPerf.so       /usr/lib/libraac.so
+/usr/lib/libamstreaming.so                     /usr/lib/libnn_detect.so        /usr/lib/libsimple_framework2.so
+/usr/lib/libamvdec.so                          /usr/lib/libnn_facenet.so       /usr/lib/libsimple_framework3.so
+/usr/lib/libape.so                             /usr/lib/libNNGPUBinary.so      /usr/lib/libSPIRV_viv.so
+/usr/lib/libArchModelSw.so                     /usr/lib/libnnsdk.so            /usr/lib/libswscale.so
+/usr/lib/libavcodec.so                         /usr/lib/libNNVXCBinary.so      /usr/lib/libtengine-lite.so
+/usr/lib/libavdevice.so                        /usr/lib/libnn_yoloface.so      /usr/lib/libvhls_mod.so
+/usr/lib/libavfilter.so                        /usr/lib/libnn_yolo_tiny.so     /usr/lib/libVSC_Lite.so
+/usr/lib/libavformat.so                        /usr/lib/libnn_yolo_v2.so       /usr/lib/libVSC.so
+/usr/lib/libavutil.so                          /usr/lib/libnn_yolo_v3_orig.so
+/usr/lib/libCLC.so                             /usr/lib/libnn_yolo_v3.so
+khadas@Khadas:~/Just_for_get_op_time/data$ cp /usr/lib/libArchModelSw.so /usr/lib/libCLC.so /usr/lib/libGAL.so /usr/lib/libNNArchPerf.so /usr/lib/libOpenCL.so /usr/lib/libOpenVX.so /usr/lib/libOpenVXU.so /usr/lib/libVSC.so /usr/lib/libovxlib.so ./drivers_64_exportdata/.
+khadas@Khadas:~/Just_for_get_op_time/data$ ll drivers_64_exportdata/
+total 28852
+drwxrwxr-x 2 khadas khadas     4096 Jun 15 01:02 ./
+drwxrwxr-x 4 khadas khadas     4096 Jun 15 01:02 ../
+-rwxrwxr-x 1 khadas khadas   380712 Jun 15 01:14 libArchModelSw.so*
+-rwxrwxr-x 1 khadas khadas  2433544 Jun 15 01:14 libCLC.so*
+-rwxrwxr-x 1 khadas khadas  1696736 Jun 15 01:14 libGAL.so*
+-rwxrwxr-x 1 khadas khadas   285524 Jun 15 01:02 libjpeg.a*
+-rwxrwxr-x 1 khadas khadas   399960 Jun 15 01:14 libNNArchPerf.so*
+-rwxrwxr-x 1 khadas khadas   487656 Jun 15 01:14 libOpenCL.so*
+-rwxrwxr-x 1 khadas khadas  2837840 Jun 15 01:14 libOpenVX.so*
+-rwxrwxr-x 1 khadas khadas    37600 Jun 15 01:14 libOpenVXU.so*
+-rwxrwxr-x 1 khadas khadas  4123568 Jun 15 01:14 libovxlib.so*
+-rwxrwxr-x 1 khadas khadas 16831624 Jun 15 01:14 libVSC.so*
+khadas@Khadas:~/Just_for_get_op_time/data$ ls
+drivers_64_exportdata  vcmdtools
+khadas@Khadas:~/Just_for_get_op_time/data$ lc vcmdtools/
+
+Command 'lc' not found, but can be installed with:
+
+sudo apt install mono-devel
+
+khadas@Khadas:~/Just_for_get_op_time/data$ ls vcmdtools/
+bin  cfg  include  lib  LICENSE.txt  nngpu_kernels  nnvxc_kernels  ovx12_vxcKernels  vcompiler_cfg  VERSION  vklayer
+khadas@Khadas:~/Just_for_get_op_time/data$ cd ..
+khadas@Khadas:~/Just_for_get_op_time$ cd ..
+khadas@Khadas:~$ ls
+Desktop  Documents  Downloads  hussain  Just_for_get_op_time  Music  Pictures  Public  Templates  Videos
+khadas@Khadas:~$ mkdir op_test_nopnet
+khadas@Khadas:~$ cd op_test_nopnet/;wget https://raw.githubusercontent.com/khadas/aml_npu_app/master/detect_library/inception/makefile.linux.def
+--2022-06-15 01:21:31--  https://raw.githubusercontent.com/khadas/aml_npu_app/master/detect_library/inception/makefile.linux.def
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 2606:50c0:8003::154, 2606:50c0:8002::154, 2606:50c0:8000::154, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|2606:50c0:8003::154|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 16406 (16K) [text/plain]
+Saving to: ‘makefile.linux.def’
+
+makefile.linux.def                    100%[========================================================================>]  16.02K  --.-KB/s    in 0.001s
+
+2022-06-15 01:21:32 (17.3 MB/s) - ‘makefile.linux.def’ saved [16406/16406]
+
+khadas@Khadas:~/op_test_nopnet$ wget https://raw.githubusercontent.com/khadas/aml_npu_app/master/detect_library/inception/build_vx.sh
+--2022-06-15 01:21:44--  https://raw.githubusercontent.com/khadas/aml_npu_app/master/detect_library/inception/build_vx.sh
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 2606:50c0:8003::154, 2606:50c0:8002::154, 2606:50c0:8000::154, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|2606:50c0:8003::154|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9312 (9.1K) [text/plain]
+Saving to: ‘build_vx.sh’
+
+build_vx.sh                           100%[========================================================================>]   9.09K  --.-KB/s    in 0s
+
+2022-06-15 01:21:44 (18.1 MB/s) - ‘build_vx.sh’ saved [9312/9312]
+
+khadas@Khadas:~/op_test_nopnet$ echo "TARGET_NAME = nopnet"  > makefile.target_name
+khadas@Khadas:~/op_test_nopnet$ vim makefile.linux
+khadas@Khadas:~/op_test_nopnet$ ll
+total 140
+drwxrwxr-x  2 khadas khadas  4096 Jun 15 01:29 ./
+drwxr-xr-x 19 khadas khadas  4096 Jun 15 01:22 ../
+-rw-rw-r--  1 khadas khadas  9312 Jun 15 01:21 build_vx.sh
+-rw-r--r--  1 khadas khadas  6430 Jun 15 01:06 main.c
+-rw-rw-r--  1 khadas khadas  2068 Jun 15 01:22 makefile.linux
+-rw-rw-r--  1 khadas khadas 16406 Jun 15 01:21 makefile.linux.def
+-rw-rw-r--  1 khadas khadas    21 Jun 15 01:22 makefile.target_name
+-rw-r--r--  1 khadas khadas   986 Jun 15 01:06 nbg_meta.json
+-rw-r--r--  1 khadas khadas 11725 Jun 15 01:06 nopnet_88.nb
+-rw-r--r--  1 khadas khadas  2352 Jun 15  2022 nopnet.export.data
+-rw-r--r--  1 khadas khadas   765 Jun 15 01:06 vnn_global.h
+-rw-r--r--  1 khadas khadas  9733 Jun 15 01:06 vnn_nopnet.c
+-rw-r--r--  1 khadas khadas  1156 Jun 15 01:06 vnn_nopnet.h
+-rw-r--r--  1 khadas khadas  4174 Jun 15 01:06 vnn_post_process.c
+-rw-r--r--  1 khadas khadas   567 Jun 15 01:06 vnn_post_process.h
+-rw-r--r--  1 khadas khadas 24954 Jun 15 01:06 vnn_pre_process.c
+-rw-r--r--  1 khadas khadas  1655 Jun 15 01:06 vnn_pre_process.h
+khadas@Khadas:~/op_test_nopnet$ copied the vcmdtools manually using usb.
+khadas@Khadas:~/op_test_nopnet$ chmod +x ./build_vx.sh
+khadas@Khadas:~/op_test_nopnet$ ./build_vx.sh
+  COMPILE /home/khadas/op_test_nopnet/vnn_pre_process.c
+  COMPILE /home/khadas/op_test_nopnet/vnn_nopnet.c
+vnn_nopnet.c: In function ‘vnn_CreateNopnet’:
+vnn_nopnet.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_nopnet.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/op_test_nopnet/main.c
+  COMPILE /home/khadas/op_test_nopnet/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas:~/op_test_nopnet$ ls bin_r_cv4/
+main.o  nopnet  vnn_nopnet.o  vnn_post_process.o  vnn_pre_process.o
+khadas@Khadas:~/op_test_nopnet$ export VIVANTE_SDK_DIR=/home/khadas/Just_for_get_op_time/data/vcmdtools
+khadas@Khadas:~/op_test_nopnet$ export LD_LIBRARY_PATH=/home/khadas/Just_for_get_op_time/data/drivers_64_exportdata
+khadas@Khadas:~/op_test_nopnet$ export VIV_VX_DEBUG_LEVEL=1
+khadas@Khadas:~/op_test_nopnet$ export CNN_PERF=1
+khadas@Khadas:~/op_test_nopnet$ export NN_LAYER_DUMP=1
+khadas@Khadas:~/op_test_nopnet$ pwd
+/home/khadas/op_test_nopnet
+khadas@Khadas:~/op_test_nopnet$ cd bin_r_cv4/
+khadas@Khadas:~/op_test_nopnet/bin_r_cv4$ ./nopnet ../nopnet.export.data ../28x28.jpg
+turned powerManagement off for CNN_PERF=1
+#productname=VIPNano-QI, pid=0x88
+loadBinaryEntry[2042]: fail to read lcdt offset, cdt: 416, lcd: 0
+vxoBinaryGraph_LoadFromFile[7232]: fail to load Binary File
+vxoBinaryGraph_LoadFromFile[7260]: NBG error, please provide genereating NBG logs first
+fail to import kernel from ../nopnet.export.data, error code: -16
+E [compute_node:379]Create node[0] NBG fail
+E [vnn_CreateNopnet:313]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+turned powerManagement on for CNN_PERF=1
+E [vnn_CreateNeuralNetwork:196]CHECK PTR 196
+E [main:229]CHECK PTR 229
+khadas@Khadas:~/op_test_nopnet/bin_r_cv4$ ./nopnet ../nopnet_88.nb ../28x28.jpg
+turned powerManagement off for CNN_PERF=1
+#productname=VIPNano-QI, pid=0x88
+Create Neural Network: 8ms or 8528us
+Verify...
+generate command buffer, total device count=1, core count per-device: 1,
+current device id=0, AXI SRAM base address=0xff000000
+---------------------------Begin VerifyTiling -------------------------
+AXI-SRAM = 1048320 Bytes VIP-SRAM = 522240 Bytes SWTILING_PHASE_FEATURES[1, 1, 0]
+  0 NBG [(   0    0    0 0,        0, 0x(nil)(0x(nil), 0x(nil)) ->    0    0    0 0,        0, 0x(nil)(0x(nil), 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 0 0)]
+
+ id IN [ x  y  w   h ]   OUT  [ x  y  w  h ] (tx, ty, kpc) (ic, kc, kc/ks, ks/eks, kernel_type) NNT(in, out)
+
+ id | opid IN [ x  y  w   h ]   OUT  [ x  y  w  h ] (tx, ty, kpc) (ic, kc, kc/ks, ks/eks, kernel_type) NNT(in, out)
+  0 |   0 NBG DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+
+PreLoadWeightBiases = 1048320  100.000000%
+---------------------------End VerifyTiling -------------------------
+Verify Graph: 0ms or 579us
+Start run graph [1] times...
+Total segments: 1.
+Run segment 0. Type: 1, operations: [1, 1].
+Segment 0 ended.
+***********dump layer :  0 operation:  1***************
+***********dump layer : 0***************
+layer_id: 0 layer name:network_binary_graph operation[0]:unkown operation type target:unkown operation target.
+uid: 0
+abs_op_id: 0
+execution time:              4595 us
+Run the 1 time: 4.00ms or 4742.00us
+vxProcessGraph execution time:
+Total   4.00ms or 4759.00us
+Average 4.76ms or 4759.00us
+ --- Top5 ---
+  0: 255.000000
+  1: 255.000000
+  2: 255.000000
+  3: 255.000000
+  4: 255.000000
+turned powerManagement on for CNN_PERF=1
+khadas@Khadas:~/op_test_nopnet/bin_r_cv4$ ls
+0_network_binary_graph_operation_0.txt                                                           nopnet
+gpuID_0_tensorName_uid_0_out_0_NodeID_0_network_binary_graph_w_2352_h_1_d_1_batchID_0_out_0.txt  output0_2352.dat
+graph.json                                                                                       vnn_nopnet.o
+input_0.dat                                                                                      vnn_post_process.o
+layer_0_TensorAdd_operation_1_out_0_size_2352.bin                                                vnn_pre_process.o
+main.o
+khadas@Khadas:~/op_test_nopnet/bin_r_cv4$

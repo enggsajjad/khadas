@@ -1,0 +1,463 @@
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to khadas@192.168.178.139                              │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+
+Welcome to Fenix 1.0.11 Ubuntu 20.04.4 LTS Linux 4.9.241
+ _  ___               _            __     _____ __  __ _____
+| |/ / |__   __ _  __| | __ _ ___  \ \   / /_ _|  \/  |___ /
+| ' /| '_ \ / _` |/ _` |/ _` / __|  \ \ / / | || |\/| | |_ \
+| . \| | | | (_| | (_| | (_| \__ \   \ V /  | || |  | |___) |
+|_|\_\_| |_|\__,_|\__,_|\__,_|___/    \_/  |___|_|  |_|____/
+
+
+ * Website:        https://www.khadas.com
+ * Documentation:  https://docs.khadas.com
+ * Forum:          https://forum.khadas.com
+
+Last login: Fri Jun 10 00:52:16 2022 from 192.168.178.33
+khadas@Khadas-teco:~$ cd hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code/detect_yolo_v3A/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code/detect_yolo_v3A$ ls
+bin_r        include                 makefile.linux      makefile.target_name  yolo_v3.c
+build_vx.sh  linux_build_sample.log  makefile.linux.def  vnn_yolov3.c          yolov3_process.c
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code/detect_yolo_v3A$ cd bin_r/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code/detect_yolo_v3A/bin_r$ ls
+libnn_yolo_v3.so  vnn_yolov3.o  yolo_v3.o  yolov3_process.o
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code/detect_yolo_v3A/bin_r$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code/detect_yolo_v3A$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code$ ls
+detect_mtcnn  detect_yoloface  detect_yolo_v2  detect_yolo_v3  detect_yolo_v3A  detect_yolo_v3_tiny  detect_yolo_v4  facenet
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_appwog$ cd aml_npu_app/
+DDK_6.3.3.4/    DDK_6.4.0.3/    DDK_6.4.3/      DDK_6.4.4.3/    detect_library/ .git/           NN_SLT/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog$ cd aml_npu_app/detect_library/sample_demo_x11B1/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1$ ls
+ 1080p.bmp     detect_log.c           emb.db                   include                  makefile.linux.def      scream.bmp
+ 1.bmp        'dog_1920*1080.bmp'    'giraffe_1920*1080.bmp'  'kite_1920*1080.bmp'      makefile.target_name    scream.jpg
+ 2.bmp         dog.bmp                giraffe.bmp              kite.bmp                'person_1920*1080.bmp'   vnn_yolov3.c
+ 3.bmp         dog.jpg                giraffe.jpg              kite.jpg                 person.bmp              yolo_v3.c
+ bin_r_cv4    'eagle_1920*1080.bmp'  'horses_1920*1080.bmp'    linux_build_sample.log   person.jpg              yolov3_process.c
+ build_vx.sh   eagle.bmp              horses.bmp               main.cpp                 ReadMe.txt
+ detect_c      eagle.jpg              horses.jpg               makefile.linux          'scream_1920*1080.bmp'
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1$ cd bin_r_cv4/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../eagle_1920\*1080.bmp
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ convert ../eagle.jpg -resize 1920x1056! ../eagle_1920x1056.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../eagle_1920x1056.bmp
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:263.169 right:1603.9 top:229.628 bottom:888.763
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ pwd
+/home/khadas/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ convert ../kite.jpg -resize 1920x1056! ../kite_1920x1056.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../kite_1920x1056.bmp
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=10
+result type is 2
+i:10 left:165.145 right:230.549 top:703.241 bottom:906.586
+i:10 left:303.549 right:387.53 top:807.222 bottom:1010.57
+i:10 left:854.909 right:949.73 top:88.7185 bottom:188.724
+i:10 left:400.38 right:428.374 top:275.875 bottom:331.519
+i:10 left:491.85 right:505.073 top:569.728 bottom:590.198
+i:10 left:743.727 right:765.528 top:599.914 bottom:620.384
+i:10 left:771.297 right:788.276 top:605.001 bottom:625.471
+i:10 left:41.3878 right:69.3815 top:608.072 bottom:651.408
+i:10 left:121.85 right:149.843 top:592.938 bottom:664.387
+i:10 left:248.866 right:276.86 top:637.356 bottom:671.106
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../eagle_1920x1056.bmp
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:263.169 right:1603.9 top:225.318 bottom:884.453
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ convert ../ -resize 1920x1056! ../kite_1920x1056.bmp
+1080p.bmp               dog.bmp                 giraffe.jpg             linux_build_sample.log  scream_1920*1080.bmp
+1.bmp                   dog.jpg                 horses_1920*1080.bmp    main.cpp                scream.bmp
+2.bmp                   eagle_1920*1080.bmp     horses.bmp              makefile.linux          scream.jpg
+3.bmp                   eagle_1920x1056.bmp     horses.jpg              makefile.linux.def      vnn_yolov3.c
+bin_r_cv4/              eagle.bmp               include/                makefile.target_name    yolo_v3.c
+build_vx.sh             eagle.jpg               kite_1920*1080.bmp      person_1920*1080.bmp    yolov3_process.c
+detect_c                emb.db                  kite_1920x1056.bmp      person.bmp
+detect_log.c            giraffe_1920*1080.bmp   kite.bmp                person.jpg
+dog_1920*1080.bmp       giraffe.bmp             kite.jpg                ReadMe.txt
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ convert ../giraffe.jpg -resize 1920x1056! ../giraffe_1920x1056.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ convert ../scream.jpg -resize 1920x1056! ../scream_1920x1056.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../giraffe_1920x1056.bmp
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=3
+result type is 2
+i:3 left:632.513 right:1676.68 top:52.9456 bottom:899.292
+i:3 left:1021.92 right:1582.66 top:395.297 bottom:909.335
+i:3 left:942.288 right:1662.29 top:434.249 bottom:948.288
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../scream_1920x1056.bmp
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1.bmp  Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:559.831 right:996.533 top:386.308 bottom:1046.35
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../2.bmp
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=9
+result type is 2
+i:9 left:1438.88 right:1910.66 top:471.156 bottom:562.141
+i:9 left:178.415 right:390.489 top:483.762 bottom:993.122
+i:9 left:394.441 right:606.514 top:413.099 bottom:1067.13
+i:9 left:586.459 right:798.532 top:483.762 bottom:993.122
+i:9 left:763.672 right:975.745 top:404.994 bottom:1059.03
+i:9 left:942.462 right:1107.62 top:399.908 bottom:1053.94
+i:9 left:1099.19 right:1311.27 top:402.49 bottom:1056.52
+i:9 left:1264.71 right:1476.78 top:413.099 bottom:1067.13
+i:9 left:1583.26 right:1721.73 top:858.664 bottom:1062.01
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../3.bmp
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=9
+result type is 2
+i:9 left:836.372 right:1920 top:883.595 bottom:1065.57
+i:9 left:28.3068 right:166.768 top:904.414 bottom:1062.78
+i:9 left:221.607 right:329.441 top:908.49 bottom:1066.86
+i:9 left:960.069 right:1067.9 top:910.163 bottom:1068.53
+i:9 left:1824.02 right:1908 top:906.569 bottom:1064.93
+i:9 left:1027.53 right:1165.99 top:925.318 bottom:1080
+i:9 left:1464.52 right:1572.35 top:925.318 bottom:1080
+i:9 left:1643 right:1726.98 top:925.318 bottom:1080
+i:9 left:1729.32 right:1837.16 top:946.427 bottom:1069.76
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B1/bin_r_cv4$

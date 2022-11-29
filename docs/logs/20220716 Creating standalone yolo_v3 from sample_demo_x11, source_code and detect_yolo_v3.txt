@@ -1,0 +1,140 @@
+===========================================================
+Creating standalone yolo_v3 from three folders i.e. sample_demo_x11, source_code and detect_yolo_v3
+===========================================================
+khadas@Khadas:~/hussain$ cp -r ~/hussain/aml_npu_app/detect_library/sample_demo_x11 sample_demo_x11_yolov3
+khadas@Khadas:~/hussain$ cd sample_demo_x11_yolov3/
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ ls
+1080p.bmp    detect.h  main.cpp        makefile.linux.def    nn_detect_common.h  nn_detect_utils.h  result
+build_vx.sh  emb.db    makefile.linux  makefile.target_name  nn_detect.h         ReadMe.txt
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ rm -rf nn_detect* ReadMe.txt result/ main.cpp 1080p.bmp emb.db
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ ls
+build_vx.sh  detect.h  makefile.linux  makefile.linux.def  makefile.target_name
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ rm -rf detect.h
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ ls
+build_vx.sh  makefile.linux  makefile.linux.def  makefile.target_name
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ mkdir include
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ cp ../milestone/standalone_initial/newscripts/sample_demo_x11B/include/debug.h ./include/.
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ cp ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/vnn_yolov3.c .
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ cp ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/yolo_v3.c .
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ cp ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/yolov3_process.c .
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ cp ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/nn_detect_common.h ./include/.
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ cp ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/nn_detect_utils.h ./include/.
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ cp ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/nn_detect.h ./include/.
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ cp ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/vnn_yolov3.h ./include/.
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ cp ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/yolo_v3.h ./include/.
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ cp ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/vnn_global.h ./include/.
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ cp ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/yolov3_process.h ./include/.
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ cp ~/hussain/aml_npu_app/detect_library/source_code/include/detect_log.h ./include/.
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ cp ~/hussain/aml_npu_app/detect_library/source_code/detect_log.c .
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ cp ~/hussain/aml_npu_app/detect_library/sample_demo_x11/detect.h ./include/.
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ cp ~/hussain/aml_npu_app/detect_library/sample_demo_x11/main.cpp .
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$
+
+
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ vim include/nn_detect_utils.h
+added: #include "debug.h"
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ vim include/yolo_v3.h
+
+after: #define __YOLO_V3_INCLUDE__
+
+#ifdef __cplusplus
+extern "C"{
+#endif
+
+....
+#ifdef __cplusplus
+}
+#endif
+
+before: #endif
+
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ vim main.cpp
+Added at top:
+#include "yolo_v3.h" //Sajjad
+const char* data_file_path1 = "nn_data"; //Sajjad
+dev_type g_dev_type1 = DEV_REVB; //Sajjad
+
+Added in run_detect_model()
+        uint8_t *pdata;//sajjad
+Change in run_detect_model()
+	//det_set_log_config(DET_DEBUG_LEVEL_WARN,DET_LOG_TERMINAL); //Sajjad
+
+	ret  = model_create(data_file_path1, g_dev_type1);//ret = det_set_model(type); //Sajjad
+
+	model_getsize(&nn_width, &nn_height, &nn_channel);//ret = det_get_model_size(type, &nn_width, &nn_height, &nn_channel); //Sajjad
+		//if (ret) {
+		//	cout << "det_get_model_size fail" <<endl;
+		//	return ret;
+		//}
+
+
+	model_release(g_dev_type1);//det_release_model(type);//sajjad
+
+	pdata = (uint8_t*) malloc(nn_width * nn_height * nn_channel * sizeof(uint8_t));//sajjad
+		model_setinput(image, pdata);//ret = det_set_input(image, type); //Sajjad
+		//if (ret) {
+		//	cout << "det_set_input fail. ret=" << ret << endl;
+		//	det_release_model(type);
+		//	return ret;
+		//}
+
+	ret = model_getresult(&resultData, pdata);//ret = det_get_result(&resultData, type); //Sajjad
+
+	model_release(g_dev_type1);//det_release_model(type); //Sajjad
+
+	model_release(g_dev_type1);//det_release_model(type); //Sajjad
+
+Comment complete run_detect_facent() and init_fb()
+
+Comment in main()
+		//case DET_FACENET: //Sajjad
+			//run_detect_facent(argc, argv);
+		//	break;
+		
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ vim makefile.linux
+Add:
+
+LIB_DIR=$(CC)/libc/lib
+LIBS +=-L$(LIB_DIR) -l stdc++  -l m
+LIBS += -L$(VIVANTE_SDK_LIB) -l OpenVX -l OpenVXU -lGAL
+LIBS += -L$(OVXLIB_DIR)/lib -l ovxlib
+LIBS += -lm -ldl
+
+INCLUDE += -I$(OVXLIB_DIR)/include
+INCLUDE += -I./include
+
+CFLAGS += -I./include
+
+Comment:
+#LIBS += -L../source_code/bin_r -lnn_detect
+
+#LDFLAGS += -Wall -shared -Wl,-soname,$(TARGET_NAME) -Wl,-z,defs
+LDFLAGS += -Wall -Wl,-soname,$(TARGET_NAME) -Wl,-z,defs
+
+
+
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ vim yolo_v3.c
+//#include "vnn_pre_process.h"
+//#include "vnn_post_process.h"
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3/bin_r_cv4$ cd nn_data/
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3/bin_r_cv4/nn_data$ cp ~/hussain/aml_npu_demo_binaries/detect_demo_picture/nn_data/yolov3_88_orig.nb yolov3_88.nb
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3/bin_r_cv4/nn_data$ cd ..
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ~/hussain/img/1920x1056/person_1920x1056.jpg
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=3
+result type is 2
+i:3 left:1149.81 right:1869.81 top:343.02 bottom:857.059
+i:3 left:187.215 right:604.173 top:646.021 bottom:879.675
+i:3 left:565.385 right:837.692 top:267.849 bottom:921.88
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3/bin_r_cv4$

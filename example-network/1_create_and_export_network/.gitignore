@@ -1,0 +1,6 @@
+venv
+data
+*.bmp
+.ipynb_checkpoints
+*.onnx
+*.pt

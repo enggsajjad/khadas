@@ -1,0 +1,41 @@
+===========================================================================
+20220811 Generating/converting code for various mnist.onnx for nbg and normal case
+===========================================================================
+sajjad@teco:~/sajjad/npusdk2_4662/aml_npu_sdk/acuity-toolkit/demo$ mnist.onnx for different added layers^C
+sajjad@teco:~/sajjad/npusdk2_4662/aml_npu_sdk/acuity-toolkit/demo$ ls network/mnist
+mnist0.onnx  mnist1.onnx  mnist2.onnx  mnist3.onnx  mnist4.onnx  mnist.onnx
+sajjad@teco:~/sajjad/npusdk2_4662/aml_npu_sdk/acuity-toolkit/demo$ generation of nbg_unify_mnist converted model for various network/mnist.onnx ^C
+sajjad@teco:~/sajjad/npusdk2_4662/aml_npu_sdk/acuity-toolkit/demo$ ls nbg_unify_mnist
+nbg_unify_mnist0/ nbg_unify_mnist1/ nbg_unify_mnist2/ nbg_unify_mnist3/ nbg_unify_mnist4/ nbg_unify_mnistx/
+sajjad@teco:~/sajjad/npusdk2_4662/aml_npu_sdk/acuity-toolkit/demo$ generation of mnist_normal_case_demo converted model for various network/mnist.onnx ^C
+sajjad@teco:~/sajjad/npusdk2_4662/aml_npu_sdk/acuity-toolkit/demo$ ls mnist_normal_case_demo
+mnist_normal_case_demo0/ mnist_normal_case_demo1/ mnist_normal_case_demo2/ mnist_normal_case_demo3/ mnist_normal_case_demo4/ mnist_normal_case_demox/
+
+-----------------------------------------------------------------
+Difference between the generated/converted code for various mnist.onnx
+-----------------------------------------------------------------
+sajjad@teco:~/sajjad/npusdk2_4662/aml_npu_sdk/acuity-toolkit/demo$ diff nbg_unify_mnistx/main.c nbg_unify_mnist4/main.c
+sajjad@teco:~/sajjad/npusdk2_4662/aml_npu_sdk/acuity-toolkit/demo$ diff nbg_unify_mnistx/vnn_global.h nbg_unify_mnist4/vnn_global.h
+sajjad@teco:~/sajjad/npusdk2_4662/aml_npu_sdk/acuity-toolkit/demo$ diff nbg_unify_mnistx/vnn_mnist.h nbg_unify_mnist4/vnn_mnist.h
+sajjad@teco:~/sajjad/npusdk2_4662/aml_npu_sdk/acuity-toolkit/demo$ diff nbg_unify_mnistx/vnn_mnist.c nbg_unify_mnist4/vnn_mnist.c
+220c220
+<     /* @attach_LogSoftmax_LogSoftmax_12/out0_0:out0 */
+---
+>     /* @attach_LogSoftmax_LogSoftmax_22/out0_0:out0 */
+224c224
+<     attr.dtype.scale = 0.0865173265337944;
+---
+>     attr.dtype.scale = 0.08149270713329315;
+229c229
+<     /* @input_12:out0 */
+---
+>     /* @input_22:out0 */
+sajjad@teco:~/sajjad/npusdk2_4662/aml_npu_sdk/acuity-toolkit/demo$ diff nbg_unify_mnistx/vnn_post_process.h nbg_unify_mnist4/vnn_post_process.h
+sajjad@teco:~/sajjad/npusdk2_4662/aml_npu_sdk/acuity-toolkit/demo$ diff nbg_unify_mnistx/vnn_post_process.c nbg_unify_mnist4/vnn_post_process.c
+sajjad@teco:~/sajjad/npusdk2_4662/aml_npu_sdk/acuity-toolkit/demo$ diff nbg_unify_mnistx/vnn_pre_process.c nbg_unify_mnist4/vnn_pre_process.c
+41c41
+<         /* lid: input_12 */
+---
+>         /* lid: input_22 */
+sajjad@teco:~/sajjad/npusdk2_4662/aml_npu_sdk/acuity-toolkit/demo$ diff nbg_unify_mnistx/vnn_pre_process.h nbg_unify_mnist4/vnn_pre_process.h
+sajjad@teco:~/sajjad/npusdk2_4662/aml_npu_sdk/acuity-toolkit/demo$

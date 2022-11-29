@@ -1,0 +1,29 @@
+sajjad@teco:~$ mkdir npusdk4
+sajjad@teco:~$ cd npusdk4/
+sajjad@teco:~/npusdk4$ git clone --recursive https://github.com/khadas/aml_npu_sdk.git
+Cloning into 'aml_npu_sdk'...
+remote: Enumerating objects: 462, done.
+remote: Counting objects: 100% (462/462), done.
+remote: Compressing objects: 100% (206/206), done.
+remote: Total 462 (delta 259), reused 440 (delta 237), pack-reused 0
+Receiving objects: 100% (462/462), 24.96 MiB | 2.58 MiB/s, done.
+Resolving deltas: 100% (259/259), done.
+Submodule 'acuity-toolkit/bin' (https://gitlab.com/khadas/neural_network_large_file.git) registered for path 'acuity-toolkit/bin'
+Submodule 'acuity-toolkit/python' (https://gitlab.com/khadas/neural_network_large_file.git) registered for path 'acuity-toolkit/python'
+Cloning into '/home/sajjad/npusdk4/aml_npu_sdk/acuity-toolkit/bin'...
+remote: Enumerating objects: 13561, done.        
+remote: Counting objects: 100% (2746/2746), done.        
+remote: Compressing objects: 100% (2491/2491), done.        
+remote: Total 13561 (delta 553), reused 1686 (delta 202), pack-reused 10815        
+Receiving objects: 100% (13561/13561), 3.63 GiB | 4.56 MiB/s, done.
+Resolving deltas: 100% (2802/2802), done.
+Cloning into '/home/sajjad/npusdk4/aml_npu_sdk/acuity-toolkit/python'...
+remote: Enumerating objects: 13561, done.        
+remote: Counting objects: 100% (2746/2746), done.        
+remote: Compressing objects: 100% (2491/2491), done.        
+remote: Total 13561 (delta 553), reused 1686 (delta 202), pack-reused 10815        
+Receiving objects: 100% (13561/13561), 3.63 GiB | 15.10 MiB/s, done.
+Resolving deltas: 100% (2802/2802), done.
+Submodule path 'acuity-toolkit/bin': checked out 'b5d6cfcbac1ffa579a9e409490b435e24f3fbca3'
+Submodule path 'acuity-toolkit/python': checked out '383bdd85c57529b3c7606f7a107fe55df6ac38ad'
+sajjad@teco:~/npusdk4$ basic repository^C

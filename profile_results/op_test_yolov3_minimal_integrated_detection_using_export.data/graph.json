@@ -1,0 +1,228 @@
+{
+	"Layers":{
+		"uid_1":{
+			"op": "CONV2D",
+			"inputs": [ "datainput_0:out0", "datainput_1:out0", "datainput_2:out0" ],
+			"inut_shape": [ [ 416, 416, 3, 1 ],[ 3, 3, 3, 16 ],[ 16 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 416, 416, 16, 1 ] ]
+		},
+		"uid_3":{
+			"op": "LEAKY_RELU",
+			"inputs": [ "@uid_1:out0" ],
+			"inut_shape": [ [ 416, 416, 16, 1 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 416, 416, 16, 1 ] ]
+		},
+		"uid_4":{
+			"op": "POOL",
+			"inputs": [ "@uid_3:out0" ],
+			"inut_shape": [ [ 416, 416, 16, 1 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 208, 208, 16, 1 ] ]
+		},
+		"uid_5":{
+			"op": "CONV2D",
+			"inputs": [ "@uid_4:out0", "datainput_1:out0", "datainput_2:out0" ],
+			"inut_shape": [ [ 208, 208, 16, 1 ],[ 3, 3, 16, 32 ],[ 32 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 208, 208, 32, 1 ] ]
+		},
+		"uid_7":{
+			"op": "LEAKY_RELU",
+			"inputs": [ "@uid_5:out0" ],
+			"inut_shape": [ [ 208, 208, 32, 1 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 208, 208, 32, 1 ] ]
+		},
+		"uid_8":{
+			"op": "POOL",
+			"inputs": [ "@uid_7:out0" ],
+			"inut_shape": [ [ 208, 208, 32, 1 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 104, 104, 32, 1 ] ]
+		},
+		"uid_9":{
+			"op": "CONV2D",
+			"inputs": [ "@uid_8:out0", "datainput_1:out0", "datainput_2:out0" ],
+			"inut_shape": [ [ 104, 104, 32, 1 ],[ 3, 3, 32, 64 ],[ 64 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 104, 104, 64, 1 ] ]
+		},
+		"uid_11":{
+			"op": "LEAKY_RELU",
+			"inputs": [ "@uid_9:out0" ],
+			"inut_shape": [ [ 104, 104, 64, 1 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 104, 104, 64, 1 ] ]
+		},
+		"uid_12":{
+			"op": "POOL",
+			"inputs": [ "@uid_11:out0" ],
+			"inut_shape": [ [ 104, 104, 64, 1 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 52, 52, 64, 1 ] ]
+		},
+		"uid_13":{
+			"op": "CONV2D",
+			"inputs": [ "@uid_12:out0", "datainput_1:out0", "datainput_2:out0" ],
+			"inut_shape": [ [ 52, 52, 64, 1 ],[ 3, 3, 64, 128 ],[ 128 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 52, 52, 128, 1 ] ]
+		},
+		"uid_15":{
+			"op": "LEAKY_RELU",
+			"inputs": [ "@uid_13:out0" ],
+			"inut_shape": [ [ 52, 52, 128, 1 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 52, 52, 128, 1 ] ]
+		},
+		"uid_16":{
+			"op": "POOL",
+			"inputs": [ "@uid_15:out0" ],
+			"inut_shape": [ [ 52, 52, 128, 1 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 26, 26, 128, 1 ] ]
+		},
+		"uid_17":{
+			"op": "CONV2D",
+			"inputs": [ "@uid_16:out0", "datainput_1:out0", "datainput_2:out0" ],
+			"inut_shape": [ [ 26, 26, 128, 1 ],[ 3, 3, 128, 256 ],[ 256 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 26, 26, 256, 1 ] ]
+		},
+		"uid_19":{
+			"op": "LEAKY_RELU",
+			"inputs": [ "@uid_17:out0" ],
+			"inut_shape": [ [ 26, 26, 256, 1 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 26, 26, 256, 1 ] ]
+		},
+		"uid_20":{
+			"op": "POOL",
+			"inputs": [ "@uid_19:out0" ],
+			"inut_shape": [ [ 26, 26, 256, 1 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 13, 13, 256, 1 ] ]
+		},
+		"uid_21":{
+			"op": "CONV2D",
+			"inputs": [ "@uid_20:out0", "datainput_1:out0", "datainput_2:out0" ],
+			"inut_shape": [ [ 13, 13, 256, 1 ],[ 3, 3, 256, 512 ],[ 512 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 13, 13, 512, 1 ] ]
+		},
+		"uid_23":{
+			"op": "LEAKY_RELU",
+			"inputs": [ "@uid_21:out0" ],
+			"inut_shape": [ [ 13, 13, 512, 1 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 13, 13, 512, 1 ] ]
+		},
+		"uid_24":{
+			"op": "POOL",
+			"inputs": [ "@uid_23:out0" ],
+			"inut_shape": [ [ 13, 13, 512, 1 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 13, 13, 512, 1 ] ]
+		},
+		"uid_25":{
+			"op": "CONV2D",
+			"inputs": [ "@uid_24:out0", "datainput_1:out0", "datainput_2:out0" ],
+			"inut_shape": [ [ 13, 13, 512, 1 ],[ 3, 3, 512, 1024 ],[ 1024 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 13, 13, 1024, 1 ] ]
+		},
+		"uid_27":{
+			"op": "LEAKY_RELU",
+			"inputs": [ "@uid_25:out0" ],
+			"inut_shape": [ [ 13, 13, 1024, 1 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 13, 13, 1024, 1 ] ]
+		},
+		"uid_28":{
+			"op": "CONV2D",
+			"inputs": [ "@uid_27:out0", "datainput_1:out0", "datainput_2:out0" ],
+			"inut_shape": [ [ 13, 13, 1024, 1 ],[ 1, 1, 1024, 256 ],[ 256 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 13, 13, 256, 1 ] ]
+		},
+		"uid_30":{
+			"op": "LEAKY_RELU",
+			"inputs": [ "@uid_28:out0" ],
+			"inut_shape": [ [ 13, 13, 256, 1 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 13, 13, 256, 1 ] ]
+		},
+		"uid_31":{
+			"op": "CONV2D",
+			"inputs": [ "@uid_30:out0", "datainput_1:out0", "datainput_2:out0" ],
+			"inut_shape": [ [ 13, 13, 256, 1 ],[ 3, 3, 256, 512 ],[ 512 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 13, 13, 512, 1 ] ]
+		},
+		"uid_37":{
+			"op": "CONV2D",
+			"inputs": [ "@uid_30:out0", "datainput_1:out0", "datainput_2:out0" ],
+			"inut_shape": [ [ 13, 13, 256, 1 ],[ 1, 1, 256, 128 ],[ 128 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 13, 13, 128, 1 ] ]
+		},
+		"uid_33":{
+			"op": "LEAKY_RELU",
+			"inputs": [ "@uid_31:out0" ],
+			"inut_shape": [ [ 13, 13, 512, 1 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 13, 13, 512, 1 ] ]
+		},
+		"uid_39":{
+			"op": "LEAKY_RELU",
+			"inputs": [ "@uid_37:out0" ],
+			"inut_shape": [ [ 13, 13, 128, 1 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 13, 13, 128, 1 ] ]
+		},
+		"uid_34":{
+			"op": "CONV2D",
+			"inputs": [ "@uid_33:out0", "datainput_1:out0", "datainput_2:out0" ],
+			"inut_shape": [ [ 13, 13, 512, 1 ],[ 1, 1, 512, 255 ],[ 255 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 13, 13, 255, 1 ] ]
+		},
+		"uid_40":{
+			"op": "RESIZE",
+			"inputs": [ "@uid_39:out0" ],
+			"inut_shape": [ [ 13, 13, 128, 1 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 26, 26, 128, 1 ] ]
+		},
+		"uid_41":{
+			"op": "CONCAT",
+			"inputs": [ "@uid_40:out0", "@uid_19:out0" ],
+			"inut_shape": [ [ 26, 26, 128, 1 ],[ 26, 26, 256, 1 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 26, 26, 384, 1 ] ]
+		},
+		"uid_42":{
+			"op": "CONV2D",
+			"inputs": [ "@uid_41:out0", "datainput_1:out0", "datainput_2:out0" ],
+			"inut_shape": [ [ 26, 26, 384, 1 ],[ 3, 3, 384, 256 ],[ 256 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 26, 26, 256, 1 ] ]
+		},
+		"uid_44":{
+			"op": "LEAKY_RELU",
+			"inputs": [ "@uid_42:out0" ],
+			"inut_shape": [ [ 26, 26, 256, 1 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 26, 26, 256, 1 ] ]
+		},
+		"uid_45":{
+			"op": "CONV2D",
+			"inputs": [ "@uid_44:out0", "datainput_1:out0", "datainput_2:out0" ],
+			"inut_shape": [ [ 26, 26, 256, 1 ],[ 1, 1, 256, 255 ],[ 255 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 26, 26, 255, 1 ] ]
+		}
+	}
+}

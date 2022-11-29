@@ -1,0 +1,6 @@
+khadas@Khadas-teco:/media/khadas/SAJJAD/img/orig$ for f in *; do convert -resize "1920x1056!" -- "$f" "${f%.*}-1920x1056.${f##*.}"; done
+khadas@Khadas-teco:/media/khadas/SAJJAD/img/orig$ cd ../orig416/
+khadas@Khadas-teco:/media/khadas/SAJJAD/img/orig416$ for f in *; do convert -resize "416x416!" -- "$f" "${f%.*}_416.${f##*.}"; done  khadas@Khadas-teco:/media/khadas/SAJJAD/img/orig416$ cd ../orig608/
+khadas@Khadas-teco:/media/khadas/SAJJAD/img/orig608$ for f in *; do convert -resize "608x608!" -- "$f" "${f%.*}_608.${f##*.}"; done  khadas@Khadas-teco:/media/khadas/SAJJAD/img/orig608$ cd ../orig1920x1056/
+khadas@Khadas-teco:/media/khadas/SAJJAD/img/orig1920x1056$ for f in *; do convert -resize "1920x1056!" -- "$f" "${f%.*}_1920x1056.${f##*.}"; done
+khadas@Khadas-teco:/media/khadas/SAJJAD/img/orig1920x1056$

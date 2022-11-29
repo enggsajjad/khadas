@@ -1,0 +1,90 @@
+khadas@Khadas:~/hussain/nbg_unify_mnistrA3$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/nbg_unify_mnistrA3/vnn_pre_process.c
+  COMPILE /home/khadas/hussain/nbg_unify_mnistrA3/vnn_mnist.c
+vnn_mnist.c: In function ‘vnn_CreateMnist’:
+vnn_mnist.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_mnist.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/hussain/nbg_unify_mnistrA3/main.c
+  COMPILE /home/khadas/hussain/nbg_unify_mnistrA3/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas:~/hussain/nbg_unify_mnistrA3$ ./bin_r_cv4/mnist mnist.nb bmp/2.bmp.jpg
+Create Neural Network: 48ms or 48735us
+Verify...
+Verify Graph: 0ms or 952us
+Start run graph [1] times...
+Run the 1 time: 8.00ms or 8796.00us
+vxProcessGraph execution time:
+Total   8.00ms or 8830.00us
+Average 8.83ms or 8830.00us
+ --- Top5 ---
+  2: -1.166626
+  3: -1.166626
+  8: -1.166626
+  0: -3.393820
+  7: -3.393820
+khadas@Khadas:~/hussain/nbg_unify_mnistrA3$ ./bin_r_cv4/mnist mnist.nb bmp/2.bmp.jpg
+Create Neural Network: 57ms or 57626us
+Verify...
+Verify Graph: 1ms or 1136us
+Start run graph [1] times...
+Run the 1 time: 8.00ms or 8830.00us
+vxProcessGraph execution time:
+Total   8.00ms or 8868.00us
+Average 8.87ms or 8868.00us
+ --- Top5 ---
+  2: -1.166626
+  3: -1.166626
+  8: -1.166626
+  0: -3.393820
+  7: -3.393820
+khadas@Khadas:~/hussain/nbg_unify_mnistrA3$ ./bin_r_cv4/mnist mnist.nb bmp/2.bmp.jpg
+Create Neural Network: 56ms or 56953us
+Verify...
+Verify Graph: 0ms or 959us
+Start run graph [1] times...
+Run the 1 time: 9.00ms or 9086.00us
+vxProcessGraph execution time:
+Total   9.00ms or 9151.00us
+Average 9.15ms or 9151.00us
+ --- Top5 ---
+  2: -1.166626
+  3: -1.166626
+  8: -1.166626
+  0: -3.393820
+  7: -3.393820
+khadas@Khadas:~/hussain/nbg_unify_mnistrA3$ ./bin_r_cv4/mnist mnist.nb bmp/2.bmp.jpg
+Create Neural Network: 54ms or 54893us
+Verify...
+Verify Graph: 1ms or 1085us
+Start run graph [1] times...
+Run the 1 time: 8.00ms or 8885.00us
+vxProcessGraph execution time:
+Total   8.00ms or 8937.00us
+Average 8.94ms or 8937.00us
+ --- Top5 ---
+  2: -1.166626
+  3: -1.166626
+  8: -1.166626
+  0: -3.393820
+  7: -3.393820
+khadas@Khadas:~/hussain/nbg_unify_mnistrA3$ ./bin_r_cv4/mnist mnist.nb bmp/2.bmp.jpg
+Create Neural Network: 53ms or 53371us
+Verify...
+Verify Graph: 1ms or 1269us
+Start run graph [1] times...
+Run the 1 time: 8.00ms or 8904.00us
+vxProcessGraph execution time:
+Total   8.00ms or 8950.00us
+Average 8.95ms or 8950.00us
+ --- Top5 ---
+  2: -1.166626
+  3: -1.166626
+  8: -1.166626
+  0: -3.393820
+  7: -3.393820
+khadas@Khadas:~/hussain/nbg_unify_mnistrA3$

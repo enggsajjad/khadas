@@ -1,0 +1,297 @@
+
+Sajjad@i80pc100 MINGW64 ~
+$ d:
+bash: d:: command not found
+
+Sajjad@i80pc100 MINGW64 ~
+$ d:
+bash: d:: command not found
+
+Sajjad@i80pc100 MINGW64 ~
+$ cd d
+bash: cd: d: No such file or directory
+
+Sajjad@i80pc100 MINGW64 ~
+$ cd d:
+
+Sajjad@i80pc100 MINGW64 /d
+$ cd git
+GitProjects/ github/
+
+Sajjad@i80pc100 MINGW64 /d
+$ cd github/scooter/
+
+Sajjad@i80pc100 MINGW64 /d/github/scooter (a9g_rev1)
+$ git add --all
+warning: LF will be replaced by CRLF in 2_export_case_code.sh.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in logs/20220307 Charging Case feeds.csv.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in logs/20220307 Walking case feeds.csv.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in logs/20220308 Cycle Case feeds.csv.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in logs/20220309 Walking Case feeds.csv.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in logs/20220310 Walking Case feeds.csv.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in logs/20220313 Charging in the room feeds.csv.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in logs/20220313 Train Cycle Walk Mannheim Heidelburg feeds.csv.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in logs/20220314 Cycling to Oberreut feeds.csv.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in logs/20220315 Walking Case feeds.csv.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in logs/20220316 Charging.csv.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in logs/20220316 Walking Cycle Case feeds.csv.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in logs/20220317 Cycle Case feeds.csv.
+The file will have its original line endings in your working directory
+
+Sajjad@i80pc100 MINGW64 /d/github/scooter (a9g_rev1)
+$ git commit -m "test"                                                          [a9g_rev1 30afa1d] test
+ 39 files changed, 5151 insertions(+), 3 deletions(-)
+ create mode 100644 2_export_case_code.sh
+ create mode 100644 logs/20220307 Charging Case Temperature.jpg
+ create mode 100644 logs/20220307 Charging Case feeds.csv
+ create mode 100644 logs/20220307 Walking case feeds.csv
+ create mode 100644 logs/20220307 Walking case maps.jpg
+ create mode 100644 logs/20220307 Walking case temperature.jpg
+ create mode 100644 logs/20220308 Cycle Case Map.jpg
+ create mode 100644 logs/20220308 Cycle Case feeds.csv
+ create mode 100644 logs/20220308 Cycle Case temperature.jpg
+ create mode 100644 logs/20220309 Walking Case Maps.jpg
+ create mode 100644 logs/20220309 Walking Case Temperature.jpg
+ create mode 100644 logs/20220309 Walking Case feeds.csv
+ create mode 100644 logs/20220310 Walking Case Maps.jpg
+ create mode 100644 logs/20220310 Walking Case Temperature.jpg
+ create mode 100644 logs/20220310 Walking Case feeds.csv
+ create mode 100644 logs/20220311 Cycling Walking Map.jpg
+ create mode 100644 logs/20220311 Cycling Walking Temperature.jpg
+ create mode 100644 logs/20220311 Cycling Walking feeds.csv
+ create mode 100644 logs/20220313 Charging in the room feeds.csv
+ create mode 100644 logs/20220313 Train Cycle Walk Mannheim Heidelburg feeds.csv
+ create mode 100644 logs/20220313 Train Cycle Walk Mannheim Heidelburg map part1.jpg
+ create mode 100644 logs/20220313 Train Cycle Walk Mannheim Heidelburg map part2.jpg
+ create mode 100644 logs/20220313 Train Cycle Walk Mannheim Heidelburg map part3.jpg
+ create mode 100644 logs/20220313 Train Cycle Walk Mannheim Heidelburg map.jpg
+ create mode 100644 logs/20220313 Train Cycle Walk Mannheim Heidelburg temperature.jpg
+ create mode 100644 logs/20220314 Cycling to Oberreut feeds.csv
+ create mode 100644 logs/20220314 Cycling to Oberreut maps.jpg
+ create mode 100644 logs/20220314 Cycling to Oberreut temperature.jpg
+ create mode 100644 logs/20220315 Walking Case Maps.jpg
+ create mode 100644 logs/20220315 Walking Case Temperature.jpg
+ create mode 100644 logs/20220315 Walking Case feeds.csv
+ create mode 100644 logs/20220316 Charging.csv
+ create mode 100644 logs/20220316 Walking Cycle Case feeds.csv
+ create mode 100644 logs/20220316 Walking Cycle Case maps.jpg
+ create mode 100644 logs/20220316 Walking Cycle Case temperature.jpg
+ create mode 100644 logs/20220317 Cycle Case Maps.jpg
+ create mode 100644 logs/20220317 Cycle Case Temperature.jpg
+ create mode 100644 logs/20220317 Cycle Case feeds.csv
+
+Sajjad@i80pc100 MINGW64 /d/github/scooter (a9g_rev1)
+$ git push --all
+Enumerating objects: 45, done.
+Counting objects: 100% (45/45), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (42/42), done.
+Writing objects: 100% (42/42), 2.91 MiB | 2.88 MiB/s, done.
+Total 42 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/enggsajjad/scooter.git
+   638cea8..30afa1d  a9g_rev1 -> a9g_rev1
+
+Sajjad@i80pc100 MINGW64 /d/github/scooter (a9g_rev1)
+$ git add --all
+warning: LF will be replaced by CRLF in 2_export_case_code.sh.
+The file will have its original line endings in your working directory
+
+Sajjad@i80pc100 MINGW64 /d/github/scooter (a9g_rev1)
+$ git commit -m "test1"
+[a9g_rev1 ac363de] test1
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+Sajjad@i80pc100 MINGW64 /d/github/scooter (a9g_rev1)
+$ git push --all
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 289 bytes | 144.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/enggsajjad/scooter.git
+   30afa1d..ac363de  a9g_rev1 -> a9g_rev1
+
+Sajjad@i80pc100 MINGW64 /d/github/scooter (a9g_rev1)
+$ git diff HEAD^ HEAD 2_export_case_code.sh
+diff --git a/2_export_case_code.sh b/2_export_case_code.sh
+index 6ba29e4..cebb3dd 100644
+--- a/2_export_case_code.sh
++++ b/2_export_case_code.sh
+@@ -6,15 +6,10 @@ ACUITY_PATH=../bin/
+ export_ovxlib=${ACUITY_PATH}ovxgenerator
+
+ $export_ovxlib \
+-    --model-input ${NAME}.json \
+-    --data-input ${NAME}.data \
+-    --model-quantize ${NAME}.quantize \
+     --reorder-channel '0 1 2' \
+     --channel-mean-value '128 128 128 128' \
+     --export-dtype quantized \
+-    --optimize VIPNANOQI_PID0XE8  \
+-    --viv-sdk ${ACUITY_PATH}vcmdtools \
+-    --pack-nbg-unify  \
++
+
+ #Note:
+ #       --optimize VIPNANOQI_PID0XB9
+
+Sajjad@i80pc100 MINGW64 /d/github/scooter (a9g_rev1)
+$ git add --all
+warning: LF will be replaced by CRLF in 2_export_case_code.sh.
+The file will have its original line endings in your working directory
+
+Sajjad@i80pc100 MINGW64 /d/github/scooter (a9g_rev1)
+$ git commit -m "test EDIT 2ND"
+[a9g_rev1 51996ef] test EDIT 2ND
+ 1 file changed, 3 insertions(+)
+
+Sajjad@i80pc100 MINGW64 /d/github/scooter (a9g_rev1)
+$ git push --all
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 351 bytes | 351.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/enggsajjad/scooter.git
+   ac363de..51996ef  a9g_rev1 -> a9g_rev1
+
+Sajjad@i80pc100 MINGW64 /d/github/scooter (a9g_rev1)
+$ git diff HEAD^^ HEAD 2_export_case_code.sh
+diff --git a/2_export_case_code.sh b/2_export_case_code.sh
+index 6ba29e4..5ad31c4 100644
+--- a/2_export_case_code.sh
++++ b/2_export_case_code.sh
+@@ -12,9 +12,7 @@ $export_ovxlib \
+     --reorder-channel '0 1 2' \
+     --channel-mean-value '128 128 128 128' \
+     --export-dtype quantized \
+-    --optimize VIPNANOQI_PID0XE8  \
+-    --viv-sdk ${ACUITY_PATH}vcmdtools \
+-    --pack-nbg-unify  \
++
+
+ #Note:
+ #       --optimize VIPNANOQI_PID0XB9
+
+Sajjad@i80pc100 MINGW64 /d/github/scooter (a9g_rev1)
+$
+
+Sajjad@i80pc100 MINGW64 /d/github/scooter (a9g_rev1)
+$ git cat-file HEAD 2_export_case_code.sh
+fatal: Not a valid object name 2_export_case_code.sh
+
+Sajjad@i80pc100 MINGW64 /d/github/scooter (a9g_rev1)
+$ git cat-file -p HEAD:2_export_case_code.sh
+#!/bin/bash
+
+NAME=mobilenet_tf
+ACUITY_PATH=../bin/
+
+export_ovxlib=${ACUITY_PATH}ovxgenerator
+
+$export_ovxlib \
+    --model-input ${NAME}.json \
+    --data-input ${NAME}.data \
+    --model-quantize ${NAME}.quantize \
+    --reorder-channel '0 1 2' \
+    --channel-mean-value '128 128 128 128' \
+    --export-dtype quantized \
+
+
+#Note:
+#        --optimize VIPNANOQI_PID0XB9
+#       when exporting nbg case for different platforms, the paramsters are different.
+#   you can set VIPNANOQI_PID0X7D       VIPNANOQI_PID0X88       VIPNANOQI_PID0X99
+#                               VIPNANOQI_PID0XA1       VIPNANOQI_PID0XB9      VIPNANOQI_PID0XBE        VIPNANOQI_PID0XE8
+#       Refer to sectoin 3.4(Step 3) of the  <Model_Transcoding and Running User Guide_V0.8> documdent
+
+
+rm -rf nbg_unify_${NAME}
+
+mv ../*_nbg_unify nbg_unify_${NAME}
+
+cd nbg_unify_${NAME}
+
+mv network_binary.nb ${NAME}.nb
+
+cd ..
+
+#save normal case demo export.data
+mkdir -p ${NAME}_normal_case_demo
+mv  *.h *.c .project .cproject *.vcxproj BUILD *.linux *.export.data ${NAME}_normal_case_demo
+
+# delete normal_case demo source
+#rm  *.h *.c .project .cproject *.vcxproj  BUILD *.linux *.export.data
+
+rm *.data *.quantize *.json
+
+
+
+Sajjad@i80pc100 MINGW64 /d/github/scooter (a9g_rev1)
+$ git cat-file -p HEAD^^:2_export_case_code.sh
+#!/bin/bash
+
+NAME=mobilenet_tf
+ACUITY_PATH=../bin/
+
+export_ovxlib=${ACUITY_PATH}ovxgenerator
+
+$export_ovxlib \
+    --model-input ${NAME}.json \
+    --data-input ${NAME}.data \
+    --model-quantize ${NAME}.quantize \
+    --reorder-channel '0 1 2' \
+    --channel-mean-value '128 128 128 128' \
+    --export-dtype quantized \
+    --optimize VIPNANOQI_PID0XE8  \
+    --viv-sdk ${ACUITY_PATH}vcmdtools \
+    --pack-nbg-unify  \
+
+#Note:
+#        --optimize VIPNANOQI_PID0XB9
+#       when exporting nbg case for different platforms, the paramsters are different.
+#   you can set VIPNANOQI_PID0X7D       VIPNANOQI_PID0X88       VIPNANOQI_PID0X99
+#                               VIPNANOQI_PID0XA1       VIPNANOQI_PID0XB9      VIPNANOQI_PID0XBE        VIPNANOQI_PID0XE8
+#       Refer to sectoin 3.4(Step 3) of the  <Model_Transcoding and Running User Guide_V0.8> documdent
+
+
+rm -rf nbg_unify_${NAME}
+
+mv ../*_nbg_unify nbg_unify_${NAME}
+
+cd nbg_unify_${NAME}
+
+mv network_binary.nb ${NAME}.nb
+
+cd ..
+
+#save normal case demo export.data
+mkdir -p ${NAME}_normal_case_demo
+mv  *.h *.c .project .cproject *.vcxproj BUILD *.linux *.export.data ${NAME}_normal_case_demo
+
+# delete normal_case demo source
+#rm  *.h *.c .project .cproject *.vcxproj  BUILD *.linux *.export.data
+
+rm *.data *.quantize *.json
+
+
+
+Sajjad@i80pc100 MINGW64 /d/github/scooter (a9g_rev1)
+$

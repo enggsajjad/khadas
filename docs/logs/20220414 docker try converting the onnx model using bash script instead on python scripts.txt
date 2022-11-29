@@ -1,0 +1,47 @@
+try converting the onnx model using bash script instead on python scripts
+
+Microsoft Windows [Version 10.0.19044.1645]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Windows\system32>d:
+
+D:\>cd Downloads\novelsense\example-network\2_convert_network
+
+D:\Downloads\novelsense\example-network\2_convert_network>convert1.bat
+
+D:\Downloads\novelsense\example-network\2_convert_network>docker run --rm --name conv-test -it  --mount type=bind,source=D:\Downloads\novelsense\example-network\2_convert_network\data,target=/acuity-toolkit/python/data  --mount type=bind,source=D:\Downloads\novelsense\example-network\2_convert_network\network,target=/acuity-toolkit/python/network   --mount type=bind,source=D:\Downloads\novelsense\example-network\2_convert_network\outputs,target=/acuity-toolkit/python/outputs  --entrypoint=/bin/bash   ghcr.io/scholz/aml-container:0.0.1
+root@3ecb4bca2051:/acuity-toolkit# ls
+bin  demo  python  ReadMe.txt  requirements.txt
+root@3ecb4bca2051:/acuity-toolkit# ls network
+ls: cannot access 'network': No such file or directory
+root@3ecb4bca2051:/acuity-toolkit# ls ./network
+ls: cannot access './network': No such file or directory
+root@3ecb4bca2051:/acuity-toolkit# ls /acuity-toolkit/python/network/
+convert-lenet-onnx-to-khadas.sh  lenet.onnx  lenet.pt
+root@3ecb4bca2051:/acuity-toolkit# ls
+bin  demo  python  ReadMe.txt  requirements.txt
+root@3ecb4bca2051:/acuity-toolkit# ACUITY_PATH=bin/
+root@3ecb4bca2051:/acuity-toolkit# convert_onnx=${ACUITY_PATH}convertonnx
+root@3ecb4bca2051:/acuity-toolkit# convert_onnx --onnx-model  /acuity-toolkit/python/network/lenet.onnx ^C
+root@3ecb4bca2051:/acuity-toolkit# ^C
+root@3ecb4bca2051:/acuity-toolkit# ^C
+root@3ecb4bca2051:/acuity-toolkit# ls /acuity-toolkit/python/data/
+dataset
+root@3ecb4bca2051:/acuity-toolkit# ls /acuity-toolkit/python/data/dataset/
+0.bmp  2.bmp  4.bmp  6.bmp  8.bmp  dataset0.txt  dataset2.txt
+1.bmp  3.bmp  5.bmp  7.bmp  9.bmp  dataset1.txt  space_shuttle_224.jpg
+root@3ecb4bca2051:/acuity-toolkit# convert_onnx --onnx-model  /acuity-toolkit/python/network/lenet.onnx --net-output lenetsajjad.json --data-output lenetsajjad.data
+bash: convert_onnx: command not found
+root@3ecb4bca2051:/acuity-toolkit# bin --onnx-model  /acuity-toolkit/python/network/lenet.onnx --net-output lenetsajjad.
+json --data-output lenetsajjad.data
+bin/  bind
+root@3ecb4bca2051:/acuity-toolkit# bin --onnx-model  /acuity-toolkit/python/network/lenet.onnx --net-output lenetsajjad.
+json --data-output lenetsajjad.data
+bin/  bind
+root@3ecb4bca2051:/acuity-toolkit# bin/convertonnx --onnx-model  /acuity-toolkit/python/network/lenet.onnx --net-output
+lenetsajjad.json --data-output lenetsajjad.data
+Illegal instruction
+root@3ecb4bca2051:/acuity-toolkit#
+root@3ecb4bca2051:/acuity-toolkit# bin/convertonnx
+Illegal instruction
+root@3ecb4bca2051:/acuity-toolkit#

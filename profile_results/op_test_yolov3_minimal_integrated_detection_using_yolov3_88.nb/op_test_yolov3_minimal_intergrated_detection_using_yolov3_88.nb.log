@@ -1,0 +1,8 @@
+#productname=VIPNano-QI, pid=0x88
+Create Neural Network: 910ms or 910537us
+model.width:416 model.height:416 model.channel:3
+>>>>>>>>>>><<<<<<<<<<<<<<
+Draw rectangle for 3 detections of person_416.jpg
+>>>>>>>>>>><<<<<<<<<<<<<<
+Verify...
+Node 0x5592ee1830("yolov3_88"): No.3 parameter is required but not supplied

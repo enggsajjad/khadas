@@ -1,0 +1,181 @@
+
+
+======================================================
+Application Source Code
+https://docs.khadas.com/linux/vim3/NPUApp.html
+======================================================
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$ cd ..
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries$ cd ..
+khadas@Khadas-teco:~/sajjad/npu1$ cd ..
+khadas@Khadas-teco:~/sajjad$ ls
+applsource1  eachoptime  eachoptime1  ksnn  npu1  npusdk1
+khadas@Khadas-teco:~/sajjad$ cd applsource1/
+khadas@Khadas-teco:~/sajjad/applsource1$ ls
+aml_npu_app
+khadas@Khadas-teco:~/sajjad/applsource1$ cd aml_npu_app/
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app$ ls
+DDK_6.3.3.4  DDK_6.4.0.3  DDK_6.4.3  DDK_6.4.4.3  detect_library  LICENSE  NN_SLT
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app$ ls detect_library/
+inception  model_code  sample_demo_fb  sample_demo_x11  source_code  yolo_demo_fb_mipi  yolo_demo_fb_usb  yolo_demo_x11_mipi  yolo_demo_x11_usb
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app$ ls
+DDK_6.3.3.4  DDK_6.4.0.3  DDK_6.4.3  DDK_6.4.4.3  detect_library  LICENSE  NN_SLT
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app$ sudo apt update
+[sudo] password for khadas:
+Hit:1 http://ports.ubuntu.com focal InRelease
+Get:2 http://ports.ubuntu.com focal-security InRelease [114 kB]
+Hit:3 http://deb.anydesk.com all InRelease
+Hit:4 https://linux.teamviewer.com/deb stable InRelease
+Hit:5 http://dl.khadas.com/repos/vim3 focal InRelease
+Get:6 http://ports.ubuntu.com focal-updates InRelease [114 kB]
+Get:7 http://ports.ubuntu.com focal-backports InRelease [108 kB]
+Get:8 http://ports.ubuntu.com focal-security/main arm64 DEP-11 Metadata [40.7 kB]
+Get:9 http://ports.ubuntu.com focal-security/universe arm64 DEP-11 Metadata [66.3 kB]
+Get:10 http://ports.ubuntu.com focal-updates/main arm64 Packages [1,177 kB]
+Get:11 http://ports.ubuntu.com focal-updates/main armhf Packages [979 kB]
+Get:12 http://ports.ubuntu.com focal-updates/main arm64 DEP-11 Metadata [279 kB]
+Get:13 http://ports.ubuntu.com focal-updates/universe arm64 Packages [866 kB]
+Get:14 http://ports.ubuntu.com focal-updates/universe armhf Packages [758 kB]
+Get:15 http://ports.ubuntu.com focal-updates/universe arm64 DEP-11 Metadata [389 kB]
+Get:16 http://ports.ubuntu.com focal-backports/main arm64 DEP-11 Metadata [8,008 B]
+Get:17 http://ports.ubuntu.com focal-backports/universe arm64 DEP-11 Metadata [30.8 kB]
+Fetched 4,929 kB in 3s (1,771 kB/s)
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+56 packages can be upgraded. Run 'apt list --upgradable' to see them.
+N: Skipping acquire of configured file 'main/binary-arm64/Packages' as repository 'http://deb.anydesk.com all InRelease' doesn't support architecture 'arm64'
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app$ sudo apt install libopencv-dev python3-opencv
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+libopencv-dev is already the newest version (4.2.0+dfsg-5).
+python3-opencv is already the newest version (4.2.0+dfsg-5).
+The following packages were automatically installed and are no longer required:
+  libfwupdplugin1 libllvm11
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 56 not upgraded.
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app$ ls detect_library/model_code
+detect_mtcnn  detect_yoloface  detect_yolo_v2  detect_yolo_v3  detect_yolo_v3_original  detect_yolo_v3_tiny  detect_yolo_v4  facenet
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app$ ls detect_library/model_code/detect_yolo_v3
+bin_r  build_vx.sh  include  linux_build_sample.log  makefile.linux  makefile.linux.def  makefile.target_name  vnn_yolov3.c  yolo_v3.c  yolov3_process.c
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app$ ls detect_library/sample_demo_x11/
+1080p.bmp  build_vx.sh  emb.db                  main.cpp        makefile.linux.def    nn_detect_common.h  nn_detect_utils.h  result
+bin_r_cv4  detect.h     linux_build_sample.log  makefile.linux  makefile.target_name  nn_detect.h         ReadMe.txt
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app$ cd detect_library/model_code/detect_yolo_v3
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ls
+bin_r  build_vx.sh  include  linux_build_sample.log  makefile.linux  makefile.linux.def  makefile.target_name  vnn_yolov3.c  yolo_v3.c  yolov3_process.c
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/model_code/detect_yolo_v3$ Compile Library^C
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ./build_vx.sh
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/model_code/detect_yolo_v3$ cd bin_r/
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/model_code/detect_yolo_v3/bin_r$ ls
+libnn_yolo_v3.so  vnn_yolov3.o  vnn_yolov3_original.o  yolo_v3.o  yolo_v3_original.o  yolov3_process.o
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/model_code/detect_yolo_v3/bin_r$ cd ..
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ls
+bin_r  build_vx.sh  include  linux_build_sample.log  makefile.linux  makefile.linux.def  makefile.target_name  vnn_yolov3.c  yolo_v3.c  yolov3_process.c
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/model_code/detect_yolo_v3$ cd ..
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/model_code$ ls
+detect_mtcnn  detect_yoloface  detect_yolo_v2  detect_yolo_v3  detect_yolo_v3_original  detect_yolo_v3_tiny  detect_yolo_v4  facenet
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/model_code$ cd ..
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library$ cd sample_demo_x11/
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/sample_demo_x11$ ls
+1080p.bmp  build_vx.sh  emb.db                  main.cpp        makefile.linux.def    nn_detect_common.h  nn_detect_utils.h  result
+bin_r_cv4  detect.h     linux_build_sample.log  makefile.linux  makefile.target_name  nn_detect.h         ReadMe.txt
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/sample_demo_x11$ ./build_vx.sh
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/sample_demo_x11$ cd bin_r_cv4/
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls
+detect_demo_x11  main.o
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ./detect_demo_x11 -h
+./detect_demo_x11: option requires an argument -- 'h'
+./detect_demo_x11 [-p picture path] [-w width] [-h height] [-m model type] [-f facenet flag] [-H]
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ./detect_demo_x11 -p ../1080p.bmp -m 0
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [vnn_CreateYoloface:165]Open file nn_data/yolo_face_88.nb failed.
+E [model_create:60]CHECK PTR 60
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ./detect_demo_x11 -p ../1080p.bmp -m 2
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [vnn_CreateYolov3:165]Open file nn_data/yolov3_88.nb failed.
+E [model_create:61]CHECK PTR 61
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls
+detect_demo_x11  main.o
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ cd ..
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/sample_demo_x11$ ls
+1080p.bmp  build_vx.sh  emb.db                  main.cpp        makefile.linux.def    nn_detect_common.h  nn_detect_utils.h  result
+bin_r_cv4  detect.h     linux_build_sample.log  makefile.linux  makefile.target_name  nn_detect.h         ReadMe.txt
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/sample_demo_x11$ cd ..
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library$ ls
+inception  model_code  sample_demo_fb  sample_demo_x11  source_code  yolo_demo_fb_mipi  yolo_demo_fb_usb  yolo_demo_x11_mipi  yolo_demo_x11_usb
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library$ cd source_code/
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/source_code$ ls
+bin_r  build_vx.sh  detect.c  detect_log.c  include  Makefile  makefile.linux  makefile.linux.def
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/source_code$ ./build_vx.sh
+make: Nothing to be done for 'all'.
+tee: /linux_build_sample.log: Permission denied
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/source_code$ sudo ./build_vx.sh
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/source_code$ ls
+bin_r  build_vx.sh  detect.c  detect_log.c  include  Makefile  makefile.linux  makefile.linux.def
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/source_code$ ls bin_r/
+detect_log.o  detect.o  libnn_detect.so
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/source_code$ cd ../sample_demo_x11/
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/sample_demo_x11$ ls
+1080p.bmp  build_vx.sh  emb.db                  main.cpp        makefile.linux.def    nn_detect_common.h  nn_detect_utils.h  result
+bin_r_cv4  detect.h     linux_build_sample.log  makefile.linux  makefile.target_name  nn_detect.h         ReadMe.txt
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/sample_demo_x11$ ./build_vx.sh
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/sample_demo_x11$ ls bin_r_cv4/
+detect_demo_x11  main.o
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/sample_demo_x11$ ./detect_demo_x11 -p ../1080p.bmp -m 0
+-bash: ./detect_demo_x11: No such file or directory
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/sample_demo_x11$ cd bin_r_cv4/
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ./detect_demo_x11 -p ../1080p.bmp -m 0
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [vnn_CreateYoloface:165]Open file nn_data/yolo_face_88.nb failed.
+E [model_create:60]CHECK PTR 60
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/sajjad/applsource1/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$
+
+
+======================================================
+======================================================
+
+
+
+
+======================================================
+======================================================
+
+
+======================================================
+======================================================
+
+
+
+
+
+======================================================
+======================================================
+
+
+======================================================
+======================================================

@@ -1,0 +1,52 @@
+===========================================================
+Creating standalone yolo_v3_tiny from sample_demo_x11, source_code and detect_yolo_v3_tiny
+===========================================================
+khadas@Khadas:~/hussain$ cp -r sample_demo_x11_yolov3 sample_demo_x11_tiny
+khadas@Khadas:~/hussain$ cd sample_demo_x11_tiny/
+khadas@Khadas:~/hussain/sample_demo_x11_tiny$ rm -rf vnn_yolov3.c yolo_v3.c yolov3_process.c include/vnn_yolov3.h include/yolo_v3.h include/yolov3_process.h
+khadas@Khadas:~/hussain/sample_demo_x11_tiny$ cp ../sample_demo_x11B_tiny/vnn_yolotiny.c ../sample_demo_x11B_tiny/yolo_tiny.c ../sample_demo_x11B_tiny/yolo_tiny_process.c .
+khadas@Khadas:~/hussain/sample_demo_x11_tiny$ cp ../sample_demo_x11B_tiny/include/vnn_yolotiny.h ../sample_demo_x11B_tiny/include/yolo_tiny.h ../sample_demo_x11B_tiny/include/yolo_tiny_process.h ./include/.
+khadas@Khadas:~/hussain/sample_demo_x11_tiny$ ls
+bin_r_cv4    detect_log.c  linux_build_sample.log  makefile.linux      makefile.target_name  yolo_tiny.c
+build_vx.sh  include       main.cpp                makefile.linux.def  vnn_yolotiny.c        yolo_tiny_process.c
+khadas@Khadas:~/hussain/sample_demo_x11_tiny$ ls include/
+debug.h  detect.h  detect_log.h  nn_detect_common.h  nn_detect.h  nn_detect_utils.h  vnn_global.h  vnn_yolotiny.h  yolo_tiny.h  yolo_tiny_process.h
+khadas@Khadas:~/hussain/sample_demo_x11_tiny$
+khadas@Khadas:~/hussain/sample_demo_x11_tiny$ vim include/yolo_tiny.h
+
+#ifndef __YOLO_TINY_INCLUDE__
+#define __YOLO_TINY_INCLUDE__
+
+#ifdef __cplusplus
+extern "C"{
+#endif
+
+....
+#ifdef __cplusplus
+}
+#endif
+
+khadas@Khadas:~/hussain/sample_demo_x11_tiny$ vim yolo_tiny.c
+//#include "vnn_pre_process.h"
+//#include "vnn_post_process.h"
+khadas@Khadas:~/hussain/sample_demo_x11_tiny$ cp ~/hussain/aml_npu_demo_binaries/detect_demo_picture/nn_data/yolotiny_88_original.nb ./bin_r_cv4/nn_data/yolotiny_88.nb
+khadas@Khadas:~/hussain/sample_demo_x11_tiny$ cd bin_r_cv4/
+khadas@Khadas:~/hussain/sample_demo_x11_tiny/bin_r_cv4$ ./detect_demo_x11 -m 3 -p ~/hussain/img/1920x1056/person_1920x1056.jpg
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=3
+result type is 2
+i:3 left:535.543 right:829.86 top:309.758 bottom:873.125
+i:3 left:1205.11 right:1828.18 top:312.155 bottom:875.521
+i:3 left:234.288 right:608.135 top:663.593 bottom:876.477
+khadas@Khadas:~/hussain/sample_demo_x11_tiny/bin_r_cv4$

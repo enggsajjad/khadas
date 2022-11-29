@@ -1,0 +1,115 @@
+1.2 What formats does Amlogic NN currently support?
+Answer: Amlogic NN only supports quantized models. The models corresponding to the supported open source framework need to be quantized. There are three quantization methods: Int8, int16, and Uint8.
+1.4 Can I use Amlogic NN without the acuity quantization framework?
+Answer: For customers with this need, the current method is also supported. At present, it has been adapted to support armnn. You can refer to the amrnn process.
+Currently, you can use the following tools to transcode case code.
+1. The acuity-toolkit model tool: You can use it to quantize models and transcode case code, which can be run after compilation.
+
+
+0_import_model
+==================
+NAME=mobilenet_tf
+ACUITY_PATH=../bin/
+
+convert_caffe=${ACUITY_PATH}convertcaffe
+convert_tf=${ACUITY_PATH}convertensorflow
+convert_tflite=${ACUITY_PATH}convertflit
+convert_darknet=${ACUITY_PATH}convertdarknet
+convert_onnx=${ACUITY_PATH}convertonnx
+convert_keras=${ACUITY_PATH}convertkeras
+convert_pytorch=${ACUITY_PATH}convertpytorch
+
+$convert_tf \
+    --tf-pb ./model/mobilenet_v1.pb \
+    --inputs input \
+    --input-size-list '224,224,3' \
+    --outputs MobilenetV1/Predictions/Softmax \
+    --net-output ${NAME}.json \
+    --data-output ${NAME}.data 
+	
+1_quantize_model
+==================
+tensorzone=${ACUITY_PATH}tensorzonex
+
+$tensorzone \
+    --action quantization \
+    --dtype float32 \
+    --source text \
+    --source-file data/validation_tf.txt \
+    --channel-mean-value '128 128 128 128' \
+    --reorder-channel '0 1 2' \
+    --model-input ${NAME}.json \
+    --model-data ${NAME}.data \
+    --quantized-dtype asymmetric_affine-u8 \
+    --quantized-rebuild \
+#    --batch-size 2 \
+#    --epochs 5
+
+2_export_case_code
+==================
+export_ovxlib=${ACUITY_PATH}ovxgenerator
+
+$export_ovxlib \
+    --model-input ${NAME}.json \
+    --data-input ${NAME}.data \
+    --model-quantize ${NAME}.quantize \
+    --reorder-channel '0 1 2' \
+    --channel-mean-value '128 128 128 128' \
+    --export-dtype quantized \
+    --optimize VIPNANOQI_PID0XE8  \
+    --viv-sdk ${ACUITY_PATH}vcmdtools \
+    --pack-nbg-unify  \
+
+
+tensorzonex [-h] [-h] 
+[--action ACTION] 
+[--debug] 
+[--dtype DTYPE] 
+[--device DEVICE] 
+--model-input MODEL_INPUT 
+[--model-data MODEL_DATA] 
+[--model-quantize MODEL_QUANTIZE] 
+[--model-data-format MODEL_DATA_FORMAT] 
+[--validation-output VALIDATION_OUTPUT] 
+[--source SOURCE] 
+[--source-file SOURCE_FILE] 
+[--restart] 
+[--batch-size BATCH_SIZE] 
+[--samples SAMPLES] 
+[--config CONFIG] 
+[--output-num OUTPUT_NUM] 
+[--data-output DATA_OUTPUT] 
+[--epochs EPOCHS] 
+[--optimizer OPTIMIZER] 
+[--lr LR] 
+[--epochs-per-decay EPOCHS_PER_DECAY] 
+[--quantized-dtype QUANTIZED_DTYPE] 
+[--quantized-moving-alpha QUANTIZED_MOVING_ALPHA] 
+[--quantized-algorithm QUANTIZED_ALGORITHM]
+[--quantized-divergence-nbins QUANTIZED_DIVERGENCE_NBINS] 
+[--quantized-rebuild] 
+[--quantized-rebuild-all] 
+[--quantized-hybrid] 
+[--reorder-channel REORDER_CHANNEL] 
+[--input-fitting INPUT_FITTING] 
+[--input-normalization INPUT_NORMALIZATION] 
+[--channel-mean-value CHANNEL_MEAN_VALUE] 
+[--mean-file MEAN_FILE] 
+[--caffe-mean-file CAFFE_MEAN_FILE] 
+[--random-crop] 
+[--random-mirror] 
+[--random-flip] 
+[--random-contrast RANDOM_CONTRAST] 
+[--random-brightness RANDOM_BRIGHTNESS] 
+[--force-gray] 
+[--task TASK] 
+[--prune-epochs PRUNE_EPOCHS] 
+[--prune-loss PRUNE_LOSS] 
+[--pfps-epochs PFPS_EPOCHS] 
+[--pfps-reduce-target PFPS_REDUCE_TARGET] 
+[--pfps-delta0 PFPS_DELTA0] 
+[--without-update-masked-grad] 
+[--capture-format CAPTURE_FORMAT] 
+[--capture-quantized] 
+[--output-dir OUTPUT_DIR] 
+[--pb-name PB_NAME]

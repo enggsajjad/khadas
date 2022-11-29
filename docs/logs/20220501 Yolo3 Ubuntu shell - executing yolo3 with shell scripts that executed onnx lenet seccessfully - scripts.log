@@ -1,0 +1,139 @@
+====================================================================================
+executing Yolo3 with shell scripts that executed seccussfully for onnx lenet example using bash scripts
+npusdk2_as_lenet
+====================================================================================
+sajjad@teco:~/sajjad/npusdk2_as_lenet/aml_npu_sdk/acuity-toolkit/demo$ ls
+0_import_model.sh    2_export_case_code.sh  extractoutput.py  model             validation.csv
+1_quantize_model.sh  data                   inference.sh      nbg_unify_yolov3  yolov3_normal_case_demo
+sajjad@teco:~/sajjad/npusdk2_as_lenet/aml_npu_sdk/acuity-toolkit/demo$ ls nbg_unify_yolov3/
+BUILD   makefile.linux  vnn_global.h        vnn_post_process.h  vnn_pre_process.h  vnn_yolov3.h  yolov3.vcxproj
+main.c  nbg_meta.json   vnn_post_process.c  vnn_pre_process.c   vnn_yolov3.c       yolov3.nb
+sajjad@teco:~/sajjad/npusdk2_as_lenet/aml_npu_sdk/acuity-toolkit/demo$ ls yolov3_normal_case_demo/
+BUILD   makefile.linux  vnn_post_process.c  vnn_pre_process.c  vnn_yolov3.c  yolov3.export.data
+main.c  vnn_global.h    vnn_post_process.h  vnn_pre_process.h  vnn_yolov3.h  yolov3.vcxproj
+sajjad@teco:~/sajjad/npusdk2_as_lenet/aml_npu_sdk/acuity-toolkit/demo$ cat 0_import_model.sh
+#!/bin/bash
+
+NAME=yolov3
+ACUITY_PATH=../bin/
+
+convert_caffe=${ACUITY_PATH}convertcaffe
+convert_tf=${ACUITY_PATH}convertensorflow
+convert_tflite=${ACUITY_PATH}convertflit
+convert_darknet=${ACUITY_PATH}convertdarknet
+convert_onnx=${ACUITY_PATH}convertonnx
+convert_keras=${ACUITY_PATH}convertkeras
+convert_pytorch=${ACUITY_PATH}convertpytorch
+
+#$convert_tf \
+#    --tf-pb ./model/mobilenet_v1.pb \
+#    --inputs input \
+#    --input-size-list '224,224,3' \
+#    --outputs MobilenetV1/Predictions/Softmax \
+#    --net-output ${NAME}.json \
+#    --data-output ${NAME}.data
+
+#$convert_caffe \
+#    --caffe-model xx.prototxt   \
+#       --caffe-blobs xx.caffemodel \
+#    --net-output ${NAME}.json \
+#    --data-output ${NAME}.data
+
+#$convert_tflite \
+#    --tflite-mode  xxxx.tflite \
+#    --net-output ${NAME}.json \
+#    --data-output ${NAME}.data
+
+$convert_darknet \
+    --net-input /home/sajjad/sajjad/darknet/cfg/yolov3.cfg \
+    --weight-input /home/sajjad/sajjad/darknet/yolov3.weights \
+    --net-output ${NAME}.json \
+    --data-output ${NAME}.data \
+
+
+#$convert_onnx \
+#    --onnx-model  xxx.onnx \
+#    --net-output ${NAME}.json \
+#    --data-output ${NAME}.data
+
+
+#$convert_keras \
+#       --keras-model xxx.hdf5 \
+#       --net-output ${NAME}.json --data-output ${NAME}.data
+
+
+#$convert_pytorch --pytorch-model xxxx.pt \
+#        --net-output ${NAME}.json \
+#        --data-output ${NAME}.data \
+#       --input-size-list '1,480,854'
+sajjad@teco:~/sajjad/npusdk2_as_lenet/aml_npu_sdk/acuity-toolkit/demo$ cat 1_quantize_model.sh
+#!/bin/bash
+
+NAME=yolov3
+ACUITY_PATH=../bin/
+
+tensorzone=${ACUITY_PATH}tensorzonex
+
+$tensorzone \
+    --action measure \
+    --source text \
+    --source-file data/validation_tf.txt \
+    --channel-mean-value '0 0 0 256' \
+    --reorder-channel '0 1 2' \
+    --model-input ${NAME}.json \
+    --model-data ${NAME}.data \
+#    --quantized-rebuild \
+
+#Note:
+#       1.--quantized-dtype asymmetric_affine-u8 , you can set dynamic_fixed_point-i8 asymmetric_affine-u8 dynamic_fixed_point-i16(s905d3 not support point-i16) perchannel_symmetric_affine-i8(only for t965d4/t982ar301)
+#       2.default batch-size(100),epochs(1) ,the numbers of pictures in data/validation_tf.txt must equal to batch-size*epochs,if you set the epochs >1
+#       3.Other parameters settings, Refer to sectoin 3.4(Step 2) of the  <Model_Transcoding and Running User Guide_V0.8> documdent
+
+
+sajjad@teco:~/sajjad/npusdk2_as_lenet/aml_npu_sdk/acuity-toolkit/demo$ cat 2_export_case_code.sh
+#!/bin/bash
+
+NAME=yolov3
+ACUITY_PATH=../bin/
+
+export_ovxlib=${ACUITY_PATH}ovxgenerator
+
+$export_ovxlib \
+    --model-input ${NAME}.json \
+    --data-input ${NAME}.data \
+    --reorder-channel '2 1 0' \
+    --channel-mean-value '0 0 0 256' \
+    --export-dtype float \
+    --optimize VIPNANOQI_PID0X88  \
+    --viv-sdk ${ACUITY_PATH}vcmdtools \
+    --pack-nbg-unify  \
+
+#Note:
+#        --optimize VIPNANOQI_PID0XB9
+#       when exporting nbg case for different platforms, the paramsters are different.
+#   you can set VIPNANOQI_PID0X7D       VIPNANOQI_PID0X88       VIPNANOQI_PID0X99
+#                               VIPNANOQI_PID0XA1       VIPNANOQI_PID0XB9       VIPNANOQI_PID0XBE       VIPNANOQI_PID0XE8
+#       Refer to sectoin 3.4(Step 3) of the  <Model_Transcoding and Running User Guide_V0.8> documdent
+
+
+rm -rf nbg_unify_${NAME}
+
+mv ../*_nbg_unify nbg_unify_${NAME}
+
+cd nbg_unify_${NAME}
+
+mv network_binary.nb ${NAME}.nb
+
+cd ..
+
+#save normal case demo export.data
+mkdir -p ${NAME}_normal_case_demo
+mv  *.h *.c .project .cproject *.vcxproj BUILD *.linux *.export.data ${NAME}_normal_case_demo
+
+# delete normal_case demo source
+#rm  *.h *.c .project .cproject *.vcxproj  BUILD *.linux *.export.data
+
+rm *.data *.quantize *.json
+
+
+sajjad@teco:~/sajjad/npusdk2_as_lenet/aml_npu_sdk/acuity-toolkit/demo$

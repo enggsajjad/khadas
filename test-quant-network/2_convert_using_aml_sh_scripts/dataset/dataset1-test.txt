@@ -1,0 +1,4 @@
+./24bit-black.jpg
+./24bit-white.jpg
+./0.bmp
+./28x28.jpg

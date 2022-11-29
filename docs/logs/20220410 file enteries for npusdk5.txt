@@ -1,0 +1,13 @@
+Enteries Calculations 	Reference in graph.json
+
+150528 	2242x224x3 		"output_shape": [ [ 224, 224, 3, 1 ] ]
+401408 	112x112x32 		"output_shape": [ [ 112, 112, 32, 1 ] ]
+401408 	112x112x32 		"output_shape": [ [ 112, 112, 32, 1 ] ]
+802816 	112x112x64 		"output_shape": [ [ 112, 112, 64, 1 ] ]
+200704 	56x56x64 		"output_shape": [ [ 56, 56, 64, 1 ] ]
+401408 	56x56x128 		"output_shape": [ [ 56, 56, 128, 1 ] ]
+401408 	56x56x128 		"output_shape": [ [ 56, 56, 128, 1 ] ]
+401408 	56x56x128 		"output_shape": [ [ 56, 56, 128, 1 ] ]
+100352 	28x28x128 		"output_shape": [ [ 28, 28, 128, 1 ] ]
+200704 	28x28x256 		"output_shape": [ [ 28, 28, 256, 1 ] ]
+200704 	28x28x256 		"output_shape": [ [ 28, 28, 256, 1 ] ]

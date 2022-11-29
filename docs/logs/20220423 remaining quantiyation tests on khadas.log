@@ -1,0 +1,74 @@
+khadas@Khadas-teco:~$ history > hist.log
+khadas@Khadas-teco:~$ cp /media/khadas/UBUNTU\ 18_0/npusdk2_qtest2/nbg_unify_yolov3/vnn_yolov3.h /home/khadas/sajjad/NPUApp2_qtest2/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/.
+khadas@Khadas-teco:~$ cp /media/khadas/UBUNTU\ 18_0/npusdk2_qtest2/nbg_unify_yolov3/vnn_post_process.h /home/khadas/sajjad/NPUApp2_qtest2/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/.
+khadas@Khadas-teco:~$ cp /media/khadas/UBUNTU\ 18_0/npusdk2_qtest2/nbg_unify_yolov3/vnn_pre_process.h /home/khadas/sajjad/NPUApp2_qtest2/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/.
+khadas@Khadas-teco:~$ cp /media/khadas/UBUNTU\ 18_0/npusdk2_qtest2/nbg_unify_yolov3/vnn_yolov3.c /home/khadas/sajjad/NPUApp2_qtest2/aml_npu_app/detect_library/model_code/detect_yolo_v3/.
+khadas@Khadas-teco:~$ cd /home/khadas/sajjad/NPUApp2_qtest2/aml_npu_app/detect_library/model_code/detect_yolo_v3/ 
+khadas@Khadas-teco:~/sajjad/NPUApp2_qtest2/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ls
+bin_r  build_vx.sh  include  linux_build_sample.log  makefile.linux  makefile.linux.def  makefile.target_name  vnn_yolov3.c  yolo_v3.c  yolov3_process.c
+khadas@Khadas-teco:~/sajjad/NPUApp2_qtest2/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ./build_vx.sh 
+  COMPILE /home/khadas/sajjad/NPUApp2_qtest2/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3/vnn_yolov3.c
+vnn_yolov3.c: In function 'vnn_CreateYolov3':
+vnn_yolov3.c:146:29: warning: unused variable 'data' [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_yolov3.c:94:17: warning: 'load_data' defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/NPUApp2_qtest2/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ls bin_r/
+libnn_yolo_v3.so  vnn_yolov3.o  yolo_v3.o  yolov3_process.o
+khadas@Khadas-teco:~/sajjad/NPUApp2_qtest2/aml_npu_app/detect_library/model_code/detect_yolo_v3$ cp bin_r/libnn_yolo_v3.so /home/khadas/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture_qtest2/lib/.
+khadas@Khadas-teco:~/sajjad/NPUApp2_qtest2/aml_npu_app/detect_library/model_code/detect_yolo_v3$ cp /media/khadas/UBUNTU\ 18_0/npusdk2_qtest2/nbg_unify_yolov3/yolov3.nb /home/khadas/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture_qtest2/nn_data/.   
+khadas@Khadas-teco:~/sajjad/NPUApp2_qtest2/aml_npu_app/detect_library/model_code/detect_yolo_v3$ cp /media/khadas/UBUNTU\ 18_0/npusdk2_qtest1/nbg_unify_yolov3/yolov3.nb /home/khadas/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture_qtest1/nn_data/.
+khadas@Khadas-teco:~/sajjad/NPUApp2_qtest2/aml_npu_app/detect_library/model_code/detect_yolo_v3$ cp /home/khadas/sajjad/NPUApp2_qtest1/aml_npu_app/detect_library/model_code/detect_yolo_v3/bin_r/libnn_yolo_v3.so /home/khadas/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture_qtest1/lib/.
+khadas@Khadas-teco:~/sajjad/NPUApp2_qtest2/aml_npu_app/detect_library/model_code/detect_yolo_v3$ cd /home/khadas/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture_qtest1/khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture_qtest1$ ls
+1.jpg      1080p1.bmp  2.jpg   3.jpg   4.jpg   5.jpg   6.jpg                    INSTALL    UNINSTALL       detect_demo_x11  eagle.jpg    giraffe.jpg   lib               nn_data     person.jpg
+1080p.bmp  1a.jpg      2a.jpg  3a.jpg  4a.jpg  5a.jpg  IMG_20220322_143214.jpg  README.md  detect_demo_fb  dog.jpg          giraffe.bmp  giraffe1.jpg  libnn_yolo_v3.so  output.bmp  yolov3.nb
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture_qtest1$ ./detect_demo_x11 -m 0 -p ./1080p.bmp 
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:967.347 right:1266.4 top:63.3736 bottom:518.165
+
+(process:7360): Gtk-WARNING **: 10:29:53.487: Locale not supported by C library.
+        Using the fallback 'C' locale.
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture_qtest1$ cd ../detect_demo_picture_qtest2/
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture_qtest2$ ./detect_demo_x11 -m 0 -p ./1080p.bmp 
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:967.347 right:1266.4 top:63.3736 bottom:518.165
+
+(process:7385): Gtk-WARNING **: 10:30:29.613: Locale not supported by C library.
+        Using the fallback 'C' locale.
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture_qtest2$ 

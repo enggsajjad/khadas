@@ -1,0 +1,154 @@
+while running nopnet on my new sdk and old image.
+
+=======================================================
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to khadas@192.168.178.139                              │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+
+Welcome to Fenix 1.0.11 Ubuntu 20.04.4 LTS Linux 4.9.241
+ _  ___               _            __     _____ __  __ _____
+| |/ / |__   __ _  __| | __ _ ___  \ \   / /_ _|  \/  |___ /
+| ' /| '_ \ / _` |/ _` |/ _` / __|  \ \ / / | || |\/| | |_ \
+| . \| | | | (_| | (_| | (_| \__ \   \ V /  | || |  | |___) |
+|_|\_\_| |_|\__,_|\__,_|\__,_|___/    \_/  |___|_|  |_|____/
+
+
+ * Website:        https://www.khadas.com
+ * Documentation:  https://docs.khadas.com
+ * Forum:          https://forum.khadas.com
+
+Last login: Tue Jun 14 19:12:44 2022 from 192.168.178.33
+khadas@Khadas-teco:~$ cd sajjad/
+khadas@Khadas-teco:~/sajjad$ ls
+20220512                        416_sajjad  eachoptime1  minimal_nn_example  NPUApp   NPUApp2_qtest1  npusdk1        yolov3_nbg_unify_608_hussain
+3_compile_and_run_using_c_code  eachoptime  ksnn         npu1                NPUApp1  NPUApp2_qtest2  standalone_v3
+khadas@Khadas-teco:~/sajjad$ cd 3_compile_and_run_using_c_code/
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ ls
+28x28.jpg  BUILD        input_0.dat             makefile.linux        nbg_meta.json   README.md     vnn_nopnet.h        vnn_pre_process.c
+bin_r_cv4  build_vx.sh  linux_build_sample.log  makefile.linux.def    nopnet.nb       vnn_global.h  vnn_post_process.c  vnn_pre_process.h
+black.jpg  graph.json   main.c                  makefile.target_name  nopnet.vcxproj  vnn_nopnet.c  vnn_post_process.h
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ ll
+total 200
+drwxrwxr-x  3 khadas khadas  4096 Jun 15 01:04 ./
+drwxrwxr-x 17 khadas khadas  4096 Jun 14 19:13 ../
+-rw-r--r--  1 khadas khadas   929 Jun 14 19:14 28x28.jpg
+drwxrwxr-x  2 khadas khadas  4096 Jun 14 19:15 bin_r_cv4/
+-rw-r--r--  1 khadas khadas   835 Jun 14 19:14 black.jpg
+-rw-r--r--  1 khadas khadas   567 Jun 14 19:14 BUILD
+-rwxr-xr-x  1 khadas khadas  9340 Jun 14 19:14 build_vx.sh*
+-rw-rw-r--  1 khadas khadas   185 Jun 14 19:16 graph.json
+-rw-rw-r--  1 khadas khadas  2352 Jun 14 19:16 input_0.dat
+-rw-rw-r--  1 khadas khadas    36 Jun 14 19:15 linux_build_sample.log
+-rw-r--r--  1 khadas khadas  6441 Jun 14 19:14 main.c
+-rw-r--r--  1 khadas khadas  2630 Jun 14 19:14 makefile.linux
+-rw-r--r--  1 khadas khadas 16406 Jun 14 19:14 makefile.linux.def
+-rw-r--r--  1 khadas khadas    21 Jun 14 19:14 makefile.target_name
+-rw-r--r--  1 khadas khadas   986 Jun 15 01:06 nbg_meta.json
+-rw-r--r--  1 khadas khadas 11725 Jun 15 01:04 nopnet_88.nb
+-rw-r--r--  1 khadas khadas 11021 Jun 14 19:14 nopnet.nb
+-rw-r--r--  1 khadas khadas 12814 Jun 15 01:06 nopnet.vcxproj
+-rw-r--r--  1 khadas khadas  2189 Jun 14 19:14 .project
+-rw-r--r--  1 khadas khadas   511 Jun 14 19:14 README.md
+-rw-r--r--  1 khadas khadas   765 Jun 15 01:06 vnn_global.h
+-rw-r--r--  1 khadas khadas  9733 Jun 15 01:07 vnn_nopnet.c
+-rw-r--r--  1 khadas khadas  1156 Jun 15 01:07 vnn_nopnet.h
+-rw-r--r--  1 khadas khadas  4174 Jun 15 01:07 vnn_post_process.c
+-rw-r--r--  1 khadas khadas   572 Jun 14 19:14 vnn_post_process.h
+-rw-r--r--  1 khadas khadas 25229 Jun 14 19:14 vnn_pre_process.c
+-rw-r--r--  1 khadas khadas  1646 Jun 14 19:14 vnn_pre_process.h
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ rm -rf bin_r_cv4/
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ ./build_vx.sh
+  COMPILE /home/khadas/sajjad/3_compile_and_run_using_c_code/vnn_pre_process.c
+  COMPILE /home/khadas/sajjad/3_compile_and_run_using_c_code/vnn_nopnet.c
+vnn_nopnet.c: In function ‘vnn_CreateNopnet’:
+vnn_nopnet.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_nopnet.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/sajjad/3_compile_and_run_using_c_code/main.c
+main.c: In function ‘main’:
+main.c:245:9: warning: "/*" within comment [-Wcomment]
+  245 |         /* Dump all node outputs */
+      |
+  COMPILE /home/khadas/sajjad/3_compile_and_run_using_c_code/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ ls bin_r_cv4/
+main.o  nopnet  vnn_nopnet.o  vnn_post_process.o  vnn_pre_process.o
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ ./bin_r_cv4/nopnet ./nopnet_88.nb ./28x28.jpg
+Create Neural Network: 95ms or 95045us
+Verify...
+Verify Graph: 7ms or 7882us
+Start run graph [1] times...
+Run the 1 time: 13.00ms or 13443.00us
+vxProcessGraph execution time:
+Total   14.00ms or 14452.00us
+Average 14.45ms or 14452.00us
+ --- Top5 ---
+  0: 255.000000
+  1: 255.000000
+  2: 255.000000
+  3: 255.000000
+  4: 255.000000
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ ./bin_r_cv4/nopnet ./nopnet_88.nb ./black.jpg
+Create Neural Network: 7ms or 7557us
+Verify...
+Verify Graph: 0ms or 955us
+Start run graph [1] times...
+Run the 1 time: 0.00ms or 478.00us
+vxProcessGraph execution time:
+Total   0.00ms or 519.00us
+Average 0.52ms or 519.00us
+ --- Top5 ---
+157: 255.000000
+158: 255.000000
+181: 255.000000
+182: 255.000000
+183: 255.000000
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ ls
+28x28.jpg  build_vx.sh             main.c                nbg_meta.json  nopnet.vcxproj    vnn_nopnet.c        vnn_pre_process.c
+bin_r_cv4  graph.json              makefile.linux        network_dump   output0_2352.dat  vnn_nopnet.h        vnn_pre_process.h
+black.jpg  input_0.dat             makefile.linux.def    nopnet_88.nb   README.md         vnn_post_process.c
+BUILD      linux_build_sample.log  makefile.target_name  nopnet.nb      vnn_global.h      vnn_post_process.h
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ ls bin_r_cv4/
+main.o  nopnet  vnn_nopnet.o  vnn_post_process.o  vnn_pre_process.o
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ ls network_dump/
+NBG_uid_0_t_0_s_2352.txt
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ vim network_dump/NBG_uid_0_t_0_s_2352.txt
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ cp network_dump/NBG_uid_0_t_0_s_2352.txt network_dump/NBG_uid_0_t_0_s_2352_black.txt
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ ./bin_r_cv4/nopnet ./nopnet_88.nb ./28x28.jpg
+Create Neural Network: 6ms or 6558us
+Verify...
+Verify Graph: 0ms or 923us
+Start run graph [1] times...
+Run the 1 time: 0.00ms or 549.00us
+vxProcessGraph execution time:
+Total   0.00ms or 609.00us
+Average 0.61ms or 609.00us
+ --- Top5 ---
+  0: 255.000000
+  1: 255.000000
+  2: 255.000000
+  3: 255.000000
+  4: 255.000000
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ vim network_dump/NBG_uid_0_t_0_s_2352.txt
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ display 28x28.jpg
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ cp network_dump/NBG_uid_0_t_0_s_2352.txt network_dump/NBG_uid_0_t_0_s_2352_28x28.txt
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ vim network_dump/NBG_uid_0_t_0_s_2352.txt
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ vim network_dump/NBG_uid_0_t_0_s_2352_28x28.txt
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ vim network_dump/NBG_uid_0_t_0_s_2352_black.txt
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$ display black.jpg
+khadas@Khadas-teco:~/sajjad/3_compile_and_run_using_c_code$

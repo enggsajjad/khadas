@@ -1,0 +1,141 @@
+khadas@Khadas-teco:~$ cd /home/khadas/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA/   
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ sudo ./UNINSTALL 
+[sudo] password for khadas: 
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ sudo ./INSTALL 
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ ./detect_demo_x11 -m 2 -p ../1080p.bmp 
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Picture : ../1080p.bmp load fail
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ ./detect_demo_x11 -m 2 -p ./1080p.bmp 
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:526.938 right:1340.14 top:1.80045 bottom:1080
+left:536.938 top-10:40
+
+(process:5877): Gtk-WARNING **: 17:30:31.592: Locale not supported by C library.
+        Using the fallback 'C' locale.
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ ./detect_demo_x11 -h                  
+./detect_demo_x11: option requires an argument -- 'h'
+./detect_demo_x11 [-p picture path] [-w width] [-h height] [-m model type] [-f facenet flag] [-H]
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ ./detect_demo_x11 -m 2 -p ./1.bmp 
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Picture : ./1.bmp load fail
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ ./detect_demo_x11 -m 2 -p ./1.bmp 
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:559.831 right:996.533 top:386.308 bottom:1046.35
+
+(process:6092): Gtk-WARNING **: 17:42:11.005: Locale not supported by C library.
+        Using the fallback 'C' locale.
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ ./detect_demo_x11 -m 2 -p ./2.bmp 
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=9
+result type is 2
+i:9 left:1438.88 right:1910.66 top:471.156 bottom:562.141
+
+(process:6121): Gtk-WARNING **: 17:42:37.713: Locale not supported by C library.
+        Using the fallback 'C' locale.
+i:9 left:178.415 right:390.489 top:483.762 bottom:993.122
+i:9 left:394.441 right:606.514 top:413.099 bottom:1067.13
+i:9 left:586.459 right:798.532 top:483.762 bottom:993.122
+i:9 left:763.672 right:975.745 top:404.994 bottom:1059.03
+i:9 left:942.462 right:1107.62 top:399.908 bottom:1053.94
+i:9 left:1099.19 right:1311.27 top:402.49 bottom:1056.52
+i:9 left:1264.71 right:1476.78 top:413.099 bottom:1067.13
+i:9 left:1583.26 right:1721.73 top:858.664 bottom:1062.01
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ ./detect_demo_x11 -m 2 -p ./3.bmp 
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=9
+result type is 2
+i:9 left:836.372 right:1920 top:883.595 bottom:1065.57
+
+(process:6154): Gtk-WARNING **: 17:43:00.350: Locale not supported by C library.
+        Using the fallback 'C' locale.
+i:9 left:28.3068 right:166.768 top:904.414 bottom:1062.78
+i:9 left:221.607 right:329.441 top:908.49 bottom:1066.86
+i:9 left:960.069 right:1067.9 top:910.163 bottom:1068.53
+i:9 left:1824.02 right:1908 top:906.569 bottom:1064.93
+i:9 left:1027.53 right:1165.99 top:925.318 bottom:1080
+i:9 left:1464.52 right:1572.35 top:925.318 bottom:1080
+i:9 left:1643 right:1726.98 top:925.318 bottom:1080
+i:9 left:1729.32 right:1837.16 top:946.427 bottom:1069.76
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ sudo ./UNINSTALL 
+[sudo] password for khadas: 
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ ./detect_demo_x11 -m 2 -p ./2.bmp 
+./detect_demo_x11: error while loading shared libraries: libnn_detect.so: cannot open shared object file: No such file or directory
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ 

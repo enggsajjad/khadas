@@ -1,0 +1,96 @@
+include ./makefile.linux.def
+include ./makefile.target_name
+
+INCLUDE += -I$(VIVANTE_SDK_INC)
+INCLUDE += -I$(OVXLIB_DIR)/include
+INCLUDE += -I./include
+
+CFLAGS += $(INCLUDE) -fpic
+
+################################################################################
+LIBS += -L$(VIVANTE_SDK_LIB) -l OpenVX -l OpenVXU -lGAL
+LIBS += -L$(OVXLIB_DIR)/lib -l ovxlib
+LIBS += -lm -ldl
+# Supply necessary libraries.
+ifeq ($(gcdSTATIC_LINK), 1)
+LIBS += $(OVXLIB_DIR)/lib/libovxlib.a
+LIBS += $(VIVANTE_SDK_LIB)/libOpenVXU.a
+LIBS += $(VIVANTE_SDK_LIB)/libOpenVXC.a
+LIBS += $(VIVANTE_SDK_LIB)/libOpenVX.a
+LIBS += $(VIVANTE_SDK_LIB)/libLLVM_viv.a
+LIBS += $(VIVANTE_SDK_LIB)/libclCompiler.a
+LIBS += $(VIVANTE_SDK_LIB)/libclPreprocessor.a
+LIBS += $(VIVANTE_SDK_LIB)/libclCommon.a
+LIBS += $(VIVANTE_SDK_LIB)/libLLVM_viv.a
+LIBS += $(VIVANTE_SDK_LIB)/libVSC.a
+LIBS += $(VIVANTE_SDK_LIB)/libhalarchuser.a
+LIBS += $(VIVANTE_SDK_LIB)/libhalosuser.a
+LIBS += $(VIVANTE_SDK_LIB)/libGAL.a
+LIBS += $(VIVANTE_SDK_LIB)/libhalarchuser.a
+LIBS += $(VIVANTE_SDK_LIB)/libGAL.a
+LIBS +=  $(LIB_DIR)/libm.a
+LIBS +=  $(LIB_DIR)/libpthread.a
+LIBS +=  $(LIB_DIR)/libc.a
+LIBS +=  $(LIB_DIR)/libdl.a
+LIBS +=  $(LIB_DIR)/librt.a
+LIBS +=  $(LIB_DIR)/libstdc++.a
+LIBS += $(OVXLIB_DIR)/lib/libjpeg.a
+else
+ifeq ($(USE_VXC_BINARY)$(USE_VSC_LITE),11)
+#LIBS += -L$(VIVANTE_SDK_LIB) -l OpenVX -l VSC_Lite
+else
+#LIBS += -L$(VIVANTE_SDK_LIB) -l OpenVX -l OpenVXU -l VSC -lGAL
+endif
+LIBS += /usr/lib/aarch64-linux-gnu/libjpeg.a
+LIBS += -L$(OVXLIB_DIR)/lib -l ovxlib
+LIBS += -L$(LIB_DIR) -lm
+
+endif
+
+
+
+#############################################################################
+# Macros.
+PROGRAM = 1
+CUR_SOURCE = ${wildcard *.c}
+#############################################################################
+# Objects.
+OBJECTS =  ${patsubst %.c, $(OBJ_DIR)/%.o, $(CUR_SOURCE)}
+#OBJECTS += $(OBJ_DIR)/main.o
+# installation directory
+INSTALL_DIR := ./
+
+OBJ_DIR = bin_r_cv4
+################################################################################
+
+# Include the common makefile.
+
+#include $(AQROOT)/common.target
+
+LDFLAGS += -Wall -shared -Wl,-soname,$(TARGET_NAME) -Wl,-z,defs
+
+TARGET_OUTPUT = $(OBJ_DIR)/$(TARGET_NAME)
+
+all: $(TARGET_OUTPUT)
+
+clean:
+	@rm -rf $(OBJ_DIR)/* $(OBJ_DIR)
+
+install: $(TARGET_OUTPUT)
+	@mkdir -p $(INSTALL_DIR)
+	@-cp $(TARGET_OUTPUT) $(INSTALL_DIR)
+
+$(TARGET_OUTPUT): $(OBJECTS)
+	@$(CXX) $(OBJECTS) -o $(TARGET_OUTPUT) $(LIBS)
+
+$(OBJ_DIR)/%.o: %.c
+	@echo "  COMPILE $(abspath $<)"
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(LDFLAGS) -c $(CFLAGS) -o $@ $<
+
+$(OBJ_DIR)/%.o: %.cpp
+	@echo "  COMPILE $(abspath $<)"
+	@mkdir -p $(OBJ_DIR)
+	@$(CXX) -c $(CXXFLAGS) -o $@ $<
+
+

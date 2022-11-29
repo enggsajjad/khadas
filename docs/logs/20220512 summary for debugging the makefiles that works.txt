@@ -1,0 +1,28 @@
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/nbg_unify_yolov3/bin_r_cv4$ ./yolov3test ./nn_data/yolov3_88.nb ./1080p.bmp
+Create Neural Network: 25ms or 25919us
+error input file type
+E [_handle_multiple_inputs:766]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E [vnn_PreProcessYolov3:892]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E [main:233]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/nbg_unify_yolov3/bin_r_cv4$ ./yolov3test ./nn_data/yolov3_88.nb -m ./1080p.bmp
+Create Neural Network: 16ms or 16804us
+Graph need 1 inputs, but enter 2 inputs!!!
+E [main:233]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/nbg_unify_yolov3/bin_r_cv4$ ./yolov3test ./nn_data/yolov3_88.nb -p ./1080p.bmp
+Create Neural Network: 33ms or 33162us
+Graph need 1 inputs, but enter 2 inputs!!!
+E [main:233]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/nbg_unify_yolov3/bin_r_cv4$ ./yolov3test ./nn_data/yolov3_88.nb ./1080p.bmp
+Create Neural Network: 15ms or 15760us
+error input file type
+E [_handle_multiple_inputs:766]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E [vnn_PreProcessYolov3:892]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E [main:233]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/nbg_unify_yolov3/bin_r_cv4$ ./yolov3test ./nn_data/yolov3_88.nb
+Usage: ./yolov3test data_file inputs...
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/nbg_unify_yolov3/bin_r_cv4$ ./yolov3test ./1080p.bmp ./nn_data/yolov3_88.nb
+E [compute_node:354]Create node[0] NBG fail
+E [vnn_CreateYolov3:312]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E [vnn_CreateNeuralNetwork:196]CHECK PTR 196
+E [main:229]CHECK PTR 229
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/nbg_unify_yolov3/bin_r_cv4$

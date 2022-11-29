@@ -1,0 +1,62 @@
+khadas@Khadas:~/hussain$ cd sample_demo_x11_yolov3/
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ chmod +x ./build_vx.sh
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/sample_demo_x11_yolov3/detect_log.c
+  COMPILE /home/khadas/hussain/sample_demo_x11_yolov3/vnn_yolov3.c
+vnn_yolov3.c: In function ‘vnn_CreateYolov3’:
+vnn_yolov3.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_yolov3.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/hussain/sample_demo_x11_yolov3/yolo_v3.c
+  COMPILE /home/khadas/hussain/sample_demo_x11_yolov3/main.cpp
+main.cpp: In function ‘int run_detect_model(int, char**)’:
+main.cpp:334:10: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+  334 |   return NULL;
+      |          ^~~~
+main.cpp:279:39: warning: unused variable ‘img_width’ [-Wunused-variable]
+  279 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                       ^~~~~~~~~
+main.cpp:279:50: warning: unused variable ‘img_height’ [-Wunused-variable]
+  279 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                                  ^~~~~~~~~~
+main.cpp: At global scope:
+main.cpp:251:13: warning: ‘void crop_face(cv::Mat, cv::Mat&, DetectResult, int, int)’ defined but not used [-Wunused-function]
+  251 | static void crop_face(cv::Mat sourceFrame, cv::Mat& imageROI, DetectResult resultData, int img_height, int img_width) {
+      |             ^~~~~~~~~
+main.cpp:98:17: warning: ‘screensize’ defined but not used [-Wunused-variable]
+   98 | static long int screensize = 0;
+      |                 ^~~~~~~~~~
+main.cpp:97:33: warning: ‘finfo’ defined but not used [-Wunused-variable]
+   97 | static struct fb_fix_screeninfo finfo;
+      |                                 ^~~~~
+main.cpp:96:33: warning: ‘vinfo’ defined but not used [-Wunused-variable]
+   96 | static struct fb_var_screeninfo vinfo;
+      |                                 ^~~~~
+main.cpp:95:12: warning: ‘fbfd’ defined but not used [-Wunused-variable]
+   95 | static int fbfd = 0;
+      |            ^~~~
+make: Nothing to be done for 'all'.
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3$ cd bin_r_cv4/
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3/bin_r_cv4$ ./detect_demo_x11 -m 2 -p /media/khadas/SAJJAD/hussain/novelsense_git/khadas/img/1920x1056/person_1920x1056.jpg
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=3
+result type is 2
+i:3 left:1149.81 right:1869.81 top:346.862 bottom:860.901
+i:3 left:194.877 right:611.835 top:646.021 bottom:879.675
+i:3 left:565.385 right:837.692 top:265.694 bottom:919.725
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3/bin_r_cv4$

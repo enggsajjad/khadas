@@ -1,0 +1,42 @@
+https://github.com/pjreddie/darknet/tree/master/cfg
+https://github.com/AlexeyAB/darknet/blob/master/cfg/
+
+sajjad@teco:~/sajjad$ difference between two 608 files^C
+sajjad@teco:~/sajjad$ diff darknet/cfg/yolov3.cfg AlexeyAB/darknet/cfg/yolov3-openimages.cfg
+3,4c3,4
+< # batch=1
+< # subdivisions=1
+---
+>  batch=1
+>  subdivisions=1
+19c19
+< burn_in=1000
+---
+> burn_in=5000
+603c603
+< filters=255
+---
+> filters=1818
+610c610
+< classes=80
+---
+> classes=601
+689c689
+< filters=255
+---
+> filters=1818
+696c696
+< classes=80
+---
+> classes=601
+776c776
+< filters=255
+---
+> filters=1818
+783c783
+< classes=80
+---
+> classes=601
+sajjad@teco:~/sajjad$ difference between two 416 files^C
+sajjad@teco:~/sajjad$ diff models-zoo/darknet/yolov3/yolov3/yolov3.cfg AlexeyAB/darknet/cfg/yolov3.cfg
+sajjad@teco:~/sajjad$ cd ../hussain/npusdk2_basis/aml_npu_sdk/acuity-toolkit/demo/

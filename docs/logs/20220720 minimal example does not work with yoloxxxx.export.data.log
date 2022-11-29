@@ -1,0 +1,9 @@
+==================================================
+minimal example does not work with yoloxxxx.export.data
+==================================================
+khadas@Khadas:~/hussain/novelsense_git/khadas/nbg/sdk_generated_nbg_compilable/yolotiny_nbg_unify_416_hussainA/bin_r$ ./yolotiny ../../../../nbg/sdk_generated_nbg_original/yolov3tiny/yolotiny_normal_case_demo_416_hussainA_profile/yolotiny.export.data ~/hussain/img/416/person_416.jpg
+E [compute_node:379]Create node[0] NBG fail
+E [vnn_CreateYolotiny:328]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E [vnn_CreateNeuralNetwork:196]CHECK PTR 196
+E [main:229]CHECK PTR 229
+khadas@Khadas:~/hussain/novelsense_git/khadas/nbg/sdk_generated_nbg_compilable/yolotiny_nbg_unify_416_hussainA/bin_r$ cd

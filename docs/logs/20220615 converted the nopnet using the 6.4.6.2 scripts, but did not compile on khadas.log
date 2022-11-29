@@ -1,0 +1,415 @@
+
+converted the nopnet using the 6.4.6.2 scripts, but did not compile on khadas
+=======================================================================================================
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to sajjad@10.10.254.178                                │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 5.4.0-107-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+26 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Last login: Wed Jun 15 09:14:35 2022 from 129.13.170.244
+sajjad@teco:~$ cd sajjad/npusdk2
+npusdk2/          npusdk2_4662/     npusdk2_as_lenet/ npusdk2_modifyq/  npusdk2_qtest1/   npusdk2_qtest2/   npusdk2_qtest3/
+sajjad@teco:~$ cd sajjad/npusdk2
+npusdk2/          npusdk2_4662/     npusdk2_as_lenet/ npusdk2_modifyq/  npusdk2_qtest1/   npusdk2_qtest2/   npusdk2_qtest3/
+sajjad@teco:~$ cd sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo/
+sajjad@teco:~/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo$ ls
+0_import_model_416.sh    1_quantize_model_608.sh    2_export_case_code.sh  inference.sh                 nbg_unify_yolov3_backup
+0_import_model_608.sh    1_quantize_model.sh        data                   model                        yolov3.data
+0_import_model.sh        2_export_case_code_416.sh  extractoutput.py       nbg_unify_yolov3_416_sajjad  yolov3.json
+1_quantize_model_416.sh  2_export_case_code_608.sh  graph.json             nbg_unify_yolov3_608_sajjad  yolov3.quantize
+sajjad@teco:~/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo$ pwd
+/home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo
+sajjad@teco:~/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo$ ls
+0_import_model_416.sh     1_quantize_model_416.sh     2_export_case_code_416.sh     data              model                        yolov3.dat
+0_import_model_608.sh     1_quantize_model_608.sh     2_export_case_code_608.sh     extractoutput.py  nbg_unify_yolov3_416_sajjad  yolov3.jso
+0_import_model_nopnet.sh  1_quantize_model_nopnet.sh  2_export_case_code_nopnet.sh  graph.json        nbg_unify_yolov3_608_sajjad  yolov3.qua
+0_import_model.sh         1_quantize_model.sh         2_export_case_code.sh         inference.sh      nbg_unify_yolov3_backup
+sajjad@teco:~/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo$ chmod +x 0_import_model_nopnet.sh 1_quantize_model_nopnet.sh 2_export_case_code
+sajjad@teco:~/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo$ mkdir network
+sajjad@teco:~/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo$ mkdir dataset
+sajjad@teco:~/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo$ ls
+0_import_model_416.sh     1_quantize_model_608.sh     2_export_case_code_nopnet.sh  graph.json                   nbg_unify_yolov3_backup
+0_import_model_608.sh     1_quantize_model_nopnet.sh  2_export_case_code.sh         inference.sh                 network
+0_import_model_nopnet.sh  1_quantize_model.sh         data                          model                        yolov3.data
+0_import_model.sh         2_export_case_code_416.sh   dataset                       nbg_unify_yolov3_416_sajjad  yolov3.json
+1_quantize_model_416.sh   2_export_case_code_608.sh   extractoutput.py              nbg_unify_yolov3_608_sajjad  yolov3.quantize
+sajjad@teco:~/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo$ vim 0_import_model_nopnet.sh
+sajjad@teco:~/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo$ bash 0_import_model_
+0_import_model_416.sh     0_import_model_608.sh     0_import_model_nopnet.sh
+sajjad@teco:~/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo$ bash 0_import_model_nopnet.sh
+2022-06-15 19:40:52.199513: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1cudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toylib
+2022-06-15 19:40:52.199537: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up .
+I Start importing onnx...
+I Current ONNX Model use ir_version 3 opset_version 7
+I Call acuity onnx optimize 'eliminate_option_const' success
+I Call acuity onnx optimize 'froze_const_branch' success
+I Call acuity onnx optimize 'froze_if' success
+I Call acuity onnx optimize 'merge_sequence_construct_concat_from_sequence' success
+I Call acuity onnx optimize 'merge_lrn_lowlevel_implement' success
+D Calc tensor Constant_onnx::Reshape_4 shape: [1]
+D Calc tensor Initializer_onnx::Add_6 shape: [2352]
+D Calc tensor Reshape_onnx::Add_5 shape: [2352]
+D Calc tensor Add_output shape: [2352]
+I build output layer attach_Add_Add_7:out0
+I Try match Add_Add_7:out0
+I Match r_add [['Add_Add_7']] [['Add']] to [['add']]
+I Try match Reshape_Reshape_5:out0
+I Match r_rsp_v5 [['Reshape_Reshape_5', 'Constant_Concat_4_onnx__Reshape_4_as_const']] [['Reshape', 'Constant_0']] to [['reshape']]
+I Try match Initializer_onnx::Add_6:out0
+I Match r_variable [['Initializer_onnx::Add_6']] [['Constant']] to [['variable']]
+I build input layer input:out0
+D connect Reshape_Reshape_5_2 0  ~ Add_Add_7_1 0
+D connect Initializer_onnx//Add_6_3 0  ~ Add_Add_7_1 1
+D connect input_4 0  ~ Reshape_Reshape_5_2 0
+D connect Add_Add_7_1 0  ~ attach_Add_Add_7/out0_0 0
+2022-06-15 19:40:53.583996: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural  (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-06-15 19:40:53.604912: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792905000 Hz
+2022-06-15 19:40:53.605397: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4e3d530 initialized for platform Host (this does hat XLA will be used). Devices:
+2022-06-15 19:40:53.605418: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-06-15 19:40:53.607754: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcuda.so.1
+2022-06-15 19:40:53.621103: E tensorflow/stream_executor/cuda/cuda_driver.cc:314] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capablected
+2022-06-15 19:40:53.621114: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this hoc/driver/nvidia/version does not exist
+D Process input_4 ...
+D Acuity output shape(input): (1 3 28 28)
+D Tensor @input_4:out0 type: float32
+D Process Reshape_Reshape_5_2 ...
+D Acuity output shape(reshape): (2352)
+D Tensor @Reshape_Reshape_5_2:out0 type: float32
+D Process Initializer_onnx//Add_6_3 ...
+D Acuity output shape(variable): (2352)
+D Process Add_Add_7_1 ...
+D Acuity output shape(add): (2352)
+D Tensor @Add_Add_7_1:out0 type: float32
+D Process attach_Add_Add_7/out0_0 ...
+D Acuity output shape(output): (2352)
+D Tensor @attach_Add_Add_7/out0_0:out0 type: float32
+I Build torch-jit-export complete.
+I Start C2T Switcher...
+D Optimizing network with broadcast_op
+I End C2T Switcher...
+D Process input_4 ...
+D Acuity output shape(input): (1 3 28 28)
+D Tensor @input_4:out0 type: float32
+D Process Reshape_Reshape_5_2 ...
+D Acuity output shape(reshape): (2352)
+D Tensor @Reshape_Reshape_5_2:out0 type: float32
+D Process Initializer_onnx//Add_6_3 ...
+D Acuity output shape(variable): (2352)
+D Process Add_Add_7_1 ...
+D Acuity output shape(add): (2352)
+D Tensor @Add_Add_7_1:out0 type: float32
+D Process attach_Add_Add_7/out0_0 ...
+D Acuity output shape(output): (2352)
+D Tensor @attach_Add_Add_7/out0_0:out0 type: float32
+I Build torch-jit-export complete.
+D Optimizing network with force_1d_tensor, swapper, merge_duplicate_quantize_dequantize, merge_layer, auto_fill_bn, auto_fill_l2normalizescalstancenormalize, resize_nearest_transformer, auto_fill_multiply, compute_gather_negative, auto_fill_zero_bias, proposal_opt_import, special_axtend_gather_to_gather_reshape
+I End importing onnx...
+I Dump net to nopnet.json
+I Save net to nopnet.data
+I ----------------Error(0),Warning(0)----------------
+sajjad@teco:~/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo$ bash 1_quantize_model_nopnet.sh
+-------------------- QUANTIZATION SCRIPT
+2022-06-15 19:40:59.719956: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1cudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toylib
+2022-06-15 19:40:59.719980: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up .
+I Namespace(action='quantization', batch_size=1, caffe_mean_file=None, capture_format='nchw', capture_quantized=False, channel_mean_value='0 g=None, data_output=None, debug=True, device=None, divergence_first_quantize_bits=11, dtype='float', epochs=1, epochs_per_decay=100, force_grdelta0=1, fpfs_epochs=0, fpfs_reduce_target=0, input_fitting='scale', input_normalization=None, lr=0.1, mean_file=None, model_data='nopnet.da_format='zone', model_input='nopnet.json', model_quantize=None, optimizer='momentum', output_dir=None, output_num=5, pb_name=None, pfps_deltas=0, pfps_reduce_target=0, prune_epochs=10, prune_loss=1, quantized_algorithm='normal', quantized_divergence_nbins=0, quantized_dtype='asymme, quantized_hybrid=False, quantized_moving_alpha=0.0, quantized_rebuild=False, quantized_rebuild_all=True, random_brightness=None, random_condom_crop=False, random_flip=False, random_mirror=False, reorder_channel=None, restart=False, samples=-1, source='text', source_file='dataset/xt', task='classification', validation_output='validation.csv', without_update_masked_grad=False)
+2022-06-15 19:41:00.908163: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural  (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-06-15 19:41:00.932962: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792905000 Hz
+2022-06-15 19:41:00.933351: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x6a0b6f0 initialized for platform Host (this does hat XLA will be used). Devices:
+2022-06-15 19:41:00.933365: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-06-15 19:41:00.935467: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcuda.so.1
+2022-06-15 19:41:00.947894: E tensorflow/stream_executor/cuda/cuda_driver.cc:314] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capablected
+2022-06-15 19:41:00.947904: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this hoc/driver/nvidia/version does not exist
+I Load model in nopnet.json
+I Load data in nopnet.data
+W:tensorflow:From acuitylib/app/tensorzone/workspace.py:26: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removedrsion.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, there are two
+    options available in V2.
+    - tf.py_function takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+    - tf.numpy_function maintains the semantics of the deprecated tf.py_func
+    (it is not differentiable, and manipulates numpy arrays). It drops the
+    stateful argument making all functions stateful.
+
+I Fitting image with scale.
+I Channel mean value [0.0, 0.0, 0.0, 256.0]
+I [TRAINER]Quantization start...
+[TRAINER]Quantization start...
+I Init validate tensor provider.
+I Enqueue samples 4
+I Init provider with 4 samples.
+D set up a quantize net
+D Process input_4 ...
+D Acuity output shape(input): (1 3 28 28)
+D Tensor @input_4:out0 type: asymmetric_affine
+D Real output shape: (1, 3, 28, 28)
+D Process Reshape_Reshape_5_2 ...
+D Acuity output shape(reshape): (2352)
+D Tensor @Reshape_Reshape_5_2:out0 type: asymmetric_affine
+D Real output shape: (2352,)
+D Process Initializer_onnx//Add_6_3 ...
+D Acuity output shape(variable): (2352)
+D Real output shape: (2352,)
+D Process Add_Add_7_1 ...
+D Acuity output shape(add): (2352)
+D Tensor @Add_Add_7_1:out0 type: asymmetric_affine
+D Real output shape: (2352,)
+D Process attach_Add_Add_7/out0_0 ...
+D Acuity output shape(output): (2352)
+D Tensor @attach_Add_Add_7/out0_0:out0 type: asymmetric_affine
+D Real output shape: (2352,)
+I Build torch-jit-export complete.
+I Generated network graph with 1 outputs.
+I  @attach_Add_Add_7/out0_0:out0: (2352,)
+D Init coefficients ...
+I Start tensor porvider ...
+I Runing 1 epochs, algorithm: normal
+I iterations: 0
+D Quantize tensor @attach_Add_Add_7/out0_0:out0.
+D Quantize tensor @Add_Add_7_1:out0.
+D Quantize tensor @Reshape_Reshape_5_2:out0.
+D Quantize tensor @Initializer_onnx//Add_6_3:out0.
+D Quantize tensor @input_4:out0.
+I Clean.
+D Optimizing network with align_quantize, broadcast_quantize, qnt_adjust_coef, qnt_adjust_param
+I Dump net quantize tensor table to nopnet.quantize
+I [TRAINER]Quantization complete.
+[TRAINER]Quantization complete.
+I Save net to nopnet.data
+I Clean.
+I ----------------Error(0),Warning(0)----------------
+sajjad@teco:~/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo$ vim 2_export_case_code_nopnet.sh
+sajjad@teco:~/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo$ bash 2_export_case_code_nopnet.sh
+-------------------- EXPORT CASE
+2022-06-15 19:41:26.402429: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1cudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toylib
+2022-06-15 19:41:26.402452: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up .
+E File "nopnet-markus-mod.quantize" is missing.
+W ----------------Error(1),Warning(0)----------------
+Traceback (most recent call last):
+  File "ovxgenerator.py", line 196, in <module>
+  File "ovxgenerator.py", line 115, in main
+  File "acuitylib/acuitylog.py", line 256, in e
+ValueError: File "nopnet-markus-mod.quantize" is missing.
+[14107] Failed to execute script ovxgenerator
+mv: cannot stat '../*_nbg_unify': No such file or directory
+2_export_case_code_nopnet.sh: line 33: cd: nbg_unify_nopnet: No such file or directory
+mv: cannot stat 'network_binary.nb': No such file or directory
+mv: cannot stat '*.h': No such file or directory
+mv: cannot stat '*.c': No such file or directory
+mv: cannot stat '.project': No such file or directory
+mv: cannot stat '.cproject': No such file or directory
+mv: cannot stat '*.vcxproj': No such file or directory
+mv: cannot stat 'BUILD': No such file or directory
+mv: cannot stat '*.linux': No such file or directory
+mv: cannot stat '*.export.data': No such file or directory
+rm: cannot remove '*.data': No such file or directory
+rm: cannot remove 'nopnet.quantize': No such file or directory
+rm: cannot remove '*.json': No such file or directory
+sajjad@teco:~/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo$ bash 2_export_case_code_nopnet.sh
+-------------------- EXPORT CASE
+2022-06-15 19:41:50.928461: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1cudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toylib
+2022-06-15 19:41:50.928483: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up .
+I Load model in nopnet.json
+I Load data in nopnet.data
+I Load quantization tensor table nopnet-markus-mod.quantize
+2022-06-15 19:41:52.158032: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural  (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-06-15 19:41:52.180972: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792905000 Hz
+2022-06-15 19:41:52.181385: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x64628b0 initialized for platform Host (this does hat XLA will be used). Devices:
+2022-06-15 19:41:52.181400: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-06-15 19:41:52.183605: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcuda.so.1
+2022-06-15 19:41:52.195801: E tensorflow/stream_executor/cuda/cuda_driver.cc:314] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capablected
+2022-06-15 19:41:52.195812: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this hoc/driver/nvidia/version does not exist
+D Process input_4 ...
+D Acuity output shape(input): (1 3 28 28)
+D Tensor @input_4:out0 type: asymmetric_affine
+D Process Reshape_Reshape_5_2 ...
+D Acuity output shape(reshape): (2352)
+D Tensor @Reshape_Reshape_5_2:out0 type: asymmetric_affine
+D Process Initializer_onnx//Add_6_3 ...
+D Acuity output shape(variable): (2352)
+D Process Add_Add_7_1 ...
+D Acuity output shape(add): (2352)
+D Tensor @Add_Add_7_1:out0 type: asymmetric_affine
+D Process attach_Add_Add_7/out0_0 ...
+D Acuity output shape(output): (2352)
+D Tensor @attach_Add_Add_7/out0_0:out0 type: asymmetric_affine
+I Build torch-jit-export complete.
+I Initialzing network optimizer by /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo/../bin/VIPNANOQI_PID0X88 ...
+D Optimizing network with merge_ximum, qnt_adjust_coef, multiply_transform, add_extra_io, format_input_ops, auto_fill_zero_bias, conv_kernel_p_op, extend_unstack_split, merge_layer, transform_layer, broadcast_op, strip_op, auto_fill_reshape_zero, adjust_output_attrs, insert_dtype_c
+I Start T2C Switcher...
+D Optimizing network with broadcast_op, t2c_fc
+I End T2C Switcher...
+D Process input_4 ...
+D Acuity output shape(input): (1 3 28 28)
+D Tensor @input_4:out0 type: asymmetric_affine
+D Process Reshape_Reshape_5_2 ...
+D Acuity output shape(reshape): (2352)
+D Tensor @Reshape_Reshape_5_2:out0 type: asymmetric_affine
+D Process Initializer_onnx//Add_6_3 ...
+D Acuity output shape(variable): (2352)
+D Process Add_Add_7_1 ...
+D Acuity output shape(add): (2352)
+D Tensor @Add_Add_7_1:out0 type: asymmetric_affine
+D Process attach_Add_Add_7/out0_0 ...
+D Acuity output shape(output): (2352)
+D Tensor @attach_Add_Add_7/out0_0:out0 type: asymmetric_affine
+I Build torch-jit-export complete.
+D Optimizing network with conv_1xn_transform, proposal_opt, c2drv_convert_axis, c2drv_convert_shape, c2drv_convert_array, c2drv_cast_dtype, c
+I Building data ...
+I Packing data ...
+D Packing Initializer_onnx//Add_6_3 ...
+D Quantize @Initializer_onnx//Add_6_3:data to asymmetric_affine.
+I Saving data to nopnet.export.data
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo/vnn_nopnet.c
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo/vnn_nopnet.h
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo/vnn_post_process.c
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo/vnn_post_process.h
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo/vnn_pre_process.c
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo/vnn_pre_process.h
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo/vnn_global.h
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo/main.c
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo/BUILD
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo/nopnet.vcxproj
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo/makefile.linux
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo/.cproject
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo/.project
+D Generate fake input /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo/input_4_0.tensor
+mv: '/home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo/network_binary.nb' and '/home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolk_binary.nb' are the same file
+mv: '/home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo/input_0.dat' and '/home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demare the same file
+mv: '/home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo/output0_2352.dat' and '/home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolki2352.dat' are the same file
+I Dump nbg input meta to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/nbg_meta.json
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/vnn_nopnet.c
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/vnn_nopnet.h
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/vnn_post_process.c
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/vnn_post_process.h
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/vnn_pre_process.c
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/vnn_pre_process.h
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/vnn_global.h
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/main.c
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/BUILD
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/nopnet.vcxproj
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/makefile.linux
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/.cproject
+I Save vx network source file to /home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/.project
+/home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo_nbg_unify
+customer:input,0,1:output,0,0:
+*********************************
+/home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo
+/
+/home/sajjad/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo_nbg_unify
+I ----------------Error(0),Warning(0)----------------
+sajjad@teco:~/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo$ ls
+0_import_model_416.sh     1_quantize_model_608.sh     2_export_case_code_nopnet.sh  inference.sh                 nbg_unify_yolov3_backup
+0_import_model_608.sh     1_quantize_model_nopnet.sh  2_export_case_code.sh         model                        network
+0_import_model_nopnet.sh  1_quantize_model.sh         data                          nbg_unify_nopnet             nopnet-markus-mod.quantize
+0_import_model.sh         2_export_case_code_416.sh   dataset                       nbg_unify_yolov3_416_sajjad  nopnet_normal_case_demo
+1_quantize_model_416.sh   2_export_case_code_608.sh   extractoutput.py              nbg_unify_yolov3_608_sajjad  yolov3.quantize
+sajjad@teco:~/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo$ mv nbg_unify_nopnet nbg_unify_nopnet_oldimage
+sajjad@teco:~/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo$ mv nopnet_normal_case_demo nopnet_normal_case_demo_oldimage
+sajjad@teco:~/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo$ ls nopnet_normal_case_demo_oldimage/
+BUILD   makefile.linux      nopnet.vcxproj  vnn_nopnet.c  vnn_post_process.c  vnn_pre_process.c
+main.c  nopnet.export.data  vnn_global.h    vnn_nopnet.h  vnn_post_process.h  vnn_pre_process.h
+sajjad@teco:~/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo$ ls nbg_unify_nopnet_oldimage/
+BUILD   makefile.linux  nopnet.nb       vnn_global.h  vnn_nopnet.h        vnn_post_process.h  vnn_pre_process.h
+main.c  nbg_meta.json   nopnet.vcxproj  vnn_nopnet.c  vnn_post_process.c  vnn_pre_process.c
+sajjad@teco:~/sajjad/npusdk2/aml_npu_sdk/acuity-toolkit/demo$
+
+
+
+=======================================================================================================
+Executing on Khadas gives error
+=======================================================================================================
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to khadas@192.168.178.139                              │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+
+Welcome to Fenix 1.0.11 Ubuntu 20.04.4 LTS Linux 4.9.241
+ _  ___               _            __     _____ __  __ _____
+| |/ / |__   __ _  __| | __ _ ___  \ \   / /_ _|  \/  |___ /
+| ' /| '_ \ / _` |/ _` |/ _` / __|  \ \ / / | || |\/| | |_ \
+| . \| | | | (_| | (_| | (_| \__ \   \ V /  | || |  | |___) |
+|_|\_\_| |_|\__,_|\__,_|\__,_|___/    \_/  |___|_|  |_|____/
+
+
+ * Website:        https://www.khadas.com
+ * Documentation:  https://docs.khadas.com
+ * Forum:          https://forum.khadas.com
+
+Last login: Wed Jun 15 01:55:50 2022 from 192.168.178.33
+khadas@Khadas-teco:~$ cd hussain/
+khadas@Khadas-teco:~/hussain$ ls
+aml_npu_app  aml_npu_appwog  aml_npu_demo_binaries  aml_npu_demo_binarieswog  Just_for_get_op_time_new  newimage
+khadas@Khadas-teco:~/hussain$ cd newimage oldimage
+-bash: cd: too many arguments
+khadas@Khadas-teco:~/hussain$ cp -r newimage oldimage
+khadas@Khadas-teco:~/hussain$ cd oldimage/
+khadas@Khadas-teco:~/hussain/oldimage$ ls
+3_compile_and_run_using_c_code1  op_test_nopnet  op_test_nopnet_adapted
+khadas@Khadas-teco:~/hussain/oldimage$ cd 3_compile_and_run_using_c_code1/
+khadas@Khadas-teco:~/hussain/oldimage/3_compile_and_run_using_c_code1$ ls
+28x28.jpg           BUILD                   main.c                nbg_meta.json   output0_2352.dat  vnn_nopnet.h        vnn_pre_process.h
+bin_r_cv4           build_vx.sh             makefile.linux        nopnet_88.nb    README.md         vnn_post_process.c
+bin_r_cv4_newimage  input_0.dat             makefile.linux.def    nopnet.nb       vnn_global.h      vnn_post_process.h
+black.jpg           linux_build_sample.log  makefile.target_name  nopnet.vcxproj  vnn_nopnet.c      vnn_pre_process.c
+khadas@Khadas-teco:~/hussain/oldimage/3_compile_and_run_using_c_code1$ rm -rf bin_r_cv4_newimage/
+khadas@Khadas-teco:~/hussain/oldimage/3_compile_and_run_using_c_code1$ ls
+28x28.jpg  build_vx.sh             makefile.linux        nopnet_88.nb      README.md     vnn_post_process.c
+bin_r_cv4  input_0.dat             makefile.linux.def    nopnet.nb         vnn_global.h  vnn_post_process.h
+black.jpg  linux_build_sample.log  makefile.target_name  nopnet.vcxproj    vnn_nopnet.c  vnn_pre_process.c
+BUILD      main.c                  nbg_meta.json         output0_2352.dat  vnn_nopnet.h  vnn_pre_process.h
+khadas@Khadas-teco:~/hussain/oldimage/3_compile_and_run_using_c_code1$ pwd
+/home/khadas/hussain/oldimage/3_compile_and_run_using_c_code1
+khadas@Khadas-teco:~/hussain/oldimage/3_compile_and_run_using_c_code1$ rm -rf bin_r_cv4/
+khadas@Khadas-teco:~/hussain/oldimage/3_compile_and_run_using_c_code1$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/oldimage/3_compile_and_run_using_c_code1/vnn_pre_process.c
+  COMPILE /home/khadas/hussain/oldimage/3_compile_and_run_using_c_code1/vnn_nopnet.c
+vnn_nopnet.c: In function ‘vnn_CreateNopnet’:
+vnn_nopnet.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_nopnet.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/hussain/oldimage/3_compile_and_run_using_c_code1/main.c
+  COMPILE /home/khadas/hussain/oldimage/3_compile_and_run_using_c_code1/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/hussain/oldimage/3_compile_and_run_using_c_code1$ ./bin_r_cv4/nopnet ./nopnet.nb ./28x28.jpg
+Create Neural Network: 96ms or 96101us
+Verify...
+E [vnn_VerifyGraph:85]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E [main:237]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+khadas@Khadas-teco:~/hussain/oldimage/3_compile_and_run_using_c_code1$

@@ -1,0 +1,523 @@
+=========================================
+npusdk3
+=========================================
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ clear
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ ls
+0_import_model.sh    2_export_case_code.sh  extractoutput.py  lenet_normal_case_demo  nbg_unify_lenet
+1_quantize_model.sh  data                   inference.sh      model                   validation.csv
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ rm lenet_normal_case_demo/ nbg_unify_lenet/
+rm: cannot remove 'lenet_normal_case_demo/': Is a directory
+rm: cannot remove 'nbg_unify_lenet/': Is a directory
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ rm -rf lenet_normal_case_demo/ nbg_unify_lenet/
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ vim 2_export_case_code.sh
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ bash 0_import_model.sh
+2022-05-08 20:52:40.479268: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-05-08 20:52:40.479291: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Start importing onnx...
+I Current ONNX Model use ir_version 3 opset_version 7
+I Call acuity onnx optimize 'eliminate_option_const' success
+I Call acuity onnx optimize 'froze_const_branch' success
+I Call acuity onnx optimize 'froze_if' success
+I Call acuity onnx optimize 'merge_sequence_construct_concat_from_sequence' success
+I Call acuity onnx optimize 'merge_lrn_lowlevel_implement' success
+D Calc tensor Initializer_fc1.weight shape: [500, 800]
+D Calc tensor Initializer_conv1.bias shape: [20]
+D Calc tensor Initializer_fc2.bias shape: [10]
+D Calc tensor Initializer_conv2.weight shape: [50, 20, 5, 5]
+D Calc tensor Initializer_conv1.weight shape: [20, 1, 5, 5]
+D Calc tensor Initializer_fc2.weight shape: [10, 500]
+D Calc tensor Initializer_conv2.bias shape: [50]
+D Calc tensor Constant_onnx::Reshape_29 shape: [2]
+D Calc tensor Initializer_fc1.bias shape: [500]
+D Calc tensor Constant_onnx::Reshape_28 shape: [4]
+D Calc tensor Constant_onnx::Gather_27 shape: []
+D Calc tensor Constant_onnx::Reshape_26 shape: [4]
+D Calc tensor Reshape_x shape: [1, 3, 28, 28]
+D Calc tensor Gather_onnx::Reshape_12 shape: [1, 28, 28]
+D Calc tensor Reshape_input.1 shape: [1, 1, 28, 28]
+D Calc tensor Conv_input.3 shape: [1, 20, 24, 24]
+D Calc tensor Relu_input.7 shape: [1, 20, 24, 24]
+D Calc tensor MaxPool_input.11 shape: [1, 20, 12, 12]
+D Calc tensor Conv_input.15 shape: [1, 50, 8, 8]
+D Calc tensor Relu_input.19 shape: [1, 50, 8, 8]
+D Calc tensor MaxPool_x.4 shape: [1, 50, 4, 4]
+D Calc tensor Reshape_input.23 shape: [1, 800]
+D Calc tensor Gemm_input.27 shape: [1, 500]
+D Calc tensor Relu_input.31 shape: [1, 500]
+D Calc tensor Gemm_output shape: [1, 10]
+I build output layer attach_Gemm_Gemm_20:out0
+I Try match Gemm_Gemm_20:out0
+I Match r_gemm_2_fc_wb [['Gemm_Gemm_20', 'Initializer_fc2.weight', 'Initializer_fc2.bias']] [['Gemm', 'Constant_0', 'Constant_1']] to [['fullconnect']]
+I Try match Relu_Relu_19:out0
+I Match r_relu [['Relu_Relu_19']] [['Relu']] to [['relu']]
+I Try match Gemm_Gemm_18:out0
+I Match r_gemm_2_fc_wb [['Gemm_Gemm_18', 'Initializer_fc1.weight', 'Initializer_fc1.bias']] [['Gemm', 'Constant_0', 'Constant_1']] to [['fullconnect']]
+I Try match Reshape_Reshape_17:out0
+I Match r_rsp_v5 [['Reshape_Reshape_17', 'Constant_Cast_16_onnx__Reshape_29_as_const']] [['Reshape', 'Constant_0']] to [['reshape']]
+I Try match MaxPool_MaxPool_14:out0
+I Match r_maxpool [['MaxPool_MaxPool_14']] [['MaxPool']] to [['pooling']]
+I Try match Relu_Relu_13:out0
+I Match r_relu [['Relu_Relu_13']] [['Relu']] to [['relu']]
+I Try match Conv_Conv_12:out0
+I Match r_conv [['Conv_Conv_12', 'Initializer_conv2.weight', 'Initializer_conv2.bias']] [['Conv', 'Constant_0', 'Constant_1']] to [['convolution']]
+I Try match MaxPool_MaxPool_11:out0
+I Match r_maxpool [['MaxPool_MaxPool_11']] [['MaxPool']] to [['pooling']]
+I Try match Relu_Relu_10:out0
+I Match r_relu [['Relu_Relu_10']] [['Relu']] to [['relu']]
+I Try match Conv_Conv_9:out0
+I Match r_conv [['Conv_Conv_9', 'Initializer_conv1.weight', 'Initializer_conv1.bias']] [['Conv', 'Constant_0', 'Constant_1']] to [['convolution']]
+I Try match Reshape_Reshape_8:out0
+I Match r_rsp_v5 [['Reshape_Reshape_8', 'Constant_Cast_7_onnx__Reshape_28_as_const']] [['Reshape', 'Constant_0']] to [['reshape']]
+I Try match Gather_Gather_5:out0
+I Match r_gather [['Gather_Gather_5']] [['Gather']] to [['gather']]
+I Try match Reshape_Reshape_2:out0
+I Match r_rsp_v5 [['Reshape_Reshape_2', 'Constant_Cast_1_onnx__Reshape_26_as_const']] [['Reshape', 'Constant_0']] to [['reshape']]
+I Try match Constant_Cast_4_onnx__Gather_27_as_const:out0
+I Match r_variable [['Constant_Cast_4_onnx__Gather_27_as_const']] [['Constant']] to [['variable']]
+I build input layer input:out0
+D connect Relu_Relu_19_2 0  ~ Gemm_Gemm_20_1 0
+D connect Gemm_Gemm_18_3 0  ~ Relu_Relu_19_2 0
+D connect Reshape_Reshape_17_4 0  ~ Gemm_Gemm_18_3 0
+D connect MaxPool_MaxPool_14_5 0  ~ Reshape_Reshape_17_4 0
+D connect Relu_Relu_13_6 0  ~ MaxPool_MaxPool_14_5 0
+D connect Conv_Conv_12_7 0  ~ Relu_Relu_13_6 0
+D connect MaxPool_MaxPool_11_8 0  ~ Conv_Conv_12_7 0
+D connect Relu_Relu_10_9 0  ~ MaxPool_MaxPool_11_8 0
+D connect Conv_Conv_9_10 0  ~ Relu_Relu_10_9 0
+D connect Reshape_Reshape_8_11 0  ~ Conv_Conv_9_10 0
+D connect Gather_Gather_5_12 0  ~ Reshape_Reshape_8_11 0
+D connect Reshape_Reshape_2_13 0  ~ Gather_Gather_5_12 0
+D connect Constant_Cast_4_onnx__Gather_27_as_const_14 0  ~ Gather_Gather_5_12 1
+D connect input_15 0  ~ Reshape_Reshape_2_13 0
+D connect Gemm_Gemm_20_1 0  ~ attach_Gemm_Gemm_20/out0_0 0
+2022-05-08 20:52:42.317271: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-05-08 20:52:42.352822: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792860000 Hz
+2022-05-08 20:52:42.353325: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x53a9910 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-05-08 20:52:42.353344: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-05-08 20:52:42.355937: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-05-08 20:52:42.355953: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-05-08 20:52:42.355966: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (teco): /proc/driver/nvidia/version does not exist
+D Process input_15 ...
+D Acuity output shape(input): (1 3 28 28 1)
+D Tensor @input_15:out0 type: float32
+D Process Reshape_Reshape_2_13 ...
+D Acuity output shape(reshape): (1 3 28 28)
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+D Acuity output shape(variable): (1)
+D Process Gather_Gather_5_12 ...
+D Acuity output shape(gather): (1 28 28)
+D Tensor @Gather_Gather_5_12:out0 type: float32
+D Process Reshape_Reshape_8_11 ...
+D Acuity output shape(reshape): (1 1 28 28)
+D Tensor @Reshape_Reshape_8_11:out0 type: float32
+D Process Conv_Conv_9_10 ...
+D Acuity output shape(convolution): (1 20 24 24)
+D Tensor @Conv_Conv_9_10:out0 type: float32
+D Process Relu_Relu_10_9 ...
+D Acuity output shape(relu): (1 20 24 24)
+D Tensor @Relu_Relu_10_9:out0 type: float32
+D Process MaxPool_MaxPool_11_8 ...
+D Acuity output shape(pooling): (1 20 12 12)
+D Tensor @MaxPool_MaxPool_11_8:out0 type: float32
+D Process Conv_Conv_12_7 ...
+D Acuity output shape(convolution): (1 50 8 8)
+D Tensor @Conv_Conv_12_7:out0 type: float32
+D Process Relu_Relu_13_6 ...
+D Acuity output shape(relu): (1 50 8 8)
+D Tensor @Relu_Relu_13_6:out0 type: float32
+D Process MaxPool_MaxPool_14_5 ...
+D Acuity output shape(pooling): (1 50 4 4)
+D Tensor @MaxPool_MaxPool_14_5:out0 type: float32
+D Process Reshape_Reshape_17_4 ...
+D Acuity output shape(reshape): (1 800)
+D Tensor @Reshape_Reshape_17_4:out0 type: float32
+D Process Gemm_Gemm_18_3 ...
+D Acuity output shape(fullconnect): (1 500)
+D Tensor @Gemm_Gemm_18_3:out0 type: float32
+D Process Relu_Relu_19_2 ...
+D Acuity output shape(relu): (1 500)
+D Tensor @Relu_Relu_19_2:out0 type: float32
+D Process Gemm_Gemm_20_1 ...
+D Acuity output shape(fullconnect): (1 10)
+D Tensor @Gemm_Gemm_20_1:out0 type: float32
+D Process attach_Gemm_Gemm_20/out0_0 ...
+D Acuity output shape(output): (1 10)
+D Tensor @attach_Gemm_Gemm_20/out0_0:out0 type: float32
+I Build torch-jit-export complete.
+I Start C2T Switcher...
+D Optimizing network with broadcast_op
+D insert permute Reshape_Reshape_17_4_acuity_mark_perm_16 before Reshape_Reshape_17_4
+D insert permute Conv_Conv_9_10_acuity_mark_perm_17 before Conv_Conv_9_10
+I End C2T Switcher...
+D Process input_15 ...
+D Acuity output shape(input): (1 3 28 28 1)
+D Tensor @input_15:out0 type: float32
+D Process Reshape_Reshape_2_13 ...
+D Acuity output shape(reshape): (1 3 28 28)
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+D Acuity output shape(variable): (1)
+D Process Gather_Gather_5_12 ...
+D Acuity output shape(gather): (1 28 28)
+D Tensor @Gather_Gather_5_12:out0 type: float32
+D Process Reshape_Reshape_8_11 ...
+D Acuity output shape(reshape): (1 1 28 28)
+D Tensor @Reshape_Reshape_8_11:out0 type: float32
+D Process Conv_Conv_9_10_acuity_mark_perm_17 ...
+D Acuity output shape(permute): (1 28 28 1)
+D Tensor @Conv_Conv_9_10_acuity_mark_perm_17:out0 type: float32
+D Process Conv_Conv_9_10 ...
+D Acuity output shape(convolution): (1 24 24 20)
+D Tensor @Conv_Conv_9_10:out0 type: float32
+D Process Relu_Relu_10_9 ...
+D Acuity output shape(relu): (1 24 24 20)
+D Tensor @Relu_Relu_10_9:out0 type: float32
+D Process MaxPool_MaxPool_11_8 ...
+D Acuity output shape(pooling): (1 12 12 20)
+D Tensor @MaxPool_MaxPool_11_8:out0 type: float32
+D Process Conv_Conv_12_7 ...
+D Acuity output shape(convolution): (1 8 8 50)
+D Tensor @Conv_Conv_12_7:out0 type: float32
+D Process Relu_Relu_13_6 ...
+D Acuity output shape(relu): (1 8 8 50)
+D Tensor @Relu_Relu_13_6:out0 type: float32
+D Process MaxPool_MaxPool_14_5 ...
+D Acuity output shape(pooling): (1 4 4 50)
+D Tensor @MaxPool_MaxPool_14_5:out0 type: float32
+D Process Reshape_Reshape_17_4_acuity_mark_perm_16 ...
+D Acuity output shape(permute): (1 50 4 4)
+D Tensor @Reshape_Reshape_17_4_acuity_mark_perm_16:out0 type: float32
+D Process Reshape_Reshape_17_4 ...
+D Acuity output shape(reshape): (1 800)
+D Tensor @Reshape_Reshape_17_4:out0 type: float32
+D Process Gemm_Gemm_18_3 ...
+D Acuity output shape(fullconnect): (1 500)
+D Tensor @Gemm_Gemm_18_3:out0 type: float32
+D Process Relu_Relu_19_2 ...
+D Acuity output shape(relu): (1 500)
+D Tensor @Relu_Relu_19_2:out0 type: float32
+D Process Gemm_Gemm_20_1 ...
+D Acuity output shape(fullconnect): (1 10)
+D Tensor @Gemm_Gemm_20_1:out0 type: float32
+D Process attach_Gemm_Gemm_20/out0_0 ...
+D Acuity output shape(output): (1 10)
+D Tensor @attach_Gemm_Gemm_20/out0_0:out0 type: float32
+I Build torch-jit-export complete.
+D Optimizing network with force_1d_tensor, swapper, merge_duplicate_quantize_dequantize, merge_layer, auto_fill_bn, auto_fill_l2normalizescale, auto_fill_instancenormalize, resize_nearest_transformer, auto_fill_multiply, compute_gather_negative, auto_fill_zero_bias, proposal_opt_import, special_add_to_conv2d, extend_gather_to_gather_reshape
+I End importing onnx...
+I Dump net to lenet.json
+I Save net to lenet.data
+I ----------------Error(0),Warning(0)----------------
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ bash 1_quantize_model.sh
+2022-05-08 20:52:47.177885: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-05-08 20:52:47.177908: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Namespace(action='test', batch_size=100, caffe_mean_file=None, capture_format='nchw', capture_quantized=False, channel_mean_value='127.5 127.5 127.5 255', config=None, data_output=None, debug=False, device=None, divergence_first_quantize_bits=11, dtype='float32', epochs=1, epochs_per_decay=100, force_gray=False, fpfs_delta0=1, fpfs_epochs=0, fpfs_reduce_target=0, input_fitting='scale', input_normalization=None, lr=0.1, mean_file=None, model_data='lenet.data', model_data_format='zone', model_input='lenet.json', model_quantize=None, optimizer='momentum', output_dir=None, output_num=5, pb_name=None, pfps_delta0=1, pfps_epochs=0, pfps_reduce_target=0, prune_epochs=10, prune_loss=1, quantized_algorithm='normal', quantized_divergence_nbins=0, quantized_dtype='asymmetric_affine-u8', quantized_hybrid=False, quantized_moving_alpha=0.0, quantized_rebuild=False, quantized_rebuild_all=False, random_brightness=None, random_contrast=None, random_crop=False, random_flip=False, random_mirror=False, reorder_channel='2 1 0', restart=False, samples=-1, source='text', source_file='./data/dataset0.txt', task='classification', validation_output='validation.csv', without_update_masked_grad=False)
+2022-05-08 20:52:48.452702: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-05-08 20:52:48.476847: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792860000 Hz
+2022-05-08 20:52:48.477298: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x60fe5e0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-05-08 20:52:48.477320: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-05-08 20:52:48.479044: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-05-08 20:52:48.479059: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-05-08 20:52:48.479073: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (teco): /proc/driver/nvidia/version does not exist
+I Open validation summary file validation.csv
+I Load model in lenet.json
+I Load data in lenet.data
+W:tensorflow:From acuitylib/app/tensorzone/workspace.py:26: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, there are two
+    options available in V2.
+    - tf.py_function takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+    - tf.numpy_function maintains the semantics of the deprecated tf.py_func
+    (it is not differentiable, and manipulates numpy arrays). It drops the
+    stateful argument making all functions stateful.
+
+I Fitting image with scale.
+I Reorder channels.
+I Channel mean value [127.5, 127.5, 127.5, 255.0]
+I Init validate tensor provider.
+I Enqueue samples 1
+I Init provider with 1 samples.
+D Process input_15 ...
+D Acuity output shape(input): (1 3 28 28 1)
+D Tensor @input_15:out0 type: float32
+D Real output shape: (1, 3, 28, 28)
+D Process Reshape_Reshape_2_13 ...
+D Acuity output shape(reshape): (1 3 28 28)
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+D Real output shape: (1, 3, 28, 28)
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+D Acuity output shape(variable): (1)
+D Real output shape: (1,)
+D Process Gather_Gather_5_12 ...
+D Acuity output shape(gather): (1 1 28 28)
+D Tensor @Gather_Gather_5_12:out0 type: float32
+D Real output shape: (1, 1, 28, 28)
+D Process Gather_Gather_5_12_acuity_opt_gather_reshape_18 ...
+D Acuity output shape(reshape): (1 28 28)
+D Tensor @Gather_Gather_5_12_acuity_opt_gather_reshape_18:out0 type: float32
+D Real output shape: (1, 28, 28)
+D Process Reshape_Reshape_8_11 ...
+D Acuity output shape(reshape): (1 1 28 28)
+D Tensor @Reshape_Reshape_8_11:out0 type: float32
+D Real output shape: (1, 1, 28, 28)
+D Process Conv_Conv_9_10_acuity_mark_perm_17 ...
+D Acuity output shape(permute): (1 28 28 1)
+D Tensor @Conv_Conv_9_10_acuity_mark_perm_17:out0 type: float32
+D Real output shape: (1, 28, 28, 1)
+D Process Conv_Conv_9_10 ...
+D Acuity output shape(convolution): (1 24 24 20)
+D Tensor @Conv_Conv_9_10:out0 type: float32
+D Real output shape: (1, 24, 24, 20)
+D Process Relu_Relu_10_9 ...
+D Acuity output shape(relu): (1 24 24 20)
+D Tensor @Relu_Relu_10_9:out0 type: float32
+D Real output shape: (1, 24, 24, 20)
+D Process MaxPool_MaxPool_11_8 ...
+D Acuity output shape(pooling): (1 12 12 20)
+D Tensor @MaxPool_MaxPool_11_8:out0 type: float32
+D Real output shape: (1, 12, 12, 20)
+D Process Conv_Conv_12_7 ...
+D Acuity output shape(convolution): (1 8 8 50)
+D Tensor @Conv_Conv_12_7:out0 type: float32
+D Real output shape: (1, 8, 8, 50)
+D Process Relu_Relu_13_6 ...
+D Acuity output shape(relu): (1 8 8 50)
+D Tensor @Relu_Relu_13_6:out0 type: float32
+D Real output shape: (1, 8, 8, 50)
+D Process MaxPool_MaxPool_14_5 ...
+D Acuity output shape(pooling): (1 4 4 50)
+D Tensor @MaxPool_MaxPool_14_5:out0 type: float32
+D Real output shape: (1, 4, 4, 50)
+D Process Reshape_Reshape_17_4_acuity_mark_perm_16 ...
+D Acuity output shape(permute): (1 50 4 4)
+D Tensor @Reshape_Reshape_17_4_acuity_mark_perm_16:out0 type: float32
+D Real output shape: (1, 50, 4, 4)
+D Process Reshape_Reshape_17_4 ...
+D Acuity output shape(reshape): (1 800)
+D Tensor @Reshape_Reshape_17_4:out0 type: float32
+D Real output shape: (1, 800)
+D Process Gemm_Gemm_18_3 ...
+D Acuity output shape(fullconnect): (1 500)
+D Tensor @Gemm_Gemm_18_3:out0 type: float32
+D Real output shape: (1, 500)
+D Process Relu_Relu_19_2 ...
+D Acuity output shape(relu): (1 500)
+D Tensor @Relu_Relu_19_2:out0 type: float32
+D Real output shape: (1, 500)
+D Process Gemm_Gemm_20_1 ...
+D Acuity output shape(fullconnect): (1 10)
+D Tensor @Gemm_Gemm_20_1:out0 type: float32
+D Real output shape: (1, 10)
+D Process attach_Gemm_Gemm_20/out0_0 ...
+D Acuity output shape(output): (1 10)
+D Tensor @attach_Gemm_Gemm_20/out0_0:out0 type: float32
+D Real output shape: (1, 10)
+I Build torch-jit-export complete.
+I Generated network graph with 1 outputs.
+I  @attach_Gemm_Gemm_20/out0_0:out0: (1, 10)
+I Start tensor porvider ...
+I [TRAINER]Running 1 Testing Steps
+[TRAINER]Running 1 Testing Steps
+I [TRAINER]Validation Top1 Accuracy: 0.0%
+[TRAINER]Validation Top1 Accuracy: 0.0%
+I [TRAINER]Validation Top5 Accuracy: 0.0%
+[TRAINER]Validation Top5 Accuracy: 0.0%
+I Clean.
+I ----------------Error(0),Warning(0)----------------
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ bash 2_export_case_code.sh
+2022-05-08 20:52:53.958304: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-05-08 20:52:53.958327: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Load model in lenet.json
+I Load data in lenet.data
+2022-05-08 20:52:55.309628: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-05-08 20:52:55.332862: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792860000 Hz
+2022-05-08 20:52:55.333298: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4da5bd0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-05-08 20:52:55.333319: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-05-08 20:52:55.335029: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-05-08 20:52:55.335044: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-05-08 20:52:55.335058: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (teco): /proc/driver/nvidia/version does not exist
+D Process input_15 ...
+D Acuity output shape(input): (1 3 28 28 1)
+D Tensor @input_15:out0 type: float32
+D Process Reshape_Reshape_2_13 ...
+D Acuity output shape(reshape): (1 3 28 28)
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+D Acuity output shape(variable): (1)
+D Process Gather_Gather_5_12 ...
+D Acuity output shape(gather): (1 1 28 28)
+D Tensor @Gather_Gather_5_12:out0 type: float32
+D Process Gather_Gather_5_12_acuity_opt_gather_reshape_18 ...
+D Acuity output shape(reshape): (1 28 28)
+D Tensor @Gather_Gather_5_12_acuity_opt_gather_reshape_18:out0 type: float32
+D Process Reshape_Reshape_8_11 ...
+D Acuity output shape(reshape): (1 1 28 28)
+D Tensor @Reshape_Reshape_8_11:out0 type: float32
+D Process Conv_Conv_9_10_acuity_mark_perm_17 ...
+D Acuity output shape(permute): (1 28 28 1)
+D Tensor @Conv_Conv_9_10_acuity_mark_perm_17:out0 type: float32
+D Process Conv_Conv_9_10 ...
+D Acuity output shape(convolution): (1 24 24 20)
+D Tensor @Conv_Conv_9_10:out0 type: float32
+D Process Relu_Relu_10_9 ...
+D Acuity output shape(relu): (1 24 24 20)
+D Tensor @Relu_Relu_10_9:out0 type: float32
+D Process MaxPool_MaxPool_11_8 ...
+D Acuity output shape(pooling): (1 12 12 20)
+D Tensor @MaxPool_MaxPool_11_8:out0 type: float32
+D Process Conv_Conv_12_7 ...
+D Acuity output shape(convolution): (1 8 8 50)
+D Tensor @Conv_Conv_12_7:out0 type: float32
+D Process Relu_Relu_13_6 ...
+D Acuity output shape(relu): (1 8 8 50)
+D Tensor @Relu_Relu_13_6:out0 type: float32
+D Process MaxPool_MaxPool_14_5 ...
+D Acuity output shape(pooling): (1 4 4 50)
+D Tensor @MaxPool_MaxPool_14_5:out0 type: float32
+D Process Reshape_Reshape_17_4_acuity_mark_perm_16 ...
+D Acuity output shape(permute): (1 50 4 4)
+D Tensor @Reshape_Reshape_17_4_acuity_mark_perm_16:out0 type: float32
+D Process Reshape_Reshape_17_4 ...
+D Acuity output shape(reshape): (1 800)
+D Tensor @Reshape_Reshape_17_4:out0 type: float32
+D Process Gemm_Gemm_18_3 ...
+D Acuity output shape(fullconnect): (1 500)
+D Tensor @Gemm_Gemm_18_3:out0 type: float32
+D Process Relu_Relu_19_2 ...
+D Acuity output shape(relu): (1 500)
+D Tensor @Relu_Relu_19_2:out0 type: float32
+D Process Gemm_Gemm_20_1 ...
+D Acuity output shape(fullconnect): (1 10)
+D Tensor @Gemm_Gemm_20_1:out0 type: float32
+D Process attach_Gemm_Gemm_20/out0_0 ...
+D Acuity output shape(output): (1 10)
+D Tensor @attach_Gemm_Gemm_20/out0_0:out0 type: float32
+I Build torch-jit-export complete.
+I Initialzing network optimizer by /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/../bin/VIPNANOQI_PID0X88 ...
+D Optimizing network with merge_ximum, qnt_adjust_coef, multiply_transform, add_extra_io, format_input_ops, auto_fill_zero_bias, conv_kernel_transform, strip_op, extend_unstack_split, merge_layer, transform_layer, broadcast_op, strip_op, auto_fill_reshape_zero, adjust_output_attrs, insert_dtype_converter
+D Strip layer Gather_Gather_5_12_acuity_opt_gather_reshape_18(reshape)
+D Strip layer Reshape_Reshape_8_11(reshape)
+D Insert dtype_converter Constant_Cast_4_onnx__Gather_27_as_const_14_dtype_convert_Gather_Gather_5_12 between Constant_Cast_4_onnx__Gather_27_as_const_14 and Gather_Gather_5_12
+I Start T2C Switcher...
+D Optimizing network with broadcast_op, t2c_fc
+D insert permute Reshape_Reshape_17_4_acuity_mark_perm_16_acuity_mark_perm_19 before Reshape_Reshape_17_4_acuity_mark_perm_16
+D insert permute Conv_Conv_9_10_acuity_mark_perm_20 before Conv_Conv_9_10
+D remove permute Conv_Conv_9_10_acuity_mark_perm_17
+D remove permute Conv_Conv_9_10_acuity_mark_perm_20
+D remove permute Reshape_Reshape_17_4_acuity_mark_perm_16_acuity_mark_perm_19
+D remove permute Reshape_Reshape_17_4_acuity_mark_perm_16
+I End T2C Switcher...
+D Process input_15 ...
+D Acuity output shape(input): (1 3 28 28 1)
+D Tensor @input_15:out0 type: float32
+D Process Reshape_Reshape_2_13 ...
+D Acuity output shape(reshape): (1 3 28 28)
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+D Acuity output shape(variable): (1)
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14_dtype_convert_Gather_Gather_5_12 ...
+D Acuity output shape(dtype_converter): (1)
+D Tensor @Constant_Cast_4_onnx__Gather_27_as_const_14_dtype_convert_Gather_Gather_5_12:out0 type: int64
+D Process Gather_Gather_5_12 ...
+D Acuity output shape(gather): (1 1 28 28)
+D Tensor @Gather_Gather_5_12:out0 type: float32
+D Process Conv_Conv_9_10 ...
+D Acuity output shape(convolution): (1 20 24 24)
+D Tensor @Conv_Conv_9_10:out0 type: float32
+D Process Relu_Relu_10_9 ...
+D Acuity output shape(relu): (1 20 24 24)
+D Tensor @Relu_Relu_10_9:out0 type: float32
+D Process MaxPool_MaxPool_11_8 ...
+D Acuity output shape(pooling): (1 20 12 12)
+D Tensor @MaxPool_MaxPool_11_8:out0 type: float32
+D Process Conv_Conv_12_7 ...
+D Acuity output shape(convolution): (1 50 8 8)
+D Tensor @Conv_Conv_12_7:out0 type: float32
+D Process Relu_Relu_13_6 ...
+D Acuity output shape(relu): (1 50 8 8)
+D Tensor @Relu_Relu_13_6:out0 type: float32
+D Process MaxPool_MaxPool_14_5 ...
+D Acuity output shape(pooling): (1 50 4 4)
+D Tensor @MaxPool_MaxPool_14_5:out0 type: float32
+D Process Reshape_Reshape_17_4 ...
+D Acuity output shape(reshape): (1 800)
+D Tensor @Reshape_Reshape_17_4:out0 type: float32
+D Process Gemm_Gemm_18_3 ...
+D Acuity output shape(fullconnect): (1 500)
+D Tensor @Gemm_Gemm_18_3:out0 type: float32
+D Process Relu_Relu_19_2 ...
+D Acuity output shape(relu): (1 500)
+D Tensor @Relu_Relu_19_2:out0 type: float32
+D Process Gemm_Gemm_20_1 ...
+D Acuity output shape(fullconnect): (1 10)
+D Tensor @Gemm_Gemm_20_1:out0 type: float32
+D Process attach_Gemm_Gemm_20/out0_0 ...
+D Acuity output shape(output): (1 10)
+D Tensor @attach_Gemm_Gemm_20/out0_0:out0 type: float32
+I Build torch-jit-export complete.
+D Optimizing network with conv_1xn_transform, proposal_opt, c2drv_convert_axis, c2drv_convert_shape, c2drv_convert_array, c2drv_cast_dtype, c2drv_trans_data
+I Building data ...
+I Convert tensor @Constant_Cast_4_onnx__Gather_27_as_const_14:out0 type from int64 to int32
+I Packing data ...
+D Packing Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+D Packing Conv_Conv_12_7 ...
+D Packing Conv_Conv_9_10 ...
+D Packing Gemm_Gemm_18_3 ...
+D Packing Gemm_Gemm_20_1 ...
+I Saving data to lenet.export.data
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/vnn_lenet.c
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/vnn_lenet.h
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/vnn_post_process.c
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/vnn_post_process.h
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/vnn_pre_process.c
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/vnn_pre_process.h
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/vnn_global.h
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/main.c
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/BUILD
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/lenet.vcxproj
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/makefile.linux
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/.cproject
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/.project
+D Generate fake input /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/input_15_0.tensor
+mv: '/home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/network_binary.nb' and '/home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/network_binary.nb' are the same file
+mv: '/home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/input_0.dat' and '/home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/input_0.dat' are the same file
+mv: '/home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/output0_10_1.dat' and '/home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo/output0_10_1.dat' are the same file
+I Dump nbg input meta to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/nbg_meta.json
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/vnn_lenet.c
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/vnn_lenet.h
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/vnn_post_process.c
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/vnn_post_process.h
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/vnn_pre_process.c
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/vnn_pre_process.h
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/vnn_global.h
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/main.c
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/BUILD
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/lenet.vcxproj
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/makefile.linux
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/.cproject
+I Save vx network source file to /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo_nbg_unify/.project
+/home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo_nbg_unify
+customer:input,0,1:output,0,0:
+*********************************
+/home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo
+/
+/home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo_nbg_unify
+I ----------------Error(0),Warning(0)----------------
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ ls
+0_import_model.sh    2_export_case_code.sh  extractoutput.py  inference.sh  lenet.json              model            validation.csv
+1_quantize_model.sh  data                   graph.json        lenet.data    lenet_normal_case_demo  nbg_unify_lenet
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ ls lenet_normal_case_demo/
+BUILD              lenet.vcxproj  makefile.linux  vnn_lenet.c  vnn_post_process.c  vnn_pre_process.c
+lenet.export.data  main.c         vnn_global.h    vnn_lenet.h  vnn_post_process.h  vnn_pre_process.h
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ ls nbg_unify_lenet/
+BUILD     lenet.vcxproj  makefile.linux  vnn_global.h  vnn_lenet.h         vnn_post_process.h  vnn_pre_process.h
+lenet.nb  main.c         nbg_meta.json   vnn_lenet.c   vnn_post_process.c  vnn_pre_process.c
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$

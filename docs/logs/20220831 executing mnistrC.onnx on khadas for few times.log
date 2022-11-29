@@ -1,0 +1,14 @@
+Create Neural Network: 3041ms or 3041976us
+Verify...
+Verify Graph: 7ms or 7724us
+Start run graph [1] times...
+Run the 1 time: 27.00ms or 27365.00us
+vxProcessGraph execution time:
+Total   27.00ms or 27405.00us
+Average 27.41ms or 27405.00us
+ --- Top5 ---
+  1: -2.213729
+  7: -2.251250
+  3: -2.279391
+  8: -2.298151
+  9: -2.298151

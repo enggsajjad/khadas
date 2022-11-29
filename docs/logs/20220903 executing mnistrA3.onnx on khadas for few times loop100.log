@@ -1,0 +1,577 @@
+khadas@Khadas:~/hussain/nbg_unify_mnistrA2$ cd ../nbg_unify_mnistrA3/
+khadas@Khadas:~/hussain/nbg_unify_mnistrA3$ cp main.c main_loop1_c
+khadas@Khadas:~/hussain/nbg_unify_mnistrA3$ vim main.c
+khadas@Khadas:~/hussain/nbg_unify_mnistrA3$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/nbg_unify_mnistrA3/main.c
+make: Nothing to be done for 'all'.
+khadas@Khadas:~/hussain/nbg_unify_mnistrA3$ ./bin_r_cv4/mnist mnist.nb bmp/2.bmp.jpg
+Create Neural Network: 2103ms or 2103138us
+Verify...
+Verify Graph: 1ms or 1055us
+Start run graph [100] times...
+Run the 1 time: 8.00ms or 8906.00us
+Run the 2 time: 8.00ms or 8444.00us
+Run the 3 time: 8.00ms or 8443.00us
+Run the 4 time: 8.00ms or 8446.00us
+Run the 5 time: 8.00ms or 8442.00us
+Run the 6 time: 8.00ms or 8432.00us
+Run the 7 time: 8.00ms or 8434.00us
+Run the 8 time: 8.00ms or 8419.00us
+Run the 9 time: 8.00ms or 8478.00us
+Run the 10 time: 8.00ms or 8484.00us
+Run the 11 time: 8.00ms or 8468.00us
+Run the 12 time: 8.00ms or 8462.00us
+Run the 13 time: 8.00ms or 8465.00us
+Run the 14 time: 8.00ms or 8458.00us
+Run the 15 time: 8.00ms or 8463.00us
+Run the 16 time: 8.00ms or 8490.00us
+Run the 17 time: 8.00ms or 8470.00us
+Run the 18 time: 8.00ms or 8463.00us
+Run the 19 time: 8.00ms or 8456.00us
+Run the 20 time: 8.00ms or 8452.00us
+Run the 21 time: 8.00ms or 8462.00us
+Run the 22 time: 8.00ms or 8454.00us
+Run the 23 time: 8.00ms or 8460.00us
+Run the 24 time: 8.00ms or 8470.00us
+Run the 25 time: 8.00ms or 8451.00us
+Run the 26 time: 8.00ms or 8466.00us
+Run the 27 time: 8.00ms or 8471.00us
+Run the 28 time: 8.00ms or 8452.00us
+Run the 29 time: 8.00ms or 8463.00us
+Run the 30 time: 8.00ms or 8461.00us
+Run the 31 time: 8.00ms or 8459.00us
+Run the 32 time: 8.00ms or 8463.00us
+Run the 33 time: 8.00ms or 8463.00us
+Run the 34 time: 8.00ms or 8456.00us
+Run the 35 time: 8.00ms or 8508.00us
+Run the 36 time: 8.00ms or 8557.00us
+Run the 37 time: 8.00ms or 8498.00us
+Run the 38 time: 8.00ms or 8468.00us
+Run the 39 time: 8.00ms or 8460.00us
+Run the 40 time: 8.00ms or 8454.00us
+Run the 41 time: 8.00ms or 8488.00us
+Run the 42 time: 8.00ms or 8461.00us
+Run the 43 time: 8.00ms or 8450.00us
+Run the 44 time: 8.00ms or 8451.00us
+Run the 45 time: 8.00ms or 8465.00us
+Run the 46 time: 14.00ms or 14226.00us
+Run the 47 time: 8.00ms or 8468.00us
+Run the 48 time: 8.00ms or 8472.00us
+Run the 49 time: 8.00ms or 8455.00us
+Run the 50 time: 8.00ms or 8472.00us
+Run the 51 time: 8.00ms or 8461.00us
+Run the 52 time: 8.00ms or 8454.00us
+Run the 53 time: 8.00ms or 8466.00us
+Run the 54 time: 8.00ms or 8592.00us
+Run the 55 time: 8.00ms or 8456.00us
+Run the 56 time: 8.00ms or 8464.00us
+Run the 57 time: 8.00ms or 8460.00us
+Run the 58 time: 8.00ms or 8466.00us
+Run the 59 time: 8.00ms or 8460.00us
+Run the 60 time: 8.00ms or 8448.00us
+Run the 61 time: 8.00ms or 8457.00us
+Run the 62 time: 8.00ms or 8447.00us
+Run the 63 time: 8.00ms or 8455.00us
+Run the 64 time: 8.00ms or 8446.00us
+Run the 65 time: 8.00ms or 8466.00us
+Run the 66 time: 8.00ms or 8466.00us
+Run the 67 time: 8.00ms or 8450.00us
+Run the 68 time: 8.00ms or 8459.00us
+Run the 69 time: 8.00ms or 8494.00us
+Run the 70 time: 8.00ms or 8452.00us
+Run the 71 time: 8.00ms or 8462.00us
+Run the 72 time: 8.00ms or 8448.00us
+Run the 73 time: 8.00ms or 8448.00us
+Run the 74 time: 8.00ms or 8471.00us
+Run the 75 time: 8.00ms or 8454.00us
+Run the 76 time: 8.00ms or 8464.00us
+Run the 77 time: 8.00ms or 8442.00us
+Run the 78 time: 8.00ms or 8458.00us
+Run the 79 time: 8.00ms or 8457.00us
+Run the 80 time: 8.00ms or 8440.00us
+Run the 81 time: 8.00ms or 8452.00us
+Run the 82 time: 8.00ms or 8467.00us
+Run the 83 time: 8.00ms or 8436.00us
+Run the 84 time: 8.00ms or 8449.00us
+Run the 85 time: 8.00ms or 8454.00us
+Run the 86 time: 8.00ms or 8483.00us
+Run the 87 time: 8.00ms or 8455.00us
+Run the 88 time: 8.00ms or 8452.00us
+Run the 89 time: 8.00ms or 8456.00us
+Run the 90 time: 8.00ms or 8583.00us
+Run the 91 time: 8.00ms or 8466.00us
+Run the 92 time: 8.00ms or 8453.00us
+Run the 93 time: 8.00ms or 8531.00us
+Run the 94 time: 8.00ms or 8471.00us
+Run the 95 time: 8.00ms or 8456.00us
+Run the 96 time: 8.00ms or 8452.00us
+Run the 97 time: 8.00ms or 8455.00us
+Run the 98 time: 8.00ms or 8459.00us
+Run the 99 time: 8.00ms or 8469.00us
+Run the 100 time: 8.00ms or 8458.00us
+vxProcessGraph execution time:
+Total   883.00ms or 883097.00us
+Average 8.83ms or 8830.97us
+ --- Top5 ---
+  2: -1.166626
+  3: -1.166626
+  8: -1.166626
+  0: -3.393820
+  7: -3.393820
+khadas@Khadas:~/hussain/nbg_unify_mnistrA3$ ./bin_r_cv4/mnist mnist.nb bmp/2.bmp.jpg
+Create Neural Network: 60ms or 60522us
+Verify...
+Verify Graph: 0ms or 964us
+Start run graph [100] times...
+Run the 1 time: 8.00ms or 8885.00us
+Run the 2 time: 8.00ms or 8450.00us
+Run the 3 time: 8.00ms or 8444.00us
+Run the 4 time: 8.00ms or 8433.00us
+Run the 5 time: 8.00ms or 8426.00us
+Run the 6 time: 8.00ms or 8433.00us
+Run the 7 time: 8.00ms or 8438.00us
+Run the 8 time: 8.00ms or 8441.00us
+Run the 9 time: 8.00ms or 8461.00us
+Run the 10 time: 8.00ms or 8453.00us
+Run the 11 time: 8.00ms or 8444.00us
+Run the 12 time: 8.00ms or 8449.00us
+Run the 13 time: 8.00ms or 8450.00us
+Run the 14 time: 8.00ms or 8451.00us
+Run the 15 time: 8.00ms or 8434.00us
+Run the 16 time: 8.00ms or 8441.00us
+Run the 17 time: 8.00ms or 8440.00us
+Run the 18 time: 8.00ms or 8465.00us
+Run the 19 time: 8.00ms or 8652.00us
+Run the 20 time: 8.00ms or 8490.00us
+Run the 21 time: 8.00ms or 8500.00us
+Run the 22 time: 8.00ms or 8511.00us
+Run the 23 time: 8.00ms or 8527.00us
+Run the 24 time: 8.00ms or 8461.00us
+Run the 25 time: 8.00ms or 8442.00us
+Run the 26 time: 8.00ms or 8448.00us
+Run the 27 time: 8.00ms or 8437.00us
+Run the 28 time: 8.00ms or 8441.00us
+Run the 29 time: 8.00ms or 8443.00us
+Run the 30 time: 8.00ms or 8441.00us
+Run the 31 time: 8.00ms or 8478.00us
+Run the 32 time: 8.00ms or 8473.00us
+Run the 33 time: 8.00ms or 8478.00us
+Run the 34 time: 8.00ms or 8461.00us
+Run the 35 time: 8.00ms or 8478.00us
+Run the 36 time: 14.00ms or 14935.00us
+Run the 37 time: 8.00ms or 8591.00us
+Run the 38 time: 8.00ms or 8688.00us
+Run the 39 time: 8.00ms or 8540.00us
+Run the 40 time: 8.00ms or 8474.00us
+Run the 41 time: 8.00ms or 8495.00us
+Run the 42 time: 8.00ms or 8498.00us
+Run the 43 time: 8.00ms or 8465.00us
+Run the 44 time: 8.00ms or 8489.00us
+Run the 45 time: 8.00ms or 8489.00us
+Run the 46 time: 8.00ms or 8853.00us
+Run the 47 time: 8.00ms or 8495.00us
+Run the 48 time: 8.00ms or 8496.00us
+Run the 49 time: 8.00ms or 8482.00us
+Run the 50 time: 8.00ms or 8502.00us
+Run the 51 time: 8.00ms or 8514.00us
+Run the 52 time: 8.00ms or 8496.00us
+Run the 53 time: 8.00ms or 8491.00us
+Run the 54 time: 8.00ms or 8478.00us
+Run the 55 time: 8.00ms or 8499.00us
+Run the 56 time: 8.00ms or 8486.00us
+Run the 57 time: 8.00ms or 8463.00us
+Run the 58 time: 8.00ms or 8477.00us
+Run the 59 time: 8.00ms or 8483.00us
+Run the 60 time: 8.00ms or 8467.00us
+Run the 61 time: 8.00ms or 8472.00us
+Run the 62 time: 8.00ms or 8524.00us
+Run the 63 time: 8.00ms or 8485.00us
+Run the 64 time: 8.00ms or 8467.00us
+Run the 65 time: 8.00ms or 8480.00us
+Run the 66 time: 8.00ms or 8549.00us
+Run the 67 time: 8.00ms or 8469.00us
+Run the 68 time: 8.00ms or 8465.00us
+Run the 69 time: 8.00ms or 8466.00us
+Run the 70 time: 8.00ms or 8459.00us
+Run the 71 time: 8.00ms or 8457.00us
+Run the 72 time: 8.00ms or 8458.00us
+Run the 73 time: 8.00ms or 8480.00us
+Run the 74 time: 8.00ms or 8471.00us
+Run the 75 time: 8.00ms or 8459.00us
+Run the 76 time: 8.00ms or 8480.00us
+Run the 77 time: 8.00ms or 8468.00us
+Run the 78 time: 8.00ms or 8468.00us
+Run the 79 time: 8.00ms or 8476.00us
+Run the 80 time: 8.00ms or 8465.00us
+Run the 81 time: 8.00ms or 8471.00us
+Run the 82 time: 8.00ms or 8464.00us
+Run the 83 time: 8.00ms or 8458.00us
+Run the 84 time: 8.00ms or 8464.00us
+Run the 85 time: 8.00ms or 8455.00us
+Run the 86 time: 8.00ms or 8460.00us
+Run the 87 time: 8.00ms or 8597.00us
+Run the 88 time: 8.00ms or 8476.00us
+Run the 89 time: 8.00ms or 8468.00us
+Run the 90 time: 8.00ms or 8462.00us
+Run the 91 time: 8.00ms or 8463.00us
+Run the 92 time: 8.00ms or 8459.00us
+Run the 93 time: 8.00ms or 8559.00us
+Run the 94 time: 8.00ms or 8485.00us
+Run the 95 time: 8.00ms or 8474.00us
+Run the 96 time: 8.00ms or 8485.00us
+Run the 97 time: 8.00ms or 8468.00us
+Run the 98 time: 8.00ms or 8467.00us
+Run the 99 time: 8.00ms or 8472.00us
+Run the 100 time: 8.00ms or 8448.00us
+vxProcessGraph execution time:
+Total   864.00ms or 864828.00us
+Average 8.65ms or 8648.28us
+ --- Top5 ---
+  2: -1.166626
+  3: -1.166626
+  8: -1.166626
+  0: -3.393820
+  7: -3.393820
+khadas@Khadas:~/hussain/nbg_unify_mnistrA3$ ./bin_r_cv4/mnist mnist.nb bmp/2.bmp.jpg
+Create Neural Network: 57ms or 57480us
+Verify...
+Verify Graph: 0ms or 978us
+Start run graph [100] times...
+Run the 1 time: 8.00ms or 8885.00us
+Run the 2 time: 8.00ms or 8436.00us
+Run the 3 time: 8.00ms or 8419.00us
+Run the 4 time: 8.00ms or 8424.00us
+Run the 5 time: 8.00ms or 8438.00us
+Run the 6 time: 8.00ms or 8446.00us
+Run the 7 time: 8.00ms or 8439.00us
+Run the 8 time: 8.00ms or 8430.00us
+Run the 9 time: 8.00ms or 8428.00us
+Run the 10 time: 8.00ms or 8449.00us
+Run the 11 time: 8.00ms or 8437.00us
+Run the 12 time: 8.00ms or 8436.00us
+Run the 13 time: 8.00ms or 8452.00us
+Run the 14 time: 8.00ms or 8430.00us
+Run the 15 time: 8.00ms or 8434.00us
+Run the 16 time: 8.00ms or 8428.00us
+Run the 17 time: 8.00ms or 8423.00us
+Run the 18 time: 8.00ms or 8431.00us
+Run the 19 time: 8.00ms or 8435.00us
+Run the 20 time: 8.00ms or 8432.00us
+Run the 21 time: 8.00ms or 8442.00us
+Run the 22 time: 8.00ms or 8449.00us
+Run the 23 time: 8.00ms or 8428.00us
+Run the 24 time: 8.00ms or 8420.00us
+Run the 25 time: 8.00ms or 8429.00us
+Run the 26 time: 8.00ms or 8427.00us
+Run the 27 time: 8.00ms or 8434.00us
+Run the 28 time: 8.00ms or 8437.00us
+Run the 29 time: 8.00ms or 8441.00us
+Run the 30 time: 8.00ms or 8439.00us
+Run the 31 time: 8.00ms or 8429.00us
+Run the 32 time: 8.00ms or 8426.00us
+Run the 33 time: 8.00ms or 8429.00us
+Run the 34 time: 8.00ms or 8433.00us
+Run the 35 time: 8.00ms or 8450.00us
+Run the 36 time: 8.00ms or 8444.00us
+Run the 37 time: 8.00ms or 8443.00us
+Run the 38 time: 8.00ms or 8437.00us
+Run the 39 time: 8.00ms or 8431.00us
+Run the 40 time: 8.00ms or 8439.00us
+Run the 41 time: 8.00ms or 8437.00us
+Run the 42 time: 8.00ms or 8452.00us
+Run the 43 time: 8.00ms or 8421.00us
+Run the 44 time: 8.00ms or 8427.00us
+Run the 45 time: 8.00ms or 8428.00us
+Run the 46 time: 8.00ms or 8433.00us
+Run the 47 time: 8.00ms or 8431.00us
+Run the 48 time: 8.00ms or 8434.00us
+Run the 49 time: 8.00ms or 8420.00us
+Run the 50 time: 8.00ms or 8427.00us
+Run the 51 time: 8.00ms or 8432.00us
+Run the 52 time: 8.00ms or 8442.00us
+Run the 53 time: 8.00ms or 8440.00us
+Run the 54 time: 8.00ms or 8422.00us
+Run the 55 time: 8.00ms or 8417.00us
+Run the 56 time: 8.00ms or 8423.00us
+Run the 57 time: 8.00ms or 8430.00us
+Run the 58 time: 8.00ms or 8432.00us
+Run the 59 time: 8.00ms or 8430.00us
+Run the 60 time: 8.00ms or 8434.00us
+Run the 61 time: 8.00ms or 8438.00us
+Run the 62 time: 8.00ms or 8432.00us
+Run the 63 time: 8.00ms or 8439.00us
+Run the 64 time: 8.00ms or 8430.00us
+Run the 65 time: 8.00ms or 8430.00us
+Run the 66 time: 8.00ms or 8433.00us
+Run the 67 time: 8.00ms or 8433.00us
+Run the 68 time: 8.00ms or 8445.00us
+Run the 69 time: 8.00ms or 8431.00us
+Run the 70 time: 8.00ms or 8434.00us
+Run the 71 time: 8.00ms or 8439.00us
+Run the 72 time: 8.00ms or 8439.00us
+Run the 73 time: 8.00ms or 8433.00us
+Run the 74 time: 8.00ms or 8429.00us
+Run the 75 time: 8.00ms or 8423.00us
+Run the 76 time: 8.00ms or 8437.00us
+Run the 77 time: 8.00ms or 8422.00us
+Run the 78 time: 8.00ms or 8428.00us
+Run the 79 time: 8.00ms or 8443.00us
+Run the 80 time: 8.00ms or 8454.00us
+Run the 81 time: 8.00ms or 8439.00us
+Run the 82 time: 8.00ms or 8439.00us
+Run the 83 time: 8.00ms or 8431.00us
+Run the 84 time: 8.00ms or 8415.00us
+Run the 85 time: 8.00ms or 8425.00us
+Run the 86 time: 8.00ms or 8426.00us
+Run the 87 time: 8.00ms or 8429.00us
+Run the 88 time: 8.00ms or 8436.00us
+Run the 89 time: 8.00ms or 8434.00us
+Run the 90 time: 8.00ms or 8429.00us
+Run the 91 time: 8.00ms or 8429.00us
+Run the 92 time: 8.00ms or 8467.00us
+Run the 93 time: 8.00ms or 8493.00us
+Run the 94 time: 8.00ms or 8482.00us
+Run the 95 time: 8.00ms or 8677.00us
+Run the 96 time: 8.00ms or 8930.00us
+Run the 97 time: 8.00ms or 8493.00us
+Run the 98 time: 8.00ms or 8479.00us
+Run the 99 time: 8.00ms or 8454.00us
+Run the 100 time: 8.00ms or 8455.00us
+vxProcessGraph execution time:
+Total   861.00ms or 861940.00us
+Average 8.62ms or 8619.40us
+ --- Top5 ---
+  2: -1.166626
+  3: -1.166626
+  8: -1.166626
+  0: -3.393820
+  7: -3.393820
+khadas@Khadas:~/hussain/nbg_unify_mnistrA3$ ./bin_r_cv4/mnist mnist.nb bmp/2.bmp.jpg
+Create Neural Network: 51ms or 51437us
+Verify...
+Verify Graph: 0ms or 968us
+Start run graph [100] times...
+Run the 1 time: 8.00ms or 8884.00us
+Run the 2 time: 8.00ms or 8457.00us
+Run the 3 time: 8.00ms or 8443.00us
+Run the 4 time: 8.00ms or 8431.00us
+Run the 5 time: 8.00ms or 8431.00us
+Run the 6 time: 8.00ms or 8432.00us
+Run the 7 time: 8.00ms or 8428.00us
+Run the 8 time: 8.00ms or 8467.00us
+Run the 9 time: 8.00ms or 8521.00us
+Run the 10 time: 8.00ms or 8456.00us
+Run the 11 time: 8.00ms or 8446.00us
+Run the 12 time: 8.00ms or 8440.00us
+Run the 13 time: 8.00ms or 8445.00us
+Run the 14 time: 8.00ms or 8439.00us
+Run the 15 time: 8.00ms or 8426.00us
+Run the 16 time: 8.00ms or 8436.00us
+Run the 17 time: 8.00ms or 8427.00us
+Run the 18 time: 8.00ms or 8438.00us
+Run the 19 time: 8.00ms or 8424.00us
+Run the 20 time: 8.00ms or 8435.00us
+Run the 21 time: 8.00ms or 8438.00us
+Run the 22 time: 8.00ms or 8424.00us
+Run the 23 time: 8.00ms or 8442.00us
+Run the 24 time: 8.00ms or 8440.00us
+Run the 25 time: 8.00ms or 8424.00us
+Run the 26 time: 8.00ms or 8436.00us
+Run the 27 time: 8.00ms or 8446.00us
+Run the 28 time: 8.00ms or 8429.00us
+Run the 29 time: 8.00ms or 8420.00us
+Run the 30 time: 8.00ms or 8455.00us
+Run the 31 time: 8.00ms or 8429.00us
+Run the 32 time: 8.00ms or 8431.00us
+Run the 33 time: 8.00ms or 8437.00us
+Run the 34 time: 8.00ms or 8429.00us
+Run the 35 time: 8.00ms or 8433.00us
+Run the 36 time: 8.00ms or 8432.00us
+Run the 37 time: 8.00ms or 8437.00us
+Run the 38 time: 8.00ms or 8436.00us
+Run the 39 time: 8.00ms or 8425.00us
+Run the 40 time: 8.00ms or 8424.00us
+Run the 41 time: 8.00ms or 8439.00us
+Run the 42 time: 8.00ms or 8442.00us
+Run the 43 time: 8.00ms or 8433.00us
+Run the 44 time: 8.00ms or 8423.00us
+Run the 45 time: 8.00ms or 8432.00us
+Run the 46 time: 8.00ms or 8427.00us
+Run the 47 time: 8.00ms or 8428.00us
+Run the 48 time: 8.00ms or 8439.00us
+Run the 49 time: 8.00ms or 8434.00us
+Run the 50 time: 8.00ms or 8441.00us
+Run the 51 time: 8.00ms or 8435.00us
+Run the 52 time: 8.00ms or 8439.00us
+Run the 53 time: 8.00ms or 8436.00us
+Run the 54 time: 8.00ms or 8425.00us
+Run the 55 time: 8.00ms or 8442.00us
+Run the 56 time: 8.00ms or 8435.00us
+Run the 57 time: 8.00ms or 8438.00us
+Run the 58 time: 8.00ms or 8430.00us
+Run the 59 time: 8.00ms or 8437.00us
+Run the 60 time: 8.00ms or 8476.00us
+Run the 61 time: 8.00ms or 8544.00us
+Run the 62 time: 8.00ms or 8468.00us
+Run the 63 time: 8.00ms or 8446.00us
+Run the 64 time: 8.00ms or 8460.00us
+Run the 65 time: 8.00ms or 8461.00us
+Run the 66 time: 8.00ms or 8458.00us
+Run the 67 time: 8.00ms or 8489.00us
+Run the 68 time: 8.00ms or 8463.00us
+Run the 69 time: 8.00ms or 8460.00us
+Run the 70 time: 8.00ms or 8441.00us
+Run the 71 time: 8.00ms or 8465.00us
+Run the 72 time: 8.00ms or 8461.00us
+Run the 73 time: 8.00ms or 8447.00us
+Run the 74 time: 8.00ms or 8456.00us
+Run the 75 time: 8.00ms or 8449.00us
+Run the 76 time: 8.00ms or 8472.00us
+Run the 77 time: 8.00ms or 8457.00us
+Run the 78 time: 8.00ms or 8465.00us
+Run the 79 time: 8.00ms or 8460.00us
+Run the 80 time: 8.00ms or 8464.00us
+Run the 81 time: 8.00ms or 8467.00us
+Run the 82 time: 8.00ms or 8461.00us
+Run the 83 time: 8.00ms or 8457.00us
+Run the 84 time: 8.00ms or 8463.00us
+Run the 85 time: 8.00ms or 8480.00us
+Run the 86 time: 8.00ms or 8459.00us
+Run the 87 time: 8.00ms or 8458.00us
+Run the 88 time: 8.00ms or 8475.00us
+Run the 89 time: 8.00ms or 8454.00us
+Run the 90 time: 8.00ms or 8458.00us
+Run the 91 time: 8.00ms or 8471.00us
+Run the 92 time: 8.00ms or 8468.00us
+Run the 93 time: 8.00ms or 8565.00us
+Run the 94 time: 8.00ms or 8467.00us
+Run the 95 time: 8.00ms or 8456.00us
+Run the 96 time: 8.00ms or 8466.00us
+Run the 97 time: 8.00ms or 8455.00us
+Run the 98 time: 8.00ms or 8500.00us
+Run the 99 time: 8.00ms or 8474.00us
+Run the 100 time: 8.00ms or 8464.00us
+vxProcessGraph execution time:
+Total   867.00ms or 867831.00us
+Average 8.68ms or 8678.31us
+ --- Top5 ---
+  2: -1.166626
+  3: -1.166626
+  8: -1.166626
+  0: -3.393820
+  7: -3.393820
+khadas@Khadas:~/hussain/nbg_unify_mnistrA3$ ./bin_r_cv4/mnist mnist.nb bmp/2.bmp.jpg
+Create Neural Network: 53ms or 53501us
+Verify...
+Verify Graph: 0ms or 951us
+Start run graph [100] times...
+Run the 1 time: 8.00ms or 8892.00us
+Run the 2 time: 8.00ms or 8469.00us
+Run the 3 time: 8.00ms or 8430.00us
+Run the 4 time: 8.00ms or 8444.00us
+Run the 5 time: 8.00ms or 8441.00us
+Run the 6 time: 8.00ms or 8450.00us
+Run the 7 time: 8.00ms or 8457.00us
+Run the 8 time: 8.00ms or 8451.00us
+Run the 9 time: 8.00ms or 8453.00us
+Run the 10 time: 8.00ms or 8451.00us
+Run the 11 time: 8.00ms or 8455.00us
+Run the 12 time: 8.00ms or 8452.00us
+Run the 13 time: 8.00ms or 8450.00us
+Run the 14 time: 8.00ms or 8461.00us
+Run the 15 time: 8.00ms or 8448.00us
+Run the 16 time: 8.00ms or 8457.00us
+Run the 17 time: 8.00ms or 8439.00us
+Run the 18 time: 8.00ms or 8448.00us
+Run the 19 time: 8.00ms or 8453.00us
+Run the 20 time: 8.00ms or 8443.00us
+Run the 21 time: 8.00ms or 8458.00us
+Run the 22 time: 8.00ms or 8461.00us
+Run the 23 time: 8.00ms or 8462.00us
+Run the 24 time: 8.00ms or 8443.00us
+Run the 25 time: 8.00ms or 8441.00us
+Run the 26 time: 8.00ms or 8444.00us
+Run the 27 time: 8.00ms or 8442.00us
+Run the 28 time: 8.00ms or 8448.00us
+Run the 29 time: 8.00ms or 8442.00us
+Run the 30 time: 8.00ms or 8440.00us
+Run the 31 time: 8.00ms or 8441.00us
+Run the 32 time: 8.00ms or 8437.00us
+Run the 33 time: 8.00ms or 8444.00us
+Run the 34 time: 8.00ms or 8443.00us
+Run the 35 time: 8.00ms or 8448.00us
+Run the 36 time: 8.00ms or 8448.00us
+Run the 37 time: 8.00ms or 8433.00us
+Run the 38 time: 8.00ms or 8444.00us
+Run the 39 time: 8.00ms or 8460.00us
+Run the 40 time: 8.00ms or 8521.00us
+Run the 41 time: 8.00ms or 8454.00us
+Run the 42 time: 8.00ms or 8476.00us
+Run the 43 time: 8.00ms or 8453.00us
+Run the 44 time: 8.00ms or 8437.00us
+Run the 45 time: 8.00ms or 8451.00us
+Run the 46 time: 8.00ms or 8445.00us
+Run the 47 time: 8.00ms or 8446.00us
+Run the 48 time: 8.00ms or 8441.00us
+Run the 49 time: 8.00ms or 8437.00us
+Run the 50 time: 8.00ms or 8450.00us
+Run the 51 time: 8.00ms or 8437.00us
+Run the 52 time: 8.00ms or 8441.00us
+Run the 53 time: 8.00ms or 8446.00us
+Run the 54 time: 8.00ms or 8438.00us
+Run the 55 time: 8.00ms or 8435.00us
+Run the 56 time: 8.00ms or 8444.00us
+Run the 57 time: 8.00ms or 8443.00us
+Run the 58 time: 8.00ms or 8443.00us
+Run the 59 time: 8.00ms or 8436.00us
+Run the 60 time: 8.00ms or 8442.00us
+Run the 61 time: 8.00ms or 8446.00us
+Run the 62 time: 8.00ms or 8450.00us
+Run the 63 time: 8.00ms or 8453.00us
+Run the 64 time: 8.00ms or 8438.00us
+Run the 65 time: 8.00ms or 8454.00us
+Run the 66 time: 8.00ms or 8449.00us
+Run the 67 time: 8.00ms or 8456.00us
+Run the 68 time: 8.00ms or 8460.00us
+Run the 69 time: 8.00ms or 8453.00us
+Run the 70 time: 8.00ms or 8442.00us
+Run the 71 time: 8.00ms or 8453.00us
+Run the 72 time: 8.00ms or 8444.00us
+Run the 73 time: 8.00ms or 8451.00us
+Run the 74 time: 8.00ms or 8454.00us
+Run the 75 time: 8.00ms or 8447.00us
+Run the 76 time: 8.00ms or 8441.00us
+Run the 77 time: 8.00ms or 8443.00us
+Run the 78 time: 8.00ms or 8437.00us
+Run the 79 time: 8.00ms or 8448.00us
+Run the 80 time: 8.00ms or 8435.00us
+Run the 81 time: 8.00ms or 8445.00us
+Run the 82 time: 8.00ms or 8447.00us
+Run the 83 time: 8.00ms or 8442.00us
+Run the 84 time: 8.00ms or 8436.00us
+Run the 85 time: 8.00ms or 8444.00us
+Run the 86 time: 8.00ms or 8447.00us
+Run the 87 time: 8.00ms or 8432.00us
+Run the 88 time: 8.00ms or 8434.00us
+Run the 89 time: 8.00ms or 8442.00us
+Run the 90 time: 8.00ms or 8442.00us
+Run the 91 time: 8.00ms or 8453.00us
+Run the 92 time: 8.00ms or 8452.00us
+Run the 93 time: 8.00ms or 8476.00us
+Run the 94 time: 8.00ms or 8447.00us
+Run the 95 time: 8.00ms or 8439.00us
+Run the 96 time: 8.00ms or 8449.00us
+Run the 97 time: 8.00ms or 8443.00us
+Run the 98 time: 8.00ms or 8443.00us
+Run the 99 time: 8.00ms or 8437.00us
+Run the 100 time: 8.00ms or 8438.00us
+vxProcessGraph execution time:
+Total   862.00ms or 862418.00us
+Average 8.62ms or 8624.18us
+ --- Top5 ---
+  2: -1.166626
+  3: -1.166626
+  8: -1.166626
+  0: -3.393820
+  7: -3.393820
+khadas@Khadas:~/hussain/nbg_unify_mnistrA3$

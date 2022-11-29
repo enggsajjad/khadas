@@ -1,0 +1,163 @@
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ ./detect_demo_x11 -m 2 -p ./dog.bmp 
+./detect_demo_x11: error while loading shared libraries: libnn_detect.so: cannot open shared object file: No such file or directory
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ sudo ./INSTALL 
+[sudo] password for khadas: 
+Sorry, try again.
+[sudo] password for khadas: 
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ ./detect_demo_x11 -m 2 -p ./dog.bmp 
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ ./detect_demo_x11 -m 2 -p ./dog_1920\*1080.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=2
+result type is 2
+i:2 left:550.026 right:1110.76 top:293.154 bottom:807.193
+
+(process:8096): Gtk-WARNING **: 18:22:15.757: Locale not supported by C library.
+        Using the fallback 'C' locale.
+i:2 left:1104.62 right:1665.36 top:293.154 bottom:807.193
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ ./detect_demo_x11 -m 2 -p ./horses.bmp 
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ ./detect_demo_x11 -m 2 -p ./horses_1920\*1080.bmp 
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=4
+result type is 2
+i:4 left:585.57 right:1120.95 top:409.187 bottom:709.204
+
+(process:8140): Gtk-WARNING **: 18:22:57.500: Locale not supported by C library.
+        Using the fallback 'C' locale.
+i:4 left:35.6941 right:755.694 top:389.095 bottom:903.133
+i:4 left:9.79039 right:359.44 top:408.881 bottom:717.823
+i:4 left:1108.44 right:1458.09 top:436.318 bottom:745.26
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ ./detect_demo_x11 -m 2 -p ./giraffe.bmp 
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ ./detect_demo_x11 -m 2 -p ./giraffe_1920\*1080.bmp 
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ ./detect_demo_x11 -m 2 -w 1920 -h 1080 -p ./giraffe_1920\*1080.bmp 
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ ./detect_demo_x11 -m 2 -h 1920 -w 1080 -p ./giraffe_1920\*1080.bmp 
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_pictureA$ 

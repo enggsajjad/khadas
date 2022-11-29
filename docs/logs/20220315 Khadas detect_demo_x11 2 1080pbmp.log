@@ -1,0 +1,30 @@
+khadas@Khadas-teco:~$ cd sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 2 1080p.bmp 
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+terminate called after throwing an instance of 'std::logic_error'
+  what():  basic_string::_M_construct null not valid
+Aborted (core dumped)
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 2 1080p1.bmp 
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+terminate called after throwing an instance of 'std::logic_error'
+  what():  basic_string::_M_construct null not valid
+Aborted (core dumped)
+khadas@Khadas-teco:~/sajjad/npu1/aml_npu_demo_binaries/detect_demo_picture$ 

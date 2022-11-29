@@ -1,0 +1,301 @@
+khadas@Khadas-teco:~$ cd /home/khadas/hussain/newimage
+khadas@Khadas-teco:~/hussain/newimage$ ls
+3_compile_and_run_using_c_code1  op_test_nopnet
+khadas@Khadas-teco:~/hussain/newimage$ cd 3_compile_and_run_using_c_code1/bin_r_cv4/
+khadas@Khadas-teco:~/hussain/newimage/3_compile_and_run_using_c_code1/bin_r_cv4$ ls   
+main.o  nopnet  vnn_nopnet.o  vnn_post_process.o  vnn_pre_process.o
+khadas@Khadas-teco:~/hussain/newimage/3_compile_and_run_using_c_code1/bin_r_cv4$ chmod +x nopnet 
+khadas@Khadas-teco:~/hussain/newimage/3_compile_and_run_using_c_code1/bin_r_cv4$ ./nopnet ../nopnet_88.nb ../black.jpg 
+Create Neural Network: 96ms or 96739us
+
+---------------Output of file after jpg->rgb and before prepro
+00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00       00      00      00      00      00      00      00      00      00      00      00      00      00
+---------------
+
+---------------Output of file after jpg->rgb->float->prepro->uint8
+00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00      00       00      00      00      00      00      00      00      00      00      00      00      00      00
+---------------
+Verify...
+Verify Graph: 3ms or 3486us
+Start run graph [1] times...
+Run the 1 time: 13.00ms or 13031.00us
+vxProcessGraph execution time:
+Total   13.00ms or 13274.00us
+Average 13.27ms or 13274.00us
+
+dData type of target (vx_type) is: VX_TYPE_UINT8
+Size of target dtype (stride): 1
+ sz is 2352
+---------------- ORIGINAL TENSOR DATA AS hex
+7f      7f      7f      7f      7f      7f      7f      7f      7f      7f      7f      7f      7f      7f      7f      7f      7f      7f      7f      7f      7f      7f      7f      7f      7f      7f      7f       7f      7f      7f      00      00      00      00      00      00      00      00      00      00
+----------------
+khadas@Khadas-teco:~/hussain/newimage/3_compile_and_run_using_c_code1/bin_r_cv4$ cd ..
+khadas@Khadas-teco:~/hussain/newimage/3_compile_and_run_using_c_code1$ cp -r bin_r_cv4 bin_r_cv4_newimage
+khadas@Khadas-teco:~/hussain/newimage/3_compile_and_run_using_c_code1$ rm -rf bin_r_cv4
+khadas@Khadas-teco:~/hussain/newimage/3_compile_and_run_using_c_code1$ chmod +x build_vx.sh 
+khadas@Khadas-teco:~/hussain/newimage/3_compile_and_run_using_c_code1$ ./build_vx.sh 
+  COMPILE /home/khadas/hussain/newimage/3_compile_and_run_using_c_code1/vnn_pre_process.c
+vnn_pre_process.c:397:13: warning: '_data_transform' defined but not used [-Wunused-function]
+  397 | static void _data_transform
+      |             ^~~~~~~~~~~~~~~
+vnn_pre_process.c:365:13: warning: '_data_mean' defined but not used [-Wunused-function]
+  365 | static void _data_mean
+      |             ^~~~~~~~~~
+vnn_pre_process.c:343:13: warning: '_data_scale' defined but not used [-Wunused-function]
+  343 | static void _data_scale
+      |             ^~~~~~~~~~~
+vnn_pre_process.c:200:17: warning: '_float32_to_dtype' defined but not used [-Wunused-function]
+  200 | static uint8_t *_float32_to_dtype
+      |                 ^~~~~~~~~~~~~~~~~
+  COMPILE /home/khadas/hussain/newimage/3_compile_and_run_using_c_code1/vnn_nopnet.c
+vnn_nopnet.c: In function 'vnn_CreateNopnet':
+vnn_nopnet.c:146:29: warning: unused variable 'data' [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_nopnet.c:94:17: warning: 'load_data' defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/hussain/newimage/3_compile_and_run_using_c_code1/main.c
+  COMPILE /home/khadas/hussain/newimage/3_compile_and_run_using_c_code1/vnn_post_process.c
+vnn_post_process.c: In function 'getVXTypeString':
+vnn_post_process.c:95:5: warning: enumeration value 'VSI_NN_TYPE_BOOL8' not handled in switch [-Wswitch]
+   95 |     switch (vx_type)
+      |     ^~~~~~
+vnn_post_process.c:95:5: warning: enumeration value 'VSI_NN_TYPE_BFLOAT16' not handled in switch [-Wswitch]
+vnn_post_process.c:95:5: warning: enumeration value 'VSI_NN_TYPE_VDATA' not handled in switch [-Wswitch]
+vnn_post_process.c: In function 'show_top5':
+vnn_post_process.c:171:1: warning: label 'final' defined but not used [-Wunused-label]
+  171 | final:
+      | ^~~~~
+vnn_post_process.c:124:11: warning: unused variable 'fMaxProb' [-Wunused-variable]
+  124 |     float fMaxProb[5];
+      |           ^~~~~~~~
+vnn_post_process.c:123:16: warning: unused variable 'MaxClass' [-Wunused-variable]
+  123 |     vsi_size_t MaxClass[5];
+      |                ^~~~~~~~
+vnn_post_process.c: In function 'getVXTypeString':
+vnn_post_process.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+At top level:
+vnn_post_process.c:51:17: warning: 'get_top' defined but not used [-Wunused-function]
+   51 | static vsi_bool get_top
+      |                 ^~~~~~~
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/hussain/newimage/3_compile_and_run_using_c_code1$ ./bin_r_cv4/nopnet nopnet_88.nb 28x28.jpg 
+Create Neural Network: 6ms or 6622us
+
+---------------Output of file after jpg->rgb and before prepro
+c1      9f      83      c2      a1      82      c5      a4      85      b6      93      75      c2      9f      81      c2      9f      7f      cd      aa      8a      bc      99      79      b8      91      74       b9      85      6d      b0      7a      62      c9      a1      87      b9      9e      83      ca
+---------------
+
+---------------Output of file after jpg->rgb->float->prepro->uint8
+c1      9f      83      c2      a1      82      c5      a4      85      b6      93      75      c2      9f      81      c2      9f      7f      cd      aa      8a      bc      99      79      b8      91      74       b9      85      6d      b0      7a      62      c9      a1      87      b9      9e      83      ca
+---------------
+Verify...
+Verify Graph: 0ms or 893us
+Start run graph [1] times...
+Run the 1 time: 0.00ms or 487.00us
+vxProcessGraph execution time:
+Total   0.00ms or 516.00us
+Average 0.52ms or 516.00us
+
+dData type of target (vx_type) is: VX_TYPE_UINT8
+Size of target dtype (stride): 1
+ sz is 2352
+---------------- ORIGINAL TENSOR DATA AS hex
+ff      ff      ff      ff      ff      ff      ff      ff      ff      ff      ff      f4      ff      ff      ff      ff      ff      fe      ff      ff      ff      ff      ff      f8      ff      ff      f3       ff      ff      ec      b0      7a      62      c9      a1      87      b9      9e      83      ca
+----------------
+khadas@Khadas-teco:~/hussain/newimage/3_compile_and_run_using_c_code1$ cd ..
+khadas@Khadas-teco:~/hussain/newimage$ cd op_test_nopnet/
+khadas@Khadas-teco:~/hussain/newimage/op_test_nopnet$ ls
+28x28.jpg  black.jpg    linux_build_sample.log  makefile.linux      makefile.target_name  nopnet.export.data  vnn_global.h  vnn_nopnet.h        vnn_post_process.h  vnn_pre_process.h
+bin_r_cv4  build_vx.sh  main.c                  makefile.linux.def  nbg_meta.json         nopnet_88.nb        vnn_nopnet.c  vnn_post_process.c  vnn_pre_process.c
+khadas@Khadas-teco:~/hussain/newimage/op_test_nopnet$ /home/khadas/hussain/  
+khadas@Khadas-teco:~$ cd /home/khadas/hussain/newimage/op_test_nopnet
+khadas@Khadas-teco:~/hussain/newimage/op_test_nopnet$ export VIVANTE_SDK_DIR=/home/khadas/Just_for_get_op_time_new/data/vcmdtools 
+khadas@Khadas-teco:~/hussain/newimage/op_test_nopnet$ export LD_LIBRARY_PATH=/home/khadas/Just_for_get_op_time_new/data/drivers_64_exportdata                             
+khadas@Khadas-teco:~/hussain/newimage/op_test_nopnet$ export VIV_VX_DEBUG_LEVEL=1
+khadas@Khadas-teco:~/hussain/newimage/op_test_nopnet$ export CNN_PERF=1
+khadas@Khadas-teco:~/hussain/newimage/op_test_nopnet$  export NN_LAYER_DUMP=1
+khadas@Khadas-teco:~/hussain/newimage/op_test_nopnet$ export NN_LAYER_DUMP=1
+khadas@Khadas-teco:~/hussain/newimage/op_test_nopnet$ chmod +x bin_r_cv4/nopnet 
+khadas@Khadas-teco:~/hussain/newimage/op_test_nopnet$ ./bin_r_cv4/nopnet nopnet_88.nb 28x28.jpg 
+turned powerManagement off for CNN_PERF=1
+#productname=VIPNano-QI, pid=0x88
+Create Neural Network: 112ms or 112137us
+Verify...
+generate command buffer, total device count=1, core count per-device: 1, 
+current device id=0, AXI SRAM base address=0xff000000
+---------------------------Begin VerifyTiling -------------------------
+AXI-SRAM = 1048320 Bytes VIP-SRAM = 522240 Bytes SWTILING_PHASE_FEATURES[1, 1, 0]
+  0 NBG [(   0    0    0 0,        0, 0x(nil)(0x(nil), 0x(nil)) ->    0    0    0 0,        0, 0x(nil)(0x(nil), 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 0 0)]
+
+ id IN [ x  y  w   h ]   OUT  [ x  y  w  h ] (tx, ty, kpc) (ic, kc, kc/ks, ks/eks, kernel_type) NNT(in, out)
+
+ id | opid IN [ x  y  w   h ]   OUT  [ x  y  w  h ] (tx, ty, kpc) (ic, kc, kc/ks, ks/eks, kernel_type) NNT(in, out)
+  0 |   0 NBG DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+
+PreLoadWeightBiases = 1048320  100.000000%
+---------------------------End VerifyTiling -------------------------
+Verify Graph: 2ms or 2419us
+Start run graph [1] times...
+Total segments: 1.
+Run segment 0. Type: 1, operations: [1, 1].
+Segment 0 ended.
+***********dump layer :  0 operation:  1***************
+***********dump layer : 0***************
+layer_id: 0 layer name:network_binary_graph operation[0]:unkown operation type target:unkown operation target.
+uid: 0
+abs_op_id: 0
+execution time:             12378 us
+Run the 1 time: 19.00ms or 19503.00us
+vxProcessGraph execution time:
+Total   19.00ms or 19674.00us
+Average 19.67ms or 19674.00us
+ --- Top5 ---
+  0: 255.000000
+  1: 255.000000
+  2: 255.000000
+  3: 255.000000
+  4: 255.000000
+turned powerManagement on for CNN_PERF=1
+khadas@Khadas-teco:~/hussain/newimage/op_test_nopnet$ cd ..
+khadas@Khadas-teco:~/hussain/newimage$ cp -r op_test_nopnet op_test_nopnet_adapted
+khadas@Khadas-teco:~/hussain/newimage$ cd op_test_nopnet_adapted/
+khadas@Khadas-teco:~/hussain/newimage/op_test_nopnet_adapted$ cp ../../ *.h     
+aml_npu_app/              aml_npu_appwog/           aml_npu_demo_binaries/    aml_npu_demo_binarieswog/ newimage/                 
+khadas@Khadas-teco:~/hussain/newimage/op_test_nopnet_adapted$ cp ../ *.h
+3_compile_and_run_using_c_code1/ op_test_nopnet/                  op_test_nopnet_adapted/          
+khadas@Khadas-teco:~/hussain/newimage/op_test_nopnet_adapted$ cp ../3_compile_and_run_using_c_code1/*.h .
+khadas@Khadas-teco:~/hussain/newimage/op_test_nopnet_adapted$ cp ../3_compile_and_run_using_c_code1/*.c .
+khadas@Khadas-teco:~/hussain/newimage/op_test_nopnet_adapted$ ll
+total 224
+drwxr-xr-x 3 khadas khadas  4096 Jun 15 19:11 ./
+drwxrwxr-x 5 khadas khadas  4096 Jun 15 19:11 ../
+-rw-rw-r-- 1 khadas khadas 25858 Jun 15 19:11 0_network_binary_graph_operation_0.txt
+-rw-r--r-- 1 khadas khadas   929 Jun 15 19:11 28x28.jpg
+drwxr-xr-x 2 khadas khadas  4096 Jun 15 19:11 bin_r_cv4/
+-rw-r--r-- 1 khadas khadas   835 Jun 15 19:11 black.jpg
+-rw-r--r-- 1 khadas khadas  9312 Jun 15 19:11 build_vx.sh
+-rw-rw-r-- 1 khadas khadas 25858 Jun 15 19:11 gpuID_0_tensorName_uid_0_out_0_NodeID_0_network_binary_graph_w_2352_h_1_d_1_batchID_0_out_0.txt
+-rw-rw-r-- 1 khadas khadas  2352 Jun 15 19:11 input_0.dat
+-rw-rw-r-- 1 khadas khadas  2352 Jun 15 19:11 layer_0_TensorAdd_operation_1_out_0_size_2352.bin
+-rw-r--r-- 1 khadas khadas    36 Jun 15 19:11 linux_build_sample.log
+-rw-r--r-- 1 khadas khadas  6430 Jun 15 19:12 main.c
+-rw-r--r-- 1 khadas khadas  2068 Jun 15 19:11 makefile.linux
+-rw-r--r-- 1 khadas khadas 16406 Jun 15 19:11 makefile.linux.def
+-rw-r--r-- 1 khadas khadas    21 Jun 15 19:11 makefile.target_name
+-rw-r--r-- 1 khadas khadas   986 Jun 15 19:11 nbg_meta.json
+-rw-r--r-- 1 khadas khadas  2352 Jun 15 19:11 nopnet.export.data
+-rw-r--r-- 1 khadas khadas 11725 Jun 15 19:11 nopnet_88.nb
+-rw-rw-r-- 1 khadas khadas  2352 Jun 15 19:11 output0_2352.dat
+-rw-r--r-- 1 khadas khadas   765 Jun 15 19:12 vnn_global.h
+-rw-r--r-- 1 khadas khadas  9733 Jun 15 19:12 vnn_nopnet.c
+-rw-r--r-- 1 khadas khadas  1156 Jun 15 19:12 vnn_nopnet.h
+-rw-r--r-- 1 khadas khadas  5424 Jun 15 19:12 vnn_post_process.c
+-rw-r--r-- 1 khadas khadas   567 Jun 15 19:12 vnn_post_process.h
+-rw-r--r-- 1 khadas khadas 25429 Jun 15 19:12 vnn_pre_process.c
+-rw-r--r-- 1 khadas khadas  1655 Jun 15 19:12 vnn_pre_process.h
+khadas@Khadas-teco:~/hussain/newimage/op_test_nopnet_adapted$ chmod +x build_vx.sh      
+khadas@Khadas-teco:~/hussain/newimage/op_test_nopnet_adapted$ ./build_vx.sh 
+  COMPILE /home/khadas/hussain/newimage/op_test_nopnet_adapted/vnn_pre_process.c
+vnn_pre_process.c:397:13: warning: '_data_transform' defined but not used [-Wunused-function]
+  397 | static void _data_transform
+      |             ^~~~~~~~~~~~~~~
+vnn_pre_process.c:365:13: warning: '_data_mean' defined but not used [-Wunused-function]
+  365 | static void _data_mean
+      |             ^~~~~~~~~~
+vnn_pre_process.c:343:13: warning: '_data_scale' defined but not used [-Wunused-function]
+  343 | static void _data_scale
+      |             ^~~~~~~~~~~
+vnn_pre_process.c:200:17: warning: '_float32_to_dtype' defined but not used [-Wunused-function]
+  200 | static uint8_t *_float32_to_dtype
+      |                 ^~~~~~~~~~~~~~~~~
+  COMPILE /home/khadas/hussain/newimage/op_test_nopnet_adapted/vnn_nopnet.c
+vnn_nopnet.c: In function 'vnn_CreateNopnet':
+vnn_nopnet.c:146:29: warning: unused variable 'data' [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_nopnet.c:94:17: warning: 'load_data' defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/hussain/newimage/op_test_nopnet_adapted/main.c
+  COMPILE /home/khadas/hussain/newimage/op_test_nopnet_adapted/vnn_post_process.c
+vnn_post_process.c: In function 'getVXTypeString':
+vnn_post_process.c:95:5: warning: enumeration value 'VSI_NN_TYPE_BOOL8' not handled in switch [-Wswitch]
+   95 |     switch (vx_type)
+      |     ^~~~~~
+vnn_post_process.c:95:5: warning: enumeration value 'VSI_NN_TYPE_BFLOAT16' not handled in switch [-Wswitch]
+vnn_post_process.c:95:5: warning: enumeration value 'VSI_NN_TYPE_VDATA' not handled in switch [-Wswitch]
+vnn_post_process.c: In function 'show_top5':
+vnn_post_process.c:171:1: warning: label 'final' defined but not used [-Wunused-label]
+  171 | final:
+      | ^~~~~
+vnn_post_process.c:124:11: warning: unused variable 'fMaxProb' [-Wunused-variable]
+  124 |     float fMaxProb[5];
+      |           ^~~~~~~~
+vnn_post_process.c:123:16: warning: unused variable 'MaxClass' [-Wunused-variable]
+  123 |     vsi_size_t MaxClass[5];
+      |                ^~~~~~~~
+vnn_post_process.c: In function 'getVXTypeString':
+vnn_post_process.c:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+  111 | }
+      | ^
+At top level:
+vnn_post_process.c:51:17: warning: 'get_top' defined but not used [-Wunused-function]
+   51 | static vsi_bool get_top
+      |                 ^~~~~~~
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/hussain/newimage/op_test_nopnet_adapted$ ./bin_r_cv4/nopnet nopnet_88.nb 28x28.jpg 
+turned powerManagement off for CNN_PERF=1
+#productname=VIPNano-QI, pid=0x88
+Create Neural Network: 7ms or 7307us
+
+---------------Output of file after jpg->rgb and before prepro
+c1      9f      83      c2      a1      82      c5      a4      85      b6      93      75      c2      9f      81      c2      9f      7f      cd      aa      8a      bc      99      79      b8      91      74       b9      85      6d      b0      7a      62      c9      a1      87      b9      9e      83      ca
+---------------
+
+---------------Output of file after jpg->rgb->float->prepro->uint8
+c1      9f      83      c2      a1      82      c5      a4      85      b6      93      75      c2      9f      81      c2      9f      7f      cd      aa      8a      bc      99      79      b8      91      74       b9      85      6d      b0      7a      62      c9      a1      87      b9      9e      83      ca
+---------------
+Verify...
+generate command buffer, total device count=1, core count per-device: 1, 
+current device id=0, AXI SRAM base address=0xff000000
+---------------------------Begin VerifyTiling -------------------------
+AXI-SRAM = 1048320 Bytes VIP-SRAM = 522240 Bytes SWTILING_PHASE_FEATURES[1, 1, 0]
+  0 NBG [(   0    0    0 0,        0, 0x(nil)(0x(nil), 0x(nil)) ->    0    0    0 0,        0, 0x(nil)(0x(nil), 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 0 0)]
+
+ id IN [ x  y  w   h ]   OUT  [ x  y  w  h ] (tx, ty, kpc) (ic, kc, kc/ks, ks/eks, kernel_type) NNT(in, out)
+
+ id | opid IN [ x  y  w   h ]   OUT  [ x  y  w  h ] (tx, ty, kpc) (ic, kc, kc/ks, ks/eks, kernel_type) NNT(in, out)
+  0 |   0 NBG DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+
+PreLoadWeightBiases = 1048320  100.000000%
+---------------------------End VerifyTiling -------------------------
+Verify Graph: 0ms or 492us
+Start run graph [1] times...
+Total segments: 1.
+Run segment 0. Type: 1, operations: [1, 1].
+Segment 0 ended.
+***********dump layer :  0 operation:  1***************
+***********dump layer : 0***************
+layer_id: 0 layer name:network_binary_graph operation[0]:unkown operation type target:unkown operation target.
+uid: 0
+abs_op_id: 0
+execution time:              4694 us
+Run the 1 time: 4.00ms or 4849.00us
+vxProcessGraph execution time:
+Total   4.00ms or 4869.00us
+Average 4.87ms or 4869.00us
+
+dData type of target (vx_type) is: VX_TYPE_UINT8
+Size of target dtype (stride): 1
+ sz is 2352
+---------------- ORIGINAL TENSOR DATA AS hex
+ff      ff      ff      ff      ff      ff      ff      ff      ff      ff      ff      f4      ff      ff      ff      ff      ff      fe      ff      ff      ff      ff      ff      f8      ff      ff      f3       ff      ff      ec      b0      7a      62      c9      a1      87      b9      9e      83      ca
+----------------
+turned powerManagement on for CNN_PERF=1
+khadas@Khadas-teco:~/hussain/newimage/op_test_nopnet_adapted$ 

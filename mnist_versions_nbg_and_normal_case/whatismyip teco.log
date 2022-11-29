@@ -1,0 +1,36 @@
+sajjad@teco:~$ ifconfig
+docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+        ether 02:42:73:80:dd:f3  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+enp3s0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.10.254.178  netmask 255.255.0.0  broadcast 10.10.255.255
+        inet6 2a00:1398:5:32ea:506e:9563:9ecc:3abd  prefixlen 64  scopeid 0x0<global>
+        inet6 fe80::8474:8b8b:4b:a3c4  prefixlen 64  scopeid 0x20<link>
+        inet6 2a00:1398:5:32ea:70e:efcf:b0f6:bf6e  prefixlen 64  scopeid 0x0<global>
+        ether 04:d9:f5:f6:a0:1b  txqueuelen 1000  (Ethernet)
+        RX packets 9545  bytes 7027191 (7.0 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 8606  bytes 1440735 (1.4 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 1729  bytes 191431 (191.4 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1729  bytes 191431 (191.4 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+sajjad@teco:~$ 
+
+
+https://www.whatismyip.com/de/
+Ihre IPv4 Adresse ist: 129.13.169.10
+Ihre IPv6 Adresse ist: 2a00:1398:5:32ea:506e:9563:9ecc:3abd
+

@@ -1,0 +1,337 @@
+====================================================================
+op_test_yolov3_minimal_integrated_detection_using_export.data
+====================================================================
+khadas@Khadas:~/hussain/op_test_yolov3_minimal/bin_r_cv4$ cd ..
+khadas@Khadas:~/hussain/op_test_yolov3_minimal$ cd ..
+khadas@Khadas:~/hussain$ cd op_test_yolov3_minimal_intergrated_vnn_yolov3/
+khadas@Khadas:~/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3$ rm -rf bin_r_cv4/
+khadas@Khadas:~/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3/yolov3_process.c
+  COMPILE /home/khadas/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3/vnn_yolov3.c
+  COMPILE /home/khadas/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3/vnn_pre_process.c
+  COMPILE /home/khadas/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3/main.c
+  COMPILE /home/khadas/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas:~/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3$ cd bin_r_cv4/
+khadas@Khadas:~/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3/bin_r_cv4$ ./yolov3 ../yolov3.export.data ~/hussain/img/416/person_416.jpg | tee op_test_yolov3_minimal_using_export.data.log
+yolov3
+khadas@Khadas:~/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3/bin_r_cv4$ ./yolov3 ../yolov3.export.data ~/hussain/img/416/person_416.jpg | tee op_test_yolov3_minimal_intergrated_detection_using_export.data.log
+turned powerManagement off for CNN_PERF=1
+#productname=VIPNano-QI, pid=0x88
+Create Neural Network: 622ms or 622151us
+model.width:416 model.height:416 model.channel:3
+>>>>>>>>>>><<<<<<<<<<<<<<
+Draw rectangle for 3 detections of person_416.jpg
+>>>>>>>>>>><<<<<<<<<<<<<<
+Verify...
+---------------------------Begin VerifyTiling -------------------------
+AXI-SRAM = 1048320 Bytes VIP-SRAM = 522240 Bytes SWTILING_PHASE_FEATURES[1, 1, 0]
+  0 NN [( 416  416    3 1,   519168, 0x0x559d304d80(0x0x559d304d80, 0x(nil)) ->  208  208   16 1,   692224, 0x0x559d363ff0(0x0x559d363ff0, 0x(nil))) k(3 3    3,      640) pad(1 1) pool(2 2, 2 2)] C[  1]
+  1 TP [( 208  208   16 1,   692224, 0x0x559d363ff0(0x0x559d363ff0, 0x(nil)) ->  208  208   16 1,   692224, 0x0x559d31f3d0(0x0x559d31f3d0, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[  0] C[  2]
+  2 NN [( 208  208   16 1,   692224, 0x0x559d31f3d0(0x0x559d31f3d0, 0x(nil)) ->  104  104   32 1,   346112, 0x0x559d364580(0x0x559d364580, 0x(nil))) k(3 3   16,     5248) pad(1 1) pool(2 2, 2 2)] P[  1] C[  3]
+  3 TP [( 104  104   32 1,   346112, 0x0x559d364580(0x0x559d364580, 0x(nil)) ->  104  104   32 1,   346112, 0x0x559d326650(0x0x559d326650, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[  2] C[  4]
+  4 NN [( 104  104   32 1,   346112, 0x0x559d326650(0x0x559d326650, 0x(nil)) ->   52   52   64 1,   173056, 0x0x559d364d00(0x0x559d364d00, 0x(nil))) k(3 3   32,    22528) pad(1 1) pool(2 2, 2 2)] P[  3] C[  5]
+  5 SH [(43264    4    1 1,   173056, 0x0x559d364d00(0x0x559d364d00, 0x(nil)) -> 43264    4    1 1,   173056, 0x0x559d32d8d0(0x0x559d32d8d0, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[  4] C[  6]
+  6 NN [(  52   52   64 1,   173056, 0x0x559d32d8d0(0x0x559d32d8d0, 0x(nil)) ->   26   26  128 1,    86528, 0x0x559d365480(0x0x559d365480, 0x(nil))) k(3 3   64,    88064) pad(1 1) pool(2 2, 2 2)] P[  5] C[  7]
+  7 SH [(43264    2    1 1,    86528, 0x0x559d365480(0x0x559d365480, 0x(nil)) -> 43264    2    1 1,    86528, 0x0x559d334b50(0x0x559d334b50, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[  6] C[  8]
+  8 NN [(  26   26  128 1,    86528, 0x0x559d334b50(0x0x559d334b50, 0x(nil)) ->   26   26  256 1,   173056, 0x0x559d337630(0x0x559d337630, 0x(nil))) k(3 3  128,   310784) pad(1 1) pool(0 0, 1 1)] P[  7] C[  9]
+  9 SH [(43264    4    1 1,   173056, 0x0x559d337630(0x0x559d337630, 0x(nil)) -> 43264    4    1 1,   173056, 0x0x55a47f2f20(0x0x559d319f20, 0x0x15200)) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[  8] C[ 10, 30]
+ 10 TP [(  26   26  256 1,   259584, 0x0x55a47f2f20(0x0x559d319f20, 0x0x15200) ->   13   13  256 1,    43264, 0x0x559d33b630(0x0x559d33b630, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(2 2, 2 2)] P[  9] C[ 11]
+ 11 SH [(  13   13  256 1,    43264, 0x0x559d33b630(0x0x559d33b630, 0x(nil)) -> 2304  169    1 1,   389376, 0x0x559d523710(0x0x559d523710, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 10] C[ 12]
+ 12 SH [(2304  169    1 1,   389376, 0x0x559d523710(0x0x559d523710, 0x(nil)) ->   13   13  512 1,    86528, 0x0x559d33e110(0x0x559d33e110, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 11] C[ 13]
+ 13 TP [(  13   13  512 1,    86528, 0x0x559d33e110(0x0x559d33e110, 0x(nil)) ->   13   13  512 1,    86528, 0x0x559d365c00(0x0x559d365c00, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(2 2, 1 1)] P[ 12] C[ 14]
+ 14 SH [(43264    2    1 1,    86528, 0x0x559d365c00(0x0x559d365c00, 0x(nil)) -> 43264    2    1 1,    86528, 0x0x559d3428b0(0x0x559d3428b0, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 13] C[ 15]
+ 15 SH [(  13   13  512 1,    86528, 0x0x559d3428b0(0x0x559d3428b0, 0x(nil)) -> 4608  169    1 1,   778752, 0x0x559e20c310(0x0x559e20c310, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 14] C[ 16]
+ 16 SH [(4608  169    1 1,   778752, 0x0x559e20c310(0x0x559e20c310, 0x(nil)) ->   13   13 1024 1,   173056, 0x0x559d345390(0x0x559d345390, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 15] C[ 17]
+ 17 SH [(43264    4    1 1,   173056, 0x0x559d345390(0x0x559d345390, 0x(nil)) -> 43264    4    1 1,   173056, 0x0x559d348ad0(0x0x559d348ad0, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 16] C[ 18]
+ 18 SH [(  13   13 1024 1,   173056, 0x0x559d348ad0(0x0x559d348ad0, 0x(nil)) -> 1024  169    1 1,   173056, 0x0x559e281fc0(0x0x559e281fc0, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 17] C[ 19]
+ 19 SH [(1024  169    1 1,   173056, 0x0x559e281fc0(0x0x559e281fc0, 0x(nil)) ->   13   13  256 1,    43264, 0x0x559d349b30(0x0x559d349b30, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 18] C[ 20]
+ 20 SH [(43264    1    1 1,    43264, 0x0x559d349b30(0x0x559d349b30, 0x(nil)) -> 43264    1    1 1,    43264, 0x0x559d34d270(0x0x559d34d270, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 19] C[ 21, 26]
+ 21 SH [(  13   13  256 1,    43264, 0x0x559d34d270(0x0x559d34d270, 0x(nil)) -> 2304  169    1 1,   389376, 0x0x559e2f7ee0(0x0x559e2f7ee0, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 20] C[ 22]
+ 22 SH [(2304  169    1 1,   389376, 0x0x559e2f7ee0(0x0x559e2f7ee0, 0x(nil)) ->   13   13  512 1,    86528, 0x0x559d34e2d0(0x0x559d34e2d0, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 21] C[ 23]
+ 23 SH [(43264    2    1 1,    86528, 0x0x559d34e2d0(0x0x559d34e2d0, 0x(nil)) -> 43264    2    1 1,    86528, 0x0x559d355150(0x0x559d355150, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 22] C[ 24]
+ 24 SH [(  13   13  512 1,    86528, 0x0x559d355150(0x0x559d355150, 0x(nil)) ->  512  169    1 1,    86528, 0x0x559e38e7e0(0x0x559e38e7e0, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 23] C[ 25]
+ 25 SH [( 512  169    1 1,    86528, 0x0x559e38e7e0(0x0x559e38e7e0, 0x(nil)) ->   13   13  255 1,    43095, 0x0x559d305a80(0x0x559d305a80, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 24]
+ 26 SH [(  13   13  256 1,    43264, 0x0x559d34d270(0x0x559d34d270, 0x(nil)) ->  256  169    1 1,    43264, 0x0x559e34f010(0x0x559e34f010, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 20] C[ 27]
+ 27 SH [( 256  169    1 1,    43264, 0x0x559e34f010(0x0x559e34f010, 0x(nil)) ->   13   13  128 1,    21632, 0x0x559d351a10(0x0x559d351a10, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 26] C[ 28]
+ 28 SH [(21632    1    1 1,    21632, 0x0x559d351a10(0x0x559d351a10, 0x(nil)) -> 21632    1    1 1,    21632, 0x0x559d3561b0(0x0x559d3561b0, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 27] C[ 29]
+ 29 SH [(  13   13  128 1,    21632, 0x0x559d3561b0(0x0x559d3561b0, 0x(nil)) ->   26   26  128 1,   259584, 0x0x559d319f20(0x0x559d319f20, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 28] C[ 30]
+ 30 SH [(  26   26  384 1,   259584, 0x0x559d319f20(0x0x559d319f20, 0x(nil)) -> 3456  676    1 1,  2336256, 0x0x559e918d80(0x0x559e918d80, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[  9, 29] C[ 31]
+ 31 SH [(3456  676    1 1,  2336256, 0x0x559e918d80(0x0x559e918d80, 0x(nil)) ->   26   26  256 1,   173056, 0x0x559d35aa70(0x0x559d35aa70, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 30] C[ 32]
+ 32 SH [(43264    4    1 1,   173056, 0x0x559d35aa70(0x0x559d35aa70, 0x(nil)) -> 43264    4    1 1,   173056, 0x0x559d35e1b0(0x0x559d35e1b0, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 31] C[ 33]
+ 33 SH [(  26   26  256 1,   173056, 0x0x559d35e1b0(0x0x559d35e1b0, 0x(nil)) ->  256  676    1 1,   173056, 0x0x559e97b600(0x0x559e97b600, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 32] C[ 34]
+ 34 SH [( 256  676    1 1,   173056, 0x0x559e97b600(0x0x559e97b600, 0x(nil)) ->   26   26  255 1,   172380, 0x0x559d3062a0(0x0x559d3062a0, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 33]
+ 35 NN [(  32    2    1 1,       64, 0x0x559d38a600(0x0x559d38a600, 0x(nil)) ->   32    2    1 1,       64, 0x0x559d38b020(0x0x559d38b020, 0x(nil))) k(2 2    1,      128) pad(0 0) pool(0 0, 1 1)]
+
+ id IN [ x  y  w   h ]   OUT  [ x  y  w  h ] (tx, ty, kpc) (ic, kc, kc/ks, ks/eks, kernel_type) NNT(in, out)
+
+ id | opid IN [ x  y  w   h ]   OUT  [ x  y  w  h ] (tx, ty, kpc) (ic, kc, kc/ks, ks/eks, kernel_type) NNT(in, out)
+  0 |   0 NN DD 0x00000000 [   0    0      416      416] -> DD 0x00000000 [   0    0      208      208] ( 62,  10,   2) (    2304,      512, 100.000000%, 80.000001%, DD) (       0,        0)
+  1 |   1 TP DD 0x00000000 [   0    0      208      208] -> DD 0x00000000 [   0    0      208      208] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+  2 |   2 NN DD 0x00000000 [   0    0      208      208] -> DD 0x00000000 [   0    0      104      104] ( 62,   4,   4) (    6144,     3584, 100.000000%, 68.292683%, DD) (       0,        0)
+  3 |   3 TP DD 0x00000000 [   0    0      104      104] -> DD 0x00000000 [   0    0      104      104] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+  4 |   4 NN DD 0x00000000 [   0    0      104      104] -> DD 0x00000000 [   0    0       52       52] ( 56,   8,   8) (   18944,     5120, 100.000000%, 22.727273%, DD) (       0,        0)
+  5 |   5 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+  6 |   6 NN DD 0x00000000 [   0    0       52       52] -> DD 0x00000000 [   0    0       26       26] ( 52,  10,   6) (   41984,    26624, 100.000000%, 30.320701%, DD) (       0,        0)
+  7 |   7 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+  8 |   8 NN DD 0x00000000 [   0    0       26       26] -> DD 0x00000000 [   0    0       26       26] ( 26,  20,   6) (   79872,   297472, 100.000000%, 95.716637%, DD) (       0,        0)
+  9 |   9 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 10 |  10 TP DD 0x00000000 [   0    0       26       26] -> DD 0x00000000 [   0    0       13       13] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 11 |  11 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 12 |  12 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 13 |  13 TP DD 0x00000000 [   0    0       13       13] -> DD 0x00000000 [   0    0       13       13] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 14 |  14 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 15 |  15 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 16 |  16 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 17 |  17 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 18 |  18 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 19 |  19 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 20 |  20 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 21 |  21 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 22 |  22 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 23 |  23 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 24 |  24 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 25 |  25 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 26 |  26 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 27 |  27 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 28 |  28 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 29 |  29 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 30 |  30 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 31 |  31 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 32 |  32 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 33 |  33 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 34 |  34 SH DD 0x00000000 [   0    0        0        0] -> DD 0x00000000 [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE) (       0,        0)
+ 35 |  35 NN DD 0x00000000 [   0    0       32        2] -> DD 0x00000000 [   0    0       32        2] ( 32,   2,   1) (     128,      512, 100.000000%, 400.000000%, DD) (       0,        0)
+
+PreLoadWeightBiases = 1048320  100.000000%
+---------------------------End VerifyTiling -------------------------
+Verify Graph: 652ms or 652815us
+Start run graph [1] times...
+***********dump layer : 0***************
+layer_id: 22 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 3
+abs_op_id: 0
+execution time:            914408 us
+***********dump layer : 1***************
+layer_id: 0 layer name:LeakyReluLayer operation[0]:VXNNE_OPERATOR_ACTIVATION target:VXNNE_OPERATION_TARGET_TP.
+uid: 3
+abs_op_id: 1
+execution time:            899360 us
+***********dump layer : 2***************
+layer_id: 23 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 7
+abs_op_id: 2
+execution time:            548710 us
+***********dump layer : 3***************
+layer_id: 1 layer name:LeakyReluLayer operation[0]:VXNNE_OPERATOR_ACTIVATION target:VXNNE_OPERATION_TARGET_TP.
+uid: 7
+abs_op_id: 3
+execution time:            525195 us
+***********dump layer : 4***************
+layer_id: 24 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 11
+abs_op_id: 4
+execution time:            231916 us
+***********dump layer : 5***************
+layer_id: 2 layer name:LeakyReluLayer operation[0]:VXNNE_OPERATOR_ACTIVATION target:VXNNE_OPERATION_TARGET_SH.
+uid: 11
+abs_op_id: 5
+shader kernel name: vxLeakyRelu_I8toI8_opt
+execution time:            223878 us
+***********dump layer : 6***************
+layer_id: 25 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 15
+abs_op_id: 6
+execution time:            129805 us
+***********dump layer : 7***************
+layer_id: 3 layer name:LeakyReluLayer operation[0]:VXNNE_OPERATOR_ACTIVATION target:VXNNE_OPERATION_TARGET_SH.
+uid: 15
+abs_op_id: 7
+shader kernel name: vxLeakyRelu_I8toI8_opt1
+execution time:            118228 us
+***********dump layer : 8***************
+layer_id: 26 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 17
+abs_op_id: 8
+execution time:            479063 us
+***********dump layer : 9***************
+layer_id: 4 layer name:LeakyReluLayer operation[0]:VXNNE_OPERATOR_ACTIVATION target:VXNNE_OPERATION_TARGET_SH.
+uid: 19
+abs_op_id: 9
+shader kernel name: vxLeakyRelu_I8toI8_opt
+execution time:            210116 us
+***********dump layer :10***************
+layer_id: 5 layer name:PoolingLayer2 operation[0]:VXNNE_OPERATOR_POOLING target:VXNNE_OPERATION_TARGET_TP.
+uid: 20
+abs_op_id: 10
+execution time:             52836 us
+***********dump layer :11***************
+layer_id: 6 layer name:ConvolutionLayer operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_SH.
+uid: -1
+abs_op_id: 11
+shader kernel name: tensor2row_Integer8_3
+execution time:            240113 us
+***********dump layer :12***************
+layer_id: 6 layer name:ConvolutionLayer operation[1]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_SH.
+uid: 23
+abs_op_id: 12
+shader kernel name: gemm_dfp_I8toI8
+execution time:            304827 us
+***********dump layer :13***************
+layer_id: 8 layer name:PoolingLayer2 operation[0]:VXNNE_OPERATOR_POOLING target:VXNNE_OPERATION_TARGET_TP.
+uid: 23
+abs_op_id: 13
+execution time:            244845 us
+***********dump layer :14***************
+layer_id: 7 layer name:LeakyReluLayer operation[0]:VXNNE_OPERATOR_ACTIVATION target:VXNNE_OPERATION_TARGET_SH.
+uid: 23
+abs_op_id: 14
+shader kernel name: vxLeakyRelu_I8toI8_opt1
+execution time:            240047 us
+***********dump layer :15***************
+layer_id: 9 layer name:ConvolutionLayer operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_SH.
+uid: -1
+abs_op_id: 15
+shader kernel name: tensor2row_Integer8_3
+execution time:           1026946 us
+***********dump layer :16***************
+layer_id: 9 layer name:ConvolutionLayer operation[1]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_SH.
+uid: 25
+abs_op_id: 16
+shader kernel name: gemm_dfp_I8toI8
+execution time:            448499 us
+***********dump layer :17***************
+layer_id: 10 layer name:LeakyReluLayer operation[0]:VXNNE_OPERATOR_ACTIVATION target:VXNNE_OPERATION_TARGET_SH.
+uid: 27
+abs_op_id: 17
+shader kernel name: vxLeakyRelu_I8toI8_opt1
+execution time:            213091 us
+***********dump layer :18***************
+layer_id: 11 layer name:ConvolutionLayer operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_SH.
+uid: -1
+abs_op_id: 18
+shader kernel name: tensor2row_8Bits_K1S1
+execution time:            108669 us
+***********dump layer :19***************
+layer_id: 11 layer name:ConvolutionLayer operation[1]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_SH.
+uid: 28
+abs_op_id: 19
+shader kernel name: gemm_dfp_I8toI8
+execution time:            145405 us
+***********dump layer :20***************
+layer_id: 12 layer name:LeakyReluLayer operation[0]:VXNNE_OPERATOR_ACTIVATION target:VXNNE_OPERATION_TARGET_SH.
+uid: 30
+abs_op_id: 20
+shader kernel name: vxLeakyRelu_I8toI8_opt
+execution time:            129734 us
+***********dump layer :21***************
+layer_id: 13 layer name:ConvolutionLayer operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_SH.
+uid: -1
+abs_op_id: 21
+shader kernel name: tensor2row_Integer8_3
+execution time:            553082 us
+***********dump layer :22***************
+layer_id: 13 layer name:ConvolutionLayer operation[1]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_SH.
+uid: 31
+abs_op_id: 22
+shader kernel name: gemm_dfp_I8toI8
+execution time:            339479 us
+***********dump layer :23***************
+layer_id: 15 layer name:LeakyReluLayer operation[0]:VXNNE_OPERATOR_ACTIVATION target:VXNNE_OPERATION_TARGET_SH.
+uid: 33
+abs_op_id: 23
+shader kernel name: vxLeakyRelu_I8toI8_opt
+execution time:            275690 us
+***********dump layer :24***************
+layer_id: 17 layer name:ConvolutionLayer operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_SH.
+uid: -1
+abs_op_id: 24
+shader kernel name: tensor2row_8Bits_K1S1
+execution time:            138906 us
+***********dump layer :25***************
+layer_id: 17 layer name:ConvolutionLayer operation[1]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_SH.
+uid: 34
+abs_op_id: 25
+shader kernel name: gemm_dfp_I8toI8
+execution time:            142082 us
+***********dump layer :26***************
+layer_id: 14 layer name:ConvolutionLayer operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_SH.
+uid: -1
+abs_op_id: 26
+shader kernel name: tensor2row_8Bits_K1S1
+execution time:             66116 us
+***********dump layer :27***************
+layer_id: 14 layer name:ConvolutionLayer operation[1]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_SH.
+uid: 37
+abs_op_id: 27
+shader kernel name: gemm_dfp_I8toI8
+execution time:             70983 us
+***********dump layer :28***************
+layer_id: 16 layer name:LeakyReluLayer operation[0]:VXNNE_OPERATOR_ACTIVATION target:VXNNE_OPERATION_TARGET_SH.
+uid: 39
+abs_op_id: 28
+shader kernel name: vxLeakyRelu_I8toI8_opt
+execution time:             66448 us
+***********dump layer :29***************
+layer_id: 18 layer name:TensorScale operation[0]:unkown operation type target:VXNNE_OPERATION_TARGET_SH.
+uid: 40
+abs_op_id: 29
+shader kernel name: resize_nearest_8bits_2x_upsample
+execution time:            265223 us
+***********dump layer :30***************
+layer_id: 19 layer name:ConvolutionLayer operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_SH.
+uid: -1
+abs_op_id: 30
+shader kernel name: tensor2row_Integer8_3_S1
+execution time:           2113737 us
+***********dump layer :31***************
+layer_id: 19 layer name:ConvolutionLayer operation[1]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_SH.
+uid: 42
+abs_op_id: 31
+shader kernel name: gemm_dfp_I8toI8
+execution time:            730563 us
+***********dump layer :32***************
+layer_id: 20 layer name:LeakyReluLayer operation[0]:VXNNE_OPERATOR_ACTIVATION target:VXNNE_OPERATION_TARGET_SH.
+uid: 44
+abs_op_id: 32
+shader kernel name: vxLeakyRelu_I8toI8_opt1
+execution time:            545978 us
+***********dump layer :33***************
+layer_id: 21 layer name:ConvolutionLayer operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_SH.
+uid: -1
+abs_op_id: 33
+shader kernel name: tensor2row_8Bits_K1S1
+execution time:            276261 us
+***********dump layer :34***************
+layer_id: 21 layer name:ConvolutionLayer operation[1]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_SH.
+uid: 45
+abs_op_id: 34
+shader kernel name: gemm_dfp_I8toI8
+execution time:            546985 us
+khadas@Khadas:~/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3/bin_r_cv4$ cp -r ../../op_test_yolov3_minimal_intergrated_vnn_yolov3 /media/khadas/SAJJAD/op_test_yolov3_minimal_integrated_detection_using_export.data
+khadas@Khadas:~/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3/bin_r_cv4$
+====================================================================
+op_test_yolov3_minimal_integrated_detection_using_yolov3_88.nb
+====================================================================
+khadas@Khadas:~/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3/bin_r_cv4$ cd ..
+khadas@Khadas:~/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3$ rm -rf bin_r_cv4/
+khadas@Khadas:~/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3/yolov3_process.c
+  COMPILE /home/khadas/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3/vnn_yolov3.c
+  COMPILE /home/khadas/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3/vnn_pre_process.c
+  COMPILE /home/khadas/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3/main.c
+  COMPILE /home/khadas/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas:~/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3$ cd bin_r_cv4/
+khadas@Khadas:~/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3/bin_r_cv4$ ./yolov3 ../yolov3_88.nb ~/hussain/img/416/person_416.jpg | tee op_test_yolov3_minimal_intergrated_detection_using_yolov3_88.nb.log
+#productname=VIPNano-QI, pid=0x88
+Create Neural Network: 910ms or 910537us
+model.width:416 model.height:416 model.channel:3
+>>>>>>>>>>><<<<<<<<<<<<<<
+Draw rectangle for 3 detections of person_416.jpg
+>>>>>>>>>>><<<<<<<<<<<<<<
+Verify...
+Node 0x5592ee1830("yolov3_88"): No.3 parameter is required but not suppliedE [vnn_VerifyGraph:87]CHECK STATUS(-4:The given graph has failed verification due to an insufficient number of required parameters, which cannot be automatically created. Typically this indicates required atomic parameters.)
+E [main:240]CHECK STATUS(-4:The given graph has failed verification due to an insufficient number of required parameters, which cannot be automatically created. Typically this indicates required atomic parameters.)
+khadas@Khadas:~/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3/bin_r_cv4$ cp -r ../../op_test_yolov3_minimal_intergrated_vnn_yolov3 /media/khadas/SAJJAD/op_test_yolov3_minimal_integrated_detection_using_yolov3_88.nb
+khadas@Khadas:~/hussain/op_test_yolov3_minimal_intergrated_vnn_yolov3/bin_r_cv4$

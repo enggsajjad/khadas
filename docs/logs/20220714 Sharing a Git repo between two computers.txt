@@ -1,0 +1,984 @@
+==================================================================
+Sharing a Git repo between two computers
+http://www.deanbodenham.com/learn/using-git-to-sync-different-computers.html
+https://dev.to/heidi37/using-github-on-multiple-computers-day-20-52kp
+http://kevindonnelly.org.uk/2015/10/sharing-a-git-repo-between-two-computers/
+Patch Command Examples to Apply Diff Patch Files in Linux
+https://www.thegeekstuff.com/2014/12/patch-command-examples/
+Using Git with SSH keys
+https://linuxkamarada.com/en/2019/07/14/using-git-with-ssh-keys/#.Ys-qSTFBwdW
+==================================================================
+===========
+Summary:
+===========
+Create On PC1:
+-----------
+
+Create directory
+sajjad@teco:~/hussain/github$ mkdir testrepo
+init the git repository
+sajjad@teco:~/hussain/github/testrepo$ git init
+change or check the repository
+sajjad@teco:~/hussain/github/testrepo$ cat .git/config
+update the config
+sajjad@teco:~/hussain/github/testrepo$ git config user.name "enggsajjad"
+sajjad@teco:~/hussain/github/testrepo$ git config user.email "enggsajjadhussain@gmail.com"
+Add some file/content
+sajjad@teco:~/hussain/github/testrepo$ echo 'standing in line to see the show tonight by sajjad' >> first.txt
+Create the git repo with the same name on github.com
+sajjad@teco:~/hussain/github/testrepo$
+Add the contents to the repo
+sajjad@teco:~/hussain/github/testrepo$ git add --all
+Commit the changes
+sajjad@teco:~/hussain/github/testrepo$ git commit -m "first addition of the file"
+push the commits to repo
+sajjad@teco:~/hussain/github/testrepo$ git push --all
+Branch
+-----------
+create new branch
+sajjad@teco:~/hussain/github/testrepo$ git branch dev_sajjad
+move to new branch
+sajjad@teco:~/hussain/github/testrepo$ git checkout dev_sajjad
+check the branch status
+sajjad@teco:~/hussain/github/testrepo$ git status
+check the histories of the commits 
+sajjad@teco:~/hussain/github/testrepo$ git log
+sajjad@teco:~/hussain/github/testrepo$ git add --all
+sajjad@teco:~/hussain/github/testrepo$ git commit -m "patching a file with a difference"
+sajjad@teco:~/hussain/github/testrepo$ git push --all
+------------
+On PC2: fetch and make some changes and commit
+------------
+khadas@Khadas:~/hussain$ mkdir github
+khadas@Khadas:~/hussain$ cd github/
+khadas@Khadas:~/hussain/github$ git clone https://github.com/enggsajjad/testrepo.git
+khadas@Khadas:~/hussain/github$ cd testrepo/
+khadas@Khadas:~/hussain/github/testrepo$ git status
+khadas@Khadas:~/hussain/github/testrepo$ git branch
+khadas@Khadas:~/hussain/github/testrepo$ git log
+khadas@Khadas:~/hussain/github/testrepo$ git pull origin main
+khadas@Khadas:~/hussain/github/testrepo$ git checkout dev_sajjad
+khadas@Khadas:~/hussain/github/testrepo$ git pull origin dev_sajjad
+khadas@Khadas:~/hussain/github/testrepo$ vim file2_dev_sajjad.txt
+khadas@Khadas:~/hussain/github/testrepo$ git add --all
+khadas@Khadas:~/hussain/github/testrepo$ git commit -m "adding another text file in dev_sajjad on khadas pc"
+khadas@Khadas:~/hussain/github/testrepo$ git push --all
+khadas@Khadas:~/hussain/github/testrepo$ git checkout main
+khadas@Khadas:~/hussain/github/testrepo$ vim file2_main.txt
+khadas@Khadas:~/hussain/github/testrepo$ git add --all
+khadas@Khadas:~/hussain/github/testrepo$ git commit -m "adding another text file in main branch on khadas pc"
+khadas@Khadas:~/hussain/github/testrepo$ git push --all
+------------------------------------
+On PC1: fetch and make some changes and commit
+------------------------------------
+sajjad@teco:~/hussain/github/testrepo$ git log
+sajjad@teco:~/hussain/github/testrepo$ git pull origin main
+sajjad@teco:~/hussain/github/testrepo$ git pull origin dev_sajjad
+sajjad@teco:~/hussain/github/testrepo$ git checkout dev_sajjad
+sajjad@teco:~/hussain/github/testrepo$ echo "hello from ubuntu branch dev_sajjad" >> file3_dev_sajjad_ubuntu.txt
+sajjad@teco:~/hussain/github/testrepo$ git add --all
+sajjad@teco:~/hussain/github/testrepo$ git commit -m "commit to dev_sajjad from ubuntu pc again"
+sajjad@teco:~/hussain/github/testrepo$ git push --all
+sajjad@teco:~/hussain/github/testrepo$ git checkout main
+sajjad@teco:~/hussain/github/testrepo$ echo "hello from ubuntu branch main" >> file3_main_ubuntu.txt
+sajjad@teco:~/hussain/github/testrepo$ git add --all
+sajjad@teco:~/hussain/github/testrepo$ git commit -m "commit to main from ubuntu pc again"
+sajjad@teco:~/hussain/github/testrepo$ git push --all
+
+===========
+KHADAS Add the ssh key to github.com
+===========
+khadas@Khadas:~/hussain/github/testrepo$ cd
+khadas@Khadas:~$ ssh-keygen -t rsa
+khadas@Khadas:~/hussain/github/testrepo$ ssh -T git@github.com
+
+===========
+UBUNTU TECO
+===========
+sajjad@teco:~$ ssh-keygen -t rsa
+Log in your github;
+Visit: https://github.com/settings/keys;
+New SSH key;
+cat ~/.ssh/id_rsa.pub, paste it there, name and save it (if you have no such file, generate one for yourself by ssh-keygen -t rsa - just Enter for all prompts);
+Go to your local repository and update your remote by git remote set-url origin git+ssh://git@github.com/username/reponame.git - you can check it first by git remote -v);
+sajjad@teco:~$ ssh -T git@github.com
+sajjad@teco:~$
+
+===========
+UBUNTU KHADAS
+SSH
+Log in your github;
+Visit: https://github.com/settings/keys;
+New SSH key;
+cat ~/.ssh/id_rsa.pub, paste it there, name and save it (if you have no such file, generate one for yourself by ssh-keygen -t rsa - just Enter for all prompts);
+Go to your local repository and update your remote by git remote set-url origin git+ssh://git@github.com/username/reponame.git - you can check it first by git remote -v);
+Here you go, just touch t; git add t; git commit -m "test"; git push and confirm yes to enjoy the password-free world.
+khadas@Khadas:~/hussain/github/testrepo$ git remote set-url origin git+ssh://git@github.com/enggsajjad/testrepo.git
+khadas@Khadas:~/hussain/github/testrepo$ git remote -v
+khadas@Khadas:~/hussain/github/testrepo$ git add --all
+khadas@Khadas:~/hussain/github/testrepo$ git commit -m "changing file2_dev_sajjad.txt agin from Khadas in branch dev_sajjad"
+khadas@Khadas:~/hussain/github/testrepo$ git push --all
+
+
+===========
+DETAILS of LOGS 
+===========
+UBUNTU TECO
+===========
+Last login: Tue Jul 12 03:36:54 2022 from 129.13.170.244
+sajjad@teco:~$ cd hussain/
+sajjad@teco:~/hussain$ ls
+img  npusdk  npusdk1  npusdk2_basis
+sajjad@teco:~/hussain$ mkdir github
+sajjad@teco:~/hussain$ cd github/
+sajjad@teco:~/hussain/github$ mkdir testrepo
+sajjad@teco:~/hussain/github$ cd test
+-bash: cd: test: No such file or directory
+sajjad@teco:~/hussain/github$ cd testrepo/
+sajjad@teco:~/hussain/github/testrepo$ git init
+Initialized empty Git repository in /home/sajjad/hussain/github/testrepo/.git/
+sajjad@teco:~/hussain/github/testrepo$ echo 'standing in line to see the show tonight by sajjad' >> first.txt
+sajjad@teco:~/hussain/github/testrepo$ ls .git/config
+.git/config
+sajjad@teco:~/hussain/github/testrepo$ vim .git/config
+sajjad@teco:~/hussain/github/testrepo$ cat .git/config
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+        git config user.name "engsajjad"
+        git config user.email "enggsajjadhussain@gmail.com"
+sajjad@teco:~/hussain/github/testrepo$ git add --all
+fatal: bad config line 6 in file .git/config
+sajjad@teco:~/hussain/github/testrepo$ git commit -m "first addition of the file"
+fatal: bad config line 6 in file .git/config
+sajjad@teco:~/hussain/github/testrepo$ vim .git/config
+sajjad@teco:~/hussain/github/testrepo$ git config user.name "engsajjad"
+sajjad@teco:~/hussain/github/testrepo$ git config user.email "enggsajjadhussain@gmail.com"
+sajjad@teco:~/hussain/github/testrepo$ vim .git/config
+sajjad@teco:~/hussain/github/testrepo$ cat .git/config
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[user]
+        name = engsajjad
+        email = enggsajjadhussain@gmail.com
+sajjad@teco:~/hussain/github/testrepo$ git add --all
+sajjad@teco:~/hussain/github/testrepo$ git config user.email "enggsajjadhussain@gmail.com"
+sajjad@teco:~/hussain/github/testrepo$ git remote add origin https://github.com/enggsajjad/testrepo.git
+sajjad@teco:~/hussain/github/testrepo$ git push -u origin master
+error: src refspec master does not match any.
+error: failed to push some refs to 'https://github.com/enggsajjad/testrepo.git'
+sajjad@teco:~/hussain/github/testrepo$ git push -u origin main
+error: src refspec main does not match any.
+error: failed to push some refs to 'https://github.com/enggsajjad/testrepo.git'
+sajjad@teco:~/hussain/github/testrepo$ git push --all
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+fatal: Authentication failed for 'https://github.com/enggsajjad/testrepo.git/'
+sajjad@teco:~/hussain/github/testrepo$ git push --all
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/enggsajjad/testrepo.git/'
+sajjad@teco:~/hussain/github/testrepo$ git push --all
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+Everything up-to-date
+sajjad@teco:~/hussain/github/testrepo$ git config user.name "enggsajjad"
+sajjad@teco:~/hussain/github/testrepo$ ls
+first.txt
+sajjad@teco:~/hussain/github/testrepo$ git add --all
+sajjad@teco:~/hussain/github/testrepo$ git commit -m "first addition of the file"
+[master (root-commit) cec5d00] first addition of the file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 first.txt
+sajjad@teco:~/hussain/github/testrepo$ git push --all
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+Counting objects: 3, done.
+Delta compression using up to 12 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 268 bytes | 268.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+remote:
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/enggsajjad/testrepo/pull/new/master
+remote:
+To https://github.com/enggsajjad/testrepo.git
+ * [new branch]      master -> master
+sajjad@teco:~/hussain/github/testrepo$ git branch dev_sajjad
+sajjad@teco:~/hussain/github/testrepo$ git checkout dev_sajjad
+Switched to branch 'dev_sajjad'
+sajjad@teco:~/hussain/github/testrepo$ git status
+On branch dev_sajjad
+nothing to commit, working tree clean
+sajjad@teco:~/hussain/github/testrepo$ git log
+commit cec5d00c64c1b020a1408c3c0a77921df19eb281 (HEAD -> dev_sajjad, origin/master, master)
+Author: enggsajjad <enggsajjadhussain@gmail.com>
+Date:   Tue Jul 12 07:34:45 2022 +0200
+
+    first addition of the file
+sajjad@teco:~/hussain/github/testrepo$ vim hello.c
+sajjad@teco:~/hussain/github/testrepo$ cp hello.c hello_new.c
+sajjad@teco:~/hussain/github/testrepo$ vim hello_new.c
+sajjad@teco:~/hussain/github/testrepo$ diff -u hello.c hello_new.c > hello.patch
+sajjad@teco:~/hussain/github/testrepo$ cat hello.patch
+--- hello.c     2022-07-12 07:39:06.483046136 +0200
++++ hello_new.c 2022-07-12 07:40:00.098933935 +0200
+@@ -1,5 +1,6 @@
+-#include <stdio.h>
++#include <stdio.h>
+
+-int main() {
++int main(int argc, char *argv[]) {
+ printf("Hello World\n");
++return 0;
+ }
+sajjad@teco:~/hussain/github/testrepo$
+sajjad@teco:~/hussain/github/testrepo$ cat hello.c
+#include <stdio.h>
+
+int main() {
+printf("Hello World\n");
+}
+sajjad@teco:~/hussain/github/testrepo$ cp hello.c hello2.c
+sajjad@teco:~/hussain/github/testrepo$ patch hello2.c hello.patch
+patching file hello2.c
+sajjad@teco:~/hussain/github/testrepo$ cat hello2.c
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+printf("Hello World\n");
+return 0;
+}
+sajjad@teco:~/hussain/github/testrepo$ git add --all
+sajjad@teco:~/hussain/github/testrepo$ git commit -m "patching a file with a difference"
+[dev_sajjad 28b4525] patching a file with a difference
+ 4 files changed, 28 insertions(+)
+ create mode 100644 hello.c
+ create mode 100644 hello.patch
+ create mode 100644 hello2.c
+ create mode 100644 hello_new.c
+sajjad@teco:~/hussain/github/testrepo$ git push --all
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+Counting objects: 5, done.
+Delta compression using up to 12 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 696 bytes | 696.00 KiB/s, done.
+Total 5 (delta 0), reused 0 (delta 0)
+remote:
+remote: Create a pull request for 'dev_sajjad' on GitHub by visiting:
+remote:      https://github.com/enggsajjad/testrepo/pull/new/dev_sajjad
+remote:
+To https://github.com/enggsajjad/testrepo.git
+ * [new branch]      dev_sajjad -> dev_sajjad
+sajjad@teco:~/hussain/github/testrepo$
+
+===========
+UBUNTU KHADAS
+===========
+khadas@Khadas:~$ cd hussain/
+khadas@Khadas:~/hussain$ mkdir github
+khadas@Khadas:~/hussain$ cd github/
+khadas@Khadas:~/hussain/github$ git clone https://github.com/enggsajjad/testrepo.git
+Cloning into 'testrepo'...
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+remote: Enumerating objects: 11, done.
+remote: Counting objects: 100% (11/11), done.
+remote: Compressing objects: 100% (8/8), done.
+remote: Total 11 (delta 0), reused 8 (delta 0), pack-reused 0
+Unpacking objects: 100% (11/11), 1.46 KiB | 125.00 KiB/s, done.
+khadas@Khadas:~/hussain/github$ cd testrepo/
+khadas@Khadas:~/hussain/github/testrepo$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+khadas@Khadas:~/hussain/github/testrepo$ git branches
+git: 'branches' is not a git command. See 'git --help'.
+khadas@Khadas:~/hussain/github/testrepo$ git branch
+* main
+khadas@Khadas:~/hussain/github/testrepo$ git log
+commit 1ef34c41574dfcdde011150a80567b515f0bd9df (HEAD -> main, origin/main, origin/HEAD)
+Author: Sajjad Hussain <47758114+enggsajjad@users.noreply.github.com>
+Date:   Tue Jul 12 07:28:00 2022 +0200
+
+    Initial commit
+khadas@Khadas:~/hussain/github/testrepo$ git checkout dev_sajjad
+Branch 'dev_sajjad' set up to track remote branch 'dev_sajjad' from 'origin'.
+Switched to a new branch 'dev_sajjad'
+khadas@Khadas:~/hussain/github/testrepo$ vim file2_dev_sajjad.txt
+khadas@Khadas:~/hussain/github/testrepo$ git add -all
+error: did you mean `--all` (with two dashes)?
+khadas@Khadas:~/hussain/github/testrepo$ git add --all
+khadas@Khadas:~/hussain/github/testrepo$ git commit -m "adding another text file in dev_sajjad on khadas pc"
+[dev_sajjad f455bae] adding another text file in dev_sajjad on khadas pc
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2_dev_sajjad.txt
+khadas@Khadas:~/hussain/github/testrepo$ git push --all
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 330 bytes | 330.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/enggsajjad/testrepo.git
+   28b4525..f455bae  dev_sajjad -> dev_sajjad
+khadas@Khadas:~/hussain/github/testrepo$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+khadas@Khadas:~/hussain/github/testrepo$ vim file2_main.txt
+khadas@Khadas:~/hussain/github/testrepo$ git add --all
+khadas@Khadas:~/hussain/github/testrepo$ git commit -m "adding another text file in main branch on khadas pc"
+[main 30939e2] adding another text file in main branch on khadas pc
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2_main.txt
+khadas@Khadas:~/hussain/github/testrepo$ git push --all
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 339 bytes | 339.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/enggsajjad/testrepo.git
+   1ef34c4..30939e2  main -> main
+khadas@Khadas:~/hussain/github/testrepo$
+
+===========
+UBUNTU TECO
+===========
+sajjad@teco:~/hussain/github/testrepo$ clear
+sajjad@teco:~/hussain/github/testrepo$ git log
+commit 28b4525e6c0b8c206686f40c0e2a0863477ffd4e (HEAD -> dev_sajjad, origin/dev_sajjad)
+Author: enggsajjad <enggsajjadhussain@gmail.com>
+Date:   Tue Jul 12 07:46:04 2022 +0200
+
+    patching a file with a difference
+
+commit cec5d00c64c1b020a1408c3c0a77921df19eb281 (origin/master, master)
+Author: enggsajjad <enggsajjadhussain@gmail.com>
+Date:   Tue Jul 12 07:34:45 2022 +0200
+
+    first addition of the file
+sajjad@teco:~/hussain/github/testrepo$ git pull -all
+error: did you mean `--all` (with two dashes ?)
+sajjad@teco:~/hussain/github/testrepo$ git pull --all
+Fetching origin
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+remote: Enumerating objects: 10, done.
+remote: Counting objects: 100% (10/10), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 9 (delta 1), reused 6 (delta 1), pack-reused 0
+Unpacking objects: 100% (9/9), done.
+From https://github.com/enggsajjad/testrepo
+   28b4525..f455bae  dev_sajjad -> origin/dev_sajjad
+ * [new branch]      main       -> origin/main
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> dev_sajjad
+
+sajjad@teco:~/hussain/github/testrepo$ git pull main
+fatal: 'main' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+sajjad@teco:~/hussain/github/testrepo$ git pull origin main
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+From https://github.com/enggsajjad/testrepo
+ * branch            main       -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+sajjad@teco:~/hussain/github/testrepo$ ls
+first.txt  hello2.c  hello.c  hello_new.c  hello.patch
+sajjad@teco:~/hussain/github/testrepo$ git checkout main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+Switched to a new branch 'main'
+sajjad@teco:~/hussain/github/testrepo$ ls
+file2_main.txt  README.md
+sajjad@teco:~/hussain/github/testrepo$ git pull origin main
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+From https://github.com/enggsajjad/testrepo
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+sajjad@teco:~/hussain/github/testrepo$ ls
+file2_main.txt  README.md
+sajjad@teco:~/hussain/github/testrepo$ git pull origin dev_sajjad
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+From https://github.com/enggsajjad/testrepo
+ * branch            dev_sajjad -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+sajjad@teco:~/hussain/github/testrepo$ git pull --all
+Fetching origin
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+Already up to date.
+sajjad@teco:~/hussain/github/testrepo$ ls
+file2_main.txt  README.md
+sajjad@teco:~/hussain/github/testrepo$ git checkout dev_sajjad
+Switched to branch 'dev_sajjad'
+sajjad@teco:~/hussain/github/testrepo$ ls
+first.txt  hello2.c  hello.c  hello_new.c  hello.patch
+sajjad@teco:~/hussain/github/testrepo$ git pull --all
+Fetching origin
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> dev_sajjad
+
+sajjad@teco:~/hussain/github/testrepo$ git pull origin dev_sajjad
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+From https://github.com/enggsajjad/testrepo
+ * branch            dev_sajjad -> FETCH_HEAD
+Updating 28b4525..f455bae
+Fast-forward
+ file2_dev_sajjad.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2_dev_sajjad.txt
+sajjad@teco:~/hussain/github/testrepo$ ls
+file2_dev_sajjad.txt  first.txt  hello2.c  hello.c  hello_new.c  hello.patch
+sajjad@teco:~/hussain/github/testrepo$ echo "hello from ubuntu branch dev_sajjad" >> file3_dev_sajjad_ubuntu.txt
+sajjad@teco:~/hussain/github/testrepo$ cat file3_dev_sajjad_ubuntu.txt
+hello from ubuntu branch dev_sajjad
+sajjad@teco:~/hussain/github/testrepo$ git add --all
+sajjad@teco:~/hussain/github/testrepo$ git commit -m "commit to dev_sajjad from ubuntu pc again"
+[dev_sajjad 2f2da16] commit to dev_sajjad from ubuntu pc again
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file3_dev_sajjad_ubuntu.txt
+sajjad@teco:~/hussain/github/testrepo$ git push --all
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+Counting objects: 3, done.
+Delta compression using up to 12 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 337 bytes | 337.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/enggsajjad/testrepo.git
+   f455bae..2f2da16  dev_sajjad -> dev_sajjad
+sajjad@teco:~/hussain/github/testrepo$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+sajjad@teco:~/hussain/github/testrepo$ echo "hello from ubuntu branch main" >> file3_main_ubuntu.txt
+sajjad@teco:~/hussain/github/testrepo$ git add --all
+sajjad@teco:~/hussain/github/testrepo$ git commit -m "commit to main from ubuntu pc again"
+[main 05a004d] commit to main from ubuntu pc again
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file3_main_ubuntu.txt
+sajjad@teco:~/hussain/github/testrepo$ git push --all
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+Counting objects: 3, done.
+Delta compression using up to 12 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 362 bytes | 362.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/enggsajjad/testrepo.git
+   30939e2..05a004d  main -> main
+sajjad@teco:~/hussain/github/testrepo$
+===========
+UBUNTU KHADAS
+===========
+khadas@Khadas:~/hussain/github/testrepo$ cd
+khadas@Khadas:~$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/khadas/.ssh/id_rsa):
+Created directory '/home/khadas/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/khadas/.ssh/id_rsa
+Your public key has been saved in /home/khadas/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:FeYHz20YJpdNKQScj9A0Ept4Mfgd6omdNez1k482WYk khadas@Khadas
+The key's randomart image is:
++---[RSA 3072]----+
+|       .==O+=+.. |
+|      ...O=Xo+o  |
+|      ..+=o+=.o  |
+|       .o.*.o.   |
+|       +S= o ....|
+|      . = .  E+..|
+|               * |
+|              = .|
+|             . . |
++----[SHA256]-----+
+khadas@Khadas:~$ git status
+fatal: not a git repository (or any of the parent directories): .git
+khadas@Khadas:~$ cd -
+/home/khadas/hussain/github/testrepo
+khadas@Khadas:~/hussain/github/testrepo$ git status
+On branch dev_sajjad
+Your branch is up to date with 'origin/dev_sajjad'.
+
+nothing to commit, working tree clean
+khadas@Khadas:~/hussain/github/testrepo$ git log
+commit f455bae89cbcf3af32529ee09ba5f35ac7bab3b5 (HEAD -> dev_sajjad, origin/dev_sajjad)
+Author: sajjad <hussain@teco.edu>
+Date:   Tue Jul 12 05:55:06 2022 +0000
+
+    adding another text file in dev_sajjad on khadas pc
+
+commit 28b4525e6c0b8c206686f40c0e2a0863477ffd4e
+Author: enggsajjad <enggsajjadhussain@gmail.com>
+Date:   Tue Jul 12 07:46:04 2022 +0200
+
+    patching a file with a difference
+
+commit cec5d00c64c1b020a1408c3c0a77921df19eb281 (origin/master)
+Author: enggsajjad <enggsajjadhussain@gmail.com>
+Date:   Tue Jul 12 07:34:45 2022 +0200
+
+    first addition of the file
+khadas@Khadas:~/hussain/github/testrepo$ git pull origin dev_sajjad
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 1), reused 3 (delta 1), pack-reused 0
+Unpacking objects: 100% (3/3), 317 bytes | 105.00 KiB/s, done.
+From https://github.com/enggsajjad/testrepo
+ * branch            dev_sajjad -> FETCH_HEAD
+   f455bae..2f2da16  dev_sajjad -> origin/dev_sajjad
+Updating f455bae..2f2da16
+Fast-forward
+ file3_dev_sajjad_ubuntu.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file3_dev_sajjad_ubuntu.txt
+khadas@Khadas:~/hussain/github/testrepo$ git log
+commit 2f2da16c18816c5bb85e3aac47e52c2fb60b5f1b (HEAD -> dev_sajjad, origin/dev_sajjad)
+Author: enggsajjad <enggsajjadhussain@gmail.com>
+Date:   Tue Jul 12 08:07:24 2022 +0200
+
+    commit to dev_sajjad from ubuntu pc again
+
+commit f455bae89cbcf3af32529ee09ba5f35ac7bab3b5
+Author: sajjad <hussain@teco.edu>
+Date:   Tue Jul 12 05:55:06 2022 +0000
+
+    adding another text file in dev_sajjad on khadas pc
+
+commit 28b4525e6c0b8c206686f40c0e2a0863477ffd4e
+Author: enggsajjad <enggsajjadhussain@gmail.com>
+Date:   Tue Jul 12 07:46:04 2022 +0200
+
+    patching a file with a difference
+
+commit cec5d00c64c1b020a1408c3c0a77921df19eb281 (origin/master)
+Author: enggsajjad <enggsajjadhussain@gmail.com>
+Date:   Tue Jul 12 07:34:45 2022 +0200
+
+    first addition of the file
+khadas@Khadas:~/hussain/github/testrepo$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+khadas@Khadas:~/hussain/github/testrepo$ git log
+commit 30939e2ce2697198197d1d80e037bdfa14e5767c (HEAD -> main, origin/main, origin/HEAD)
+Author: sajjad <hussain@teco.edu>
+Date:   Tue Jul 12 05:56:32 2022 +0000
+
+    adding another text file in main branch on khadas pc
+
+commit 1ef34c41574dfcdde011150a80567b515f0bd9df
+Author: Sajjad Hussain <47758114+enggsajjad@users.noreply.github.com>
+Date:   Tue Jul 12 07:28:00 2022 +0200
+
+    Initial commit
+khadas@Khadas:~/hussain/github/testrepo$ git pull origin main
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 342 bytes | 114.00 KiB/s, done.
+From https://github.com/enggsajjad/testrepo
+ * branch            main       -> FETCH_HEAD
+   30939e2..05a004d  main       -> origin/main
+Updating 30939e2..05a004d
+Fast-forward
+ file3_main_ubuntu.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file3_main_ubuntu.txt
+khadas@Khadas:~/hussain/github/testrepo$
+
+
+===========
+UBUNTU KHADAS
+===========
+khadas@Khadas:~/hussain/github/testrepo$ vim .git/config
+khadas@Khadas:~/hussain/github/testrepo$ ssh -T git@github.com
+The authenticity of host 'github.com (140.82.121.4)' can't be established.
+ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com,140.82.121.4' (ECDSA) to the list of known hosts.
+Hi enggsajjad! You've successfully authenticated, but GitHub does not provide shell access.
+khadas@Khadas:~/hussain/github/testrepo$
+
+===========
+UBUNTU TECO
+===========
+sajjad@teco:~$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/sajjad/.ssh/id_rsa):
+/home/sajjad/.ssh/id_rsa already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/sajjad/.ssh/id_rsa.
+Your public key has been saved in /home/sajjad/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:RKfaFvKMGm0KaU1uUGXTI+LW6xtZtYnpyO5cD0FbOLg sajjad@teco
+The key's randomart image is:
++---[RSA 2048]----+
+|    ..+.. .      |
+|   ....+o+       |
+|  ...oo.B.o      |
+|   *o..@ O o     |
+|  +.= E.S o      |
+| . o *.* .       |
+|    o.= +        |
+|     o.o o       |
+|     .=.  .      |
++----[SHA256]-----+
+sajjad@teco:~$ ssh -T git@github.com
+Hi enggsajjad! You've successfully authenticated, but GitHub does not provide shell access.
+sajjad@teco:~$
+
+===========
+UBUNTU KHADAS
+SSH
+Log in your github;
+Visit: https://github.com/settings/keys;
+New SSH key;
+cat ~/.ssh/id_rsa.pub, paste it there, name and save it (if you have no such file, generate one for yourself by ssh-keygen -t rsa - just Enter for all prompts);
+Go to your local repository and update your remote by git remote set-url origin git+ssh://git@github.com/username/reponame.git - you can check it first by git remote -v);
+Here you go, just touch t; git add t; git commit -m "test"; git push and confirm yes to enjoy the password-free world.
+===========
+khadas@Khadas:~/hussain/github/testrepo$ git checkout dev_sajjad
+Switched to branch 'dev_sajjad'
+Your branch is up to date with 'origin/dev_sajjad'.
+khadas@Khadas:~/hussain/github/testrepo$ ls
+file2_dev_sajjad.txt  file3_dev_sajjad_ubuntu.txt  first.txt  hello2.c  hello.c  hello_new.c  hello.patch
+khadas@Khadas:~/hussain/github/testrepo$ vim file2_dev_sajjad.txt
+khadas@Khadas:~/hussain/github/testrepo$ git add --all
+khadas@Khadas:~/hussain/github/testrepo$ git commit -m "changing file2_dev_sajjad.txt from Khadas in branch dev_sajjad"
+[dev_sajjad a4463d7] changing file2_dev_sajjad.txt from Khadas in branch dev_sajjad
+ 1 file changed, 1 insertion(+)
+khadas@Khadas:~/hussain/github/testrepo$ git push --all
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 333 bytes | 333.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/enggsajjad/testrepo.git
+   2f2da16..a4463d7  dev_sajjad -> dev_sajjad
+khadas@Khadas:~/hussain/github/testrepo$ git remote set-url origin git+ssh://git@github.com/enggsajjad/testrepo.git
+khadas@Khadas:~/hussain/github/testrepo$ git remote -v
+origin  git+ssh://git@github.com/enggsajjad/testrepo.git (fetch)
+origin  git+ssh://git@github.com/enggsajjad/testrepo.git (push)
+khadas@Khadas:~/hussain/github/testrepo$ vim file2_dev_sajjad.txt
+khadas@Khadas:~/hussain/github/testrepo$ git add --all
+khadas@Khadas:~/hussain/github/testrepo$ git commit -m "changing file2_dev_sajjad.txt agin from Khadas in branch dev_sajjad"
+[dev_sajjad 60bd0c3] changing file2_dev_sajjad.txt agin from Khadas in branch dev_sajjad
+ 1 file changed, 1 insertion(+)
+khadas@Khadas:~/hussain/github/testrepo$ git push --all
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 358 bytes | 358.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To git+ssh://github.com/enggsajjad/testrepo.git
+   a4463d7..60bd0c3  dev_sajjad -> dev_sajjad
+khadas@Khadas:~/hussain/github/testrepo$
+
+
+========================================
+khadas repository on Ubuntu Teco PC: Setting up SSH and push
+======================================
+sajjad@teco:~/hussain/novelsense_git$ git clone git@bitbucket.org:novelsense/khadas.git
+Cloning into 'khadas'...
+The authenticity of host 'bitbucket.org (2406:da00:ff00::22e9:9f55)' can't be established.
+RSA key fingerprint is SHA256:zzXQOXSRBEiUtuE8AikJYKwbHaxvSc0ojez9YXaGp1A.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'bitbucket.org,2406:da00:ff00::22e9:9f55' (RSA) to the list of known hosts.
+remote: Enumerating objects: 873, done.
+remote: Counting objects: 100% (873/873), done.
+remote: Compressing objects: 100% (804/804), done.
+remote: Total 873 (delta 322), reused 265 (delta 39), pack-reused 0
+Receiving objects: 100% (873/873), 284.47 MiB | 7.48 MiB/s, done.
+Resolving deltas: 100% (322/322), done.
+sajjad@teco:~/hussain/novelsense_git$ git log
+fatal: not a git repository (or any of the parent directories): .git
+sajjad@teco:~/hussain/novelsense_git$ cd khadas/
+sajjad@teco:~/hussain/novelsense_git/khadas$ git log
+sajjad@teco:~/hussain/novelsense_git/khadas$ git branch
+* master
+sajjad@teco:~/hussain/novelsense_git/khadas$ git checkout dev_sajjad
+Checking out files: 100% (713/713), done.
+Branch 'dev_sajjad' set up to track remote branch 'dev_sajjad' from 'origin'.
+Switched to a new branch 'dev_sajjad'
+sajjad@teco:~/hussain/novelsense_git/khadas$ ls
+docs  example-network  nbg  nopnet  README.md  standalone  test-quant-network
+sajjad@teco:~/hussain/novelsense_git/khadas$ ssh -T git@bitbucket.org
+Warning: Permanently added the RSA host key for IP address '2406:da00:ff00::6b17:d1f5' to the list of known hosts.
+authenticated via ssh key.
+
+You can use git to connect to Bitbucket. Shell access is disabled
+sajjad@teco:~/hussain/novelsense_git/khadas$ git remote set-url origin git+ssh@bitbucket.org:novelsense/khadas.git     sajjad@teco:~/hussain/novelsense_git/khadas$ git remote -v
+origin  git+ssh@bitbucket.org:novelsense/khadas.git (fetch)
+origin  git+ssh@bitbucket.org:novelsense/khadas.git (push)
+sajjad@teco:~/hussain/novelsense_git/khadas$ git config user.name "enggsajjad123"
+sajjad@teco:~/hussain/novelsense_git/khadas$ git config user.email "hussain@teco.edu"
+sajjad@teco:~/hussain/novelsense_git/khadas$ vim standalone/README.md
+sajjad@teco:~/hussain/novelsense_git/khadas$ git add --all
+sajjad@teco:~/hussain/novelsense_git/khadas$ git commit -m "changed standalone/README.md by adding image folder's desciption"
+[dev_sajjad 404fb41] changed standalone/README.md by adding image folder's desciption
+ 1 file changed, 1 insertion(+)
+sajjad@teco:~/hussain/novelsense_git/khadas$ git push --all
+Warning: Permanently added the RSA host key for IP address '2406:da00:ff00::22c5:2ef4' to the list of known hosts.
+git+ssh@bitbucket.org: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+sajjad@teco:~/hussain/novelsense_git/khadas$ vim .git/config
+sajjad@teco:~/hussain/novelsense_git/khadas$ git remote set-url origin git+ssh@bitbucket.org/enggsajjad123:novelsense/khadas.git
+sajjad@teco:~/hussain/novelsense_git/khadas$ git remote -v
+origin  git+ssh@bitbucket.org/enggsajjad123:novelsense/khadas.git (fetch)
+origin  git+ssh@bitbucket.org/enggsajjad123:novelsense/khadas.git (push)
+sajjad@teco:~/hussain/novelsense_git/khadas$ git push --all
+fatal: 'git+ssh@bitbucket.org/enggsajjad123:novelsense/khadas.git' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+sajjad@teco:~/hussain/novelsense_git/khadas$ git remote set-url origin git+ssh@bitbucket.org:novelsense/khadas.git     sajjad@teco:~/hussain/novelsense_git/khadas$ git push --all
+Warning: Permanently added the RSA host key for IP address '2406:da00:ff00::3403:4be7' to the list of known hosts.
+git+ssh@bitbucket.org: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+sajjad@teco:~/hussain/novelsense_git/khadas$ git remote set-url origin git+ssh:https://enggsajjad123@bitbucket.org/novelsense/khadas.git
+sajjad@teco:~/hussain/novelsense_git/khadas$ git remote -v
+origin  git+ssh:https://enggsajjad123@bitbucket.org/novelsense/khadas.git (fetch)
+origin  git+ssh:https://enggsajjad123@bitbucket.org/novelsense/khadas.git (push)
+sajjad@teco:~/hussain/novelsense_git/khadas$ git push --all
+fatal: I don't handle protocol 'git+ssh:https'
+sajjad@teco:~/hussain/novelsense_git/khadas$ git remote set-url origin git+ssh://enggsajjad123@bitbucket.org/novelsense/khadas.git
+sajjad@teco:~/hussain/novelsense_git/khadas$ git push --all
+Warning: Permanently added the RSA host key for IP address '2406:da00:ff00::22cd:e0db' to the list of known hosts.
+Counting objects: 4, done.
+Delta compression using up to 12 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 536 bytes | 536.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0)
+remote:
+remote: Create pull request for dev_sajjad:
+remote:   https://bitbucket.org/novelsense/khadas/pull-requests/new?source=dev_sajjad&t=1
+remote:
+To git+ssh://bitbucket.org/novelsense/khadas.git
+   2963791..404fb41  dev_sajjad -> dev_sajjad
+sajjad@teco:~/hussain/novelsense_git/khadas$
+
+
+
+==================================================
+khadas repository on Khadas PC: pull, Setting up SSH and push
+
+==================================================
+khadas@Khadas:~/hussain/novelsense_git/khadas$ git branch
+* dev_sajjad
+  master
+khadas@Khadas:~/hussain/novelsense_git/khadas$ vim standalone/README.md
+khadas@Khadas:~/hussain/novelsense_git/khadas$ cat standalone/README.md
+#       Standalone Yolo-v3 Code #
+* Using detect_demo_x11, need following steps earlier:
+        1. Should have libnn_detect.so from source_code folder
+        2. Generate export files and .nb file and copy them to relevant directories.
+        3. Should have libnn_yolo_V3.so from the detect_yolo_v3 folder
+        4. Copy libnn_yolo_v3.so and .nd to demo_detect_picture folder and do ./INSTALL
+* Now:
+        * Just copy export files and .nb file into the new stand-alone folder and compile it, and use it.
+* For this, I did the following:
+        1. Modified some of the c files
+        2. Changed the Makefile to work successfully
+        3. Used build.sh to compile the code
+        4. Quick summary Avoiding libnn_yolo_v3.so and libnn_detect.so combining the code from: detect_yolo_v3 (libnn_yolo_v3.so), source_code (code for libnn_detect.so) , and sample_demo_x11 (actual code for detection)
+        5. sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+khadas@Khadas:~/hussain/novelsense_git/khadas$ vim standalone/README.md
+khadas@Khadas:~/hussain/novelsense_git/khadas$ git pull origin dev_sajjad
+Password for 'https://enggsajjad123@bitbucket.org':
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (4/4), 516 bytes | 64.00 KiB/s, done.
+From https://bitbucket.org/novelsense/khadas
+ * branch            dev_sajjad -> FETCH_HEAD
+   2963791..404fb41  dev_sajjad -> origin/dev_sajjad
+Updating 2963791..404fb41
+Fast-forward
+ standalone/README.md | 1 +
+ 1 file changed, 1 insertion(+)
+khadas@Khadas:~/hussain/novelsense_git/khadas$ cat standalone/README.md
+#       Standalone Yolo-v3 Code #
+* Using detect_demo_x11, need following steps earlier:
+        1. Should have libnn_detect.so from source_code folder
+        2. Generate export files and .nb file and copy them to relevant directories.
+        3. Should have libnn_yolo_V3.so from the detect_yolo_v3 folder
+        4. Copy libnn_yolo_v3.so and .nd to demo_detect_picture folder and do ./INSTALL
+* Now:
+        * Just copy export files and .nb file into the new stand-alone folder and compile it, and use it.
+* For this, I did the following:
+        1. Modified some of the c files
+        2. Changed the Makefile to work successfully
+        3. Used build.sh to compile the code
+        4. Quick summary Avoiding libnn_yolo_v3.so and libnn_detect.so combining the code from: detect_yolo_v3 (libnn_yolo_v3.so), source_code (code for libnn_detect.so) , and sample_demo_x11 (actual code for detection)
+        5. sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+        6. images are saved in the img folder for different sizes
+khadas@Khadas:~/hussain/novelsense_git/khadas$ git config user.name "enggsajjad123"
+khadas@Khadas:~/hussain/novelsense_git/khadas$ git config user.email "hussain@teco.edu"
+khadas@Khadas:~/hussain/novelsense_git/khadas$ ssh -T git@bitbucket.org
+The authenticity of host 'bitbucket.org (2406:da00:ff00::6b17:d1f5)' can't be established.
+RSA key fingerprint is SHA256:zzXQOXSRBEiUtuE8AikJYKwbHaxvSc0ojez9YXaGp1A.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'bitbucket.org,2406:da00:ff00::6b17:d1f5' (RSA) to the list of known hosts.
+authenticated via ssh key.
+
+You can use git to connect to Bitbucket. Shell access is disabled
+khadas@Khadas:~/hussain/novelsense_git/khadas$ git remote set-url origin git+ssh://enggsajjad123@bitbucket.org/novelsense/khadas.git
+khadas@Khadas:~/hussain/novelsense_git/khadas$ git remote -v
+origin  git+ssh://enggsajjad123@bitbucket.org/novelsense/khadas.git (fetch)
+origin  git+ssh://enggsajjad123@bitbucket.org/novelsense/khadas.git (push)
+khadas@Khadas:~/hussain/novelsense_git/khadas$ vim standalone/README.md
+khadas@Khadas:~/hussain/novelsense_git/khadas$ git add --all
+khadas@Khadas:~/hussain/novelsense_git/khadas$ git commit -m "changes standalone/README.md from khadas pc after setting ssh"
+[dev_sajjad 013cbfb] changes standalone/README.md from khadas pc after setting ssh
+ 6 files changed, 2 insertions(+)
+ rewrite nbg/yolov3_nbg_unify_416_hussainA/input_0.dat (92%)
+ rewrite nbg/yolov3_nbg_unify_416_hussainA/output.jpg (97%)
+ rewrite nbg/yolov3_nbg_unify_416_hussainA/output0_13_13_255_1.dat (99%)
+ rewrite nbg/yolov3_nbg_unify_416_hussainA/output1_26_26_255_1.dat (97%)
+ rewrite nbg/yolov3_nbg_unify_416_hussainA/output2_52_52_255_1.dat (90%)
+khadas@Khadas:~/hussain/novelsense_git/khadas$ git push --all
+Warning: Permanently added the RSA host key for IP address '2406:da00:ff00::3403:4be7' to the list of known hosts.
+Enumerating objects: 13, done.
+Counting objects: 100% (13/13), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 182.22 KiB | 5.06 MiB/s, done.
+Total 7 (delta 4), reused 0 (delta 0)
+remote:
+remote: Create pull request for dev_sajjad:
+remote:   https://bitbucket.org/novelsense/khadas/pull-requests/new?source=dev_sajjad&t=1
+remote:
+To git+ssh://bitbucket.org/novelsense/khadas.git
+   404fb41..013cbfb  dev_sajjad -> dev_sajjad
+khadas@Khadas:~/hussain/novelsense_git/khadas$
+
+
+==================================================
+khadas repository on Ubuntu Teco PC: pull, check ssh works
+==================================================
+sajjad@teco:~/hussain/novelsense_git/khadas$ clear
+sajjad@teco:~/hussain/novelsense_git/khadas$ cat standalone/README.md
+#       Standalone Yolo-v3 Code #
+* Using detect_demo_x11, need following steps earlier:
+        1. Should have libnn_detect.so from source_code folder
+        2. Generate export files and .nb file and copy them to relevant directories.
+        3. Should have libnn_yolo_V3.so from the detect_yolo_v3 folder
+        4. Copy libnn_yolo_v3.so and .nd to demo_detect_picture folder and do ./INSTALL
+* Now:
+        * Just copy export files and .nb file into the new stand-alone folder and compile it, and use it.
+* For this, I did the following:
+        1. Modified some of the c files
+        2. Changed the Makefile to work successfully
+        3. Used build.sh to compile the code
+        4. Quick summary Avoiding libnn_yolo_v3.so and libnn_detect.so combining the code from: detect_yolo_v3 (libnn_yolo_v3.so), source_code (code for libnn_detect.so) , and sample_demo_x11 (actual code for detection)
+        5. sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+        6. images are saved in the img folder for different sizes
+sajjad@teco:~/hussain/novelsense_git/khadas$ git pull origin dev_sajjad
+remote: Enumerating objects: 20, done.
+remote: Counting objects: 100% (20/20), done.
+remote: Compressing objects: 100% (11/11), done.
+remote: Total 11 (delta 4), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (11/11), done.
+From git+ssh://bitbucket.org/novelsense/khadas
+ * branch            dev_sajjad -> FETCH_HEAD
+   404fb41..013cbfb  dev_sajjad -> origin/dev_sajjad
+Updating 404fb41..013cbfb
+Fast-forward
+ nbg/yolov3_nbg_unify_416_hussainA/input_0.dat             | Bin 519168 -> 519168 bytes
+ nbg/yolov3_nbg_unify_416_hussainA/output.jpg              | Bin 187042 -> 190043 bytes
+ nbg/yolov3_nbg_unify_416_hussainA/output0_13_13_255_1.dat | Bin 43095 -> 43095 bytes
+ nbg/yolov3_nbg_unify_416_hussainA/output1_26_26_255_1.dat | Bin 172380 -> 172380 bytes
+ nbg/yolov3_nbg_unify_416_hussainA/output2_52_52_255_1.dat | Bin 689520 -> 689520 bytes
+ standalone/README.md                                      |   2 ++
+ 6 files changed, 2 insertions(+)
+sajjad@teco:~/hussain/novelsense_git/khadas$ cat standalone/README.md
+#       Standalone Yolo-v3 Code #
+* Using detect_demo_x11, need following steps earlier:
+        1. Should have libnn_detect.so from source_code folder
+        2. Generate export files and .nb file and copy them to relevant directories.
+        3. Should have libnn_yolo_V3.so from the detect_yolo_v3 folder
+        4. Copy libnn_yolo_v3.so and .nd to demo_detect_picture folder and do ./INSTALL
+* Now:
+        * Just copy export files and .nb file into the new stand-alone folder and compile it, and use it.
+* For this, I did the following:
+        1. Modified some of the c files
+        2. Changed the Makefile to work successfully
+        3. Used build.sh to compile the code
+        4. Quick summary Avoiding libnn_yolo_v3.so and libnn_detect.so combining the code from: detect_yolo_v3 (libnn_yolo_v3.so), source_code (code for libnn_detect.so) , and sample_demo_x11 (actual code for detection)
+        5. sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+        6. images are saved in the img folder for different sizes
+        7. we can use -w 416 -h 416 paramters for lesser sizes.
+
+sajjad@teco:~/hussain/novelsense_git/khadas$
+
+
+==================================================
+
+==================================================
+
+
+==================================================
+
+==================================================

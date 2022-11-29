@@ -1,0 +1,221 @@
+khadas@Khadas-teco:~$ cd sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet/
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ ./build_vx.sh 
+makefile.linux:59: /common.target: No such file or directory
+make: *** No rule to make target '/common.target'.  Stop.
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ ./build_vx.sh 
+make: Warning: File 'vnn_pre_process.c' has modification time 5870 s in the future
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_pre_process.c
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_lenet.c
+vnn_lenet.c: In function 'vnn_CreateLenet':
+vnn_lenet.c:146:29: warning: unused variable 'data' [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_lenet.c:94:17: warning: 'load_data' defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/main.c
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_post_process.c
+/usr/bin/ld: bin_r/vnn_pre_process.o: in function `_jpeg_to_bmp':
+vnn_pre_process.c:(.text+0x1d4): undefined reference to `jpeg_std_error'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x1ec): undefined reference to `jpeg_CreateDecompress'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x1f8): undefined reference to `jpeg_stdio_src'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x204): undefined reference to `jpeg_read_header'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x214): undefined reference to `jpeg_start_decompress'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x284): undefined reference to `jpeg_read_scanlines'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x2ac): undefined reference to `jpeg_finish_decompress'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x2b4): undefined reference to `jpeg_destroy_decompress'
+/usr/bin/ld: bin_r/vnn_pre_process.o: in function `vnn_PreProcessLenet_ImageProcess':
+vnn_pre_process.c:(.text+0x468): undefined reference to `jpeg_std_error'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x480): undefined reference to `jpeg_CreateDecompress'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x48c): undefined reference to `jpeg_stdio_src'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x498): undefined reference to `jpeg_read_header'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x4a4): undefined reference to `jpeg_start_decompress'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x4bc): undefined reference to `jpeg_destroy_decompress'
+collect2: error: ld returned 1 exit status
+make: *** [makefile.linux:47: bin_r/libnn_lenet.so] Error 1
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ sudo ./build_vx.sh 
+[sudo] password for khadas: 
+make: Warning: File 'vnn_pre_process.c' has modification time 5825 s in the future
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_pre_process.c
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_lenet.c
+vnn_lenet.c: In function 'vnn_CreateLenet':
+vnn_lenet.c:146:29: warning: unused variable 'data' [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_lenet.c:94:17: warning: 'load_data' defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/main.c
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_post_process.c
+/usr/bin/ld: bin_r/vnn_pre_process.o: in function `_jpeg_to_bmp':
+vnn_pre_process.c:(.text+0x1d4): undefined reference to `jpeg_std_error'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x1ec): undefined reference to `jpeg_CreateDecompress'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x1f8): undefined reference to `jpeg_stdio_src'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x204): undefined reference to `jpeg_read_header'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x214): undefined reference to `jpeg_start_decompress'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x284): undefined reference to `jpeg_read_scanlines'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x2ac): undefined reference to `jpeg_finish_decompress'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x2b4): undefined reference to `jpeg_destroy_decompress'
+/usr/bin/ld: bin_r/vnn_pre_process.o: in function `vnn_PreProcessLenet_ImageProcess':
+vnn_pre_process.c:(.text+0x468): undefined reference to `jpeg_std_error'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x480): undefined reference to `jpeg_CreateDecompress'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x48c): undefined reference to `jpeg_stdio_src'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x498): undefined reference to `jpeg_read_header'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x4a4): undefined reference to `jpeg_start_decompress'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x4bc): undefined reference to `jpeg_destroy_decompress'
+collect2: error: ld returned 1 exit status
+make: *** [makefile.linux:47: bin_r/libnn_lenet.so] Error 1
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ sudo ./build_vx.sh 
+makefile.linux:1: /makefile.linux.def: No such file or directory
+make: *** No rule to make target '/makefile.linux.def'.  Stop.
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ ./build_vx.sh 
+makefile.linux:1: /makefile.linux.def: No such file or directory
+make: *** No rule to make target '/makefile.linux.def'.  Stop.
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ ./build_vx.sh 
+make: *** No targets specified and no makefile found.  Stop.
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ ./build_vx.sh 
+makefile.linux:58: /common.target: No such file or directory
+make: *** No rule to make target '/common.target'.  Stop.
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ ./build_vx.sh 
+makefile.linux:1: /makefile.linux.def: No such file or directory
+make: *** No rule to make target '/makefile.linux.def'.  Stop.
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ ./build_vx.sh 
+make: *** No targets specified and no makefile found.  Stop.
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ ./build_vx.sh 
+make: Warning: File 'vnn_pre_process.c' has modification time 5240 s in the future
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_pre_process.c
+vnn_pre_process.c:16:10: fatal error: vnn_global.h: No such file or directory
+   16 | #include "vnn_global.h"
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+make: *** [makefile.linux:78: bin_r/vnn_pre_process.o] Error 1
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ ./build_vx.sh 
+make: Warning: File 'vnn_pre_process.c' has modification time 5105 s in the future
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_pre_process.c
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_lenet.c
+vnn_lenet.c: In function 'vnn_CreateLenet':
+vnn_lenet.c:146:29: warning: unused variable 'data' [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_lenet.c:94:17: warning: 'load_data' defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/main.c
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_post_process.c
+aarch64-linux-gnu-gcc: error: /lib/libjpeg.a: No such file or directory
+make: *** [makefile.linux:76: bin_r/lenet] Error 1
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ ./build_vx.sh 
+make: Warning: File 'vnn_pre_process.c' has modification time 3949 s in the future
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_pre_process.c
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_lenet.c
+vnn_lenet.c: In function 'vnn_CreateLenet':
+vnn_lenet.c:146:29: warning: unused variable 'data' [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_lenet.c:94:17: warning: 'load_data' defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/main.c
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_post_process.c
+aarch64-linux-gnu-gcc: error: /lib/libjpeg.a: No such file or directory
+make: *** [makefile.linux:76: bin_r/lenet] Error 1
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ ./build_vx.sh 
+make: Warning: File 'vnn_pre_process.c' has modification time 3807 s in the future
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_pre_process.c
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_lenet.c
+vnn_lenet.c: In function 'vnn_CreateLenet':
+vnn_lenet.c:146:29: warning: unused variable 'data' [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_lenet.c:94:17: warning: 'load_data' defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/main.c
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_post_process.c
+aarch64-linux-gnu-gcc: error: /lib/libjpeg.a: No such file or directory
+make: *** [makefile.linux:76: bin_r/lenet] Error 1
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ vim vnn_post_process.c 
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ vim include/vnn_post_process.h 
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ vim vnn_post_process.c 
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ vim include/vnn_global.h       
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ ./build_vx.sh 
+make: Warning: File 'vnn_pre_process.c' has modification time 3047 s in the future
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_pre_process.c
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_lenet.c
+vnn_lenet.c: In function 'vnn_CreateLenet':
+vnn_lenet.c:146:29: warning: unused variable 'data' [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_lenet.c:94:17: warning: 'load_data' defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/main.c
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_post_process.c
+aarch64-linux-gnu-gcc: error: /lib/libjpeg.a: No such file or directory
+make: *** [makefile.linux:76: bin_r/lenet] Error 1
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ ls ~/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/^C
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ cd ../detect_yolo_v3
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ./build_vx.sh 
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_yolo_v3$ vim build_vx.sh 
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ./build_vx.sh V_TARGET=clean
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ./build_vx.sh --clean
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ./build_vx.sh -clean
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ./build_vx.sh clean
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ./build_vx.sh      
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_yolo_v3$ cd ..
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code$ cd ..
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library$ cd source_code/        
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/source_code$ ls
+Makefile  build_vx.sh  detect.c  detect_log.c  include  makefile.linux  makefile.linux.def
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/source_code$ cd ../model_code/detect_lenet/
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ ./build_vx.sh
+make: Warning: File 'vnn_pre_process.c' has modification time 2307 s in the future
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_pre_process.c
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_lenet.c
+vnn_lenet.c: In function 'vnn_CreateLenet':
+vnn_lenet.c:146:29: warning: unused variable 'data' [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_lenet.c:94:17: warning: 'load_data' defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/main.c
+  COMPILE /home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_lenet/vnn_post_process.c
+/usr/bin/ld: bin_r/vnn_pre_process.o: in function `_jpeg_to_bmp':
+vnn_pre_process.c:(.text+0x1d4): undefined reference to `jpeg_std_error'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x1ec): undefined reference to `jpeg_CreateDecompress'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x1f8): undefined reference to `jpeg_stdio_src'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x204): undefined reference to `jpeg_read_header'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x214): undefined reference to `jpeg_start_decompress'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x284): undefined reference to `jpeg_read_scanlines'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x2ac): undefined reference to `jpeg_finish_decompress'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x2b4): undefined reference to `jpeg_destroy_decompress'
+/usr/bin/ld: bin_r/vnn_pre_process.o: in function `vnn_PreProcessLenet_ImageProcess':
+vnn_pre_process.c:(.text+0x468): undefined reference to `jpeg_std_error'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x480): undefined reference to `jpeg_CreateDecompress'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x48c): undefined reference to `jpeg_stdio_src'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x498): undefined reference to `jpeg_read_header'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x4a4): undefined reference to `jpeg_start_decompress'
+/usr/bin/ld: vnn_pre_process.c:(.text+0x4bc): undefined reference to `jpeg_destroy_decompress'
+collect2: error: ld returned 1 exit status
+make: *** [makefile.linux:47: bin_r/libnn_lenet.so] Error 1
+khadas@Khadas-teco:~/sajjad/NPUApp/aml_npu_app/detect_library/model_code/detect_lenet$ 

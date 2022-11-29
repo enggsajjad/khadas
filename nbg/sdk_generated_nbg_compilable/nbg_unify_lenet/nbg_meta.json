@@ -1,0 +1,28 @@
+{
+    "Inputs": {
+        "input_15": {
+            "name": "input",
+            "shape": [
+                1,
+                3,
+                28,
+                28,
+                1
+            ],
+            "format": "nchw",
+            "dtype": "float32"
+        }
+    },
+    "Outputs": {
+        "attach_Gemm_Gemm_20/out0_0": {
+            "name": "attach_Gemm_Gemm_20/out0",
+            "shape": [
+                1,
+                10
+            ],
+            "format": "nchw",
+            "dtype": "float32"
+        }
+    },
+    "Recurrent_connections": {}
+}

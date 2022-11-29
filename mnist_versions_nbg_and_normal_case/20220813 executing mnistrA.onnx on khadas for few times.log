@@ -1,0 +1,101 @@
+khadas@Khadas:~$ cd hussain/
+khadas@Khadas:~/hussain$ ls
+compilable            nbg_unify_mnist0  nbg_unify_mnist2  nbg_unify_mnist4  profile                 yolov3_nbg_unify_416_hussainA
+Just_for_get_op_time  nbg_unify_mnist1  nbg_unify_mnist3  nbg_unify_mnistx  sample_demo_x11_yolov3
+khadas@Khadas:~/hussain$ cp -r nbg_unify_mnistx nbg_unify_mnistrAx
+khadas@Khadas:~/hussain$ cp -r nbg_unify_mnistrAx nbg_unify_mnistrA0
+khadas@Khadas:~/hussain$ cp -r nbg_unify_mnistrAx nbg_unify_mnistrA1
+khadas@Khadas:~/hussain$ cp -r nbg_unify_mnistrAx nbg_unify_mnistrA2
+khadas@Khadas:~/hussain$ cp -r nbg_unify_mnistrAx nbg_unify_mnistrA3
+khadas@Khadas:~/hussain$ cp -r nbg_unify_mnistrAx nbg_unify_mnistrA4
+khadas@Khadas:~/hussain$ cd nbg_unify_mnistrAx/
+khadas@Khadas:~/hussain/nbg_unify_mnistrAx$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/nbg_unify_mnistrAx/vnn_pre_process.c
+  COMPILE /home/khadas/hussain/nbg_unify_mnistrAx/vnn_mnist.c
+vnn_mnist.c: In function ‘vnn_CreateMnist’:
+vnn_mnist.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_mnist.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/hussain/nbg_unify_mnistrAx/main.c
+  COMPILE /home/khadas/hussain/nbg_unify_mnistrAx/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas:~/hussain/nbg_unify_mnistrAx$ ./bin_r_cv4/mnist mnist.nb bmp/2.bmp.jpg
+Create Neural Network: 163ms or 163298us
+Verify...
+Verify Graph: 7ms or 7339us
+Start run graph [1] times...
+Run the 1 time: 27.00ms or 27988.00us
+vxProcessGraph execution time:
+Total   28.00ms or 28030.00us
+Average 28.03ms or 28030.00us
+ --- Top5 ---
+  2: -0.964686
+  3: -0.964686
+  8: -1.538283
+  7: -3.676236
+  4: -6.309568
+khadas@Khadas:~/hussain/nbg_unify_mnistrAx$ ./bin_r_cv4/mnist mnist.nb bmp/2.bmp.jpg
+Create Neural Network: 55ms or 55672us
+Verify...
+Verify Graph: 0ms or 936us
+Start run graph [1] times...
+Run the 1 time: 10.00ms or 10619.00us
+vxProcessGraph execution time:
+Total   10.00ms or 10671.00us
+Average 10.67ms or 10671.00us
+ --- Top5 ---
+  2: -0.964686
+  3: -0.964686
+  8: -1.538283
+  7: -3.676236
+  4: -6.309568
+khadas@Khadas:~/hussain/nbg_unify_mnistrAx$ ./bin_r_cv4/mnist mnist.nb bmp/2.bmp.jpg
+Create Neural Network: 66ms or 66647us
+Verify...
+Verify Graph: 0ms or 971us
+Start run graph [1] times...
+Run the 1 time: 10.00ms or 10623.00us
+vxProcessGraph execution time:
+Total   10.00ms or 10656.00us
+Average 10.66ms or 10656.00us
+ --- Top5 ---
+  2: -0.964686
+  3: -0.964686
+  8: -1.538283
+  7: -3.676236
+  4: -6.309568
+khadas@Khadas:~/hussain/nbg_unify_mnistrAx$ ./bin_r_cv4/mnist mnist.nb bmp/2.bmp.jpg
+Create Neural Network: 54ms or 54527us
+Verify...
+Verify Graph: 0ms or 946us
+Start run graph [1] times...
+Run the 1 time: 10.00ms or 10623.00us
+vxProcessGraph execution time:
+Total   10.00ms or 10670.00us
+Average 10.67ms or 10670.00us
+ --- Top5 ---
+  2: -0.964686
+  3: -0.964686
+  8: -1.538283
+  7: -3.676236
+  4: -6.309568
+khadas@Khadas:~/hussain/nbg_unify_mnistrAx$ ./bin_r_cv4/mnist mnist.nb bmp/2.bmp.jpg
+Create Neural Network: 57ms or 57958us
+Verify...
+Verify Graph: 0ms or 981us
+Start run graph [1] times...
+Run the 1 time: 11.00ms or 11379.00us
+vxProcessGraph execution time:
+Total   11.00ms or 11427.00us
+Average 11.43ms or 11427.00us
+ --- Top5 ---
+  2: -0.964686
+  3: -0.964686
+  8: -1.538283
+  7: -3.676236
+  4: -6.309568
+khadas@Khadas:~/hussain/nbg_unify_mnistrAx$

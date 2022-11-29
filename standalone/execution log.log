@@ -1,0 +1,288 @@
+========================================================================================================================================================================================================
+20220623 From yolov3_nbg_unify_416_hussainA Copies vnn_post_process.h vnn_pre_process.h vnn_yolov3.h into include folder yolov3_88.nb in bin_bin_r_cv4/nn_data and vnn_yolov3.c into sample_demo_x11B
+Compiled=> OK
+Run=> OK
+Result => NONE
+========================================================================================================================================================================================================
+khadas@Khadas-teco:~/hussain/standalone_v3/newscripts/sample_demo_x11B/bin_r_cv4$ cd -
+/home/khadas/hussain/standalone_v3/newscripts/sample_demo_x11B
+khadas@Khadas-teco:~/hussain/standalone_v3/newscripts/sample_demo_x11B$ ./build_vx.sh 
+  COMPILE /home/khadas/hussain/standalone_v3/newscripts/sample_demo_x11B/detect_log.c
+  COMPILE /home/khadas/hussain/standalone_v3/newscripts/sample_demo_x11B/yolov3_process.c
+  COMPILE /home/khadas/hussain/standalone_v3/newscripts/sample_demo_x11B/vnn_yolov3.c
+vnn_yolov3.c: In function 'vnn_CreateYolov3':
+vnn_yolov3.c:146:29: warning: unused variable 'data' [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_yolov3.c:94:17: warning: 'load_data' defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/hussain/standalone_v3/newscripts/sample_demo_x11B/yolo_v3.c
+  COMPILE /home/khadas/hussain/standalone_v3/newscripts/sample_demo_x11B/main.cpp
+main.cpp: In function 'int run_detect_model(int, char**)':
+main.cpp:331:10: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
+  331 |   return NULL;
+      |          ^~~~
+main.cpp:277:39: warning: unused variable 'img_width' [-Wunused-variable]
+  277 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                       ^~~~~~~~~
+main.cpp:277:50: warning: unused variable 'img_height' [-Wunused-variable]
+  277 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                                  ^~~~~~~~~~
+main.cpp: At global scope:
+main.cpp:250:13: warning: 'void crop_face(cv::Mat, cv::Mat&, DetectResult, int, int)' defined but not used [-Wunused-function]
+  250 | static void crop_face(cv::Mat sourceFrame, cv::Mat& imageROI, DetectResult resultData, int img_height, int img_width) {
+      |             ^~~~~~~~~
+main.cpp:98:17: warning: 'screensize' defined but not used [-Wunused-variable]
+   98 | static long int screensize = 0;
+      |                 ^~~~~~~~~~
+main.cpp:97:33: warning: 'finfo' defined but not used [-Wunused-variable]
+   97 | static struct fb_fix_screeninfo finfo;
+      |                                 ^~~~~
+main.cpp:96:33: warning: 'vinfo' defined but not used [-Wunused-variable]
+   96 | static struct fb_var_screeninfo vinfo;
+      |                                 ^~~~~
+main.cpp:95:12: warning: 'fbfd' defined but not used [-Wunused-variable]
+   95 | static int fbfd = 0;
+      |            ^~~~
+khadas@Khadas-teco:~/hussain/standalone_v3/newscripts/sample_demo_x11B$ cd -
+/home/khadas/hussain/standalone_v3/newscripts/sample_demo_x11B/bin_r_cv4
+khadas@Khadas-teco:~/hussain/standalone_v3/newscripts/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp 
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:608
+model.height:608
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=608, height=608, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas-teco:~/hussain/standalone_v3/newscripts/sample_demo_x11B/bin_r_cv4$
+========================================================================================================================================================================================================
+20220623 From yolov3_nbg_unify_416_hussainA Copies vnn_post_process.h vnn_pre_process.h vnn_yolov3.h into include folder yolov3_88.nb in bin_bin_r_cv4/nn_data and vnn_yolov3.c into sample_demo_x11B
+Compiled=> OK
+Run=> OK
+Result => OK
+========================================================================================================================================================================================================
+
+khadas@Khadas-teco:~/hussain/standalone_v3/newscripts/sample_demo_x11B/bin_r_cv4$ cd -
+/home/khadas/hussain/standalone_v3/newscripts/sample_demo_x11B
+khadas@Khadas-teco:~/hussain/standalone_v3/newscripts/sample_demo_x11B$ ./build_vx.sh 
+  COMPILE /home/khadas/hussain/standalone_v3/newscripts/sample_demo_x11B/detect_log.c
+  COMPILE /home/khadas/hussain/standalone_v3/newscripts/sample_demo_x11B/yolov3_process.c
+  COMPILE /home/khadas/hussain/standalone_v3/newscripts/sample_demo_x11B/vnn_yolov3.c
+vnn_yolov3.c: In function 'vnn_CreateYolov3':
+vnn_yolov3.c:146:29: warning: unused variable 'data' [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_yolov3.c:94:17: warning: 'load_data' defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/hussain/standalone_v3/newscripts/sample_demo_x11B/yolo_v3.c
+  COMPILE /home/khadas/hussain/standalone_v3/newscripts/sample_demo_x11B/main.cpp
+main.cpp: In function 'int run_detect_model(int, char**)':
+main.cpp:331:10: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]
+  331 |   return NULL;
+      |          ^~~~
+main.cpp:277:39: warning: unused variable 'img_width' [-Wunused-variable]
+  277 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                       ^~~~~~~~~
+main.cpp:277:50: warning: unused variable 'img_height' [-Wunused-variable]
+  277 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                                  ^~~~~~~~~~
+main.cpp: At global scope:
+main.cpp:250:13: warning: 'void crop_face(cv::Mat, cv::Mat&, DetectResult, int, int)' defined but not used [-Wunused-function]
+  250 | static void crop_face(cv::Mat sourceFrame, cv::Mat& imageROI, DetectResult resultData, int img_height, int img_width) {
+      |             ^~~~~~~~~
+main.cpp:98:17: warning: 'screensize' defined but not used [-Wunused-variable]
+   98 | static long int screensize = 0;
+      |                 ^~~~~~~~~~
+main.cpp:97:33: warning: 'finfo' defined but not used [-Wunused-variable]
+   97 | static struct fb_fix_screeninfo finfo;
+      |                                 ^~~~~
+main.cpp:96:33: warning: 'vinfo' defined but not used [-Wunused-variable]
+   96 | static struct fb_var_screeninfo vinfo;
+      |                                 ^~~~~
+main.cpp:95:12: warning: 'fbfd' defined but not used [-Wunused-variable]
+   95 | static int fbfd = 0;
+      |            ^~~~
+khadas@Khadas-teco:~/hussain/standalone_v3/newscripts/sample_demo_x11B$ cd -
+/home/khadas/hussain/standalone_v3/newscripts/sample_demo_x11B/bin_r_cv4
+khadas@Khadas-teco:~/hussain/standalone_v3/newscripts/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp 
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:526.938 right:1340.14 top:1.80045 bottom:1080
+left:536.938 top-10:40
+
+(process:6379): Gtk-WARNING **: 02:32:49.024: Locale not supported by C library.
+        Using the fallback 'C' locale.
+khadas@Khadas-teco:~/hussain/standalone_v3/newscripts/sample_demo_x11B/bin_r_cv4$ 
+
+
+========================================================================================================================================================================================================
+
+
+========================================================================================================================================================================================================
+
+khadas@Khadas-teco:~/hussain/standalone_v3/newscripts/sample_demo_x11B$ ./build_vx.sh 
+  COMPILE /home/khadas/hussain/standalone_v3/newscripts/sample_demo_x11B/yolo_v3.c
+khadas@Khadas-teco:~/hussain/standalone_v3/newscripts/sample_demo_x11B$ cd -
+/home/khadas/hussain/standalone_v3/newscripts/sample_demo_x11B/bin_r_cv4
+khadas@Khadas-teco:~/hussain/standalone_v3/newscripts/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp 
+Hello from yolo_v3.c
+det_set_log_config Debug
+
+model_create1
+
+model_create1.2
+
+model_create2
+
+model_create3
+
+model_create4
+
+model_create5
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+ --- Top5 ---
+29659: 10.750000
+29490: 9.000000
+29658: 7.750000
+29489: 6.750000
+15294: 6.250000
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:526.938 right:1340.14 top:1.80045 bottom:1080
+left:536.938 top-10:40
+
+(process:6583): Gtk-WARNING **: 02:50:59.780: Locale not supported by C library.
+        Using the fallback 'C' locale.
+khadas@Khadas-teco:~/hussain/standalone_v3/newscripts/sample_demo_x11B/bin_r_cv4$ 
+
+========================================================================================================================================================================================================
+
+
+========================================================================================================================================================================================================
+
+
+
+========================================================================================================================================================================================================
+
+
+========================================================================================================================================================================================================
+
+
+
+
+========================================================================================================================================================================================================
+
+
+========================================================================================================================================================================================================
+
+
+
+
+========================================================================================================================================================================================================
+
+
+========================================================================================================================================================================================================
+
+
+
+
+========================================================================================================================================================================================================
+
+
+========================================================================================================================================================================================================
+

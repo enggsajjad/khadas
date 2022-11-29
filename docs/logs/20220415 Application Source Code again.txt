@@ -1,0 +1,171 @@
+
+
+======================================================
+Application Source Code
+https://docs.khadas.com/linux/vim3/NPUApp.html
+======================================================
+
+khadas@Khadas-teco:~$ cd sajjad/
+khadas@Khadas-teco:~/sajjad$ ls
+applsource1  eachoptime  eachoptime1  ksnn  npu1  npusdk1
+khadas@Khadas-teco:~/sajjad$ mkdir NPUApp
+khadas@Khadas-teco:~/sajjad$ cd NPUApp/
+khadas@Khadas-teco:~/sajjad/NPUApp$ sudo apt update
+[sudo] password for khadas:
+Hit:1 http://ports.ubuntu.com focal InRelease
+Get:2 http://ports.ubuntu.com focal-security InRelease [114 kB]
+Hit:3 http://deb.anydesk.com all InRelease
+Get:4 http://ports.ubuntu.com focal-updates InRelease [114 kB]
+Hit:5 https://linux.teamviewer.com/deb stable InRelease
+Hit:6 http://dl.khadas.com/repos/vim3 focal InRelease
+Get:7 http://ports.ubuntu.com focal-backports InRelease [108 kB]
+Get:8 http://ports.ubuntu.com focal-security/main arm64 DEP-11 Metadata [40.7 kB]
+Get:9 http://ports.ubuntu.com focal-security/universe arm64 DEP-11 Metadata [66.4 kB]
+Get:10 http://ports.ubuntu.com focal-updates/main arm64 Packages [1,177 kB]
+Get:11 http://ports.ubuntu.com focal-updates/main armhf Packages [979 kB]
+Get:12 http://ports.ubuntu.com focal-updates/main arm64 DEP-11 Metadata [278 kB]
+Get:13 http://ports.ubuntu.com focal-updates/universe arm64 Packages [866 kB]
+Get:14 http://ports.ubuntu.com focal-updates/universe armhf Packages [758 kB]
+Get:15 http://ports.ubuntu.com focal-updates/universe arm64 DEP-11 Metadata [390 kB]
+Get:16 http://ports.ubuntu.com focal-backports/main arm64 DEP-11 Metadata [8,000 B]
+Get:17 http://ports.ubuntu.com focal-backports/universe arm64 DEP-11 Metadata [30.8 kB]
+Fetched 4,929 kB in 2s (2,022 kB/s)
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+56 packages can be upgraded. Run 'apt list --upgradable' to see them.
+N: Skipping acquire of configured file 'main/binary-arm64/Packages' as repository 'http://deb.anydesk.com all InRelease' doesn't s
+khadas@Khadas-teco:~/sajjad/NPUApp$ sudo apt install libopencv-dev python3-opencv
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+libopencv-dev is already the newest version (4.2.0+dfsg-5).
+python3-opencv is already the newest version (4.2.0+dfsg-5).
+The following packages were automatically installed and are no longer required:
+  libfwupdplugin1 libllvm11
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 56 not upgraded.
+khadas@Khadas-teco:~/sajjad/NPUApp$ git clone https://github.com/khadas/aml_npu_app
+Cloning into 'aml_npu_app'...
+remote: Enumerating objects: 1715, done.
+remote: Counting objects: 100% (134/134), done.
+remote: Compressing objects: 100% (54/54), done.
+remote: Total 1715 (delta 68), reused 134 (delta 68), pack-reused 1581
+Receiving objects: 100% (1715/1715), 1.00 GiB | 3.53 MiB/s, done.
+Resolving deltas: 100% (975/975), done.
+khadas@Khadas-teco:~/sajjad/NPUApp$ cd ..
+khadas@Khadas-teco:~/sajjad$ cp -r NPUApp NPUApp1
+khadas@Khadas-teco:~/sajjad$ cd NPUApp1/
+khadas@Khadas-teco:~/sajjad/NPUApp1$ Source Description^C
+khadas@Khadas-teco:~/sajjad/NPUApp1$ cd aml_npu_app/
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app$ ls
+DDK_6.3.3.4  DDK_6.4.0.3  DDK_6.4.3  DDK_6.4.4.3  detect_library  LICENSE  NN_SLT
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app$ ls detect_library/
+inception   sample_demo_fb   source_code        yolo_demo_fb_usb    yolo_demo_x11_usb
+model_code  sample_demo_x11  yolo_demo_fb_mipi  yolo_demo_x11_mipi
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app$ ls detect_library/model_code
+detect_mtcnn  detect_yoloface  detect_yolo_v2  detect_yolo_v3  detect_yolo_v3_tiny  detect_yolo_v4  facenet
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app$ ls detect_library/source_code/
+build_vx.sh  detect.c  detect_log.c  include  Makefile  makefile.linux  makefile.linux.def
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app$ Library Description^C
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app$ ls detect_library/model_code
+detect_mtcnn  detect_yoloface  detect_yolo_v2  detect_yolo_v3  detect_yolo_v3_tiny  detect_yolo_v4  facenet
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app$ ls detect_library/model_code/detect_yolo_v3
+build_vx.sh  include  makefile.linux  makefile.linux.def  makefile.target_name  vnn_yolov3.c  yolo_v3.c  yolov3_process.c
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app$ Application Description^C
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app$ cd detect_library/
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library$ ls
+inception   sample_demo_fb   source_code        yolo_demo_fb_usb    yolo_demo_x11_usb
+model_code  sample_demo_x11  yolo_demo_fb_mipi  yolo_demo_x11_mipi
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library$ cd sample_demo_x11/
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/sample_demo_x11$ ls
+1080p.bmp    detect.h  main.cpp        makefile.linux.def    nn_detect_common.h  nn_detect_utils.h  result
+build_vx.sh  emb.db    makefile.linux  makefile.target_name  nn_detect.h         ReadMe.txt
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/sample_demo_x11$ Compile^C
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/sample_demo_x11$ Compile Library^C
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/sample_demo_x11$ cd ..
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library$ cd model_code/detect_yolo_v3
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ./build_vx.sh
+  COMPILE /home/khadas/sajjad/NPUApp1/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3/yolov3_process.c
+  COMPILE /home/khadas/sajjad/NPUApp1/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3/vnn_yolov3.c
+vnn_yolov3.c: In function ‘vnn_CreateYolov3’:
+vnn_yolov3.c:145:29: warning: unused variable ‘data’ [-Wunused-variable]
+  145 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_yolov3.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/sajjad/NPUApp1/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3/yolo_v3.c
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/model_code/detect_yolo_v3$ cd bin_r/
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/model_code/detect_yolo_v3/bin_r$ ls
+libnn_yolo_v3.so  vnn_yolov3.o  yolo_v3.o  yolov3_process.o
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/model_code/detect_yolo_v3/bin_r$ Compile The Application^C
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/model_code/detect_yolo_v3/bin_r$ cd ..
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/model_code/detect_yolo_v3$ cd ..
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/model_code$ cd ..
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library$ cd source_code/
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/source_code$ ./build_vx.sh
+  COMPILE /home/khadas/sajjad/NPUApp1/aml_npu_app/detect_library/source_code/detect_log.c
+  COMPILE /home/khadas/sajjad/NPUApp1/aml_npu_app/detect_library/source_code/detect.c
+detect.c:109:12: warning: ‘find_string_index’ defined but not used [-Wunused-function]
+  109 | static int find_string_index(char* buffer, char* str, int lenght)
+      |            ^~~~~~~~~~~~~~~~~
+tee: /linux_build_sample.log: Permission denied
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/source_code$ sudo ./build_vx.sh
+[sudo] password for khadas:
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/source_code$ ls bin_r/
+detect_log.o  detect.o  libnn_detect.so
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/source_code$ Compile Application Demo^C
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/source_code$ cd ../sample_demo_x11/
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/sample_demo_x11$ ./build_vx.sh
+  COMPILE /home/khadas/sajjad/NPUApp1/aml_npu_app/detect_library/sample_demo_x11/main.cpp
+main.cpp: In function ‘int run_detect_model(int, char**)’:
+main.cpp:329:10: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+  329 |   return NULL;
+      |          ^~~~
+main.cpp:275:39: warning: unused variable ‘img_width’ [-Wunused-variable]
+  275 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                       ^~~~~~~~~
+main.cpp:275:50: warning: unused variable ‘img_height’ [-Wunused-variable]
+  275 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                                  ^~~~~~~~~~
+main.cpp: In function ‘int run_detect_facent(int, char**)’:
+main.cpp:412:10: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+  412 |   return NULL;
+      |          ^~~~
+main.cpp:368:39: warning: unused variable ‘img_width’ [-Wunused-variable]
+  368 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                       ^~~~~~~~~
+main.cpp:368:50: warning: unused variable ‘img_height’ [-Wunused-variable]
+  368 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                                  ^~~~~~~~~~
+main.cpp: In function ‘int init_fb()’:
+main.cpp:538:11: warning: unused variable ‘i’ [-Wunused-variable]
+  538 |  long int i;
+      |           ^
+main.cpp: At global scope:
+main.cpp:536:12: warning: ‘int init_fb()’ defined but not used [-Wunused-function]
+  536 | static int init_fb(void)
+      |            ^~~~~~~
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/sample_demo_x11$ ls bin_r_cv4/
+detect_demo_x11  main.o
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/sample_demo_x11$ ls
+1080p.bmp    detect.h                main.cpp            makefile.target_name  nn_detect_utils.h
+bin_r_cv4    emb.db                  makefile.linux      nn_detect_common.h    ReadMe.txt
+build_vx.sh  linux_build_sample.log  makefile.linux.def  nn_detect.h           result
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/sample_demo_x11$ bin_r_cv4/detect_demo_x11 -m 0 -p 1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [vnn_CreateYoloface:165]Open file nn_data/yolo_face_88.nb failed.
+E [model_create:60]CHECK PTR 60
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/sajjad/NPUApp1/aml_npu_app/detect_library/sample_demo_x11$

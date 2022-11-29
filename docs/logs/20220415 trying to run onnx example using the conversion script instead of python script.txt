@@ -1,0 +1,1548 @@
+
+Network error: Connection timed out
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Session stopped
+    - Press <return> to exit tab
+    - Press R to restart session
+    - Press S to save terminal output to file
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                               │
+    │ ➤ SSH session to sajjad@10.10.254.220                                │
+    │   ∙ Direct SSH      :  ✔      │
+    │   ∙ SSH compression :  ✔      │
+    │   ∙ SSH-browser     :  ✔      │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                               │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 5.4.0-84-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+26 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+*** System restart required ***
+Last login: Fri Apr 15 02:19:21 2022 from 129.13.170.244
+sajjad@teco:~$ ls
+Desktop    Downloads         Music          Pictures  sajjad     Videos
+Documents  examples.desktop  my_tensorflow  Public    Templates
+sajjad@teco:~$ cd sajjad/
+sajjad@teco:~/sajjad$ ls
+darknet  NPUApp  NPUApp1  NPUPrebuiltUsage  npusdk  npusdk1  npusdk2
+sajjad@teco:~/sajjad$ cp -r npusdk1 npusdk3
+sajjad@teco:~/sajjad$ conversion onnx models using bash scripts^C
+sajjad@teco:~/sajjad$ cd npusdk3/aml_npu_sdk/acuity-toolkit/demo/
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ ls
+0_import_model.sh      data              mobilenet_tf_normal_case_demo
+1_quantize_model.sh    extractoutput.py  model
+2_export_case_code.sh  inference.sh      nbg_unify_mobilenet_tf
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ rm -rf mobilenet_tf_normal_case_demo nbg_unify_mobilenet_tf
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ ls
+0_import_model.sh    2_export_case_code.sh  extractoutput.py  model
+1_quantize_model.sh  data                   inference.sh
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ ls data/
+0.jpg  goldfish_224.jpg  space_shuttle_224.jpg  validation_tf.txt
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ ls model/
+mobilenet_v1.pb
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ vim 0_import_model.sh
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ bash 0_import_model.sh
+2022-04-16 07:30:49.608085: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 07:30:49.608108: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Start importing onnx...
+I Current ONNX Model use ir_version 3 opset_version 7
+I Call acuity onnx optimize 'eliminate_option_const' success
+I Call acuity onnx optimize 'froze_const_branch' success
+I Call acuity onnx optimize 'froze_if' success
+I Call acuity onnx optimize 'merge_sequence_construct_concat_from_sequence' success
+I Call acuity onnx optimize 'merge_lrn_lowlevel_implement' success
+D Calc tensor Initializer_fc2.bias shape: [10]
+D Calc tensor Constant_onnx::Reshape_26 shape: [4]
+D Calc tensor Constant_onnx::Gather_27 shape: []
+D Calc tensor Constant_onnx::Reshape_28 shape: [4]
+D Calc tensor Constant_onnx::Reshape_29 shape: [2]
+D Calc tensor Initializer_conv1.weight shape: [20, 1, 5, 5]
+D Calc tensor Initializer_conv2.weight shape: [50, 20, 5, 5]
+D Calc tensor Initializer_fc2.weight shape: [10, 500]
+D Calc tensor Initializer_conv1.bias shape: [20]
+D Calc tensor Initializer_conv2.bias shape: [50]
+D Calc tensor Reshape_x shape: [1, 3, 28, 28]
+D Calc tensor Gather_onnx::Reshape_12 shape: [1, 28, 28]
+D Calc tensor Reshape_input.1 shape: [1, 1, 28, 28]
+D Calc tensor Conv_input.3 shape: [1, 20, 24, 24]
+D Calc tensor Relu_input.7 shape: [1, 20, 24, 24]
+D Calc tensor MaxPool_input.11 shape: [1, 20, 12, 12]
+D Calc tensor Conv_input.15 shape: [1, 50, 8, 8]
+D Calc tensor Relu_input.19 shape: [1, 50, 8, 8]
+D Calc tensor MaxPool_x.4 shape: [1, 50, 4, 4]
+D Calc tensor Reshape_input.23 shape: [1, 800]
+D Calc tensor Initializer_fc1.bias shape: [500]
+D Calc tensor Initializer_fc1.weight shape: [500, 800]
+D Calc tensor Gemm_input.27 shape: [1, 500]
+D Calc tensor Relu_input.31 shape: [1, 500]
+D Calc tensor Gemm_output shape: [1, 10]
+I build output layer attach_Gemm_Gemm_20:out0
+I Try match Gemm_Gemm_20:out0
+I Match r_gemm_2_fc_wb [['Initializer_fc2.bias', 'Initializer_fc2.weight', 'Gemm_Gemm_20']] [['Gemm', 'Constant_0', 'Constant_1']] to [['fullconnect']]
+I Try match Relu_Relu_19:out0
+I Match r_relu [['Relu_Relu_19']] [['Relu']] to [['relu']]
+I Try match Gemm_Gemm_18:out0
+I Match r_gemm_2_fc_wb [['Initializer_fc1.bias', 'Initializer_fc1.weight', 'Gemm_Gemm_18']] [['Gemm', 'Constant_0', 'Constant_1']] to [['fullconnect']]
+I Try match Reshape_Reshape_17:out0
+I Match r_rsp_v5 [['Constant_Cast_16_onnx__Reshape_29_as_const', 'Reshape_Reshape_17']] [['Reshape', 'Constant_0']] to [['reshape']]
+I Try match MaxPool_MaxPool_14:out0
+I Match r_maxpool [['MaxPool_MaxPool_14']] [['MaxPool']] to [['pooling']]
+I Try match Relu_Relu_13:out0
+I Match r_relu [['Relu_Relu_13']] [['Relu']] to [['relu']]
+I Try match Conv_Conv_12:out0
+I Match r_conv [['Conv_Conv_12', 'Initializer_conv2.weight', 'Initializer_conv2.bias']] [['Conv', 'Constant_0', 'Constant_1']] to [['convolution']]
+I Try match MaxPool_MaxPool_11:out0
+I Match r_maxpool [['MaxPool_MaxPool_11']] [['MaxPool']] to [['pooling']]
+I Try match Relu_Relu_10:out0
+I Match r_relu [['Relu_Relu_10']] [['Relu']] to [['relu']]
+I Try match Conv_Conv_9:out0
+I Match r_conv [['Conv_Conv_9', 'Initializer_conv1.weight', 'Initializer_conv1.bias']] [['Conv', 'Constant_0', 'Constant_1']] to [['convolution']]
+I Try match Reshape_Reshape_8:out0
+I Match r_rsp_v5 [['Constant_Cast_7_onnx__Reshape_28_as_const', 'Reshape_Reshape_8']] [['Reshape', 'Constant_0']] to [['reshape']]
+I Try match Gather_Gather_5:out0
+I Match r_gather [['Gather_Gather_5']] [['Gather']] to [['gather']]
+I Try match Reshape_Reshape_2:out0
+I Match r_rsp_v5 [['Constant_Cast_1_onnx__Reshape_26_as_const', 'Reshape_Reshape_2']] [['Reshape', 'Constant_0']] to [['reshape']]
+I Try match Constant_Cast_4_onnx__Gather_27_as_const:out0
+I Match r_variable [['Constant_Cast_4_onnx__Gather_27_as_const']] [['Constant']] to [['variable']]
+I build input layer input:out0
+D connect Relu_Relu_19_2 0  ~ Gemm_Gemm_20_1 0
+D connect Gemm_Gemm_18_3 0  ~ Relu_Relu_19_2 0
+D connect Reshape_Reshape_17_4 0  ~ Gemm_Gemm_18_3 0
+D connect MaxPool_MaxPool_14_5 0  ~ Reshape_Reshape_17_4 0
+D connect Relu_Relu_13_6 0  ~ MaxPool_MaxPool_14_5 0
+D connect Conv_Conv_12_7 0  ~ Relu_Relu_13_6 0
+D connect MaxPool_MaxPool_11_8 0  ~ Conv_Conv_12_7 0
+D connect Relu_Relu_10_9 0  ~ MaxPool_MaxPool_11_8 0
+D connect Conv_Conv_9_10 0  ~ Relu_Relu_10_9 0
+D connect Reshape_Reshape_8_11 0  ~ Conv_Conv_9_10 0
+D connect Gather_Gather_5_12 0  ~ Reshape_Reshape_8_11 0
+D connect Reshape_Reshape_2_13 0  ~ Gather_Gather_5_12 0
+D connect Constant_Cast_4_onnx__Gather_27_as_const_14 0  ~ Gather_Gather_5_12 1
+D connect input_15 0  ~ Reshape_Reshape_2_13 0
+D connect Gemm_Gemm_20_1 0  ~ attach_Gemm_Gemm_20/out0_0 0
+2022-04-16 07:30:51.402771: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-04-16 07:30:51.437560: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792945000 Hz
+2022-04-16 07:30:51.437986: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x696bda0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-04-16 07:30:51.438002: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-04-16 07:30:51.440356: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 07:30:51.440370: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-16 07:30:51.440382: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (teco): /proc/driver/nvidia/version does not exist
+D Process input_15 ...
+D Acuity output shape(input): (1 3 28 28)
+D Tensor @input_15:out0 type: float32
+D Process Reshape_Reshape_2_13 ...
+D Acuity output shape(reshape): (1 3 28 28)
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+D Acuity output shape(variable): (1)
+D Process Gather_Gather_5_12 ...
+D Acuity output shape(gather): (1 28 28)
+D Tensor @Gather_Gather_5_12:out0 type: float32
+D Process Reshape_Reshape_8_11 ...
+D Acuity output shape(reshape): (1 1 28 28)
+D Tensor @Reshape_Reshape_8_11:out0 type: float32
+D Process Conv_Conv_9_10 ...
+D Acuity output shape(convolution): (1 20 24 24)
+D Tensor @Conv_Conv_9_10:out0 type: float32
+D Process Relu_Relu_10_9 ...
+D Acuity output shape(relu): (1 20 24 24)
+D Tensor @Relu_Relu_10_9:out0 type: float32
+D Process MaxPool_MaxPool_11_8 ...
+D Acuity output shape(pooling): (1 20 12 12)
+D Tensor @MaxPool_MaxPool_11_8:out0 type: float32
+D Process Conv_Conv_12_7 ...
+D Acuity output shape(convolution): (1 50 8 8)
+D Tensor @Conv_Conv_12_7:out0 type: float32
+D Process Relu_Relu_13_6 ...
+D Acuity output shape(relu): (1 50 8 8)
+D Tensor @Relu_Relu_13_6:out0 type: float32
+D Process MaxPool_MaxPool_14_5 ...
+D Acuity output shape(pooling): (1 50 4 4)
+D Tensor @MaxPool_MaxPool_14_5:out0 type: float32
+D Process Reshape_Reshape_17_4 ...
+D Acuity output shape(reshape): (1 800)
+D Tensor @Reshape_Reshape_17_4:out0 type: float32
+D Process Gemm_Gemm_18_3 ...
+D Acuity output shape(fullconnect): (1 500)
+D Tensor @Gemm_Gemm_18_3:out0 type: float32
+D Process Relu_Relu_19_2 ...
+D Acuity output shape(relu): (1 500)
+D Tensor @Relu_Relu_19_2:out0 type: float32
+D Process Gemm_Gemm_20_1 ...
+D Acuity output shape(fullconnect): (1 10)
+D Tensor @Gemm_Gemm_20_1:out0 type: float32
+D Process attach_Gemm_Gemm_20/out0_0 ...
+D Acuity output shape(output): (1 10)
+D Tensor @attach_Gemm_Gemm_20/out0_0:out0 type: float32
+I Build torch-jit-export complete.
+I Start C2T Switcher...
+D Optimizing network with broadcast_op
+D insert permute Reshape_Reshape_17_4_acuity_mark_perm_16 before Reshape_Reshape_17_4
+D insert permute Conv_Conv_9_10_acuity_mark_perm_17 before Conv_Conv_9_10
+I End C2T Switcher...
+D Process input_15 ...
+D Acuity output shape(input): (1 3 28 28)
+D Tensor @input_15:out0 type: float32
+D Process Reshape_Reshape_2_13 ...
+D Acuity output shape(reshape): (1 3 28 28)
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+D Acuity output shape(variable): (1)
+D Process Gather_Gather_5_12 ...
+D Acuity output shape(gather): (1 28 28)
+D Tensor @Gather_Gather_5_12:out0 type: float32
+D Process Reshape_Reshape_8_11 ...
+D Acuity output shape(reshape): (1 1 28 28)
+D Tensor @Reshape_Reshape_8_11:out0 type: float32
+D Process Conv_Conv_9_10_acuity_mark_perm_17 ...
+D Acuity output shape(permute): (1 28 28 1)
+D Tensor @Conv_Conv_9_10_acuity_mark_perm_17:out0 type: float32
+D Process Conv_Conv_9_10 ...
+D Acuity output shape(convolution): (1 24 24 20)
+D Tensor @Conv_Conv_9_10:out0 type: float32
+D Process Relu_Relu_10_9 ...
+D Acuity output shape(relu): (1 24 24 20)
+D Tensor @Relu_Relu_10_9:out0 type: float32
+D Process MaxPool_MaxPool_11_8 ...
+D Acuity output shape(pooling): (1 12 12 20)
+D Tensor @MaxPool_MaxPool_11_8:out0 type: float32
+D Process Conv_Conv_12_7 ...
+D Acuity output shape(convolution): (1 8 8 50)
+D Tensor @Conv_Conv_12_7:out0 type: float32
+D Process Relu_Relu_13_6 ...
+D Acuity output shape(relu): (1 8 8 50)
+D Tensor @Relu_Relu_13_6:out0 type: float32
+D Process MaxPool_MaxPool_14_5 ...
+D Acuity output shape(pooling): (1 4 4 50)
+D Tensor @MaxPool_MaxPool_14_5:out0 type: float32
+D Process Reshape_Reshape_17_4_acuity_mark_perm_16 ...
+D Acuity output shape(permute): (1 50 4 4)
+D Tensor @Reshape_Reshape_17_4_acuity_mark_perm_16:out0 type: float32
+D Process Reshape_Reshape_17_4 ...
+D Acuity output shape(reshape): (1 800)
+D Tensor @Reshape_Reshape_17_4:out0 type: float32
+D Process Gemm_Gemm_18_3 ...
+D Acuity output shape(fullconnect): (1 500)
+D Tensor @Gemm_Gemm_18_3:out0 type: float32
+D Process Relu_Relu_19_2 ...
+D Acuity output shape(relu): (1 500)
+D Tensor @Relu_Relu_19_2:out0 type: float32
+D Process Gemm_Gemm_20_1 ...
+D Acuity output shape(fullconnect): (1 10)
+D Tensor @Gemm_Gemm_20_1:out0 type: float32
+D Process attach_Gemm_Gemm_20/out0_0 ...
+D Acuity output shape(output): (1 10)
+D Tensor @attach_Gemm_Gemm_20/out0_0:out0 type: float32
+I Build torch-jit-export complete.
+D Optimizing network with force_1d_tensor, swapper, merge_duplicate_quantize_dequantize, merge_layer, auto_fill_bn, auto_fill_l2normalizescale, auto_fill_instancenormalize, resize_nearest_transformer, auto_fill_multiply, compute_gather_negative, auto_fill_zero_bias, proposal_opt_import, special_add_to_conv2d, extend_gather_to_gather_reshape
+I End importing onnx...
+I Dump net to lenet.json
+I Save net to lenet.data
+I ----------------Error(0),Warning(0)----------------
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ vim 1_quantize_model.sh
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ vim data/validation_tf.txt
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ vim 1_quantize_model.sh
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ bash 1_quantize_model.sh
+2022-04-16 07:44:23.945892: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 07:44:23.945915: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Namespace(action='quantization', batch_size=100, caffe_mean_file=None, capture_format='nchw', capture_quantized=False, channel_mean_value='128 128 128 128', config=None, data_output=None, debug=False, device=None, divergence_first_quantize_bits=11, dtype='float32', epochs=1, epochs_per_decay=100, force_gray=False, fpfs_delta0=1, fpfs_epochs=0, fpfs_reduce_target=0, input_fitting='scale', input_normalization=None, lr=0.1, mean_file=None, model_data='lenet.data', model_data_format='zone', model_input='lenet.json', model_quantize=None, optimizer='momentum', output_dir=None, output_num=5, pb_name=None, pfps_delta0=1, pfps_epochs=0, pfps_reduce_target=0, prune_epochs=10, prune_loss=1, quantized_algorithm='normal', quantized_divergence_nbins=0, quantized_dtype='asymmetric_affine-u8', quantized_hybrid=False, quantized_moving_alpha=0.0, quantized_rebuild=True, quantized_rebuild_all=False, random_brightness=None, random_contrast=None, random_crop=False, random_flip=False, random_mirror=False, reorder_channel='0 1 2', restart=False, samples=-1, source='text', source_file='data/validation_tf.txt', task='classification', validation_output='validation.csv', without_update_masked_grad=False)
+2022-04-16 07:44:25.229027: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-04-16 07:44:25.253533: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792945000 Hz
+2022-04-16 07:44:25.254019: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5295180 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-04-16 07:44:25.254039: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-04-16 07:44:25.255839: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 07:44:25.255854: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-16 07:44:25.255868: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (teco): /proc/driver/nvidia/version does not exist
+I Load model in lenet.json
+I Load data in lenet.data
+W:tensorflow:From acuitylib/app/tensorzone/workspace.py:26: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, there are two
+    options available in V2.
+    - tf.py_function takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+    - tf.numpy_function maintains the semantics of the deprecated tf.py_func
+    (it is not differentiable, and manipulates numpy arrays). It drops the
+    stateful argument making all functions stateful.
+
+I Fitting image with scale.
+I Reorder channels.
+I Channel mean value [128.0, 128.0, 128.0, 128.0]
+I [TRAINER]Quantization start...
+[TRAINER]Quantization start...
+I Init validate tensor provider.
+I Enqueue samples 1
+I Init provider with 1 samples.
+D set up a quantize net
+D Process input_15 ...
+D Acuity output shape(input): (1 3 28 28)
+D Tensor @input_15:out0 type: float32
+D Real output shape: (1, 3, 28, 28)
+D Process Reshape_Reshape_2_13 ...
+D Acuity output shape(reshape): (1 3 28 28)
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+D Real output shape: (1, 3, 28, 28)
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+D Acuity output shape(variable): (1)
+D Real output shape: (1,)
+D Process Gather_Gather_5_12 ...
+D Acuity output shape(gather): (1 1 28 28)
+D Tensor @Gather_Gather_5_12:out0 type: float32
+D Real output shape: (1, 1, 28, 28)
+D Process Gather_Gather_5_12_acuity_opt_gather_reshape_18 ...
+D Acuity output shape(reshape): (1 28 28)
+D Tensor @Gather_Gather_5_12_acuity_opt_gather_reshape_18:out0 type: float32
+D Real output shape: (1, 28, 28)
+D Process Reshape_Reshape_8_11 ...
+D Acuity output shape(reshape): (1 1 28 28)
+D Tensor @Reshape_Reshape_8_11:out0 type: float32
+D Real output shape: (1, 1, 28, 28)
+D Process Conv_Conv_9_10_acuity_mark_perm_17 ...
+D Acuity output shape(permute): (1 28 28 1)
+D Tensor @Conv_Conv_9_10_acuity_mark_perm_17:out0 type: asymmetric_affine
+D Real output shape: (1, 28, 28, 1)
+D Process Conv_Conv_9_10 ...
+D Acuity output shape(convolution): (1 24 24 20)
+D Tensor @Conv_Conv_9_10:out0 type: asymmetric_affine
+D Real output shape: (1, 24, 24, 20)
+D Process Relu_Relu_10_9 ...
+D Acuity output shape(relu): (1 24 24 20)
+D Tensor @Relu_Relu_10_9:out0 type: asymmetric_affine
+D Real output shape: (1, 24, 24, 20)
+D Process MaxPool_MaxPool_11_8 ...
+D Acuity output shape(pooling): (1 12 12 20)
+D Tensor @MaxPool_MaxPool_11_8:out0 type: asymmetric_affine
+D Real output shape: (1, 12, 12, 20)
+D Process Conv_Conv_12_7 ...
+D Acuity output shape(convolution): (1 8 8 50)
+D Tensor @Conv_Conv_12_7:out0 type: asymmetric_affine
+D Real output shape: (1, 8, 8, 50)
+D Process Relu_Relu_13_6 ...
+D Acuity output shape(relu): (1 8 8 50)
+D Tensor @Relu_Relu_13_6:out0 type: asymmetric_affine
+D Real output shape: (1, 8, 8, 50)
+D Process MaxPool_MaxPool_14_5 ...
+D Acuity output shape(pooling): (1 4 4 50)
+D Tensor @MaxPool_MaxPool_14_5:out0 type: float32
+D Real output shape: (1, 4, 4, 50)
+D Process Reshape_Reshape_17_4_acuity_mark_perm_16 ...
+D Acuity output shape(permute): (1 50 4 4)
+D Tensor @Reshape_Reshape_17_4_acuity_mark_perm_16:out0 type: float32
+D Real output shape: (1, 50, 4, 4)
+D Process Reshape_Reshape_17_4 ...
+D Acuity output shape(reshape): (1 800)
+D Tensor @Reshape_Reshape_17_4:out0 type: asymmetric_affine
+D Real output shape: (1, 800)
+D Process Gemm_Gemm_18_3 ...
+D Acuity output shape(fullconnect): (1 500)
+D Tensor @Gemm_Gemm_18_3:out0 type: asymmetric_affine
+D Real output shape: (1, 500)
+D Process Relu_Relu_19_2 ...
+D Acuity output shape(relu): (1 500)
+D Tensor @Relu_Relu_19_2:out0 type: asymmetric_affine
+D Real output shape: (1, 500)
+D Process Gemm_Gemm_20_1 ...
+D Acuity output shape(fullconnect): (1 10)
+D Tensor @Gemm_Gemm_20_1:out0 type: asymmetric_affine
+D Real output shape: (1, 10)
+D Process attach_Gemm_Gemm_20/out0_0 ...
+D Acuity output shape(output): (1 10)
+D Tensor @attach_Gemm_Gemm_20/out0_0:out0 type: float32
+D Real output shape: (1, 10)
+I Build torch-jit-export complete.
+I Generated network graph with 1 outputs.
+I  @attach_Gemm_Gemm_20/out0_0:out0: (1, 10)
+D Init coefficients ...
+I Start tensor porvider ...
+I Runing 1 epochs, algorithm: normal
+I iterations: 0
+Traceback (most recent call last):
+  File "tensorflow/python/client/session.py", line 1365, in _do_call
+  File "tensorflow/python/client/session.py", line 1350, in _run_fn
+  File "tensorflow/python/client/session.py", line 1443, in _call_tf_sessionrun
+tensorflow.python.framework.errors_impl.OutOfRangeError: FIFOQueue '_0_fifo_queue' is closed and has insufficient elements (requested 1, current size 0)
+         [[{{node fifo_queue_DequeueMany}}]]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tensorzonex.py", line 445, in <module>
+  File "tensorzonex.py", line 386, in main
+  File "acuitylib/app/tensorzone/quantization.py", line 176, in run
+  File "acuitylib/app/tensorzone/quantization.py", line 154, in _run_quantization
+  File "acuitylib/app/tensorzone/graph.py", line 98, in run
+  File "tensorflow/python/client/session.py", line 958, in run
+  File "tensorflow/python/client/session.py", line 1181, in _run
+  File "tensorflow/python/client/session.py", line 1359, in _do_run
+  File "tensorflow/python/client/session.py", line 1384, in _do_call
+tensorflow.python.framework.errors_impl.OutOfRangeError: FIFOQueue '_0_fifo_queue' is closed and has insufficient elements (requested 1, current size 0)
+         [[node fifo_queue_DequeueMany (defined at tensorflow/python/framework/ops.py:1949) ]]
+
+Original stack trace for 'fifo_queue_DequeueMany':
+  File "tensorzonex.py", line 445, in <module>
+  File "tensorzonex.py", line 386, in main
+  File "acuitylib/app/tensorzone/quantization.py", line 176, in run
+  File "acuitylib/app/tensorzone/quantization.py", line 116, in _run_quantization
+  File "acuitylib/app/tensorzone/workspace.py", line 180, in _setup_graph
+  File "acuitylib/app/tensorzone/tensorprovider.py", line 159, in get_output
+  File "tensorflow/python/ops/data_flow_ops.py", line 488, in dequeue_many
+  File "tensorflow/python/ops/gen_data_flow_ops.py", line 3569, in queue_dequeue_many_v2
+  File "tensorflow/python/framework/op_def_library.py", line 744, in _apply_op_helper
+  File "tensorflow/python/framework/ops.py", line 3485, in _create_op_internal
+  File "tensorflow/python/framework/ops.py", line 1949, in __init__
+
+[31476] Failed to execute script tensorzonex
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ vim 1_quantize_model.sh
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ bash 1_quantize_model.sh
+2022-04-16 07:47:58.953355: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 07:47:58.953379: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Namespace(action='quantization', batch_size=100, caffe_mean_file=None, capture_format='nchw', capture_quantized=False, channel_mean_value='0 0 0 256', config=None, data_output=None, debug=False, device=None, divergence_first_quantize_bits=11, dtype='float32', epochs=1, epochs_per_decay=100, force_gray=False, fpfs_delta0=1, fpfs_epochs=0, fpfs_reduce_target=0, input_fitting='scale', input_normalization=None, lr=0.1, mean_file=None, model_data='lenet.data', model_data_format='zone', model_input='lenet.json', model_quantize=None, optimizer='momentum', output_dir=None, output_num=5, pb_name=None, pfps_delta0=1, pfps_epochs=0, pfps_reduce_target=0, prune_epochs=10, prune_loss=1, quantized_algorithm='normal', quantized_divergence_nbins=0, quantized_dtype='asymmetric_affine-u8', quantized_hybrid=False, quantized_moving_alpha=0.0, quantized_rebuild=True, quantized_rebuild_all=False, random_brightness=None, random_contrast=None, random_crop=False, random_flip=False, random_mirror=False, reorder_channel='2 1 0', restart=False, samples=-1, source='text', source_file='data/validation_tf.txt', task='classification', validation_output='validation.csv', without_update_masked_grad=False)
+2022-04-16 07:48:00.134426: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-04-16 07:48:00.157557: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792945000 Hz
+2022-04-16 07:48:00.158094: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5bd4780 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-04-16 07:48:00.158119: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-04-16 07:48:00.159875: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 07:48:00.159897: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-16 07:48:00.159917: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (teco): /proc/driver/nvidia/version does not exist
+I Load model in lenet.json
+I Load data in lenet.data
+W:tensorflow:From acuitylib/app/tensorzone/workspace.py:26: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, there are two
+    options available in V2.
+    - tf.py_function takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+    - tf.numpy_function maintains the semantics of the deprecated tf.py_func
+    (it is not differentiable, and manipulates numpy arrays). It drops the
+    stateful argument making all functions stateful.
+
+I Fitting image with scale.
+I Reorder channels.
+I Channel mean value [0.0, 0.0, 0.0, 256.0]
+I [TRAINER]Quantization start...
+[TRAINER]Quantization start...
+I Init validate tensor provider.
+I Enqueue samples 1
+I Init provider with 1 samples.
+D set up a quantize net
+D Process input_15 ...
+D Acuity output shape(input): (1 3 28 28)
+D Tensor @input_15:out0 type: float32
+D Real output shape: (1, 3, 28, 28)
+D Process Reshape_Reshape_2_13 ...
+D Acuity output shape(reshape): (1 3 28 28)
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+D Real output shape: (1, 3, 28, 28)
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+D Acuity output shape(variable): (1)
+D Real output shape: (1,)
+D Process Gather_Gather_5_12 ...
+D Acuity output shape(gather): (1 1 28 28)
+D Tensor @Gather_Gather_5_12:out0 type: float32
+D Real output shape: (1, 1, 28, 28)
+D Process Gather_Gather_5_12_acuity_opt_gather_reshape_18 ...
+D Acuity output shape(reshape): (1 28 28)
+D Tensor @Gather_Gather_5_12_acuity_opt_gather_reshape_18:out0 type: float32
+D Real output shape: (1, 28, 28)
+D Process Reshape_Reshape_8_11 ...
+D Acuity output shape(reshape): (1 1 28 28)
+D Tensor @Reshape_Reshape_8_11:out0 type: float32
+D Real output shape: (1, 1, 28, 28)
+D Process Conv_Conv_9_10_acuity_mark_perm_17 ...
+D Acuity output shape(permute): (1 28 28 1)
+D Tensor @Conv_Conv_9_10_acuity_mark_perm_17:out0 type: asymmetric_affine
+D Real output shape: (1, 28, 28, 1)
+D Process Conv_Conv_9_10 ...
+D Acuity output shape(convolution): (1 24 24 20)
+D Tensor @Conv_Conv_9_10:out0 type: asymmetric_affine
+D Real output shape: (1, 24, 24, 20)
+D Process Relu_Relu_10_9 ...
+D Acuity output shape(relu): (1 24 24 20)
+D Tensor @Relu_Relu_10_9:out0 type: asymmetric_affine
+D Real output shape: (1, 24, 24, 20)
+D Process MaxPool_MaxPool_11_8 ...
+D Acuity output shape(pooling): (1 12 12 20)
+D Tensor @MaxPool_MaxPool_11_8:out0 type: asymmetric_affine
+D Real output shape: (1, 12, 12, 20)
+D Process Conv_Conv_12_7 ...
+D Acuity output shape(convolution): (1 8 8 50)
+D Tensor @Conv_Conv_12_7:out0 type: asymmetric_affine
+D Real output shape: (1, 8, 8, 50)
+D Process Relu_Relu_13_6 ...
+D Acuity output shape(relu): (1 8 8 50)
+D Tensor @Relu_Relu_13_6:out0 type: asymmetric_affine
+D Real output shape: (1, 8, 8, 50)
+D Process MaxPool_MaxPool_14_5 ...
+D Acuity output shape(pooling): (1 4 4 50)
+D Tensor @MaxPool_MaxPool_14_5:out0 type: float32
+D Real output shape: (1, 4, 4, 50)
+D Process Reshape_Reshape_17_4_acuity_mark_perm_16 ...
+D Acuity output shape(permute): (1 50 4 4)
+D Tensor @Reshape_Reshape_17_4_acuity_mark_perm_16:out0 type: float32
+D Real output shape: (1, 50, 4, 4)
+D Process Reshape_Reshape_17_4 ...
+D Acuity output shape(reshape): (1 800)
+D Tensor @Reshape_Reshape_17_4:out0 type: asymmetric_affine
+D Real output shape: (1, 800)
+D Process Gemm_Gemm_18_3 ...
+D Acuity output shape(fullconnect): (1 500)
+D Tensor @Gemm_Gemm_18_3:out0 type: asymmetric_affine
+D Real output shape: (1, 500)
+D Process Relu_Relu_19_2 ...
+D Acuity output shape(relu): (1 500)
+D Tensor @Relu_Relu_19_2:out0 type: asymmetric_affine
+D Real output shape: (1, 500)
+D Process Gemm_Gemm_20_1 ...
+D Acuity output shape(fullconnect): (1 10)
+D Tensor @Gemm_Gemm_20_1:out0 type: asymmetric_affine
+D Real output shape: (1, 10)
+D Process attach_Gemm_Gemm_20/out0_0 ...
+D Acuity output shape(output): (1 10)
+D Tensor @attach_Gemm_Gemm_20/out0_0:out0 type: float32
+D Real output shape: (1, 10)
+I Build torch-jit-export complete.
+I Generated network graph with 1 outputs.
+I  @attach_Gemm_Gemm_20/out0_0:out0: (1, 10)
+D Init coefficients ...
+I Start tensor porvider ...
+I Runing 1 epochs, algorithm: normal
+I iterations: 0
+Traceback (most recent call last):
+  File "tensorflow/python/client/session.py", line 1365, in _do_call
+  File "tensorflow/python/client/session.py", line 1350, in _run_fn
+  File "tensorflow/python/client/session.py", line 1443, in _call_tf_sessionrun
+tensorflow.python.framework.errors_impl.OutOfRangeError: FIFOQueue '_0_fifo_queue' is closed and has insufficient elements (requested 1, current size 0)
+         [[{{node fifo_queue_DequeueMany}}]]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tensorzonex.py", line 445, in <module>
+  File "tensorzonex.py", line 386, in main
+  File "acuitylib/app/tensorzone/quantization.py", line 176, in run
+  File "acuitylib/app/tensorzone/quantization.py", line 154, in _run_quantization
+  File "acuitylib/app/tensorzone/graph.py", line 98, in run
+  File "tensorflow/python/client/session.py", line 958, in run
+  File "tensorflow/python/client/session.py", line 1181, in _run
+  File "tensorflow/python/client/session.py", line 1359, in _do_run
+  File "tensorflow/python/client/session.py", line 1384, in _do_call
+tensorflow.python.framework.errors_impl.OutOfRangeError: FIFOQueue '_0_fifo_queue' is closed and has insufficient elements (requested 1, current size 0)
+         [[node fifo_queue_DequeueMany (defined at tensorflow/python/framework/ops.py:1949) ]]
+
+Original stack trace for 'fifo_queue_DequeueMany':
+  File "tensorzonex.py", line 445, in <module>
+  File "tensorzonex.py", line 386, in main
+  File "acuitylib/app/tensorzone/quantization.py", line 176, in run
+  File "acuitylib/app/tensorzone/quantization.py", line 116, in _run_quantization
+  File "acuitylib/app/tensorzone/workspace.py", line 180, in _setup_graph
+  File "acuitylib/app/tensorzone/tensorprovider.py", line 159, in get_output
+  File "tensorflow/python/ops/data_flow_ops.py", line 488, in dequeue_many
+  File "tensorflow/python/ops/gen_data_flow_ops.py", line 3569, in queue_dequeue_many_v2
+  File "tensorflow/python/framework/op_def_library.py", line 744, in _apply_op_helper
+  File "tensorflow/python/framework/ops.py", line 3485, in _create_op_internal
+  File "tensorflow/python/framework/ops.py", line 1949, in __init__
+
+[31540] Failed to execute script tensorzonex
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ ls
+0_import_model.sh    2_export_case_code.sh  extractoutput.py  lenet.data  model
+1_quantize_model.sh  data                   inference.sh      lenet.json
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ ls data/
+0.bmp  0.jpg  dataset0.txt  goldfish_224.jpg  space_shuttle_224.jpg  validation_tf.txt
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ vim 1_quantize_model.sh
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ bash 1_quantize_model.sh
+2022-04-16 07:49:11.848551: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 07:49:11.848575: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Namespace(action='quantization', batch_size=100, caffe_mean_file=None, capture_format='nchw', capture_quantized=False, channel_mean_value='0 0 0 256', config=None, data_output=None, debug=False, device=None, divergence_first_quantize_bits=11, dtype='float32', epochs=1, epochs_per_decay=100, force_gray=False, fpfs_delta0=1, fpfs_epochs=0, fpfs_reduce_target=0, input_fitting='scale', input_normalization=None, lr=0.1, mean_file=None, model_data='lenet.data', model_data_format='zone', model_input='lenet.json', model_quantize=None, optimizer='momentum', output_dir=None, output_num=5, pb_name=None, pfps_delta0=1, pfps_epochs=0, pfps_reduce_target=0, prune_epochs=10, prune_loss=1, quantized_algorithm='normal', quantized_divergence_nbins=0, quantized_dtype='asymmetric_affine-u8', quantized_hybrid=False, quantized_moving_alpha=0.0, quantized_rebuild=True, quantized_rebuild_all=False, random_brightness=None, random_contrast=None, random_crop=False, random_flip=False, random_mirror=False, reorder_channel='2 1 0', restart=False, samples=-1, source='text', source_file='data/dataset0.txt', task='classification', validation_output='validation.csv', without_update_masked_grad=False)
+2022-04-16 07:49:13.022713: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-04-16 07:49:13.045560: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792945000 Hz
+2022-04-16 07:49:13.046008: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5179360 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-04-16 07:49:13.046025: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-04-16 07:49:13.047781: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 07:49:13.047797: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-16 07:49:13.047811: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (teco): /proc/driver/nvidia/version does not exist
+I Load model in lenet.json
+I Load data in lenet.data
+W:tensorflow:From acuitylib/app/tensorzone/workspace.py:26: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, there are two
+    options available in V2.
+    - tf.py_function takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+    - tf.numpy_function maintains the semantics of the deprecated tf.py_func
+    (it is not differentiable, and manipulates numpy arrays). It drops the
+    stateful argument making all functions stateful.
+
+I Fitting image with scale.
+I Reorder channels.
+I Channel mean value [0.0, 0.0, 0.0, 256.0]
+I [TRAINER]Quantization start...
+[TRAINER]Quantization start...
+I Init validate tensor provider.
+I Enqueue samples 10
+I Init provider with 10 samples.
+D set up a quantize net
+D Process input_15 ...
+D Acuity output shape(input): (10 3 28 28)
+D Tensor @input_15:out0 type: float32
+D Real output shape: (10, 3, 28, 28)
+D Process Reshape_Reshape_2_13 ...
+D Acuity output shape(reshape): (10 3 28 28)
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+D Real output shape: (10, 3, 28, 28)
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+D Acuity output shape(variable): (1)
+D Real output shape: (1,)
+D Process Gather_Gather_5_12 ...
+D Acuity output shape(gather): (10 1 28 28)
+D Tensor @Gather_Gather_5_12:out0 type: float32
+D Real output shape: (10, 1, 28, 28)
+D Process Gather_Gather_5_12_acuity_opt_gather_reshape_18 ...
+D Acuity output shape(reshape): (1 28 28)
+D Tensor @Gather_Gather_5_12_acuity_opt_gather_reshape_18:out0 type: float32
+Traceback (most recent call last):
+  File "tensorflow/python/framework/ops.py", line 1812, in _create_c_op
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Cannot reshape a tensor with 7840 elements to shape [1,28,28] (784 elements) for '{{node Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18}} = Reshape[T=DT_FLOAT, Tshape=DT_INT32](Gather_Gather_5_12/GatherV2, Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18/shape)' with input shapes: [10,1,28,28], [3] and with input tensors computed as partial shapes: input[1] = [1,28,28].
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tensorzonex.py", line 445, in <module>
+  File "tensorzonex.py", line 386, in main
+  File "acuitylib/app/tensorzone/quantization.py", line 176, in run
+  File "acuitylib/app/tensorzone/quantization.py", line 116, in _run_quantization
+  File "acuitylib/app/tensorzone/workspace.py", line 184, in _setup_graph
+  File "acuitylib/app/tensorzone/graph.py", line 59, in generate
+  File "acuitylib/acuitynetbuilder.py", line 327, in build
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 393, in build_layer
+  File "acuitylib/layer/acuitylayer.py", line 306, in compute_tensor
+  File "acuitylib/layer/reshapelayer.py", line 90, in compute_out_tensor
+  File "tensorflow/python/util/dispatch.py", line 201, in wrapper
+  File "tensorflow/python/ops/array_ops.py", line 195, in reshape
+  File "tensorflow/python/ops/gen_array_ops.py", line 8234, in reshape
+  File "tensorflow/python/framework/op_def_library.py", line 744, in _apply_op_helper
+  File "tensorflow/python/framework/ops.py", line 3485, in _create_op_internal
+  File "tensorflow/python/framework/ops.py", line 1975, in __init__
+  File "tensorflow/python/framework/ops.py", line 1815, in _create_c_op
+ValueError: Cannot reshape a tensor with 7840 elements to shape [1,28,28] (784 elements) for '{{node Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18}} = Reshape[T=DT_FLOAT, Tshape=DT_INT32](Gather_Gather_5_12/GatherV2, Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18/shape)' with input shapes: [10,1,28,28], [3] and with input tensors computed as partial shapes: input[1] = [1,28,28].
+[31607] Failed to execute script tensorzonex
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ vim 1_quantize_model.sh
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ bash 1_quantize_model.sh
+2022-04-16 07:50:13.297418: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 07:50:13.297440: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Namespace(action='quantization', batch_size=100, caffe_mean_file=None, capture_format='nchw', capture_quantized=False, channel_mean_value='0 0 0 256', config=None, data_output=None, debug=False, device=None, divergence_first_quantize_bits=11, dtype='int16', epochs=1, epochs_per_decay=100, force_gray=False, fpfs_delta0=1, fpfs_epochs=0, fpfs_reduce_target=0, input_fitting='scale', input_normalization=None, lr=0.1, mean_file=None, model_data='lenet.data', model_data_format='zone', model_input='lenet.json', model_quantize=None, optimizer='momentum', output_dir=None, output_num=5, pb_name=None, pfps_delta0=1, pfps_epochs=0, pfps_reduce_target=0, prune_epochs=10, prune_loss=1, quantized_algorithm='normal', quantized_divergence_nbins=0, quantized_dtype='asymmetric_affine-u8', quantized_hybrid=False, quantized_moving_alpha=0.0, quantized_rebuild=True, quantized_rebuild_all=False, random_brightness=None, random_contrast=None, random_crop=False, random_flip=False, random_mirror=False, reorder_channel='2 1 0', restart=False, samples=-1, source='text', source_file='data/dataset0.txt', task='classification', validation_output='validation.csv', without_update_masked_grad=False)
+2022-04-16 07:50:14.480511: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-04-16 07:50:14.501544: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792945000 Hz
+2022-04-16 07:50:14.502031: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x63af0c0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-04-16 07:50:14.502051: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-04-16 07:50:14.503852: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 07:50:14.503873: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-16 07:50:14.503887: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (teco): /proc/driver/nvidia/version does not exist
+I Load model in lenet.json
+I Load data in lenet.data
+W:tensorflow:From acuitylib/app/tensorzone/workspace.py:26: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, there are two
+    options available in V2.
+    - tf.py_function takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+    - tf.numpy_function maintains the semantics of the deprecated tf.py_func
+    (it is not differentiable, and manipulates numpy arrays). It drops the
+    stateful argument making all functions stateful.
+
+I Fitting image with scale.
+I Reorder channels.
+I Channel mean value [0.0, 0.0, 0.0, 256.0]
+I [TRAINER]Quantization start...
+[TRAINER]Quantization start...
+I Init validate tensor provider.
+I Enqueue samples 10
+I Init provider with 10 samples.
+D set up a quantize net
+D Process input_15 ...
+D Acuity output shape(input): (10 3 28 28)
+D Tensor @input_15:out0 type: float32
+D Real output shape: (10, 3, 28, 28)
+D Process Reshape_Reshape_2_13 ...
+D Acuity output shape(reshape): (10 3 28 28)
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+D Real output shape: (10, 3, 28, 28)
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+D Acuity output shape(variable): (1)
+D Real output shape: (1,)
+D Process Gather_Gather_5_12 ...
+D Acuity output shape(gather): (10 1 28 28)
+D Tensor @Gather_Gather_5_12:out0 type: float32
+D Real output shape: (10, 1, 28, 28)
+D Process Gather_Gather_5_12_acuity_opt_gather_reshape_18 ...
+D Acuity output shape(reshape): (1 28 28)
+D Tensor @Gather_Gather_5_12_acuity_opt_gather_reshape_18:out0 type: float32
+Traceback (most recent call last):
+  File "tensorflow/python/framework/ops.py", line 1812, in _create_c_op
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Cannot reshape a tensor with 7840 elements to shape [1,28,28] (784 elements) for '{{node Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18}} = Reshape[T=DT_FLOAT, Tshape=DT_INT32](Gather_Gather_5_12/GatherV2, Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18/shape)' with input shapes: [10,1,28,28], [3] and with input tensors computed as partial shapes: input[1] = [1,28,28].
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tensorzonex.py", line 445, in <module>
+  File "tensorzonex.py", line 386, in main
+  File "acuitylib/app/tensorzone/quantization.py", line 176, in run
+  File "acuitylib/app/tensorzone/quantization.py", line 116, in _run_quantization
+  File "acuitylib/app/tensorzone/workspace.py", line 184, in _setup_graph
+  File "acuitylib/app/tensorzone/graph.py", line 59, in generate
+  File "acuitylib/acuitynetbuilder.py", line 327, in build
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 393, in build_layer
+  File "acuitylib/layer/acuitylayer.py", line 306, in compute_tensor
+  File "acuitylib/layer/reshapelayer.py", line 90, in compute_out_tensor
+  File "tensorflow/python/util/dispatch.py", line 201, in wrapper
+  File "tensorflow/python/ops/array_ops.py", line 195, in reshape
+  File "tensorflow/python/ops/gen_array_ops.py", line 8234, in reshape
+  File "tensorflow/python/framework/op_def_library.py", line 744, in _apply_op_helper
+  File "tensorflow/python/framework/ops.py", line 3485, in _create_op_internal
+  File "tensorflow/python/framework/ops.py", line 1975, in __init__
+  File "tensorflow/python/framework/ops.py", line 1815, in _create_c_op
+ValueError: Cannot reshape a tensor with 7840 elements to shape [1,28,28] (784 elements) for '{{node Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18}} = Reshape[T=DT_FLOAT, Tshape=DT_INT32](Gather_Gather_5_12/GatherV2, Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18/shape)' with input shapes: [10,1,28,28], [3] and with input tensors computed as partial shapes: input[1] = [1,28,28].
+[31667] Failed to execute script tensorzonex
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ vim 0_import_model.sh
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ bash 0
+bash: 0: No such file or directory
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ bash 0_import_model.sh
+2022-04-16 07:51:25.009554: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 07:51:25.009577: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Start importing onnx...
+I Current ONNX Model use ir_version 3 opset_version 7
+I Call acuity onnx optimize 'eliminate_option_const' success
+I Call acuity onnx optimize 'froze_const_branch' success
+I Call acuity onnx optimize 'froze_if' success
+I Call acuity onnx optimize 'merge_sequence_construct_concat_from_sequence' success
+I Call acuity onnx optimize 'merge_lrn_lowlevel_implement' success
+D Calc tensor Constant_onnx::Reshape_29 shape: [2]
+D Calc tensor Initializer_fc1.bias shape: [500]
+D Calc tensor Initializer_fc2.weight shape: [10, 500]
+D Calc tensor Initializer_conv1.bias shape: [20]
+D Calc tensor Initializer_conv2.bias shape: [50]
+D Calc tensor Initializer_fc2.bias shape: [10]
+D Calc tensor Initializer_conv1.weight shape: [20, 1, 5, 5]
+D Calc tensor Initializer_fc1.weight shape: [500, 800]
+D Calc tensor Constant_onnx::Reshape_28 shape: [4]
+D Calc tensor Constant_onnx::Gather_27 shape: []
+D Calc tensor Initializer_conv2.weight shape: [50, 20, 5, 5]
+D Calc tensor Constant_onnx::Reshape_26 shape: [4]
+D Calc tensor Reshape_x shape: [1, 3, 28, 28]
+D Calc tensor Gather_onnx::Reshape_12 shape: [1, 28, 28]
+D Calc tensor Reshape_input.1 shape: [1, 1, 28, 28]
+D Calc tensor Conv_input.3 shape: [1, 20, 24, 24]
+D Calc tensor Relu_input.7 shape: [1, 20, 24, 24]
+D Calc tensor MaxPool_input.11 shape: [1, 20, 12, 12]
+D Calc tensor Conv_input.15 shape: [1, 50, 8, 8]
+D Calc tensor Relu_input.19 shape: [1, 50, 8, 8]
+D Calc tensor MaxPool_x.4 shape: [1, 50, 4, 4]
+D Calc tensor Reshape_input.23 shape: [1, 800]
+D Calc tensor Gemm_input.27 shape: [1, 500]
+D Calc tensor Relu_input.31 shape: [1, 500]
+D Calc tensor Gemm_output shape: [1, 10]
+I build output layer attach_Gemm_Gemm_20:out0
+I Try match Gemm_Gemm_20:out0
+I Match r_gemm_2_fc_wb [['Gemm_Gemm_20', 'Initializer_fc2.weight', 'Initializer_fc2.bias']] [['Gemm', 'Constant_0', 'Constant_1']] to [['fullconnect']]
+I Try match Relu_Relu_19:out0
+I Match r_relu [['Relu_Relu_19']] [['Relu']] to [['relu']]
+I Try match Gemm_Gemm_18:out0
+I Match r_gemm_2_fc_wb [['Gemm_Gemm_18', 'Initializer_fc1.weight', 'Initializer_fc1.bias']] [['Gemm', 'Constant_0', 'Constant_1']] to [['fullconnect']]
+I Try match Reshape_Reshape_17:out0
+I Match r_rsp_v5 [['Reshape_Reshape_17', 'Constant_Cast_16_onnx__Reshape_29_as_const']] [['Reshape', 'Constant_0']] to [['reshape']]
+I Try match MaxPool_MaxPool_14:out0
+I Match r_maxpool [['MaxPool_MaxPool_14']] [['MaxPool']] to [['pooling']]
+I Try match Relu_Relu_13:out0
+I Match r_relu [['Relu_Relu_13']] [['Relu']] to [['relu']]
+I Try match Conv_Conv_12:out0
+I Match r_conv [['Conv_Conv_12', 'Initializer_conv2.weight', 'Initializer_conv2.bias']] [['Conv', 'Constant_0', 'Constant_1']] to [['convolution']]
+I Try match MaxPool_MaxPool_11:out0
+I Match r_maxpool [['MaxPool_MaxPool_11']] [['MaxPool']] to [['pooling']]
+I Try match Relu_Relu_10:out0
+I Match r_relu [['Relu_Relu_10']] [['Relu']] to [['relu']]
+I Try match Conv_Conv_9:out0
+I Match r_conv [['Conv_Conv_9', 'Initializer_conv1.weight', 'Initializer_conv1.bias']] [['Conv', 'Constant_0', 'Constant_1']] to [['convolution']]
+I Try match Reshape_Reshape_8:out0
+I Match r_rsp_v5 [['Reshape_Reshape_8', 'Constant_Cast_7_onnx__Reshape_28_as_const']] [['Reshape', 'Constant_0']] to [['reshape']]
+I Try match Gather_Gather_5:out0
+I Match r_gather [['Gather_Gather_5']] [['Gather']] to [['gather']]
+I Try match Reshape_Reshape_2:out0
+I Match r_rsp_v5 [['Reshape_Reshape_2', 'Constant_Cast_1_onnx__Reshape_26_as_const']] [['Reshape', 'Constant_0']] to [['reshape']]
+I Try match Constant_Cast_4_onnx__Gather_27_as_const:out0
+I Match r_variable [['Constant_Cast_4_onnx__Gather_27_as_const']] [['Constant']] to [['variable']]
+I build input layer input:out0
+D connect Relu_Relu_19_2 0  ~ Gemm_Gemm_20_1 0
+D connect Gemm_Gemm_18_3 0  ~ Relu_Relu_19_2 0
+D connect Reshape_Reshape_17_4 0  ~ Gemm_Gemm_18_3 0
+D connect MaxPool_MaxPool_14_5 0  ~ Reshape_Reshape_17_4 0
+D connect Relu_Relu_13_6 0  ~ MaxPool_MaxPool_14_5 0
+D connect Conv_Conv_12_7 0  ~ Relu_Relu_13_6 0
+D connect MaxPool_MaxPool_11_8 0  ~ Conv_Conv_12_7 0
+D connect Relu_Relu_10_9 0  ~ MaxPool_MaxPool_11_8 0
+D connect Conv_Conv_9_10 0  ~ Relu_Relu_10_9 0
+D connect Reshape_Reshape_8_11 0  ~ Conv_Conv_9_10 0
+D connect Gather_Gather_5_12 0  ~ Reshape_Reshape_8_11 0
+D connect Reshape_Reshape_2_13 0  ~ Gather_Gather_5_12 0
+D connect Constant_Cast_4_onnx__Gather_27_as_const_14 0  ~ Gather_Gather_5_12 1
+D connect input_15 0  ~ Reshape_Reshape_2_13 0
+D connect Gemm_Gemm_20_1 0  ~ attach_Gemm_Gemm_20/out0_0 0
+2022-04-16 07:51:26.332026: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-04-16 07:51:26.353537: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792945000 Hz
+2022-04-16 07:51:26.353971: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x6454560 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-04-16 07:51:26.353996: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-04-16 07:51:26.355759: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 07:51:26.355775: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-16 07:51:26.355789: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (teco): /proc/driver/nvidia/version does not exist
+D Process input_15 ...
+D Acuity output shape(input): (1 3 28 28)
+D Tensor @input_15:out0 type: float32
+D Process Reshape_Reshape_2_13 ...
+D Acuity output shape(reshape): (1 3 28 28)
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+D Acuity output shape(variable): (1)
+D Process Gather_Gather_5_12 ...
+D Acuity output shape(gather): (1 28 28)
+D Tensor @Gather_Gather_5_12:out0 type: float32
+D Process Reshape_Reshape_8_11 ...
+D Acuity output shape(reshape): (1 1 28 28)
+D Tensor @Reshape_Reshape_8_11:out0 type: float32
+D Process Conv_Conv_9_10 ...
+D Acuity output shape(convolution): (1 20 24 24)
+D Tensor @Conv_Conv_9_10:out0 type: float32
+D Process Relu_Relu_10_9 ...
+D Acuity output shape(relu): (1 20 24 24)
+D Tensor @Relu_Relu_10_9:out0 type: float32
+D Process MaxPool_MaxPool_11_8 ...
+D Acuity output shape(pooling): (1 20 12 12)
+D Tensor @MaxPool_MaxPool_11_8:out0 type: float32
+D Process Conv_Conv_12_7 ...
+D Acuity output shape(convolution): (1 50 8 8)
+D Tensor @Conv_Conv_12_7:out0 type: float32
+D Process Relu_Relu_13_6 ...
+D Acuity output shape(relu): (1 50 8 8)
+D Tensor @Relu_Relu_13_6:out0 type: float32
+D Process MaxPool_MaxPool_14_5 ...
+D Acuity output shape(pooling): (1 50 4 4)
+D Tensor @MaxPool_MaxPool_14_5:out0 type: float32
+D Process Reshape_Reshape_17_4 ...
+D Acuity output shape(reshape): (1 800)
+D Tensor @Reshape_Reshape_17_4:out0 type: float32
+D Process Gemm_Gemm_18_3 ...
+D Acuity output shape(fullconnect): (1 500)
+D Tensor @Gemm_Gemm_18_3:out0 type: float32
+D Process Relu_Relu_19_2 ...
+D Acuity output shape(relu): (1 500)
+D Tensor @Relu_Relu_19_2:out0 type: float32
+D Process Gemm_Gemm_20_1 ...
+D Acuity output shape(fullconnect): (1 10)
+D Tensor @Gemm_Gemm_20_1:out0 type: float32
+D Process attach_Gemm_Gemm_20/out0_0 ...
+D Acuity output shape(output): (1 10)
+D Tensor @attach_Gemm_Gemm_20/out0_0:out0 type: float32
+I Build torch-jit-export complete.
+I Start C2T Switcher...
+D Optimizing network with broadcast_op
+D insert permute Reshape_Reshape_17_4_acuity_mark_perm_16 before Reshape_Reshape_17_4
+D insert permute Conv_Conv_9_10_acuity_mark_perm_17 before Conv_Conv_9_10
+I End C2T Switcher...
+D Process input_15 ...
+D Acuity output shape(input): (1 3 28 28)
+D Tensor @input_15:out0 type: float32
+D Process Reshape_Reshape_2_13 ...
+D Acuity output shape(reshape): (1 3 28 28)
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+D Acuity output shape(variable): (1)
+D Process Gather_Gather_5_12 ...
+D Acuity output shape(gather): (1 28 28)
+D Tensor @Gather_Gather_5_12:out0 type: float32
+D Process Reshape_Reshape_8_11 ...
+D Acuity output shape(reshape): (1 1 28 28)
+D Tensor @Reshape_Reshape_8_11:out0 type: float32
+D Process Conv_Conv_9_10_acuity_mark_perm_17 ...
+D Acuity output shape(permute): (1 28 28 1)
+D Tensor @Conv_Conv_9_10_acuity_mark_perm_17:out0 type: float32
+D Process Conv_Conv_9_10 ...
+D Acuity output shape(convolution): (1 24 24 20)
+D Tensor @Conv_Conv_9_10:out0 type: float32
+D Process Relu_Relu_10_9 ...
+D Acuity output shape(relu): (1 24 24 20)
+D Tensor @Relu_Relu_10_9:out0 type: float32
+D Process MaxPool_MaxPool_11_8 ...
+D Acuity output shape(pooling): (1 12 12 20)
+D Tensor @MaxPool_MaxPool_11_8:out0 type: float32
+D Process Conv_Conv_12_7 ...
+D Acuity output shape(convolution): (1 8 8 50)
+D Tensor @Conv_Conv_12_7:out0 type: float32
+D Process Relu_Relu_13_6 ...
+D Acuity output shape(relu): (1 8 8 50)
+D Tensor @Relu_Relu_13_6:out0 type: float32
+D Process MaxPool_MaxPool_14_5 ...
+D Acuity output shape(pooling): (1 4 4 50)
+D Tensor @MaxPool_MaxPool_14_5:out0 type: float32
+D Process Reshape_Reshape_17_4_acuity_mark_perm_16 ...
+D Acuity output shape(permute): (1 50 4 4)
+D Tensor @Reshape_Reshape_17_4_acuity_mark_perm_16:out0 type: float32
+D Process Reshape_Reshape_17_4 ...
+D Acuity output shape(reshape): (1 800)
+D Tensor @Reshape_Reshape_17_4:out0 type: float32
+D Process Gemm_Gemm_18_3 ...
+D Acuity output shape(fullconnect): (1 500)
+D Tensor @Gemm_Gemm_18_3:out0 type: float32
+D Process Relu_Relu_19_2 ...
+D Acuity output shape(relu): (1 500)
+D Tensor @Relu_Relu_19_2:out0 type: float32
+D Process Gemm_Gemm_20_1 ...
+D Acuity output shape(fullconnect): (1 10)
+D Tensor @Gemm_Gemm_20_1:out0 type: float32
+D Process attach_Gemm_Gemm_20/out0_0 ...
+D Acuity output shape(output): (1 10)
+D Tensor @attach_Gemm_Gemm_20/out0_0:out0 type: float32
+I Build torch-jit-export complete.
+D Optimizing network with force_1d_tensor, swapper, merge_duplicate_quantize_dequantize, merge_layer, auto_fill_bn, auto_fill_l2normalizescale, auto_fill_instancenormalize, resize_nearest_transformer, auto_fill_multiply, compute_gather_negative, auto_fill_zero_bias, proposal_opt_import, special_add_to_conv2d, extend_gather_to_gather_reshape
+I End importing onnx...
+I Dump net to lenet.json
+I Save net to lenet.data
+I ----------------Error(0),Warning(0)----------------
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ bash 1_quantize_model.sh
+2022-04-16 07:51:34.441439: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 07:51:34.441462: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Namespace(action='quantization', batch_size=100, caffe_mean_file=None, capture_format='nchw', capture_quantized=False, channel_mean_value='0 0 0 256', config=None, data_output=None, debug=False, device=None, divergence_first_quantize_bits=11, dtype='int16', epochs=1, epochs_per_decay=100, force_gray=False, fpfs_delta0=1, fpfs_epochs=0, fpfs_reduce_target=0, input_fitting='scale', input_normalization=None, lr=0.1, mean_file=None, model_data='lenet.data', model_data_format='zone', model_input='lenet.json', model_quantize=None, optimizer='momentum', output_dir=None, output_num=5, pb_name=None, pfps_delta0=1, pfps_epochs=0, pfps_reduce_target=0, prune_epochs=10, prune_loss=1, quantized_algorithm='normal', quantized_divergence_nbins=0, quantized_dtype='asymmetric_affine-u8', quantized_hybrid=False, quantized_moving_alpha=0.0, quantized_rebuild=True, quantized_rebuild_all=False, random_brightness=None, random_contrast=None, random_crop=False, random_flip=False, random_mirror=False, reorder_channel='2 1 0', restart=False, samples=-1, source='text', source_file='data/dataset0.txt', task='classification', validation_output='validation.csv', without_update_masked_grad=False)
+2022-04-16 07:51:35.621565: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-04-16 07:51:35.645544: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792945000 Hz
+2022-04-16 07:51:35.645977: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x6abb330 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-04-16 07:51:35.646000: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-04-16 07:51:35.647792: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 07:51:35.647808: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-16 07:51:35.647822: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (teco): /proc/driver/nvidia/version does not exist
+I Load model in lenet.json
+I Load data in lenet.data
+W:tensorflow:From acuitylib/app/tensorzone/workspace.py:26: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, there are two
+    options available in V2.
+    - tf.py_function takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+    - tf.numpy_function maintains the semantics of the deprecated tf.py_func
+    (it is not differentiable, and manipulates numpy arrays). It drops the
+    stateful argument making all functions stateful.
+
+I Fitting image with scale.
+I Reorder channels.
+I Channel mean value [0.0, 0.0, 0.0, 256.0]
+I [TRAINER]Quantization start...
+[TRAINER]Quantization start...
+I Init validate tensor provider.
+I Enqueue samples 10
+I Init provider with 10 samples.
+D set up a quantize net
+D Process input_15 ...
+D Acuity output shape(input): (10 3 28 28)
+D Tensor @input_15:out0 type: float32
+D Real output shape: (10, 3, 28, 28)
+D Process Reshape_Reshape_2_13 ...
+D Acuity output shape(reshape): (10 3 28 28)
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+D Real output shape: (10, 3, 28, 28)
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+D Acuity output shape(variable): (1)
+D Real output shape: (1,)
+D Process Gather_Gather_5_12 ...
+D Acuity output shape(gather): (10 1 28 28)
+D Tensor @Gather_Gather_5_12:out0 type: float32
+D Real output shape: (10, 1, 28, 28)
+D Process Gather_Gather_5_12_acuity_opt_gather_reshape_18 ...
+D Acuity output shape(reshape): (1 28 28)
+D Tensor @Gather_Gather_5_12_acuity_opt_gather_reshape_18:out0 type: float32
+Traceback (most recent call last):
+  File "tensorflow/python/framework/ops.py", line 1812, in _create_c_op
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Cannot reshape a tensor with 7840 elements to shape [1,28,28] (784 elements) for '{{node Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18}} = Reshape[T=DT_FLOAT, Tshape=DT_INT32](Gather_Gather_5_12/GatherV2, Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18/shape)' with input shapes: [10,1,28,28], [3] and with input tensors computed as partial shapes: input[1] = [1,28,28].
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tensorzonex.py", line 445, in <module>
+  File "tensorzonex.py", line 386, in main
+  File "acuitylib/app/tensorzone/quantization.py", line 176, in run
+  File "acuitylib/app/tensorzone/quantization.py", line 116, in _run_quantization
+  File "acuitylib/app/tensorzone/workspace.py", line 184, in _setup_graph
+  File "acuitylib/app/tensorzone/graph.py", line 59, in generate
+  File "acuitylib/acuitynetbuilder.py", line 327, in build
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 393, in build_layer
+  File "acuitylib/layer/acuitylayer.py", line 306, in compute_tensor
+  File "acuitylib/layer/reshapelayer.py", line 90, in compute_out_tensor
+  File "tensorflow/python/util/dispatch.py", line 201, in wrapper
+  File "tensorflow/python/ops/array_ops.py", line 195, in reshape
+  File "tensorflow/python/ops/gen_array_ops.py", line 8234, in reshape
+  File "tensorflow/python/framework/op_def_library.py", line 744, in _apply_op_helper
+  File "tensorflow/python/framework/ops.py", line 3485, in _create_op_internal
+  File "tensorflow/python/framework/ops.py", line 1975, in __init__
+  File "tensorflow/python/framework/ops.py", line 1815, in _create_c_op
+ValueError: Cannot reshape a tensor with 7840 elements to shape [1,28,28] (784 elements) for '{{node Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18}} = Reshape[T=DT_FLOAT, Tshape=DT_INT32](Gather_Gather_5_12/GatherV2, Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18/shape)' with input shapes: [10,1,28,28], [3] and with input tensors computed as partial shapes: input[1] = [1,28,28].
+[31798] Failed to execute script tensorzonex
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ vim 1_quantize_model.sh
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ bash 1_quantize_model.sh
+2022-04-16 07:55:35.335399: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 07:55:35.335422: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Namespace(action='quantization', batch_size=100, caffe_mean_file=None, capture_format='nchw', capture_quantized=False, channel_mean_value='0 0 0 256', config=None, data_output=None, debug=False, device=None, divergence_first_quantize_bits=11, dtype='int16', epochs=1, epochs_per_decay=100, force_gray=False, fpfs_delta0=1, fpfs_epochs=0, fpfs_reduce_target=0, input_fitting='scale', input_normalization=None, lr=0.1, mean_file=None, model_data='lenet.data', model_data_format='zone', model_input='lenet.json', model_quantize=None, optimizer='momentum', output_dir=None, output_num=5, pb_name=None, pfps_delta0=1, pfps_epochs=0, pfps_reduce_target=0, prune_epochs=10, prune_loss=1, quantized_algorithm='normal', quantized_divergence_nbins=0, quantized_dtype='asymmetric_affine-u8', quantized_hybrid=False, quantized_moving_alpha=0.0, quantized_rebuild=True, quantized_rebuild_all=False, random_brightness=None, random_contrast=None, random_crop=False, random_flip=False, random_mirror=False, reorder_channel='2 1 0', restart=False, samples=-1, source='text', source_file='data/dataset0.txt', task='classification', validation_output='validation.csv', without_update_masked_grad=False)
+2022-04-16 07:55:36.520859: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-04-16 07:55:36.545558: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792945000 Hz
+2022-04-16 07:55:36.545997: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4e210c0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-04-16 07:55:36.546013: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-04-16 07:55:36.547689: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 07:55:36.547709: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-16 07:55:36.547723: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (teco): /proc/driver/nvidia/version does not exist
+I Load model in lenet.json
+I Load data in lenet.data
+W:tensorflow:From acuitylib/app/tensorzone/workspace.py:26: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, there are two
+    options available in V2.
+    - tf.py_function takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+    - tf.numpy_function maintains the semantics of the deprecated tf.py_func
+    (it is not differentiable, and manipulates numpy arrays). It drops the
+    stateful argument making all functions stateful.
+
+I Fitting image with scale.
+I Reorder channels.
+I Channel mean value [0.0, 0.0, 0.0, 256.0]
+I [TRAINER]Quantization start...
+[TRAINER]Quantization start...
+I Init validate tensor provider.
+I Enqueue samples 10
+I Init provider with 10 samples.
+D set up a quantize net
+D Process input_15 ...
+D Acuity output shape(input): (10 3 28 28)
+D Tensor @input_15:out0 type: float32
+D Real output shape: (10, 3, 28, 28)
+D Process Reshape_Reshape_2_13 ...
+D Acuity output shape(reshape): (10 3 28 28)
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+D Real output shape: (10, 3, 28, 28)
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+D Acuity output shape(variable): (1)
+D Real output shape: (1,)
+D Process Gather_Gather_5_12 ...
+D Acuity output shape(gather): (10 1 28 28)
+D Tensor @Gather_Gather_5_12:out0 type: float32
+D Real output shape: (10, 1, 28, 28)
+D Process Gather_Gather_5_12_acuity_opt_gather_reshape_18 ...
+D Acuity output shape(reshape): (1 28 28)
+D Tensor @Gather_Gather_5_12_acuity_opt_gather_reshape_18:out0 type: float32
+Traceback (most recent call last):
+  File "tensorflow/python/framework/ops.py", line 1812, in _create_c_op
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Cannot reshape a tensor with 7840 elements to shape [1,28,28] (784 elements) for '{{node Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18}} = Reshape[T=DT_FLOAT, Tshape=DT_INT32](Gather_Gather_5_12/GatherV2, Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18/shape)' with input shapes: [10,1,28,28], [3] and with input tensors computed as partial shapes: input[1] = [1,28,28].
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tensorzonex.py", line 445, in <module>
+  File "tensorzonex.py", line 386, in main
+  File "acuitylib/app/tensorzone/quantization.py", line 176, in run
+  File "acuitylib/app/tensorzone/quantization.py", line 116, in _run_quantization
+  File "acuitylib/app/tensorzone/workspace.py", line 184, in _setup_graph
+  File "acuitylib/app/tensorzone/graph.py", line 59, in generate
+  File "acuitylib/acuitynetbuilder.py", line 327, in build
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 393, in build_layer
+  File "acuitylib/layer/acuitylayer.py", line 306, in compute_tensor
+  File "acuitylib/layer/reshapelayer.py", line 90, in compute_out_tensor
+  File "tensorflow/python/util/dispatch.py", line 201, in wrapper
+  File "tensorflow/python/ops/array_ops.py", line 195, in reshape
+  File "tensorflow/python/ops/gen_array_ops.py", line 8234, in reshape
+  File "tensorflow/python/framework/op_def_library.py", line 744, in _apply_op_helper
+  File "tensorflow/python/framework/ops.py", line 3485, in _create_op_internal
+  File "tensorflow/python/framework/ops.py", line 1975, in __init__
+  File "tensorflow/python/framework/ops.py", line 1815, in _create_c_op
+ValueError: Cannot reshape a tensor with 7840 elements to shape [1,28,28] (784 elements) for '{{node Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18}} = Reshape[T=DT_FLOAT, Tshape=DT_INT32](Gather_Gather_5_12/GatherV2, Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18/shape)' with input shapes: [10,1,28,28], [3] and with input tensors computed as partial shapes: input[1] = [1,28,28].
+[31863] Failed to execute script tensorzonex
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ vim 1_quantize_model.sh
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ bash 1_quantize_model.sh
+2022-04-16 07:56:14.094038: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 07:56:14.094062: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Namespace(action='quantization', batch_size=100, caffe_mean_file=None, capture_format='nchw', capture_quantized=False, channel_mean_value='0 0 0 256', config=None, data_output=None, debug=False, device=None, divergence_first_quantize_bits=11, dtype='int16', epochs=1, epochs_per_decay=100, force_gray=False, fpfs_delta0=1, fpfs_epochs=0, fpfs_reduce_target=0, input_fitting='scale', input_normalization=None, lr=0.1, mean_file=None, model_data='lenet.data', model_data_format='zone', model_input='lenet.json', model_quantize=None, optimizer='momentum', output_dir=None, output_num=5, pb_name=None, pfps_delta0=1, pfps_epochs=0, pfps_reduce_target=0, prune_epochs=10, prune_loss=1, quantized_algorithm='normal', quantized_divergence_nbins=0, quantized_dtype='asymmetric_affine-u8', quantized_hybrid=False, quantized_moving_alpha=0.0, quantized_rebuild=True, quantized_rebuild_all=False, random_brightness=None, random_contrast=None, random_crop=False, random_flip=False, random_mirror=False, reorder_channel='2 1 0', restart=False, samples=-1, source='text', source_file='data/0.bmp', task='classification', validation_output='validation.csv', without_update_masked_grad=False)
+2022-04-16 07:56:15.267682: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-04-16 07:56:15.289526: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792945000 Hz
+2022-04-16 07:56:15.289935: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5b2d930 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-04-16 07:56:15.289953: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-04-16 07:56:15.291712: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 07:56:15.291728: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-16 07:56:15.291741: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (teco): /proc/driver/nvidia/version does not exist
+I Load model in lenet.json
+I Load data in lenet.data
+W:tensorflow:From acuitylib/app/tensorzone/workspace.py:26: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, there are two
+    options available in V2.
+    - tf.py_function takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+    - tf.numpy_function maintains the semantics of the deprecated tf.py_func
+    (it is not differentiable, and manipulates numpy arrays). It drops the
+    stateful argument making all functions stateful.
+
+I Fitting image with scale.
+I Reorder channels.
+I Channel mean value [0.0, 0.0, 0.0, 256.0]
+I [TRAINER]Quantization start...
+[TRAINER]Quantization start...
+I Init validate tensor provider.
+Traceback (most recent call last):
+  File "tensorzonex.py", line 445, in <module>
+  File "tensorzonex.py", line 386, in main
+  File "acuitylib/app/tensorzone/quantization.py", line 171, in run
+  File "acuitylib/app/tensorzone/workspace.py", line 169, in _setup_provider
+  File "acuitylib/app/tensorzone/workspace.py", line 164, in _init_tensor_provider
+  File "acuitylib/app/tensorzone/tensorprovider.py", line 148, in init_session
+  File "acuitylib/app/tensorzone/dataprovider/providerbase.py", line 24, in get_data
+  File "acuitylib/app/tensorzone/dataprovider/textprovider.py", line 17, in _get_data
+  File "/usr/lib/python3.5/codecs.py", line 321, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xc3 in position 38: invalid continuation byte
+[31923] Failed to execute script tensorzonex
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ vim 1_quantize_model.sh
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ bash 1_quantize_model.sh
+2022-04-16 07:57:38.587753: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 07:57:38.587777: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Namespace(action='quantization', batch_size=100, caffe_mean_file=None, capture_format='nchw', capture_quantized=False, channel_mean_value='0 0 0 256', config=None, data_output=None, debug=False, device=None, divergence_first_quantize_bits=11, dtype='float32', epochs=1, epochs_per_decay=100, force_gray=False, fpfs_delta0=1, fpfs_epochs=0, fpfs_reduce_target=0, input_fitting='scale', input_normalization=None, lr=0.1, mean_file=None, model_data='lenet.data', model_data_format='zone', model_input='lenet.json', model_quantize=None, optimizer='momentum', output_dir=None, output_num=5, pb_name=None, pfps_delta0=1, pfps_epochs=0, pfps_reduce_target=0, prune_epochs=10, prune_loss=1, quantized_algorithm='normal', quantized_divergence_nbins=0, quantized_dtype='asymmetric_affine-u8', quantized_hybrid=False, quantized_moving_alpha=0.0, quantized_rebuild=True, quantized_rebuild_all=False, random_brightness=None, random_contrast=None, random_crop=False, random_flip=False, random_mirror=False, reorder_channel='2 1 0', restart=False, samples=-1, source='text', source_file='data/0.bmp', task='classification', validation_output='validation.csv', without_update_masked_grad=False)
+2022-04-16 07:57:39.764163: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-04-16 07:57:39.785561: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792945000 Hz
+2022-04-16 07:57:39.786002: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x698d6a0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-04-16 07:57:39.786018: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-04-16 07:57:39.787785: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 07:57:39.787805: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-16 07:57:39.787818: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (teco): /proc/driver/nvidia/version does not exist
+I Load model in lenet.json
+I Load data in lenet.data
+W:tensorflow:From acuitylib/app/tensorzone/workspace.py:26: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, there are two
+    options available in V2.
+    - tf.py_function takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+    - tf.numpy_function maintains the semantics of the deprecated tf.py_func
+    (it is not differentiable, and manipulates numpy arrays). It drops the
+    stateful argument making all functions stateful.
+
+I Fitting image with scale.
+I Reorder channels.
+I Channel mean value [0.0, 0.0, 0.0, 256.0]
+I [TRAINER]Quantization start...
+[TRAINER]Quantization start...
+I Init validate tensor provider.
+Traceback (most recent call last):
+  File "tensorzonex.py", line 445, in <module>
+  File "tensorzonex.py", line 386, in main
+  File "acuitylib/app/tensorzone/quantization.py", line 171, in run
+  File "acuitylib/app/tensorzone/workspace.py", line 169, in _setup_provider
+  File "acuitylib/app/tensorzone/workspace.py", line 164, in _init_tensor_provider
+  File "acuitylib/app/tensorzone/tensorprovider.py", line 148, in init_session
+  File "acuitylib/app/tensorzone/dataprovider/providerbase.py", line 24, in get_data
+  File "acuitylib/app/tensorzone/dataprovider/textprovider.py", line 17, in _get_data
+  File "/usr/lib/python3.5/codecs.py", line 321, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xc3 in position 38: invalid continuation byte
+[31988] Failed to execute script tensorzonex
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ vim 1_quantize_model.sh
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ bash 1_quantize_model.sh
+2022-04-16 08:07:08.144680: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 08:07:08.144704: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Namespace(action='quantization', batch_size=100, caffe_mean_file=None, capture_format='nchw', capture_quantized=False, channel_mean_value='0 0 0 256', config=None, data_output=None, debug=False, device=None, divergence_first_quantize_bits=11, dtype='uint8', epochs=1, epochs_per_decay=100, force_gray=False, fpfs_delta0=1, fpfs_epochs=0, fpfs_reduce_target=0, input_fitting='scale', input_normalization=None, lr=0.1, mean_file=None, model_data='lenet.data', model_data_format='zone', model_input='lenet.json', model_quantize=None, optimizer='momentum', output_dir=None, output_num=5, pb_name=None, pfps_delta0=1, pfps_epochs=0, pfps_reduce_target=0, prune_epochs=10, prune_loss=1, quantized_algorithm='normal', quantized_divergence_nbins=0, quantized_dtype='asymmetric_affine', quantized_hybrid=False, quantized_moving_alpha=0.0, quantized_rebuild=True, quantized_rebuild_all=False, random_brightness=None, random_contrast=None, random_crop=False, random_flip=False, random_mirror=False, reorder_channel='2 1 0', restart=False, samples=-1, source='text', source_file='data/0.bmp', task='classification', validation_output='validation.csv', without_update_masked_grad=False)
+2022-04-16 08:07:09.321092: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-04-16 08:07:09.345549: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792945000 Hz
+2022-04-16 08:07:09.346021: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x65e6f80 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-04-16 08:07:09.346047: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-04-16 08:07:09.347811: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 08:07:09.347827: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-16 08:07:09.347841: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (teco): /proc/driver/nvidia/version does not exist
+E Please specify valid quantized dtype, in {'symmetric_affine-i8', 'asymmetric_affine-u8', 'dynamic_fixed_point-8', 'dynamic_fixed_point-i16', 'dynamic_fixed_point-i8', 'qbfloat16', 'asymmetric_quantized-u8', 'dynamic_fixed_point-16', 'perchannel_symmetric_affine-i8'}
+W ----------------Error(1),Warning(0)----------------
+Traceback (most recent call last):
+  File "tensorzonex.py", line 445, in <module>
+  File "tensorzonex.py", line 362, in main
+  File "acuitylib/app/tensorzone/quantization.py", line 49, in __init__
+  File "acuitylib/app/tensorzone/validator.py", line 38, in __init__
+  File "acuitylib/app/tensorzone/workspace.py", line 122, in __init__
+  File "acuitylib/app/tensorzone/workspace.py", line 158, in _apply_attr
+  File "acuitylib/acuitylog.py", line 256, in e
+ValueError: Please specify valid quantized dtype, in {'symmetric_affine-i8', 'asymmetric_affine-u8', 'dynamic_fixed_point-8', 'dynamic_fixed_point-i16', 'dynamic_fixed_point-i8', 'qbfloat16', 'asymmetric_quantized-u8', 'dynamic_fixed_point-16', 'perchannel_symmetric_affine-i8'}
+[32071] Failed to execute script tensorzonex
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ vim 1_quantize_model.sh
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ bash 1_quantize_model.sh
+2022-04-16 08:07:55.847493: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 08:07:55.847516: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Namespace(action='quantization', batch_size=100, caffe_mean_file=None, capture_format='nchw', capture_quantized=False, channel_mean_value='0 0 0 256', config=None, data_output=None, debug=False, device=None, divergence_first_quantize_bits=11, dtype='uint8', epochs=1, epochs_per_decay=100, force_gray=False, fpfs_delta0=1, fpfs_epochs=0, fpfs_reduce_target=0, input_fitting='scale', input_normalization=None, lr=0.1, mean_file=None, model_data='lenet.data', model_data_format='zone', model_input='lenet.json', model_quantize=None, optimizer='momentum', output_dir=None, output_num=5, pb_name=None, pfps_delta0=1, pfps_epochs=0, pfps_reduce_target=0, prune_epochs=10, prune_loss=1, quantized_algorithm='normal', quantized_divergence_nbins=0, quantized_dtype='asymmetric_affine-u8', quantized_hybrid=False, quantized_moving_alpha=0.0, quantized_rebuild=True, quantized_rebuild_all=False, random_brightness=None, random_contrast=None, random_crop=False, random_flip=False, random_mirror=False, reorder_channel='2 1 0', restart=False, samples=-1, source='text', source_file='data/0.bmp', task='classification', validation_output='validation.csv', without_update_masked_grad=False)
+2022-04-16 08:07:57.023358: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-04-16 08:07:57.045531: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792945000 Hz
+2022-04-16 08:07:57.045976: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5819370 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-04-16 08:07:57.045996: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-04-16 08:07:57.047731: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 08:07:57.047751: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-16 08:07:57.047765: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (teco): /proc/driver/nvidia/version does not exist
+I Load model in lenet.json
+I Load data in lenet.data
+W:tensorflow:From acuitylib/app/tensorzone/workspace.py:26: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, there are two
+    options available in V2.
+    - tf.py_function takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+    - tf.numpy_function maintains the semantics of the deprecated tf.py_func
+    (it is not differentiable, and manipulates numpy arrays). It drops the
+    stateful argument making all functions stateful.
+
+I Fitting image with scale.
+I Reorder channels.
+I Channel mean value [0.0, 0.0, 0.0, 256.0]
+I [TRAINER]Quantization start...
+[TRAINER]Quantization start...
+I Init validate tensor provider.
+Traceback (most recent call last):
+  File "tensorzonex.py", line 445, in <module>
+  File "tensorzonex.py", line 386, in main
+  File "acuitylib/app/tensorzone/quantization.py", line 171, in run
+  File "acuitylib/app/tensorzone/workspace.py", line 169, in _setup_provider
+  File "acuitylib/app/tensorzone/workspace.py", line 164, in _init_tensor_provider
+  File "acuitylib/app/tensorzone/tensorprovider.py", line 148, in init_session
+  File "acuitylib/app/tensorzone/dataprovider/providerbase.py", line 24, in get_data
+  File "acuitylib/app/tensorzone/dataprovider/textprovider.py", line 17, in _get_data
+  File "/usr/lib/python3.5/codecs.py", line 321, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xc3 in position 38: invalid continuation byte
+[32117] Failed to execute script tensorzonex
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ vim 1_quantize_model.sh
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ bash 1_quantize_model.sh
+2022-04-16 08:08:34.240961: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 08:08:34.240985: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Namespace(action='quantization', batch_size=100, caffe_mean_file=None, capture_format='nchw', capture_quantized=False, channel_mean_value='0 0 0 256', config=None, data_output=None, debug=False, device=None, divergence_first_quantize_bits=11, dtype='uint8', epochs=1, epochs_per_decay=100, force_gray=False, fpfs_delta0=1, fpfs_epochs=0, fpfs_reduce_target=0, input_fitting='scale', input_normalization=None, lr=0.1, mean_file=None, model_data='lenet.data', model_data_format='zone', model_input='lenet.json', model_quantize=None, optimizer='momentum', output_dir=None, output_num=5, pb_name=None, pfps_delta0=1, pfps_epochs=0, pfps_reduce_target=0, prune_epochs=10, prune_loss=1, quantized_algorithm='normal', quantized_divergence_nbins=0, quantized_dtype='asymmetric_affine-u8', quantized_hybrid=False, quantized_moving_alpha=0.0, quantized_rebuild=True, quantized_rebuild_all=False, random_brightness=None, random_contrast=None, random_crop=False, random_flip=False, random_mirror=False, reorder_channel='2 1 0', restart=False, samples=-1, source='text', source_file='data/dataset0.txt', task='classification', validation_output='validation.csv', without_update_masked_grad=False)
+2022-04-16 08:08:35.413290: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-04-16 08:08:35.437557: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792945000 Hz
+2022-04-16 08:08:35.438023: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x693ea50 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-04-16 08:08:35.438043: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-04-16 08:08:35.439806: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 08:08:35.439822: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-16 08:08:35.439836: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (teco): /proc/driver/nvidia/version does not exist
+I Load model in lenet.json
+I Load data in lenet.data
+W:tensorflow:From acuitylib/app/tensorzone/workspace.py:26: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, there are two
+    options available in V2.
+    - tf.py_function takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+    - tf.numpy_function maintains the semantics of the deprecated tf.py_func
+    (it is not differentiable, and manipulates numpy arrays). It drops the
+    stateful argument making all functions stateful.
+
+I Fitting image with scale.
+I Reorder channels.
+I Channel mean value [0.0, 0.0, 0.0, 256.0]
+I [TRAINER]Quantization start...
+[TRAINER]Quantization start...
+I Init validate tensor provider.
+I Enqueue samples 10
+I Init provider with 10 samples.
+D set up a quantize net
+D Process input_15 ...
+D Acuity output shape(input): (10 3 28 28)
+D Tensor @input_15:out0 type: float32
+D Real output shape: (10, 3, 28, 28)
+D Process Reshape_Reshape_2_13 ...
+D Acuity output shape(reshape): (10 3 28 28)
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+D Real output shape: (10, 3, 28, 28)
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+D Acuity output shape(variable): (1)
+D Real output shape: (1,)
+D Process Gather_Gather_5_12 ...
+D Acuity output shape(gather): (10 1 28 28)
+D Tensor @Gather_Gather_5_12:out0 type: float32
+D Real output shape: (10, 1, 28, 28)
+D Process Gather_Gather_5_12_acuity_opt_gather_reshape_18 ...
+D Acuity output shape(reshape): (1 28 28)
+D Tensor @Gather_Gather_5_12_acuity_opt_gather_reshape_18:out0 type: float32
+Traceback (most recent call last):
+  File "tensorflow/python/framework/ops.py", line 1812, in _create_c_op
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Cannot reshape a tensor with 7840 elements to shape [1,28,28] (784 elements) for '{{node Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18}} = Reshape[T=DT_FLOAT, Tshape=DT_INT32](Gather_Gather_5_12/GatherV2, Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18/shape)' with input shapes: [10,1,28,28], [3] and with input tensors computed as partial shapes: input[1] = [1,28,28].
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tensorzonex.py", line 445, in <module>
+  File "tensorzonex.py", line 386, in main
+  File "acuitylib/app/tensorzone/quantization.py", line 176, in run
+  File "acuitylib/app/tensorzone/quantization.py", line 116, in _run_quantization
+  File "acuitylib/app/tensorzone/workspace.py", line 184, in _setup_graph
+  File "acuitylib/app/tensorzone/graph.py", line 59, in generate
+  File "acuitylib/acuitynetbuilder.py", line 327, in build
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 393, in build_layer
+  File "acuitylib/layer/acuitylayer.py", line 306, in compute_tensor
+  File "acuitylib/layer/reshapelayer.py", line 90, in compute_out_tensor
+  File "tensorflow/python/util/dispatch.py", line 201, in wrapper
+  File "tensorflow/python/ops/array_ops.py", line 195, in reshape
+  File "tensorflow/python/ops/gen_array_ops.py", line 8234, in reshape
+  File "tensorflow/python/framework/op_def_library.py", line 744, in _apply_op_helper
+  File "tensorflow/python/framework/ops.py", line 3485, in _create_op_internal
+  File "tensorflow/python/framework/ops.py", line 1975, in __init__
+  File "tensorflow/python/framework/ops.py", line 1815, in _create_c_op
+ValueError: Cannot reshape a tensor with 7840 elements to shape [1,28,28] (784 elements) for '{{node Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18}} = Reshape[T=DT_FLOAT, Tshape=DT_INT32](Gather_Gather_5_12/GatherV2, Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18/shape)' with input shapes: [10,1,28,28], [3] and with input tensors computed as partial shapes: input[1] = [1,28,28].
+[32181] Failed to execute script tensorzonex
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ vim 1_quantize_model.sh
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ bash 1_quantize_model.sh
+2022-04-16 08:10:24.542901: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 08:10:24.542925: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+usage: tensorzonex [-h] [--action ACTION] [--debug] [--dtype DTYPE]
+                   [--device DEVICE] --model-input MODEL_INPUT
+                   [--model-data MODEL_DATA] [--model-quantize MODEL_QUANTIZE]
+                   [--model-data-format MODEL_DATA_FORMAT]
+                   [--validation-output VALIDATION_OUTPUT] [--source SOURCE]
+                   [--source-file SOURCE_FILE] [--restart]
+                   [--batch-size BATCH_SIZE] [--samples SAMPLES]
+                   [--config CONFIG] [--output-num OUTPUT_NUM]
+                   [--data-output DATA_OUTPUT] [--epochs EPOCHS]
+                   [--optimizer OPTIMIZER] [--lr LR]
+                   [--epochs-per-decay EPOCHS_PER_DECAY]
+                   [--quantized-dtype QUANTIZED_DTYPE]
+                   [--quantized-moving-alpha QUANTIZED_MOVING_ALPHA]
+                   [--quantized-algorithm QUANTIZED_ALGORITHM]
+                   [--quantized-divergence-nbins QUANTIZED_DIVERGENCE_NBINS]
+                   [--divergence-first-quantize-bits DIVERGENCE_FIRST_QUANTIZE_BITS]
+                   [--quantized-rebuild] [--quantized-rebuild-all]
+                   [--quantized-hybrid] [--reorder-channel REORDER_CHANNEL]
+                   [--input-fitting INPUT_FITTING]
+                   [--input-normalization INPUT_NORMALIZATION]
+                   [--channel-mean-value CHANNEL_MEAN_VALUE]
+                   [--mean-file MEAN_FILE] [--caffe-mean-file CAFFE_MEAN_FILE]
+                   [--random-crop] [--random-mirror] [--random-flip]
+                   [--random-contrast RANDOM_CONTRAST]
+                   [--random-brightness RANDOM_BRIGHTNESS] [--force-gray]
+                   [--task TASK] [--prune-epochs PRUNE_EPOCHS]
+                   [--prune-loss PRUNE_LOSS] [--fpfs-epochs FPFS_EPOCHS]
+                   [--fpfs-reduce-target FPFS_REDUCE_TARGET]
+                   [--fpfs-delta0 FPFS_DELTA0] [--pfps-epochs PFPS_EPOCHS]
+                   [--pfps-reduce-target PFPS_REDUCE_TARGET]
+                   [--pfps-delta0 PFPS_DELTA0] [--without-update-masked-grad]
+                   [--capture-format CAPTURE_FORMAT] [--capture-quantized]
+                   [--output-dir OUTPUT_DIR] [--pb-name PB_NAME]
+tensorzonex: error: the following arguments are required: --model-input
+1_quantize_model.sh: line 11: --channel-mean-value: command not found
+1_quantize_model.sh: line 17: --source: command not found
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ vim 1_quantize_model.sh
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ bash 1_quantize_model.sh
+2022-04-16 08:12:48.575240: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 08:12:48.575264: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+I Namespace(action='quantization', batch_size=100, caffe_mean_file=None, capture_format='nchw', capture_quantized=False, channel_mean_value='0 0 0 256', config=None, data_output=None, debug=False, device=None, divergence_first_quantize_bits=11, dtype='float32', epochs=1, epochs_per_decay=100, force_gray=False, fpfs_delta0=1, fpfs_epochs=0, fpfs_reduce_target=0, input_fitting='scale', input_normalization=None, lr=0.1, mean_file=None, model_data='lenet.data', model_data_format='zone', model_input='lenet.json', model_quantize=None, optimizer='momentum', output_dir=None, output_num=5, pb_name=None, pfps_delta0=1, pfps_epochs=0, pfps_reduce_target=0, prune_epochs=10, prune_loss=1, quantized_algorithm='normal', quantized_divergence_nbins=0, quantized_dtype='asymmetric_affine-u8', quantized_hybrid=False, quantized_moving_alpha=0.0, quantized_rebuild=False, quantized_rebuild_all=False, random_brightness=None, random_contrast=None, random_crop=False, random_flip=False, random_mirror=False, reorder_channel='2 1 0', restart=False, samples=-1, source='text', source_file='data/dataset0.txt', task='classification', validation_output='validation.csv', without_update_masked_grad=False)
+2022-04-16 08:12:49.749612: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-04-16 08:12:49.773546: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792945000 Hz
+2022-04-16 08:12:49.774049: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x53d86e0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-04-16 08:12:49.774069: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-04-16 08:12:49.775822: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/sajjad/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/bin/acuitylib
+2022-04-16 08:12:49.775838: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-16 08:12:49.775852: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (teco): /proc/driver/nvidia/version does not exist
+I Load model in lenet.json
+I Load data in lenet.data
+W:tensorflow:From acuitylib/app/tensorzone/workspace.py:26: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, there are two
+    options available in V2.
+    - tf.py_function takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+    - tf.numpy_function maintains the semantics of the deprecated tf.py_func
+    (it is not differentiable, and manipulates numpy arrays). It drops the
+    stateful argument making all functions stateful.
+
+I Fitting image with scale.
+I Reorder channels.
+I Channel mean value [0.0, 0.0, 0.0, 256.0]
+I [TRAINER]Quantization start...
+[TRAINER]Quantization start...
+I Init validate tensor provider.
+I Enqueue samples 10
+I Init provider with 10 samples.
+D set up a quantize net
+D Process input_15 ...
+D Acuity output shape(input): (10 3 28 28)
+D Tensor @input_15:out0 type: float32
+D Real output shape: (10, 3, 28, 28)
+D Process Reshape_Reshape_2_13 ...
+D Acuity output shape(reshape): (10 3 28 28)
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+D Real output shape: (10, 3, 28, 28)
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+D Acuity output shape(variable): (1)
+D Real output shape: (1,)
+D Process Gather_Gather_5_12 ...
+D Acuity output shape(gather): (10 1 28 28)
+D Tensor @Gather_Gather_5_12:out0 type: float32
+D Real output shape: (10, 1, 28, 28)
+D Process Gather_Gather_5_12_acuity_opt_gather_reshape_18 ...
+D Acuity output shape(reshape): (1 28 28)
+D Tensor @Gather_Gather_5_12_acuity_opt_gather_reshape_18:out0 type: float32
+Traceback (most recent call last):
+  File "tensorflow/python/framework/ops.py", line 1812, in _create_c_op
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Cannot reshape a tensor with 7840 elements to shape [1,28,28] (784 elements) for '{{node Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18}} = Reshape[T=DT_FLOAT, Tshape=DT_INT32](Gather_Gather_5_12/GatherV2, Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18/shape)' with input shapes: [10,1,28,28], [3] and with input tensors computed as partial shapes: input[1] = [1,28,28].
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tensorzonex.py", line 445, in <module>
+  File "tensorzonex.py", line 386, in main
+  File "acuitylib/app/tensorzone/quantization.py", line 176, in run
+  File "acuitylib/app/tensorzone/quantization.py", line 116, in _run_quantization
+  File "acuitylib/app/tensorzone/workspace.py", line 184, in _setup_graph
+  File "acuitylib/app/tensorzone/graph.py", line 59, in generate
+  File "acuitylib/acuitynetbuilder.py", line 327, in build
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 358, in build_layer
+  File "acuitylib/acuitynetbuilder.py", line 393, in build_layer
+  File "acuitylib/layer/acuitylayer.py", line 306, in compute_tensor
+  File "acuitylib/layer/reshapelayer.py", line 90, in compute_out_tensor
+  File "tensorflow/python/util/dispatch.py", line 201, in wrapper
+  File "tensorflow/python/ops/array_ops.py", line 195, in reshape
+  File "tensorflow/python/ops/gen_array_ops.py", line 8234, in reshape
+  File "tensorflow/python/framework/op_def_library.py", line 744, in _apply_op_helper
+  File "tensorflow/python/framework/ops.py", line 3485, in _create_op_internal
+  File "tensorflow/python/framework/ops.py", line 1975, in __init__
+  File "tensorflow/python/framework/ops.py", line 1815, in _create_c_op
+ValueError: Cannot reshape a tensor with 7840 elements to shape [1,28,28] (784 elements) for '{{node Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18}} = Reshape[T=DT_FLOAT, Tshape=DT_INT32](Gather_Gather_5_12/GatherV2, Gather_Gather_5_12_acuity_opt_gather_reshape_18/Gather_Gather_5_12_acuity_opt_gather_reshape_18/shape)' with input shapes: [10,1,28,28], [3] and with input tensors computed as partial shapes: input[1] = [1,28,28].
+[32272] Failed to execute script tensorzonex
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$

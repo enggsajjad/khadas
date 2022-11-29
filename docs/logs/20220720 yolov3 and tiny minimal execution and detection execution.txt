@@ -1,0 +1,96 @@
+============================================
+yolov3 minimal execution
+============================================
+khadas@Khadas:~/hussain/novelsense_git/khadas/nbg/sdk_generated_nbg_compilable/yolov3_nbg_unify_416_hussainA/bin_r$ ./yolotiny ../yolov3_88.nb ~/hussain/img/416/person_416.jpg
+Create Neural Network: 2869ms or 2869746us
+Verify...
+Verify Graph: 7ms or 7829us
+Start run graph [1] times...
+Run the 1 time: 94.00ms or 94545.00us
+vxProcessGraph execution time:
+Total   94.00ms or 94600.00us
+Average 94.60ms or 94600.00us
+ --- Top5 ---
+15305: 10.500000
+15306: 8.250000
+15292: 7.750000
+3668: 7.000000
+15142: 7.000000
+============================================
+yolov3-tiny minimal execution
+============================================
+khadas@Khadas:~/hussain/novelsense_git/khadas/nbg/sdk_generated_nbg_compilable/yolov3_nbg_unify_416_hussainA/bin_r$ cd ../../yolotiny_nbg_unify_416_hussainA/bin_r/
+khadas@Khadas:~/hussain/novelsense_git/khadas/nbg/sdk_generated_nbg_compilable/yolotiny_nbg_unify_416_hussainA/bin_r$ chmod +x ./yolotiny
+khadas@Khadas:~/hussain/novelsense_git/khadas/nbg/sdk_generated_nbg_compilable/yolotiny_nbg_unify_416_hussainA/bin_r$ ./yolotiny ../yolotiny_88.nb ~/hussain/img/416/person_416.jpg
+Create Neural Network: 501ms or 501026us
+Verify...
+Verify Graph: 0ms or 704us
+Start run graph [1] times...
+Run the 1 time: 4.00ms or 4655.00us
+vxProcessGraph execution time:
+Total   4.00ms or 4692.00us
+Average 4.69ms or 4692.00us
+ --- Top5 ---
+15305: 7.750000
+15292: 6.250000
+3668: 5.750000
+3669: 5.500000
+3655: 4.500000
+============================================
+yolov3 detect_demo_x11 execution
+============================================
+khadas@Khadas:~/hussain/novelsense_git/khadas/nbg/sdk_generated_nbg_compilable/yolotiny_nbg_unify_416_hussainA/bin_r$ cd ../../../../standalone/newscripts/first_working/sample_demo_x11_yolov3/bin_r_cv4/
+khadas@Khadas:~/hussain/novelsense_git/khadas/standalone/newscripts/first_working/sample_demo_x11_yolov3/bin_r_cv4$ ls
+detect_demo_x11  detect_log.o  main.o  nn_data  output.bmp  vnn_yolov3.o  yolo_v3.o  yolov3_process.o
+khadas@Khadas:~/hussain/novelsense_git/khadas/standalone/newscripts/first_working/sample_demo_x11_yolov3/bin_r_cv4$ chmod +x ./detect_demo_x11
+khadas@Khadas:~/hussain/novelsense_git/khadas/standalone/newscripts/first_working/sample_demo_x11_yolov3/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ~/hussain/img/416/person_416.jpg
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Segmentation fault
+khadas@Khadas:~/hussain/novelsense_git/khadas/standalone/newscripts/first_working/sample_demo_x11_yolov3/bin_r_cv4$ ./detect_demo_x11 -m 2 -w 416 -h 416 -p ~/hussain/img/416/person_416.jpg
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=3
+result type is 2
+i:3 left:247.838 right:403.838 top:139.01 bottom:337.01
+i:3 left:42.2234 right:132.564 top:255.081 bottom:345.081
+i:3 left:121.505 right:180.505 top:107.998 bottom:359.921
+============================================
+yolov3_tiny detect_demo_x11 execution
+============================================
+khadas@Khadas:~/hussain/novelsense_git/khadas/standalone/newscripts/first_working/sample_demo_x11_yolov3/bin_r_cv4$ cd ../../sample_demo_x11_tiny/bin_r_cv4/
+khadas@Khadas:~/hussain/novelsense_git/khadas/standalone/newscripts/first_working/sample_demo_x11_tiny/bin_r_cv4$ chmod +x ./detect_demo_x11
+khadas@Khadas:~/hussain/novelsense_git/khadas/standalone/newscripts/first_working/sample_demo_x11_tiny/bin_r_cv4$ ./detect_demo_x11 -m 3 -w 416 -h 416 -p ~/hussain/img/416/person_416.jpg
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=3
+result type is 2
+i:3 left:116.034 right:179.803 top:94.9493 bottom:373.583
+i:3 left:259.627 right:394.626 top:121.337 bottom:338.338
+i:3 left:59.7211 right:122.804 top:259.081 bottom:341.081
+khadas@Khadas:~/hussain/novelsense_git/khadas/standalone/newscripts/first_working/sample_demo_x11_tiny/bin_r_cv4$

@@ -1,0 +1,82 @@
+khadas@Khadas:~/hussain/nbg_unify_mobilenet_tf_original$ cd ..
+khadas@Khadas:~/hussain$
+khadas@Khadas:~/hussain$ git clone https://github.com/yan-wyb/Just_for_get_op_time.git
+Cloning into 'Just_for_get_op_time'...
+remote: Enumerating objects: 944, done.
+remote: Total 944 (delta 0), reused 0 (delta 0), pack-reused 944
+Receiving objects: 100% (944/944), 115.32 MiB | 5.21 MiB/s, done.
+Resolving deltas: 100% (430/430), done.
+Updating files: 100% (922/922), done.
+khadas@Khadas:~/hussain$ cd profile/op_test_yolov3_normal_case_demo_sajjad_416/
+khadas@Khadas:~/hussain/profile/op_test_yolov3_normal_case_demo_sajjad_416$ ls
+main.c        vnn_post_process.c  vnn_pre_process.c  vnn_yolov3.c  yolov3.export.data
+vnn_global.h  vnn_post_process.h  vnn_pre_process.h  vnn_yolov3.h
+khadas@Khadas:~/hussain/profile/op_test_yolov3_normal_case_demo_sajjad_416$ wget https://raw.githubusercontent.com/khadas/aml_npu_app/master/detect_library/inception/makefile.linux.def
+--2022-07-24 05:17:56--  https://raw.githubusercontent.com/khadas/aml_npu_app/master/detect_library/inception/makefile.linux.def
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 2606:50c0:8002::154, 2606:50c0:8003::154, 2606:50c0:8000::154, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|2606:50c0:8002::154|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 16406 (16K) [text/plain]
+Saving to: ‘makefile.linux.def’
+
+makefile.linux.def                   100%[====================================================================>]  16.02K  --.-KB/s    in 0.002s
+
+2022-07-24 05:17:57 (10.4 MB/s) - ‘makefile.linux.def’ saved [16406/16406]
+
+khadas@Khadas:~/hussain/profile/op_test_yolov3_normal_case_demo_sajjad_416$ wget https://raw.githubusercontent.com/khadas/aml_npu_app/master/detect_library/inception/build_vx.sh
+--2022-07-24 05:18:08--  https://raw.githubusercontent.com/khadas/aml_npu_app/master/detect_library/inception/build_vx.sh
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 2606:50c0:8002::154, 2606:50c0:8003::154, 2606:50c0:8000::154, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|2606:50c0:8002::154|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9312 (9.1K) [text/plain]
+Saving to: ‘build_vx.sh’
+
+build_vx.sh                          100%[====================================================================>]   9.09K  --.-KB/s    in 0.002s
+
+2022-07-24 05:18:09 (3.83 MB/s) - ‘build_vx.sh’ saved [9312/9312]
+
+khadas@Khadas:~/hussain/profile/op_test_yolov3_normal_case_demo_sajjad_416$ echo "TARGET_NAME = yolov3"  > makefile.target_name
+khadas@Khadas:~/hussain/profile/op_test_yolov3_normal_case_demo_sajjad_416$ vim makefile.linux
+khadas@Khadas:~/hussain/profile/op_test_yolov3_normal_case_demo_sajjad_416$ cd ..
+khadas@Khadas:~/hussain/profile$ cd op_test_yolov3_normal_case_demo_sajjad_416/
+khadas@Khadas:~/hussain/profile/op_test_yolov3_normal_case_demo_sajjad_416$ chmod +x ./build_vx.sh
+khadas@Khadas:~/hussain/profile/op_test_yolov3_normal_case_demo_sajjad_416$
+
+khadas@Khadas:~/hussain/profile/op_test_yolov3_normal_case_demo_sajjad_416$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/profile/op_test_yolov3_normal_case_demo_sajjad_416/vnn_pre_process.c
+  COMPILE /home/khadas/hussain/profile/op_test_yolov3_normal_case_demo_sajjad_416/vnn_yolov3.c
+  COMPILE /home/khadas/hussain/profile/op_test_yolov3_normal_case_demo_sajjad_416/main.c
+  COMPILE /home/khadas/hussain/profile/op_test_yolov3_normal_case_demo_sajjad_416/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas:~/hussain/profile/op_test_yolov3_normal_case_demo_sajjad_416$ cd bin_r_cv4/
+khadas@Khadas:~/hussain/profile/op_test_yolov3_normal_case_demo_sajjad_416/bin_r_cv4$ ls
+main.o  vnn_post_process.o  vnn_pre_process.o  vnn_yolov3.o  yolov3
+khadas@Khadas:~/hussain/profile/op_test_yolov3_normal_case_demo_sajjad_416/bin_r_cv4$ ./yolov3 ../yolov3.export.data /media/khadas/SAJJAD/hussainovelsense_git/khadas/img/416/person_416.jpg
+Created VX Thread: 0x8db871b0
+#productname=VIPNano-QI, pid=0x88
+Create Neural Network: 2841ms or 2841579us
+Verify...
+..
+..
+..
+..
+
+
+
+
+
+
+abs_op_id: 176
+execution time:           1804363 us
+Run the 1 time: 228356.00ms or 228356208.00us
+vxProcessGraph execution time:
+Total   228363.00ms or 228364000.00us
+Average 228364.00ms or 228364000.00us
+ --- Top5 ---
+15305: 10.250000
+15306: 7.750000
+18184: 7.750000
+3668: 7.250000
+15142: 7.250000
+Exit VX Thread: 0xa9c601b0
+khadas@Khadas:~/hussain/profile/op_test_yolov3_normal_case_demo_sajjad_416/bin_r_cv4$

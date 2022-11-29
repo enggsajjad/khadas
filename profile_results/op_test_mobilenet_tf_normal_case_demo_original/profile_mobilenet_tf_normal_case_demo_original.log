@@ -1,0 +1,3794 @@
+Created VX Thread: 0xb52cc1b0
+#productname=VIPNano-QI, pid=0x88
+Create Neural Network: 91ms or 91246us
+Verify...
+---------------------------Begin VerifyTiling -------------------------
+AXI-SRAM = 1048576 Bytes VIP-SRAM = 522240 Bytes SWTILING_PHASE_FEATURES[1, 1, 0]
+  0 TP [(   3  224  224 1,   150528, 0x0x55bc3ed270(0x0x55bc3ed270, 0x(nil)) ->  224  224    3 1,   150528, 0x0x55bc40ab40(0x0x55bc40ab40, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] C[  1]
+  1 NN [( 224  224    3 1,   150528, 0x0x55bc40ab40(0x0x55bc40ab40, 0x(nil)) ->  112  112   32 1,   401408, 0x0x55bc40bc00(0x0x55bc40bc00, 0x(nil))) k(3 3    3,     1152) pad(0 0) pool(2 2, 2 2)] P[  0] C[  2]
+  2 NN [( 112  112   32 1,   401408, 0x0x55bc40bc00(0x0x55bc40bc00, 0x(nil)) ->  112  112   32 1,   401408, 0x0x55bc40e840(0x0x55bc40e840, 0x(nil))) k(3 3   32,    11520) pad(1 1) pool(0 0, 1 1)] P[  1] C[  3]
+  3 NN [( 112  112   32 1,   401408, 0x0x55bc40e840(0x0x55bc40e840, 0x(nil)) ->  112  112   64 1,   802816, 0x0x55bc411480(0x0x55bc411480, 0x(nil))) k(1 1   32,     2432) pad(0 0) pool(0 0, 1 1)] P[  2] C[  4]
+  4 NN [( 112  112   64 1,   802816, 0x0x55bc411480(0x0x55bc411480, 0x(nil)) ->   56   56   64 1,   200704, 0x0x55bc4140c0(0x0x55bc4140c0, 0x(nil))) k(3 3   64,    45824) pad(0 0) pool(2 2, 2 2)] P[  3] C[  5]
+  5 NN [(  56   56   64 1,   200704, 0x0x55bc4140c0(0x0x55bc4140c0, 0x(nil)) ->   56   56  128 1,   401408, 0x0x55bc416d00(0x0x55bc416d00, 0x(nil))) k(1 1   64,     9216) pad(0 0) pool(0 0, 1 1)] P[  4] C[  6]
+  6 NN [(  56   56  128 1,   401408, 0x0x55bc416d00(0x0x55bc416d00, 0x(nil)) ->   56   56  128 1,   401408, 0x0x55bc419940(0x0x55bc419940, 0x(nil))) k(3 3  128,   183296) pad(1 1) pool(0 0, 1 1)] P[  5] C[  7]
+  7 NN [(  56   56  128 1,   401408, 0x0x55bc419940(0x0x55bc419940, 0x(nil)) ->   56   56  128 1,   401408, 0x0x55bc41c580(0x0x55bc41c580, 0x(nil))) k(1 1  128,    17792) pad(0 0) pool(0 0, 1 1)] P[  6] C[  8]
+  8 NN [(  56   56  128 1,   401408, 0x0x55bc41c580(0x0x55bc41c580, 0x(nil)) ->   28   28  128 1,   100352, 0x0x55bc41f1c0(0x0x55bc41f1c0, 0x(nil))) k(3 3  128,   183296) pad(0 0) pool(2 2, 2 2)] P[  7] C[  9]
+  9 NN [(  28   28  128 1,   100352, 0x0x55bc41f1c0(0x0x55bc41f1c0, 0x(nil)) ->   28   28  256 1,   200704, 0x0x55bc421e00(0x0x55bc421e00, 0x(nil))) k(1 1  128,    35584) pad(0 0) pool(0 0, 1 1)] P[  8] C[ 10]
+ 10 NN [(  28   28  256 1,   200704, 0x0x55bc421e00(0x0x55bc421e00, 0x(nil)) ->   28   28  256 1,   200704, 0x0x55bc424a40(0x0x55bc424a40, 0x(nil))) k(3 3  256,   733568) pad(1 1) pool(0 0, 1 1)] P[  9] C[ 11]
+ 11 NN [(  28   28  256 1,   200704, 0x0x55bc424a40(0x0x55bc424a40, 0x(nil)) ->   28   28  256 1,   200704, 0x0x55bc427680(0x0x55bc427680, 0x(nil))) k(1 1  256,    69888) pad(0 0) pool(0 0, 1 1)] P[ 10] C[ 12]
+ 12 NN [(  28   28  256 1,   200704, 0x0x55bc427680(0x0x55bc427680, 0x(nil)) ->   14   14  256 1,    50176, 0x0x55bc42a2c0(0x0x55bc42a2c0, 0x(nil))) k(3 3  256,   733568) pad(0 0) pool(2 2, 2 2)] P[ 11] C[ 13]
+ 13 NN [(  14   14  256 1,    50176, 0x0x55bc42a2c0(0x0x55bc42a2c0, 0x(nil)) ->   14   14  512 1,   100352, 0x0x55bc42cf00(0x0x55bc42cf00, 0x(nil))) k(1 1  256,   139776) pad(0 0) pool(0 0, 1 1)] P[ 12] C[ 14]
+ 14 NN [(  14   14  512 1,   100352, 0x0x55bc42cf00(0x0x55bc42cf00, 0x(nil)) ->   14   14  512 1,   100352, 0x0x55bc42fb40(0x0x55bc42fb40, 0x(nil))) k(3 3  512,  2934400) pad(1 1) pool(0 0, 1 1)] P[ 13] C[ 15]
+ 15 NN [(  14   14  512 1,   100352, 0x0x55bc42fb40(0x0x55bc42fb40, 0x(nil)) ->   14   14  512 1,   100352, 0x0x55bc432780(0x0x55bc432780, 0x(nil))) k(1 1  512,   277504) pad(0 0) pool(0 0, 1 1)] P[ 14] C[ 16]
+ 16 NN [(  14   14  512 1,   100352, 0x0x55bc432780(0x0x55bc432780, 0x(nil)) ->   14   14  512 1,   100352, 0x0x55bc4353c0(0x0x55bc4353c0, 0x(nil))) k(3 3  512,  2934400) pad(1 1) pool(0 0, 1 1)] P[ 15] C[ 17]
+ 17 NN [(  14   14  512 1,   100352, 0x0x55bc4353c0(0x0x55bc4353c0, 0x(nil)) ->   14   14  512 1,   100352, 0x0x55bc438000(0x0x55bc438000, 0x(nil))) k(1 1  512,   277504) pad(0 0) pool(0 0, 1 1)] P[ 16] C[ 18]
+ 18 NN [(  14   14  512 1,   100352, 0x0x55bc438000(0x0x55bc438000, 0x(nil)) ->   14   14  512 1,   100352, 0x0x55bc43ac40(0x0x55bc43ac40, 0x(nil))) k(3 3  512,  2934400) pad(1 1) pool(0 0, 1 1)] P[ 17] C[ 19]
+ 19 NN [(  14   14  512 1,   100352, 0x0x55bc43ac40(0x0x55bc43ac40, 0x(nil)) ->   14   14  512 1,   100352, 0x0x55bc43d880(0x0x55bc43d880, 0x(nil))) k(1 1  512,   277504) pad(0 0) pool(0 0, 1 1)] P[ 18] C[ 20]
+ 20 NN [(  14   14  512 1,   100352, 0x0x55bc43d880(0x0x55bc43d880, 0x(nil)) ->   14   14  512 1,   100352, 0x0x55bc4404c0(0x0x55bc4404c0, 0x(nil))) k(3 3  512,  2934272) pad(1 1) pool(0 0, 1 1)] P[ 19] C[ 21]
+ 21 NN [(  14   14  512 1,   100352, 0x0x55bc4404c0(0x0x55bc4404c0, 0x(nil)) ->   14   14  512 1,   100352, 0x0x55bc443100(0x0x55bc443100, 0x(nil))) k(1 1  512,   277504) pad(0 0) pool(0 0, 1 1)] P[ 20] C[ 22]
+ 22 NN [(  14   14  512 1,   100352, 0x0x55bc443100(0x0x55bc443100, 0x(nil)) ->   14   14  512 1,   100352, 0x0x55bc445d40(0x0x55bc445d40, 0x(nil))) k(3 3  512,  2934272) pad(1 1) pool(0 0, 1 1)] P[ 21] C[ 23]
+ 23 NN [(  14   14  512 1,   100352, 0x0x55bc445d40(0x0x55bc445d40, 0x(nil)) ->   14   14  512 1,   100352, 0x0x55bc448980(0x0x55bc448980, 0x(nil))) k(1 1  512,   277504) pad(0 0) pool(0 0, 1 1)] P[ 22] C[ 24]
+ 24 NN [(  14   14  512 1,   100352, 0x0x55bc448980(0x0x55bc448980, 0x(nil)) ->    7    7  512 1,    25088, 0x0x55bc44b5c0(0x0x55bc44b5c0, 0x(nil))) k(3 3  512,  2934272) pad(0 0) pool(2 2, 2 2)] P[ 23] C[ 25]
+ 25 NN [(   7    7  512 1,    25088, 0x0x55bc44b5c0(0x0x55bc44b5c0, 0x(nil)) ->    7    7 1024 1,    50176, 0x0x55bc44e200(0x0x55bc44e200, 0x(nil))) k(1 1  512,   554880) pad(0 0) pool(0 0, 1 1)] P[ 24] C[ 26]
+ 26 NN [(   7    7 1024 1,    50176, 0x0x55bc44e200(0x0x55bc44e200, 0x(nil)) ->    7    7 1024 1,    50176, 0x0x55bc450e40(0x0x55bc450e40, 0x(nil))) k(3 3 1024, 11737216) pad(1 1) pool(0 0, 1 1)] P[ 25] C[ 27]
+ 27 NN [(   7    7 1024 1,    50176, 0x0x55bc450e40(0x0x55bc450e40, 0x(nil)) ->    7    7 1024 1,    50176, 0x0x55bc453a80(0x0x55bc453a80, 0x(nil))) k(1 1 1024,  1105408) pad(0 0) pool(0 0, 1 1)] P[ 26] C[ 28]
+ 28 SH [(   7    7 1024 1,    50176, 0x0x55bc453a80(0x0x55bc453a80, 0x(nil)) ->    1    1 1024 1,     1024, 0x0x55bc4566c0(0x0x55bc4566c0, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 27] C[ 29]
+ 29 TP [(1024    1    1 1,     1024, 0x0x55bc4566c0(0x0x55bc4566c0, 0x(nil)) -> 1001    1    1 1,     1001, 0x0x55bc40a260(0x0x55bc40a260, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 28] C[ 30]
+ 30 SH [(1001    1    1 1,     1001, 0x0x55bc40a260(0x0x55bc40a260, 0x(nil)) -> 1001    1    1 1,     2002, 0x0x55bc3ecd10(0x0x55bc3ecd10, 0x(nil))) k(0 0    0,        0) pad(0 0) pool(0 0, 1 1)] P[ 29]
+
+ id IN [ x  y  w   h ]   OUT  [ x  y  w  h ] (tx, ty, kpc) (ic, kc, kc/ks, ks/eks, kernel_type)
+   0 TP DD 0x(nil) [   0    0        3      224] -> DD 0x(nil) [   0    0      224      224] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE)
+   1 NN DD 0x(nil) [   0    0      224      224] -> DD 0x(nil) [   0    0      112      112] ( 64,   6,   4) (    1664,     1536, 100.000000%, 133.333337%, DD)
+   2 NN DD 0x(nil) [   0    0      112      112] -> DD 0x(nil) [   0    0      112      112] ( 56,  10,   4) (   22528,     1536, 100.000000%, 13.333334%, DD)
+   3 NN DD 0x(nil) [   0    0      112      112] -> DD 0x(nil) [   0    0      112      112] ( 64,   7,   8) (   16128,     3072, 100.000000%, 126.315784%, DD)
+   4 NN DD 0x(nil) [   0    0      112      112] -> DD 0x(nil) [   0    0       56       56] ( 56,   8,   8) (   37888,     3584, 100.000000%, 7.821229%, DD)
+   5 NN DD 0x(nil) [   0    0       56       56] -> DD 0x(nil) [   0    0       56       56] ( 64,   7,   8) (   29568,     9728, 100.000000%, 105.555558%, DD)
+   6 NN DD 0x(nil) [   0    0       56       56] -> DD 0x(nil) [   0    0       56       56] ( 56,   8,   8) (   75776,    10752, 100.000000%, 5.874126%, DD)
+   7 NN DD 0x(nil) [   0    0       56       56] -> DD 0x(nil) [   0    0       56       56] ( 64,   7,   8) (   59136,    17920, 100.000000%, 100.719428%, DD)
+   8 NN DD 0x(nil) [   0    0       56       56] -> DD 0x(nil) [   0    0       28       28] ( 56,   8,   8) (   75776,    10752, 100.000000%, 5.878237%, DD)
+   9 NN DD 0x(nil) [   0    0       28       28] -> DD 0x(nil) [   0    0       28       28] ( 16,  25,   8) (   59136,    35328, 100.000000%, 99.280578%, DD)
+  10 NN DD 0x(nil) [   0    0       28       28] -> DD 0x(nil) [   0    0       28       28] ( 28,  18,   7) (  155648,    35840, 100.000000%, 4.889975%, DD)
+  11 NN DD 0x(nil) [   0    0       28       28] -> DD 0x(nil) [   0    0       28       28] ( 16,  17,  11) (   82560,    68096, 100.000000%, 97.435898%, DD)
+  12 NN DD 0x(nil) [   0    0       28       28] -> DD 0x(nil) [   0    0       14       14] ( 28,  16,   8) (  139264,    36352, 100.000000%, 4.968509%, DD)
+  13 NN DD 0x(nil) [   0    0       14       14] -> DD 0x(nil) [   0    0       14       14] ( 49,   1,  16) (   13184,   135680, 100.000000%, 97.069597%, DD)
+  14 NN DD 0x(nil) [   0    0       14       14] -> DD 0x(nil) [   0    0       14       14] ( 14,  14,  16) (  131072,   132096, 100.000000%, 4.505567%, DD)
+  15 NN DD 0x(nil) [   0    0       14       14] -> DD 0x(nil) [   0    0       14       14] ( 52,   1,  16) (   27520,   266752, 100.000000%, 96.125460%, DD)
+  16 NN DD 0x(nil) [   0    0       14       14] -> DD 0x(nil) [   0    0       14       14] ( 14,  14,  16) (  131072,   131584, 100.000000%, 4.488103%, DD)
+  17 NN DD 0x(nil) [   0    0       14       14] -> DD 0x(nil) [   0    0       14       14] ( 52,   1,  16) (   27520,   266752, 100.000000%, 96.125460%, DD)
+  18 NN DD 0x(nil) [   0    0       14       14] -> DD 0x(nil) [   0    0       14       14] ( 14,  14,  16) (  131072,   132096, 100.000000%, 4.505567%, DD)
+  19 NN DD 0x(nil) [   0    0       14       14] -> DD 0x(nil) [   0    0       14       14] ( 52,   1,  16) (   27520,   266752, 100.000000%, 96.125460%, DD)
+  20 NN DD 0x(nil) [   0    0       14       14] -> DD 0x(nil) [   0    0       14       14] ( 14,  14,  16) (  131072,   132096, 100.000000%, 4.505567%, DD)
+  21 NN DD 0x(nil) [   0    0       14       14] -> DD 0x(nil) [   0    0       14       14] ( 52,   1,  16) (   27520,   266752, 100.000000%, 96.125460%, DD)
+  22 NN DD 0x(nil) [   0    0       14       14] -> DD 0x(nil) [   0    0       14       14] ( 14,  14,  16) (  131072,   132096, 100.000000%, 4.505567%, DD)
+  23 NN DD 0x(nil) [   0    0       14       14] -> DD 0x(nil) [   0    0       14       14] ( 52,   1,  16) (   27520,   266752, 100.000000%, 96.125460%, DD)
+  24 NN DD 0x(nil) [   0    0       14       14] -> DD 0x(nil) [   0    0        7        7] ( 14,  14,  16) (  131072,   132096, 100.000000%, 4.505567%, DD)
+  25 NN DD 0x(nil) [   0    0        7        7] -> DD 0x(nil) [   0    0        7        7] ( 49,   1,  19) (   26240,   496000, 93.059558%, 96.055365%, DD)
+  26 NN DD 0x(nil) [   0    0        7        7] -> DD 0x(nil) [   0    0        7        7] (  7,   7,  32) (   98304,   423936, 83.975661%, 4.301122%, DD)
+  27 NN DD 0x(nil) [   0    0        7        7] -> DD 0x(nil) [   0    0        7        7] ( 49,   1,  19) (   52096,   470144, 44.467312%, 95.646131%, DD)
+  28 SH DD 0x(nil) [   0    0        0        0] -> DD 0x(nil) [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE)
+  29 TP DD 0x(nil) [   0    0     1024        1] -> DD 0x(nil) [   0    0     1001        1] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE)
+  30 SH DD 0x(nil) [   0    0        0        0] -> DD 0x(nil) [   0    0        0        0] (  0,   0,   0) (       0,        0, 0.000000%, 0.000000%, NONE)
+
+PreLoadWeightBiases = 1048576  100.000000%
+---------------------------End VerifyTiling -------------------------
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 0 layer name:TensorTranspose operation[0]:VXNNE_OPERATOR_TENSOR_TRANS target:VXNNE_OPERATION_TARGET_TP.
+uid: 8
+abs_op_id: 0
+info.vx_nn_tp_cmd_info.inImageXSize:0x3 
+info.vx_nn_tp_cmd_info.inImageYSize:0xe0 
+info.vx_nn_tp_cmd_info.inImageZSize :0xe0 
+info.vx_nn_tp_cmd_info.inImageStride :0x3 
+info.vx_nn_tp_cmd_info.inImageSlice :0x2a0 
+info.vx_nn_tp_cmd_info. inWindowXStart :0x0 
+info.vx_nn_tp_cmd_info.inWindowYStart :0x0 
+info.vx_nn_tp_cmd_info.inWindowXEnd :0x2 
+info.vx_nn_tp_cmd_info.inWindowYEnd :0xdf 
+info.vx_nn_tp_cmd_info.inImageBaseAddress :0x1b48df40 
+info.vx_nn_tp_cmd_info.inTileListAddress :0x0 
+info.vx_nn_tp_cmd_info.inTileXSize :0x1 
+info.vx_nn_tp_cmd_info.inTileYSize :0xe0 
+info.vx_nn_tp_cmd_info.inTileXInc :0x1 
+info.vx_nn_tp_cmd_info.inTileYInc :0xe0 
+info.vx_nn_tp_cmd_info.inTileSequence :0x0 
+info.vx_nn_tp_cmd_info.inWindowZStartOverfetch2 :0x0 
+info.vx_nn_tp_cmd_info.inWindowZEndOverfetch2 :0x0 
+info.vx_nn_tp_cmd_info.outBaseAddress :0xf8403080 
+info.vx_nn_tp_cmd_info.outLoop1Reset) :0x0 
+info.vx_nn_tp_cmd_info.outLoop2Reset :0x0 
+info.vx_nn_tp_cmd_info.outLoop3Reset :0x0 
+info.vx_nn_tp_cmd_info.outLoop0Inc :0x1 
+info.vx_nn_tp_cmd_info.outLoop1Inc :0xc400 
+info.vx_nn_tp_cmd_info.outLoop2Inc :0xe0 
+info.vx_nn_tp_cmd_info.outLoop3Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop4Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop5Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop6Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop0Count :0xe0 
+info.vx_nn_tp_cmd_info.outLoop1Count :0x3 
+info.vx_nn_tp_cmd_info.outLoop2Count :0xe0 
+info.vx_nn_tp_cmd_info.outLoop3Count :0x1 
+info.vx_nn_tp_cmd_info.outLoop4Count :0x1 
+info.vx_nn_tp_cmd_info.outLoop5Count :0x1 
+info.vx_nn_tp_cmd_info.aluReorderBitsUsed :0x0 
+info.vx_nn_tp_cmd_info.aluReorderLoop2Mode :0x0 
+info.vx_nn_tp_cmd_info.inImageCircularBufSize :0x0 
+info.vx_nn_tp_cmd_info.inImageCircularBufEndAddrPlus1 :0xffffffff 
+info.vx_nn_tp_cmd_info.outImageCircularBufSize :0x0 
+info.vx_nn_tp_cmd_info.outImageCircularBufEndAddrPlus1 :0xffffffff 
+info.vx_nn_tp_cmd_info.needReorder:0x0 
+info.vx_nn_tp_cmd_info.noFlush:0x0 
+info.vx_nn_tp_cmd_info.last:0x1 
+info.vx_nn_tp_cmd_info.aluHorzProcCount:0x0 
+info.vx_nn_tp_cmd_info.aluVertProcCount:0x0 
+info.vx_nn_tp_cmd_info.aluLoadPwlLUTAddress:0x0 
+info.vx_nn_tp_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_tp_cmd_info.inTileListGlobalMem:0x0 
+info.vx_nn_tp_cmd_info.inImageGlobalMem:0x1 
+info.vx_nn_tp_cmd_info.aluI2FEnable :0x1 
+info.vx_nn_tp_cmd_info.aluSquareEnable:0x0 
+info.vx_nn_tp_cmd_info.aluHorzProcessing :0x0 
+info.vx_nn_tp_cmd_info.aluHorzProcStride :0x0 
+info.vx_nn_tp_cmd_info.aluVertProcessing :0x0 
+info.vx_nn_tp_cmd_info.aluVertProcStride :0x0 
+info.vx_nn_tp_cmd_info.aluNmsEnable :0x0 
+info.vx_nn_tp_cmd_info.aluPwlEnable :0x0 
+info.vx_nn_tp_cmd_info.aluMultEnable :0x0 
+info.vx_nn_tp_cmd_info.aluF2IEnable :0x1 
+info.vx_nn_tp_cmd_info.aluLoadPwlLUT:0x0 
+info.vx_nn_tp_cmd_info.aluLoadPwlLUTGlobalMem:0x0 
+info.vx_nn_tp_cmd_info.outTileSkipAtborder :0x0 
+info.vx_nn_tp_cmd_info.outGlobalMem :0x1 
+info.vx_nn_tp_cmd_info.outBrickMode :0x0 
+info.vx_nn_tp_cmd_info.aluZFilterMode :0x0 
+info.vx_nn_tp_cmd_info.inWindowZStartOverfetch :0x0 
+info.vx_nn_tp_cmd_info.inWindowZEndOverfetch :0x0 
+info.vx_nn_tp_cmd_info.aluSquarePreshift :0x0 
+info.vx_nn_tp_cmd_info.inImageDataType :0x0 
+info.vx_nn_tp_cmd_info.outImageDataType :0x0 
+info.vx_nn_tp_cmd_info.kernelDataType :0x0 
+info.vx_nn_tp_cmd_info.aluFilterPwlSwap :0x0 
+info.vx_nn_tp_cmd_info.aluPwlSignSupport :0x0 
+info.vx_nn_tp_cmd_info.aluReluEnable :0x0 
+info.vx_nn_tp_cmd_info.floatRoundingMode :0x1 
+info.vx_nn_tp_cmd_info.integeroundingMode :0x1 
+info.vx_nn_tp_cmd_info.inImageBorderConst :0x0 
+info.vx_nn_tp_cmd_info.aluInputPreshift :0x0 
+info.vx_nn_tp_cmd_info.aluOutputPostshift :0x0 
+info.vx_nn_tp_cmd_info.aluOutputPostshiftBit6to5 :0x0 
+info.vx_nn_tp_cmd_info.coefZP :0x0 
+info.vx_nn_tp_cmd_info.inputZP :0x80 
+info.vx_nn_tp_cmd_info.outputZP :0x80 
+info.vx_nn_tp_cmd_info.aluOutputPostMultiplier :0x0 
+info.vx_nn_tp_cmd_info.aluOutputPostMultiplierBit22to15 :0x0 
+info.vx_nn_tp_cmd_info.tpSoftmaxBeta :0x0 
+info.vx_nn_tp_cmd_info.tpSoftmaxSkipMax :0x0 
+info.vx_nn_tp_cmd_info.tpSoftmaxEnable :0x0 
+info.vx_nn_tp_cmd_info.elementWiseEnable :0x0 
+info.vx_nn_tp_cmd_info.elementWiseOpType :0x0 
+info.vx_nn_tp_cmd_info.elementWiseOutX :0x0 
+info.vx_nn_tp_cmd_info.elementWiseOutY :0x0 
+info.vx_nn_tp_cmd_info.elementWiseOutZ :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAX :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAY :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAZ :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorATotalSize :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAMultiLow16Bit :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAMultiHigh16Bit :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorADataType :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBX :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBY :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBZ :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBTotalSize :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBMulti :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBShift :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBDataType :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBAddress :0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 3 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 87
+abs_op_id: 1
+info.vx_nn_general_cmd_info.inImageXSize:0xe0 
+info.vx_nn_general_cmd_info.inImageYSize:0xe0
+info.vx_nn_general_cmd_info.inImageAddress:0xf8403080 
+info.vx_nn_general_cmd_info.inImageXOffset:0x0 
+info.vx_nn_general_cmd_info.inImageYOffset:0x0 
+info.vx_nn_general_cmd_info.outImageXSize:0xe0 
+info.vx_nn_general_cmd_info.outImageYSize:0xe0 
+info.vx_nn_general_cmd_info.outImageZSize:0x20 
+info.vx_nn_general_cmd_info.outImageAddress:0xf8428080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf8602000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x3 
+info.vx_nn_general_cmd_info.kernelYSize:0x3 
+info.vx_nn_general_cmd_info.kernelZSize:0x3 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x4 
+info.vx_nn_general_cmd_info.pooling:0x3 
+info.vx_nn_general_cmd_info.poolingXYSize:0x0 
+info.vx_nn_general_cmd_info.poolingXYStride:0x1 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0xe0 
+info.vx_nn_general_cmd_info.inImageYstride:0xe0 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x40 
+info.vx_nn_general_cmd_info.outImageTileYSize:0x6 
+info.vx_nn_general_cmd_info.outImageXstride:0x70 
+info.vx_nn_general_cmd_info.outImageYstride:0x70 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x13 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0xa0 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x17 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x94 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x0 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0xe00 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x0 
+info.vx_nn_general_cmd_info.imageEndAddress:0x800 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x80 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 17 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 84
+abs_op_id: 2
+info.vx_nn_general_cmd_info.inImageXSize:0x70 
+info.vx_nn_general_cmd_info.inImageYSize:0x70
+info.vx_nn_general_cmd_info.inImageAddress:0xf8428080 
+info.vx_nn_general_cmd_info.inImageXOffset:0xffffffff 
+info.vx_nn_general_cmd_info.inImageYOffset:0xffffffff 
+info.vx_nn_general_cmd_info.outImageXSize:0x70 
+info.vx_nn_general_cmd_info.outImageYSize:0x70 
+info.vx_nn_general_cmd_info.outImageZSize:0x20 
+info.vx_nn_general_cmd_info.outImageAddress:0xf848b080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf8603000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x3 
+info.vx_nn_general_cmd_info.kernelYSize:0x3 
+info.vx_nn_general_cmd_info.kernelZSize:0x20 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x4 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0x70 
+info.vx_nn_general_cmd_info.inImageYstride:0x70 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x38 
+info.vx_nn_general_cmd_info.outImageTileYSize:0xa 
+info.vx_nn_general_cmd_info.outImageXstride:0x70 
+info.vx_nn_general_cmd_info.outImageYstride:0x70 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x1 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0xcc 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x15 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x78 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x0 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0xe00 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x0 
+info.vx_nn_general_cmd_info.imageEndAddress:0x800 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 4 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 81
+abs_op_id: 3
+info.vx_nn_general_cmd_info.inImageXSize:0x40 
+info.vx_nn_general_cmd_info.inImageYSize:0xc4
+info.vx_nn_general_cmd_info.inImageAddress:0xf848b080 
+info.vx_nn_general_cmd_info.inImageXOffset:0x0 
+info.vx_nn_general_cmd_info.inImageYOffset:0x0 
+info.vx_nn_general_cmd_info.outImageXSize:0x40 
+info.vx_nn_general_cmd_info.outImageYSize:0xc4 
+info.vx_nn_general_cmd_info.outImageZSize:0x40 
+info.vx_nn_general_cmd_info.outImageAddress:0xf8200080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf8604000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x1 
+info.vx_nn_general_cmd_info.kernelYSize:0x1 
+info.vx_nn_general_cmd_info.kernelZSize:0x20 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x8 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0x40 
+info.vx_nn_general_cmd_info.inImageYstride:0xc4 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x40 
+info.vx_nn_general_cmd_info.outImageTileYSize:0x7 
+info.vx_nn_general_cmd_info.outImageXstride:0x40 
+info.vx_nn_general_cmd_info.outImageYstride:0xc4 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x1 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x2 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0xa 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x14 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x7e 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x0 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x1400 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x0 
+info.vx_nn_general_cmd_info.imageEndAddress:0x800 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 18 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 78
+abs_op_id: 4
+info.vx_nn_general_cmd_info.inImageXSize:0x70 
+info.vx_nn_general_cmd_info.inImageYSize:0x70
+info.vx_nn_general_cmd_info.inImageAddress:0xf8200080 
+info.vx_nn_general_cmd_info.inImageXOffset:0x0 
+info.vx_nn_general_cmd_info.inImageYOffset:0x0 
+info.vx_nn_general_cmd_info.outImageXSize:0x70 
+info.vx_nn_general_cmd_info.outImageYSize:0x70 
+info.vx_nn_general_cmd_info.outImageZSize:0x40 
+info.vx_nn_general_cmd_info.outImageAddress:0xf82c5080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf8605000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x3 
+info.vx_nn_general_cmd_info.kernelYSize:0x3 
+info.vx_nn_general_cmd_info.kernelZSize:0x40 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x8 
+info.vx_nn_general_cmd_info.pooling:0x3 
+info.vx_nn_general_cmd_info.poolingXYSize:0x0 
+info.vx_nn_general_cmd_info.poolingXYStride:0x1 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0x70 
+info.vx_nn_general_cmd_info.inImageYstride:0x70 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x38 
+info.vx_nn_general_cmd_info.outImageTileYSize:0x8 
+info.vx_nn_general_cmd_info.outImageXstride:0x38 
+info.vx_nn_general_cmd_info.outImageYstride:0x38 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x14 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0x2a 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x14 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x7e 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x0 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x1600 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x0 
+info.vx_nn_general_cmd_info.imageEndAddress:0x800 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 5 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 75
+abs_op_id: 5
+info.vx_nn_general_cmd_info.inImageXSize:0x40 
+info.vx_nn_general_cmd_info.inImageYSize:0x31
+info.vx_nn_general_cmd_info.inImageAddress:0xf82c5080 
+info.vx_nn_general_cmd_info.inImageXOffset:0x0 
+info.vx_nn_general_cmd_info.inImageYOffset:0x0 
+info.vx_nn_general_cmd_info.outImageXSize:0x40 
+info.vx_nn_general_cmd_info.outImageYSize:0x31 
+info.vx_nn_general_cmd_info.outImageZSize:0x80 
+info.vx_nn_general_cmd_info.outImageAddress:0xf9c41080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf8607000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x1 
+info.vx_nn_general_cmd_info.kernelYSize:0x1 
+info.vx_nn_general_cmd_info.kernelZSize:0x40 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x8 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0x40 
+info.vx_nn_general_cmd_info.inImageYstride:0x31 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x40 
+info.vx_nn_general_cmd_info.outImageTileYSize:0x7 
+info.vx_nn_general_cmd_info.outImageXstride:0x40 
+info.vx_nn_general_cmd_info.outImageYstride:0x31 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x13 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0x14 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x15 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x68 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x2e00 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x2e00 
+info.vx_nn_general_cmd_info.imageEndAddress:0xa180 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 19 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 72
+abs_op_id: 6
+info.vx_nn_general_cmd_info.inImageXSize:0x38 
+info.vx_nn_general_cmd_info.inImageYSize:0x38
+info.vx_nn_general_cmd_info.inImageAddress:0xf9c41080 
+info.vx_nn_general_cmd_info.inImageXOffset:0xffffffff 
+info.vx_nn_general_cmd_info.inImageYOffset:0xffffffff 
+info.vx_nn_general_cmd_info.outImageXSize:0x38 
+info.vx_nn_general_cmd_info.outImageYSize:0x38 
+info.vx_nn_general_cmd_info.outImageZSize:0x80 
+info.vx_nn_general_cmd_info.outImageAddress:0xf9f41080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf860a000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x3 
+info.vx_nn_general_cmd_info.kernelYSize:0x3 
+info.vx_nn_general_cmd_info.kernelZSize:0x80 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x8 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0x38 
+info.vx_nn_general_cmd_info.inImageYstride:0x38 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x38 
+info.vx_nn_general_cmd_info.outImageTileYSize:0x8 
+info.vx_nn_general_cmd_info.outImageXstride:0x38 
+info.vx_nn_general_cmd_info.outImageYstride:0x38 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x13 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0x24 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x13 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x98 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x3200 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x3200 
+info.vx_nn_general_cmd_info.imageEndAddress:0x15a00 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 6 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 69
+abs_op_id: 7
+info.vx_nn_general_cmd_info.inImageXSize:0x40 
+info.vx_nn_general_cmd_info.inImageYSize:0x31
+info.vx_nn_general_cmd_info.inImageAddress:0xf9f41080 
+info.vx_nn_general_cmd_info.inImageXOffset:0x0 
+info.vx_nn_general_cmd_info.inImageYOffset:0x0 
+info.vx_nn_general_cmd_info.outImageXSize:0x40 
+info.vx_nn_general_cmd_info.outImageYSize:0x31 
+info.vx_nn_general_cmd_info.outImageZSize:0x80 
+info.vx_nn_general_cmd_info.outImageAddress:0xfa091080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf860e000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x1 
+info.vx_nn_general_cmd_info.kernelYSize:0x1 
+info.vx_nn_general_cmd_info.kernelZSize:0x80 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x8 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0x40 
+info.vx_nn_general_cmd_info.inImageYstride:0x31 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x40 
+info.vx_nn_general_cmd_info.outImageTileYSize:0x7 
+info.vx_nn_general_cmd_info.outImageXstride:0x40 
+info.vx_nn_general_cmd_info.outImageYstride:0x31 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x38 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0xbf 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x16 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x5c 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x4e00 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x4e00 
+info.vx_nn_general_cmd_info.imageEndAddress:0x13500 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 20 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 66
+abs_op_id: 8
+info.vx_nn_general_cmd_info.inImageXSize:0x38 
+info.vx_nn_general_cmd_info.inImageYSize:0x38
+info.vx_nn_general_cmd_info.inImageAddress:0xfa091080 
+info.vx_nn_general_cmd_info.inImageXOffset:0x0 
+info.vx_nn_general_cmd_info.inImageYOffset:0x0 
+info.vx_nn_general_cmd_info.outImageXSize:0x38 
+info.vx_nn_general_cmd_info.outImageYSize:0x38 
+info.vx_nn_general_cmd_info.outImageZSize:0x80 
+info.vx_nn_general_cmd_info.outImageAddress:0xf99bd080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf8613000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x3 
+info.vx_nn_general_cmd_info.kernelYSize:0x3 
+info.vx_nn_general_cmd_info.kernelZSize:0x80 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x8 
+info.vx_nn_general_cmd_info.pooling:0x3 
+info.vx_nn_general_cmd_info.poolingXYSize:0x0 
+info.vx_nn_general_cmd_info.poolingXYStride:0x1 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0x38 
+info.vx_nn_general_cmd_info.inImageYstride:0x38 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x38 
+info.vx_nn_general_cmd_info.outImageTileYSize:0x8 
+info.vx_nn_general_cmd_info.outImageXstride:0x1c 
+info.vx_nn_general_cmd_info.outImageYstride:0x1c 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x1 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x37 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0x10 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x15 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x79 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x3200 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x3200 
+info.vx_nn_general_cmd_info.imageEndAddress:0x15a00 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 7 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 63
+abs_op_id: 9
+info.vx_nn_general_cmd_info.inImageXSize:0x10 
+info.vx_nn_general_cmd_info.inImageYSize:0x31
+info.vx_nn_general_cmd_info.inImageAddress:0xf99bd080 
+info.vx_nn_general_cmd_info.inImageXOffset:0x0 
+info.vx_nn_general_cmd_info.inImageYOffset:0x0 
+info.vx_nn_general_cmd_info.outImageXSize:0x10 
+info.vx_nn_general_cmd_info.outImageYSize:0x31 
+info.vx_nn_general_cmd_info.outImageZSize:0x100 
+info.vx_nn_general_cmd_info.outImageAddress:0xf9ca4080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf8617000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x1 
+info.vx_nn_general_cmd_info.kernelYSize:0x1 
+info.vx_nn_general_cmd_info.kernelZSize:0x80 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x8 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0x10 
+info.vx_nn_general_cmd_info.inImageYstride:0x31 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x10 
+info.vx_nn_general_cmd_info.outImageTileYSize:0x19 
+info.vx_nn_general_cmd_info.outImageXstride:0x10 
+info.vx_nn_general_cmd_info.outImageYstride:0x31 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x8 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0xee 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x17 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x99 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x9200 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x9200 
+info.vx_nn_general_cmd_info.imageEndAddress:0x17900 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 21 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 60
+abs_op_id: 10
+info.vx_nn_general_cmd_info.inImageXSize:0x1c 
+info.vx_nn_general_cmd_info.inImageYSize:0x1c
+info.vx_nn_general_cmd_info.inImageAddress:0xf9ca4080 
+info.vx_nn_general_cmd_info.inImageXOffset:0xffffffff 
+info.vx_nn_general_cmd_info.inImageYOffset:0xffffffff 
+info.vx_nn_general_cmd_info.outImageXSize:0x1c 
+info.vx_nn_general_cmd_info.outImageYSize:0x1c 
+info.vx_nn_general_cmd_info.outImageZSize:0x100 
+info.vx_nn_general_cmd_info.outImageAddress:0xf9fa4080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf8620000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x3 
+info.vx_nn_general_cmd_info.kernelYSize:0x3 
+info.vx_nn_general_cmd_info.kernelZSize:0x100 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x7 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0x1c 
+info.vx_nn_general_cmd_info.inImageYstride:0x1c 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x1c 
+info.vx_nn_general_cmd_info.outImageTileYSize:0x12 
+info.vx_nn_general_cmd_info.outImageXstride:0x1c 
+info.vx_nn_general_cmd_info.outImageYstride:0x1c 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0x50 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x14 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x80 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x9400 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x9400 
+info.vx_nn_general_cmd_info.imageEndAddress:0x2f400 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 8 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 57
+abs_op_id: 11
+info.vx_nn_general_cmd_info.inImageXSize:0x10 
+info.vx_nn_general_cmd_info.inImageYSize:0x31
+info.vx_nn_general_cmd_info.inImageAddress:0xf9fa4080 
+info.vx_nn_general_cmd_info.inImageXOffset:0x0 
+info.vx_nn_general_cmd_info.inImageYOffset:0x0 
+info.vx_nn_general_cmd_info.outImageXSize:0x10 
+info.vx_nn_general_cmd_info.outImageYSize:0x31 
+info.vx_nn_general_cmd_info.outImageZSize:0x100 
+info.vx_nn_general_cmd_info.outImageAddress:0xfa191080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf862a000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x1 
+info.vx_nn_general_cmd_info.kernelYSize:0x1 
+info.vx_nn_general_cmd_info.kernelZSize:0x100 
+info.vx_nn_general_cmd_info.kernelsPerCore:0xb 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0x10 
+info.vx_nn_general_cmd_info.inImageYstride:0x31 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x10 
+info.vx_nn_general_cmd_info.outImageTileYSize:0x11 
+info.vx_nn_general_cmd_info.outImageXstride:0x10 
+info.vx_nn_general_cmd_info.outImageYstride:0x31 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0xd 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0xa2 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x17 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x78 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x11200 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x11200 
+info.vx_nn_general_cmd_info.imageEndAddress:0x25480 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 22 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 54
+abs_op_id: 12
+info.vx_nn_general_cmd_info.inImageXSize:0x1c 
+info.vx_nn_general_cmd_info.inImageYSize:0x1c
+info.vx_nn_general_cmd_info.inImageAddress:0xfa191080 
+info.vx_nn_general_cmd_info.inImageXOffset:0x0 
+info.vx_nn_general_cmd_info.inImageYOffset:0x0 
+info.vx_nn_general_cmd_info.outImageXSize:0x1c 
+info.vx_nn_general_cmd_info.outImageYSize:0x1c 
+info.vx_nn_general_cmd_info.outImageZSize:0x100 
+info.vx_nn_general_cmd_info.outImageAddress:0xf84ee080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf863b000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x3 
+info.vx_nn_general_cmd_info.kernelYSize:0x3 
+info.vx_nn_general_cmd_info.kernelZSize:0x100 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x8 
+info.vx_nn_general_cmd_info.pooling:0x3 
+info.vx_nn_general_cmd_info.poolingXYSize:0x0 
+info.vx_nn_general_cmd_info.poolingXYStride:0x1 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0x1c 
+info.vx_nn_general_cmd_info.inImageYstride:0x1c 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x1c 
+info.vx_nn_general_cmd_info.outImageTileYSize:0x10 
+info.vx_nn_general_cmd_info.outImageXstride:0xe 
+info.vx_nn_general_cmd_info.outImageYstride:0xe 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x1 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x2b 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0xbb 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x16 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x79 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x9600 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x9600 
+info.vx_nn_general_cmd_info.imageEndAddress:0x2b600 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 9 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 51
+abs_op_id: 13
+info.vx_nn_general_cmd_info.inImageXSize:0xc4 
+info.vx_nn_general_cmd_info.inImageYSize:0x1
+info.vx_nn_general_cmd_info.inImageAddress:0xf84ee080 
+info.vx_nn_general_cmd_info.inImageXOffset:0x0 
+info.vx_nn_general_cmd_info.inImageYOffset:0x0 
+info.vx_nn_general_cmd_info.outImageXSize:0xc4 
+info.vx_nn_general_cmd_info.outImageYSize:0x1 
+info.vx_nn_general_cmd_info.outImageZSize:0x200 
+info.vx_nn_general_cmd_info.outImageAddress:0xf99d6080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf8647000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x1 
+info.vx_nn_general_cmd_info.kernelYSize:0x1 
+info.vx_nn_general_cmd_info.kernelZSize:0x100 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x10 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0xc4 
+info.vx_nn_general_cmd_info.inImageYstride:0x1 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x31 
+info.vx_nn_general_cmd_info.outImageTileYSize:0x1 
+info.vx_nn_general_cmd_info.outImageXstride:0xc4 
+info.vx_nn_general_cmd_info.outImageYstride:0x1 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x1 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0xf 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0x2b 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x16 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x6d 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x21a00 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x21a00 
+info.vx_nn_general_cmd_info.imageEndAddress:0x24d80 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 23 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 48
+abs_op_id: 14
+info.vx_nn_general_cmd_info.inImageXSize:0xe 
+info.vx_nn_general_cmd_info.inImageYSize:0xe
+info.vx_nn_general_cmd_info.inImageAddress:0xf99d6080 
+info.vx_nn_general_cmd_info.inImageXOffset:0xffffffff 
+info.vx_nn_general_cmd_info.inImageYOffset:0xffffffff 
+info.vx_nn_general_cmd_info.outImageXSize:0xe 
+info.vx_nn_general_cmd_info.outImageYSize:0xe 
+info.vx_nn_general_cmd_info.outImageZSize:0x200 
+info.vx_nn_general_cmd_info.outImageAddress:0xf9cd6080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf8669000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x3 
+info.vx_nn_general_cmd_info.kernelYSize:0x3 
+info.vx_nn_general_cmd_info.kernelZSize:0x200 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x10 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0xe 
+info.vx_nn_general_cmd_info.inImageYstride:0xe 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0xe 
+info.vx_nn_general_cmd_info.outImageTileYSize:0xe 
+info.vx_nn_general_cmd_info.outImageXstride:0xe 
+info.vx_nn_general_cmd_info.outImageYstride:0xe 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x2e 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0x2d 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x14 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x82 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x20c00 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x20c00 
+info.vx_nn_general_cmd_info.imageEndAddress:0x40c00 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 10 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 45
+abs_op_id: 15
+info.vx_nn_general_cmd_info.inImageXSize:0xc4 
+info.vx_nn_general_cmd_info.inImageYSize:0x1
+info.vx_nn_general_cmd_info.inImageAddress:0xf9cd6080 
+info.vx_nn_general_cmd_info.inImageXOffset:0x0 
+info.vx_nn_general_cmd_info.inImageYOffset:0x0 
+info.vx_nn_general_cmd_info.outImageXSize:0xc4 
+info.vx_nn_general_cmd_info.outImageYSize:0x1 
+info.vx_nn_general_cmd_info.outImageZSize:0x200 
+info.vx_nn_general_cmd_info.outImageAddress:0xf9fd6080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf868d000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x1 
+info.vx_nn_general_cmd_info.kernelYSize:0x1 
+info.vx_nn_general_cmd_info.kernelZSize:0x200 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x10 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0xc4 
+info.vx_nn_general_cmd_info.inImageYstride:0x1 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x34 
+info.vx_nn_general_cmd_info.outImageTileYSize:0x1 
+info.vx_nn_general_cmd_info.outImageXstride:0xc4 
+info.vx_nn_general_cmd_info.outImageYstride:0x1 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x33 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0x78 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x17 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x8d 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x41a00 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x41a00 
+info.vx_nn_general_cmd_info.imageEndAddress:0x48580 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 24 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 42
+abs_op_id: 16
+info.vx_nn_general_cmd_info.inImageXSize:0xe 
+info.vx_nn_general_cmd_info.inImageYSize:0xe
+info.vx_nn_general_cmd_info.inImageAddress:0xf9fd6080 
+info.vx_nn_general_cmd_info.inImageXOffset:0xffffffff 
+info.vx_nn_general_cmd_info.inImageYOffset:0xffffffff 
+info.vx_nn_general_cmd_info.outImageXSize:0xe 
+info.vx_nn_general_cmd_info.outImageYSize:0xe 
+info.vx_nn_general_cmd_info.outImageZSize:0x200 
+info.vx_nn_general_cmd_info.outImageAddress:0xfa1c3080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf86cf000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x3 
+info.vx_nn_general_cmd_info.kernelYSize:0x3 
+info.vx_nn_general_cmd_info.kernelZSize:0x200 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x10 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0xe 
+info.vx_nn_general_cmd_info.inImageYstride:0xe 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0xe 
+info.vx_nn_general_cmd_info.outImageTileYSize:0xe 
+info.vx_nn_general_cmd_info.outImageXstride:0xe 
+info.vx_nn_general_cmd_info.outImageYstride:0xe 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x1 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x3 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0x48 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x14 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x5e 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x20a00 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x20a00 
+info.vx_nn_general_cmd_info.imageEndAddress:0x40a00 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 11 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 39
+abs_op_id: 17
+info.vx_nn_general_cmd_info.inImageXSize:0xc4 
+info.vx_nn_general_cmd_info.inImageYSize:0x1
+info.vx_nn_general_cmd_info.inImageAddress:0xfa1c3080 
+info.vx_nn_general_cmd_info.inImageXOffset:0x0 
+info.vx_nn_general_cmd_info.inImageYOffset:0x0 
+info.vx_nn_general_cmd_info.outImageXSize:0xc4 
+info.vx_nn_general_cmd_info.outImageYSize:0x1 
+info.vx_nn_general_cmd_info.outImageZSize:0x200 
+info.vx_nn_general_cmd_info.outImageAddress:0xfa1dc080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf9030000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x1 
+info.vx_nn_general_cmd_info.kernelYSize:0x1 
+info.vx_nn_general_cmd_info.kernelZSize:0x200 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x10 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0xc4 
+info.vx_nn_general_cmd_info.inImageYstride:0x1 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x34 
+info.vx_nn_general_cmd_info.outImageTileYSize:0x1 
+info.vx_nn_general_cmd_info.outImageXstride:0xc4 
+info.vx_nn_general_cmd_info.outImageYstride:0x1 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x1 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x4 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0x5c 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x17 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x7f 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x41a00 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x41a00 
+info.vx_nn_general_cmd_info.imageEndAddress:0x48580 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 25 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 36
+abs_op_id: 18
+info.vx_nn_general_cmd_info.inImageXSize:0xe 
+info.vx_nn_general_cmd_info.inImageYSize:0xe
+info.vx_nn_general_cmd_info.inImageAddress:0xfa1dc080 
+info.vx_nn_general_cmd_info.inImageXOffset:0xffffffff 
+info.vx_nn_general_cmd_info.inImageYOffset:0xffffffff 
+info.vx_nn_general_cmd_info.outImageXSize:0xe 
+info.vx_nn_general_cmd_info.outImageYSize:0xe 
+info.vx_nn_general_cmd_info.outImageZSize:0x200 
+info.vx_nn_general_cmd_info.outImageAddress:0xfa4cb080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf9072000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x3 
+info.vx_nn_general_cmd_info.kernelYSize:0x3 
+info.vx_nn_general_cmd_info.kernelZSize:0x200 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x10 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0xe 
+info.vx_nn_general_cmd_info.inImageYstride:0xe 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0xe 
+info.vx_nn_general_cmd_info.outImageTileYSize:0xe 
+info.vx_nn_general_cmd_info.outImageXstride:0xe 
+info.vx_nn_general_cmd_info.outImageYstride:0xe 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x1 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x25 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0xb4 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x15 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x80 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x20c00 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x20c00 
+info.vx_nn_general_cmd_info.imageEndAddress:0x40c00 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 12 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 33
+abs_op_id: 19
+info.vx_nn_general_cmd_info.inImageXSize:0xc4 
+info.vx_nn_general_cmd_info.inImageYSize:0x1
+info.vx_nn_general_cmd_info.inImageAddress:0xfa4cb080 
+info.vx_nn_general_cmd_info.inImageXOffset:0x0 
+info.vx_nn_general_cmd_info.inImageYOffset:0x0 
+info.vx_nn_general_cmd_info.outImageXSize:0xc4 
+info.vx_nn_general_cmd_info.outImageYSize:0x1 
+info.vx_nn_general_cmd_info.outImageZSize:0x200 
+info.vx_nn_general_cmd_info.outImageAddress:0xfa4e4080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf9096000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x1 
+info.vx_nn_general_cmd_info.kernelYSize:0x1 
+info.vx_nn_general_cmd_info.kernelZSize:0x200 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x10 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0xc4 
+info.vx_nn_general_cmd_info.inImageYstride:0x1 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x34 
+info.vx_nn_general_cmd_info.outImageTileYSize:0x1 
+info.vx_nn_general_cmd_info.outImageXstride:0xc4 
+info.vx_nn_general_cmd_info.outImageYstride:0x1 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x1 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0xf 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x16 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x58 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x41a00 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x41a00 
+info.vx_nn_general_cmd_info.imageEndAddress:0x48580 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 26 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 30
+abs_op_id: 20
+info.vx_nn_general_cmd_info.inImageXSize:0xe 
+info.vx_nn_general_cmd_info.inImageYSize:0xe
+info.vx_nn_general_cmd_info.inImageAddress:0xfa4e4080 
+info.vx_nn_general_cmd_info.inImageXOffset:0xffffffff 
+info.vx_nn_general_cmd_info.inImageYOffset:0xffffffff 
+info.vx_nn_general_cmd_info.outImageXSize:0xe 
+info.vx_nn_general_cmd_info.outImageYSize:0xe 
+info.vx_nn_general_cmd_info.outImageZSize:0x200 
+info.vx_nn_general_cmd_info.outImageAddress:0xfa582080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf90d8000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x3 
+info.vx_nn_general_cmd_info.kernelYSize:0x3 
+info.vx_nn_general_cmd_info.kernelZSize:0x200 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x10 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0xe 
+info.vx_nn_general_cmd_info.inImageYstride:0xe 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0xe 
+info.vx_nn_general_cmd_info.outImageTileYSize:0xe 
+info.vx_nn_general_cmd_info.outImageXstride:0xe 
+info.vx_nn_general_cmd_info.outImageYstride:0xe 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x3 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0x98 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x15 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x88 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x20c00 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x20c00 
+info.vx_nn_general_cmd_info.imageEndAddress:0x40c00 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 13 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 27
+abs_op_id: 21
+info.vx_nn_general_cmd_info.inImageXSize:0xc4 
+info.vx_nn_general_cmd_info.inImageYSize:0x1
+info.vx_nn_general_cmd_info.inImageAddress:0xfa582080 
+info.vx_nn_general_cmd_info.inImageXOffset:0x0 
+info.vx_nn_general_cmd_info.inImageYOffset:0x0 
+info.vx_nn_general_cmd_info.outImageXSize:0xc4 
+info.vx_nn_general_cmd_info.outImageYSize:0x1 
+info.vx_nn_general_cmd_info.outImageZSize:0x200 
+info.vx_nn_general_cmd_info.outImageAddress:0xfa59b080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf9341000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x1 
+info.vx_nn_general_cmd_info.kernelYSize:0x1 
+info.vx_nn_general_cmd_info.kernelZSize:0x200 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x10 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0xc4 
+info.vx_nn_general_cmd_info.inImageYstride:0x1 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x34 
+info.vx_nn_general_cmd_info.outImageTileYSize:0x1 
+info.vx_nn_general_cmd_info.outImageXstride:0xc4 
+info.vx_nn_general_cmd_info.outImageYstride:0x1 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x1 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x17 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0x3a 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x16 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x63 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x41a00 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x41a00 
+info.vx_nn_general_cmd_info.imageEndAddress:0x48580 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 27 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 24
+abs_op_id: 22
+info.vx_nn_general_cmd_info.inImageXSize:0xe 
+info.vx_nn_general_cmd_info.inImageYSize:0xe
+info.vx_nn_general_cmd_info.inImageAddress:0xfa59b080 
+info.vx_nn_general_cmd_info.inImageXOffset:0xffffffff 
+info.vx_nn_general_cmd_info.inImageYOffset:0xffffffff 
+info.vx_nn_general_cmd_info.outImageXSize:0xe 
+info.vx_nn_general_cmd_info.outImageYSize:0xe 
+info.vx_nn_general_cmd_info.outImageZSize:0x200 
+info.vx_nn_general_cmd_info.outImageAddress:0xfa5b4080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf9383000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x3 
+info.vx_nn_general_cmd_info.kernelYSize:0x3 
+info.vx_nn_general_cmd_info.kernelZSize:0x200 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x10 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0xe 
+info.vx_nn_general_cmd_info.inImageYstride:0xe 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0xe 
+info.vx_nn_general_cmd_info.outImageTileYSize:0xe 
+info.vx_nn_general_cmd_info.outImageXstride:0xe 
+info.vx_nn_general_cmd_info.outImageYstride:0xe 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x1 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x3c 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0x3f 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x15 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x69 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x20c00 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x20c00 
+info.vx_nn_general_cmd_info.imageEndAddress:0x40c00 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 14 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 21
+abs_op_id: 23
+info.vx_nn_general_cmd_info.inImageXSize:0xc4 
+info.vx_nn_general_cmd_info.inImageYSize:0x1
+info.vx_nn_general_cmd_info.inImageAddress:0xfa5b4080 
+info.vx_nn_general_cmd_info.inImageXOffset:0x0 
+info.vx_nn_general_cmd_info.inImageYOffset:0x0 
+info.vx_nn_general_cmd_info.outImageXSize:0xc4 
+info.vx_nn_general_cmd_info.outImageYSize:0x1 
+info.vx_nn_general_cmd_info.outImageZSize:0x200 
+info.vx_nn_general_cmd_info.outImageAddress:0xfa5cd080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf93a7000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x1 
+info.vx_nn_general_cmd_info.kernelYSize:0x1 
+info.vx_nn_general_cmd_info.kernelZSize:0x200 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x10 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0xc4 
+info.vx_nn_general_cmd_info.inImageYstride:0x1 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x34 
+info.vx_nn_general_cmd_info.outImageTileYSize:0x1 
+info.vx_nn_general_cmd_info.outImageXstride:0xc4 
+info.vx_nn_general_cmd_info.outImageYstride:0x1 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x2a 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0x62 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x17 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x99 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x41a00 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x41a00 
+info.vx_nn_general_cmd_info.imageEndAddress:0x48580 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 28 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 18
+abs_op_id: 24
+info.vx_nn_general_cmd_info.inImageXSize:0xe 
+info.vx_nn_general_cmd_info.inImageYSize:0xe
+info.vx_nn_general_cmd_info.inImageAddress:0xfa5cd080 
+info.vx_nn_general_cmd_info.inImageXOffset:0x0 
+info.vx_nn_general_cmd_info.inImageYOffset:0x0 
+info.vx_nn_general_cmd_info.outImageXSize:0xe 
+info.vx_nn_general_cmd_info.outImageYSize:0xe 
+info.vx_nn_general_cmd_info.outImageZSize:0x200 
+info.vx_nn_general_cmd_info.outImageAddress:0xf82f7080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf9641000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x3 
+info.vx_nn_general_cmd_info.kernelYSize:0x3 
+info.vx_nn_general_cmd_info.kernelZSize:0x200 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x10 
+info.vx_nn_general_cmd_info.pooling:0x3 
+info.vx_nn_general_cmd_info.poolingXYSize:0x0 
+info.vx_nn_general_cmd_info.poolingXYStride:0x1 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0xe 
+info.vx_nn_general_cmd_info.inImageYstride:0xe 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0xe 
+info.vx_nn_general_cmd_info.outImageTileYSize:0xe 
+info.vx_nn_general_cmd_info.outImageXstride:0x7 
+info.vx_nn_general_cmd_info.outImageYstride:0x7 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x1 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x12 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0xfa 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x17 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x7f 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x1 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x0 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x20c00 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x20c00 
+info.vx_nn_general_cmd_info.imageEndAddress:0x40c00 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 15 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 15
+abs_op_id: 25
+info.vx_nn_general_cmd_info.inImageXSize:0x31 
+info.vx_nn_general_cmd_info.inImageYSize:0x1
+info.vx_nn_general_cmd_info.inImageAddress:0xf82f7080 
+info.vx_nn_general_cmd_info.inImageXOffset:0x0 
+info.vx_nn_general_cmd_info.inImageYOffset:0x0 
+info.vx_nn_general_cmd_info.outImageXSize:0x31 
+info.vx_nn_general_cmd_info.outImageYSize:0x1 
+info.vx_nn_general_cmd_info.outImageZSize:0x400 
+info.vx_nn_general_cmd_info.outImageAddress:0xf86f3080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf9665000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x1 
+info.vx_nn_general_cmd_info.kernelYSize:0x1 
+info.vx_nn_general_cmd_info.kernelZSize:0x200 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x13 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0x31 
+info.vx_nn_general_cmd_info.inImageYstride:0x1 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x31 
+info.vx_nn_general_cmd_info.outImageTileYSize:0x1 
+info.vx_nn_general_cmd_info.outImageXstride:0x31 
+info.vx_nn_general_cmd_info.outImageYstride:0x1 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x1 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x13 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0xb 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x16 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x80 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x2 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x2a 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0xffffffea 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x7ff 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x79980 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x79980 
+info.vx_nn_general_cmd_info.imageEndAddress:0x80000 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 29 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 12
+abs_op_id: 26
+info.vx_nn_general_cmd_info.inImageXSize:0x7 
+info.vx_nn_general_cmd_info.inImageYSize:0x7
+info.vx_nn_general_cmd_info.inImageAddress:0xf86f3080 
+info.vx_nn_general_cmd_info.inImageXOffset:0xffffffff 
+info.vx_nn_general_cmd_info.inImageYOffset:0xffffffff 
+info.vx_nn_general_cmd_info.outImageXSize:0x7 
+info.vx_nn_general_cmd_info.outImageYSize:0x7 
+info.vx_nn_general_cmd_info.outImageZSize:0x400 
+info.vx_nn_general_cmd_info.outImageAddress:0xf93e9080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf9941000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x3 
+info.vx_nn_general_cmd_info.kernelYSize:0x3 
+info.vx_nn_general_cmd_info.kernelZSize:0x400 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x20 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0x7 
+info.vx_nn_general_cmd_info.inImageYstride:0x7 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x7 
+info.vx_nn_general_cmd_info.outImageTileYSize:0x7 
+info.vx_nn_general_cmd_info.outImageXstride:0x7 
+info.vx_nn_general_cmd_info.outImageYstride:0x7 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x2c 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0xfa 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x13 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0xd0 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x2 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x37 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0xfffeaaaa 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0xffffff 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x68000 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x68000 
+info.vx_nn_general_cmd_info.imageEndAddress:0x80000 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 16 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 9
+abs_op_id: 27
+info.vx_nn_general_cmd_info.inImageXSize:0x31 
+info.vx_nn_general_cmd_info.inImageYSize:0x1
+info.vx_nn_general_cmd_info.inImageAddress:0xf93e9080 
+info.vx_nn_general_cmd_info.inImageXOffset:0x0 
+info.vx_nn_general_cmd_info.inImageYOffset:0x0 
+info.vx_nn_general_cmd_info.outImageXSize:0x31 
+info.vx_nn_general_cmd_info.outImageYSize:0x1 
+info.vx_nn_general_cmd_info.outImageZSize:0x400 
+info.vx_nn_general_cmd_info.outImageAddress:0xf96e8080 
+info.vx_nn_general_cmd_info.kernelAddress:0xf8300000 
+info.vx_nn_general_cmd_info.nnSecondInputBaseAddress:0x0 
+info.vx_nn_general_cmd_info.imageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.secondImageFetchBlockControl:0x0 
+info.vx_nn_general_cmd_info.kernelXSize:0x1 
+info.vx_nn_general_cmd_info.kernelYSize:0x1 
+info.vx_nn_general_cmd_info.kernelZSize:0x400 
+info.vx_nn_general_cmd_info.kernelsPerCore:0x13 
+info.vx_nn_general_cmd_info.pooling:0x0 
+info.vx_nn_general_cmd_info.poolingXYSize:0xffffffff 
+info.vx_nn_general_cmd_info.poolingXYStride:0x0 
+info.vx_nn_general_cmd_info.poolingPadLeft:0x0 
+info.vx_nn_general_cmd_info.poolingPadTop:0x0 
+info.vx_nn_general_cmd_info.poolingPadRight:0x0 
+info.vx_nn_general_cmd_info.poolingPadbottom:0x0 
+info.vx_nn_general_cmd_info.inImageXstride:0x31 
+info.vx_nn_general_cmd_info.inImageYstride:0x1 
+info.vx_nn_general_cmd_info.inImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.inImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.outImageTileXSize:0x31 
+info.vx_nn_general_cmd_info.outImageTileYSize:0x1 
+info.vx_nn_general_cmd_info.outImageXstride:0x31 
+info.vx_nn_general_cmd_info.outImageYstride:0x1 
+info.vx_nn_general_cmd_info.outImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.outImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.roundingMode:0x1 
+info.vx_nn_general_cmd_info.relu:0x0 
+info.vx_nn_general_cmd_info.nn_layer_flush:0x1 
+info.vx_nn_general_cmd_info.postMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplierSign:0x0 
+info.vx_nn_general_cmd_info.postShiftBits7:0x0 
+info.vx_nn_general_cmd_info.negPostShiftBits7:0x0 
+info.vx_nn_general_cmd_info.postMultiplier:0x0 
+info.vx_nn_general_cmd_info.negPostMultiplier:0x0 
+info.vx_nn_general_cmd_info.postMultiplierBit6to1:0x2c 
+info.vx_nn_general_cmd_info.postMultiplierBit14to7:0x25 
+info.vx_nn_general_cmd_info.postMultiplierBit22to15:0x0 
+info.vx_nn_general_cmd_info.postShift:0x15 
+info.vx_nn_general_cmd_info.negPostShift:0x0 
+info.vx_nn_general_cmd_info.postShiftBit6to5:0x0 
+info.vx_nn_general_cmd_info.wSize:0x0 
+info.vx_nn_general_cmd_info.kernelDataType:0x0 
+info.vx_nn_general_cmd_info.inImageDataType:0x0 
+info.vx_nn_general_cmd_info.outImageDataType:0x0 
+info.vx_nn_general_cmd_info.coefZP:0x5f 
+info.vx_nn_general_cmd_info.outputZP:0x0 
+info.vx_nn_general_cmd_info.brickMode:0x0 
+info.vx_nn_general_cmd_info.brickDistance:0x0 
+info.vx_nn_general_cmd_info.slowOutput:0x0 
+info.vx_nn_general_cmd_info.bFloat16Mode:0x0 
+info.vx_nn_general_cmd_info.inImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufStartAddr:0x0 
+info.vx_nn_general_cmd_info.outImageTransposeBufEndAddr:0x0 
+info.vx_nn_general_cmd_info.imageCachingMode:0x1 
+info.vx_nn_general_cmd_info.kernelCachingMode:0x2 
+info.vx_nn_general_cmd_info.partialCacheDataUnit:0x0 
+info.vx_nn_general_cmd_info.kernelPatternMsb:0x8 
+info.vx_nn_general_cmd_info.kernelPatternLow32Bits:0x154 
+info.vx_nn_general_cmd_info.kernelPatternHigh32Bits:0x0 
+info.vx_nn_general_cmd_info.kernelCacheStartAddress:0x800 
+info.vx_nn_general_cmd_info.kernelCacheEndAddress:0x73480 
+info.vx_nn_general_cmd_info.kernelDirectStreamFromVipSram:0x0 
+info.vx_nn_general_cmd_info.imageStartAddress:0x73480 
+info.vx_nn_general_cmd_info.imageEndAddress:0x80000 
+info.vx_nn_general_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_general_cmd_info.inImageBorderConst:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeMsb:0x0 
+info.vx_nn_general_cmd_info.kernelDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.inImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.outImageDataTypeBit3:0x0 
+info.vx_nn_general_cmd_info.nnAluFunction:0x0 
+info.vx_nn_general_cmd_info.outImageCacheEvictPolicy:0x0 
+info.vx_nn_general_cmd_info.noFlush:0x0 
+info.vx_nn_general_cmd_info.hwDepthWise:0x0 
+info.vx_nn_general_cmd_info.noZOffset:0x0 
+info.vx_nn_general_cmd_info.noBias:0x0 
+info.vx_nn_general_cmd_info.perChannelPostMul:0x0 
+info.vx_nn_general_cmd_info.pRelu:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufSize:0x0 
+info.vx_nn_general_cmd_info.secInImageCircularBufEndAddrPlus1:0xffffffff 
+info.vx_nn_general_cmd_info.nnCoefDecompressBypass:0x0 
+info.vx_nn_general_cmd_info.dwOutputZPBit1To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit5To0:0x0 
+info.vx_nn_general_cmd_info.dwCoefZPBit7To6:0x0 
+info.vx_nn_general_cmd_info.secInImageTransposeChMinusOne:0x0 
+info.vx_nn_general_cmd_info.convolutionStride:0x0 
+info.vx_nn_general_cmd_info.nnClampMax:0x7f800000 
+info.vx_nn_general_cmd_info.nnClampMin:0xff800000 
+info.vx_nn_general_cmd_info.dwOutputZPBit7To2:0x0 
+info.vx_nn_general_cmd_info.depthWiseMergeEn:0x0 
+info.vx_nn_general_cmd_info.nnConv1DMode:0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 30 layer name:FullyConnectedReluLayer operation[0]:VXNNE_OPERATOR_FULLYCONNECTED target:VXNNE_OPERATION_TARGET_TP.
+uid: 5
+abs_op_id: 29
+info.vx_nn_tp_cmd_info.inImageXSize:0x1 
+info.vx_nn_tp_cmd_info.inImageYSize:0x1 
+info.vx_nn_tp_cmd_info.inImageZSize :0x400 
+info.vx_nn_tp_cmd_info.inImageStride :0x1 
+info.vx_nn_tp_cmd_info.inImageSlice :0x1 
+info.vx_nn_tp_cmd_info. inWindowXStart :0x0 
+info.vx_nn_tp_cmd_info.inWindowYStart :0x0 
+info.vx_nn_tp_cmd_info.inWindowXEnd :0x0 
+info.vx_nn_tp_cmd_info.inWindowYEnd :0x0 
+info.vx_nn_tp_cmd_info.inImageBaseAddress :0xf82fe080 
+info.vx_nn_tp_cmd_info.inTileListAddress :0x0 
+info.vx_nn_tp_cmd_info.inTileXSize :0x1 
+info.vx_nn_tp_cmd_info.inTileYSize :0x1 
+info.vx_nn_tp_cmd_info.inTileXInc :0x1 
+info.vx_nn_tp_cmd_info.inTileYInc :0x1 
+info.vx_nn_tp_cmd_info.inTileSequence :0x3 
+info.vx_nn_tp_cmd_info.inWindowZStartOverfetch2 :0x0 
+info.vx_nn_tp_cmd_info.inWindowZEndOverfetch2 :0x0 
+info.vx_nn_tp_cmd_info.outBaseAddress :0xf82ff080 
+info.vx_nn_tp_cmd_info.outLoop1Reset) :0x0 
+info.vx_nn_tp_cmd_info.outLoop2Reset :0x0 
+info.vx_nn_tp_cmd_info.outLoop3Reset :0x0 
+info.vx_nn_tp_cmd_info.outLoop0Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop1Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop2Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop3Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop4Inc :0x1 
+info.vx_nn_tp_cmd_info.outLoop5Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop6Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop0Count :0x1 
+info.vx_nn_tp_cmd_info.outLoop1Count :0x1 
+info.vx_nn_tp_cmd_info.outLoop2Count :0x1 
+info.vx_nn_tp_cmd_info.outLoop3Count :0x1 
+info.vx_nn_tp_cmd_info.outLoop4Count :0xfb 
+info.vx_nn_tp_cmd_info.outLoop5Count :0x1 
+info.vx_nn_tp_cmd_info.aluReorderBitsUsed :0x0 
+info.vx_nn_tp_cmd_info.aluReorderLoop2Mode :0x0 
+info.vx_nn_tp_cmd_info.inImageCircularBufSize :0x0 
+info.vx_nn_tp_cmd_info.inImageCircularBufEndAddrPlus1 :0xffffffff 
+info.vx_nn_tp_cmd_info.outImageCircularBufSize :0x0 
+info.vx_nn_tp_cmd_info.outImageCircularBufEndAddrPlus1 :0xffffffff 
+info.vx_nn_tp_cmd_info.needReorder:0x0 
+info.vx_nn_tp_cmd_info.noFlush:0x1 
+info.vx_nn_tp_cmd_info.last:0x1 
+info.vx_nn_tp_cmd_info.aluHorzProcCount:0x3a 
+info.vx_nn_tp_cmd_info.aluVertProcCount:0x3 
+info.vx_nn_tp_cmd_info.aluLoadPwlLUTAddress:0xf8500000 
+info.vx_nn_tp_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_tp_cmd_info.inTileListGlobalMem:0x0 
+info.vx_nn_tp_cmd_info.inImageGlobalMem:0x1 
+info.vx_nn_tp_cmd_info.aluI2FEnable :0x1 
+info.vx_nn_tp_cmd_info.aluSquareEnable:0x0 
+info.vx_nn_tp_cmd_info.aluHorzProcessing :0x0 
+info.vx_nn_tp_cmd_info.aluHorzProcStride :0x0 
+info.vx_nn_tp_cmd_info.aluVertProcessing :0x0 
+info.vx_nn_tp_cmd_info.aluVertProcStride :0x0 
+info.vx_nn_tp_cmd_info.aluNmsEnable :0x0 
+info.vx_nn_tp_cmd_info.aluPwlEnable :0x0 
+info.vx_nn_tp_cmd_info.aluMultEnable :0x0 
+info.vx_nn_tp_cmd_info.aluF2IEnable :0x1 
+info.vx_nn_tp_cmd_info.aluLoadPwlLUT:0x0 
+info.vx_nn_tp_cmd_info.aluLoadPwlLUTGlobalMem:0x1 
+info.vx_nn_tp_cmd_info.outTileSkipAtborder :0x0 
+info.vx_nn_tp_cmd_info.outGlobalMem :0x1 
+info.vx_nn_tp_cmd_info.outBrickMode :0x0 
+info.vx_nn_tp_cmd_info.aluZFilterMode :0x0 
+info.vx_nn_tp_cmd_info.inWindowZStartOverfetch :0x0 
+info.vx_nn_tp_cmd_info.inWindowZEndOverfetch :0x0 
+info.vx_nn_tp_cmd_info.aluSquarePreshift :0x0 
+info.vx_nn_tp_cmd_info.inImageDataType :0x0 
+info.vx_nn_tp_cmd_info.outImageDataType :0x0 
+info.vx_nn_tp_cmd_info.kernelDataType :0x0 
+info.vx_nn_tp_cmd_info.aluFilterPwlSwap :0x0 
+info.vx_nn_tp_cmd_info.aluPwlSignSupport :0x0 
+info.vx_nn_tp_cmd_info.aluReluEnable :0x0 
+info.vx_nn_tp_cmd_info.floatRoundingMode :0x1 
+info.vx_nn_tp_cmd_info.integeroundingMode :0x1 
+info.vx_nn_tp_cmd_info.inImageBorderConst :0x0 
+info.vx_nn_tp_cmd_info.aluInputPreshift :0x0 
+info.vx_nn_tp_cmd_info.aluOutputPostshift :0xb 
+info.vx_nn_tp_cmd_info.aluOutputPostshiftBit6to5 :0x0 
+info.vx_nn_tp_cmd_info.coefZP :0x4a 
+info.vx_nn_tp_cmd_info.inputZP :0x0 
+info.vx_nn_tp_cmd_info.outputZP :0x50 
+info.vx_nn_tp_cmd_info.aluOutputPostMultiplier :0x56c1 
+info.vx_nn_tp_cmd_info.aluOutputPostMultiplierBit22to15 :0x0 
+info.vx_nn_tp_cmd_info.tpSoftmaxBeta :0x0 
+info.vx_nn_tp_cmd_info.tpSoftmaxSkipMax :0x0 
+info.vx_nn_tp_cmd_info.tpSoftmaxEnable :0x0 
+info.vx_nn_tp_cmd_info.elementWiseEnable :0x0 
+info.vx_nn_tp_cmd_info.elementWiseOpType :0x0 
+info.vx_nn_tp_cmd_info.elementWiseOutX :0x0 
+info.vx_nn_tp_cmd_info.elementWiseOutY :0x0 
+info.vx_nn_tp_cmd_info.elementWiseOutZ :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAX :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAY :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAZ :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorATotalSize :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAMultiLow16Bit :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAMultiHigh16Bit :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorADataType :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBX :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBY :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBZ :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBTotalSize :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBMulti :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBShift :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBDataType :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBAddress :0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 30 layer name:FullyConnectedReluLayer operation[0]:VXNNE_OPERATOR_FULLYCONNECTED target:VXNNE_OPERATION_TARGET_TP.
+uid: 5
+abs_op_id: 29
+info.vx_nn_tp_cmd_info.inImageXSize:0x1 
+info.vx_nn_tp_cmd_info.inImageYSize:0x1 
+info.vx_nn_tp_cmd_info.inImageZSize :0x400 
+info.vx_nn_tp_cmd_info.inImageStride :0x1 
+info.vx_nn_tp_cmd_info.inImageSlice :0x1 
+info.vx_nn_tp_cmd_info. inWindowXStart :0x0 
+info.vx_nn_tp_cmd_info.inWindowYStart :0x0 
+info.vx_nn_tp_cmd_info.inWindowXEnd :0x0 
+info.vx_nn_tp_cmd_info.inWindowYEnd :0x0 
+info.vx_nn_tp_cmd_info.inImageBaseAddress :0xf82fe080 
+info.vx_nn_tp_cmd_info.inTileListAddress :0x0 
+info.vx_nn_tp_cmd_info.inTileXSize :0x1 
+info.vx_nn_tp_cmd_info.inTileYSize :0x1 
+info.vx_nn_tp_cmd_info.inTileXInc :0x1 
+info.vx_nn_tp_cmd_info.inTileYInc :0x1 
+info.vx_nn_tp_cmd_info.inTileSequence :0x3 
+info.vx_nn_tp_cmd_info.inWindowZStartOverfetch2 :0x0 
+info.vx_nn_tp_cmd_info.inWindowZEndOverfetch2 :0x0 
+info.vx_nn_tp_cmd_info.outBaseAddress :0xf82ff17b 
+info.vx_nn_tp_cmd_info.outLoop1Reset) :0x0 
+info.vx_nn_tp_cmd_info.outLoop2Reset :0x0 
+info.vx_nn_tp_cmd_info.outLoop3Reset :0x0 
+info.vx_nn_tp_cmd_info.outLoop0Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop1Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop2Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop3Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop4Inc :0x1 
+info.vx_nn_tp_cmd_info.outLoop5Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop6Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop0Count :0x1 
+info.vx_nn_tp_cmd_info.outLoop1Count :0x1 
+info.vx_nn_tp_cmd_info.outLoop2Count :0x1 
+info.vx_nn_tp_cmd_info.outLoop3Count :0x1 
+info.vx_nn_tp_cmd_info.outLoop4Count :0xfa 
+info.vx_nn_tp_cmd_info.outLoop5Count :0x1 
+info.vx_nn_tp_cmd_info.aluReorderBitsUsed :0x0 
+info.vx_nn_tp_cmd_info.aluReorderLoop2Mode :0x0 
+info.vx_nn_tp_cmd_info.inImageCircularBufSize :0x0 
+info.vx_nn_tp_cmd_info.inImageCircularBufEndAddrPlus1 :0xffffffff 
+info.vx_nn_tp_cmd_info.outImageCircularBufSize :0x0 
+info.vx_nn_tp_cmd_info.outImageCircularBufEndAddrPlus1 :0xffffffff 
+info.vx_nn_tp_cmd_info.needReorder:0x0 
+info.vx_nn_tp_cmd_info.noFlush:0x1 
+info.vx_nn_tp_cmd_info.last:0x1 
+info.vx_nn_tp_cmd_info.aluHorzProcCount:0x39 
+info.vx_nn_tp_cmd_info.aluVertProcCount:0x3 
+info.vx_nn_tp_cmd_info.aluLoadPwlLUTAddress:0xf8540680 
+info.vx_nn_tp_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_tp_cmd_info.inTileListGlobalMem:0x0 
+info.vx_nn_tp_cmd_info.inImageGlobalMem:0x1 
+info.vx_nn_tp_cmd_info.aluI2FEnable :0x1 
+info.vx_nn_tp_cmd_info.aluSquareEnable:0x0 
+info.vx_nn_tp_cmd_info.aluHorzProcessing :0x0 
+info.vx_nn_tp_cmd_info.aluHorzProcStride :0x0 
+info.vx_nn_tp_cmd_info.aluVertProcessing :0x0 
+info.vx_nn_tp_cmd_info.aluVertProcStride :0x0 
+info.vx_nn_tp_cmd_info.aluNmsEnable :0x0 
+info.vx_nn_tp_cmd_info.aluPwlEnable :0x0 
+info.vx_nn_tp_cmd_info.aluMultEnable :0x0 
+info.vx_nn_tp_cmd_info.aluF2IEnable :0x1 
+info.vx_nn_tp_cmd_info.aluLoadPwlLUT:0x0 
+info.vx_nn_tp_cmd_info.aluLoadPwlLUTGlobalMem:0x1 
+info.vx_nn_tp_cmd_info.outTileSkipAtborder :0x0 
+info.vx_nn_tp_cmd_info.outGlobalMem :0x1 
+info.vx_nn_tp_cmd_info.outBrickMode :0x0 
+info.vx_nn_tp_cmd_info.aluZFilterMode :0x0 
+info.vx_nn_tp_cmd_info.inWindowZStartOverfetch :0x0 
+info.vx_nn_tp_cmd_info.inWindowZEndOverfetch :0x0 
+info.vx_nn_tp_cmd_info.aluSquarePreshift :0x0 
+info.vx_nn_tp_cmd_info.inImageDataType :0x0 
+info.vx_nn_tp_cmd_info.outImageDataType :0x0 
+info.vx_nn_tp_cmd_info.kernelDataType :0x0 
+info.vx_nn_tp_cmd_info.aluFilterPwlSwap :0x0 
+info.vx_nn_tp_cmd_info.aluPwlSignSupport :0x0 
+info.vx_nn_tp_cmd_info.aluReluEnable :0x0 
+info.vx_nn_tp_cmd_info.floatRoundingMode :0x1 
+info.vx_nn_tp_cmd_info.integeroundingMode :0x1 
+info.vx_nn_tp_cmd_info.inImageBorderConst :0x0 
+info.vx_nn_tp_cmd_info.aluInputPreshift :0x0 
+info.vx_nn_tp_cmd_info.aluOutputPostshift :0xb 
+info.vx_nn_tp_cmd_info.aluOutputPostshiftBit6to5 :0x0 
+info.vx_nn_tp_cmd_info.coefZP :0x4a 
+info.vx_nn_tp_cmd_info.inputZP :0x0 
+info.vx_nn_tp_cmd_info.outputZP :0x50 
+info.vx_nn_tp_cmd_info.aluOutputPostMultiplier :0x56c1 
+info.vx_nn_tp_cmd_info.aluOutputPostMultiplierBit22to15 :0x0 
+info.vx_nn_tp_cmd_info.tpSoftmaxBeta :0x0 
+info.vx_nn_tp_cmd_info.tpSoftmaxSkipMax :0x0 
+info.vx_nn_tp_cmd_info.tpSoftmaxEnable :0x0 
+info.vx_nn_tp_cmd_info.elementWiseEnable :0x0 
+info.vx_nn_tp_cmd_info.elementWiseOpType :0x0 
+info.vx_nn_tp_cmd_info.elementWiseOutX :0x0 
+info.vx_nn_tp_cmd_info.elementWiseOutY :0x0 
+info.vx_nn_tp_cmd_info.elementWiseOutZ :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAX :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAY :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAZ :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorATotalSize :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAMultiLow16Bit :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAMultiHigh16Bit :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorADataType :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBX :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBY :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBZ :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBTotalSize :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBMulti :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBShift :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBDataType :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBAddress :0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 30 layer name:FullyConnectedReluLayer operation[0]:VXNNE_OPERATOR_FULLYCONNECTED target:VXNNE_OPERATION_TARGET_TP.
+uid: 5
+abs_op_id: 29
+info.vx_nn_tp_cmd_info.inImageXSize:0x1 
+info.vx_nn_tp_cmd_info.inImageYSize:0x1 
+info.vx_nn_tp_cmd_info.inImageZSize :0x400 
+info.vx_nn_tp_cmd_info.inImageStride :0x1 
+info.vx_nn_tp_cmd_info.inImageSlice :0x1 
+info.vx_nn_tp_cmd_info. inWindowXStart :0x0 
+info.vx_nn_tp_cmd_info.inWindowYStart :0x0 
+info.vx_nn_tp_cmd_info.inWindowXEnd :0x0 
+info.vx_nn_tp_cmd_info.inWindowYEnd :0x0 
+info.vx_nn_tp_cmd_info.inImageBaseAddress :0xf82fe080 
+info.vx_nn_tp_cmd_info.inTileListAddress :0x0 
+info.vx_nn_tp_cmd_info.inTileXSize :0x1 
+info.vx_nn_tp_cmd_info.inTileYSize :0x1 
+info.vx_nn_tp_cmd_info.inTileXInc :0x1 
+info.vx_nn_tp_cmd_info.inTileYInc :0x1 
+info.vx_nn_tp_cmd_info.inTileSequence :0x3 
+info.vx_nn_tp_cmd_info.inWindowZStartOverfetch2 :0x0 
+info.vx_nn_tp_cmd_info.inWindowZEndOverfetch2 :0x0 
+info.vx_nn_tp_cmd_info.outBaseAddress :0xf82ff275 
+info.vx_nn_tp_cmd_info.outLoop1Reset) :0x0 
+info.vx_nn_tp_cmd_info.outLoop2Reset :0x0 
+info.vx_nn_tp_cmd_info.outLoop3Reset :0x0 
+info.vx_nn_tp_cmd_info.outLoop0Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop1Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop2Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop3Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop4Inc :0x1 
+info.vx_nn_tp_cmd_info.outLoop5Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop6Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop0Count :0x1 
+info.vx_nn_tp_cmd_info.outLoop1Count :0x1 
+info.vx_nn_tp_cmd_info.outLoop2Count :0x1 
+info.vx_nn_tp_cmd_info.outLoop3Count :0x1 
+info.vx_nn_tp_cmd_info.outLoop4Count :0xfa 
+info.vx_nn_tp_cmd_info.outLoop5Count :0x1 
+info.vx_nn_tp_cmd_info.aluReorderBitsUsed :0x0 
+info.vx_nn_tp_cmd_info.aluReorderLoop2Mode :0x0 
+info.vx_nn_tp_cmd_info.inImageCircularBufSize :0x0 
+info.vx_nn_tp_cmd_info.inImageCircularBufEndAddrPlus1 :0xffffffff 
+info.vx_nn_tp_cmd_info.outImageCircularBufSize :0x0 
+info.vx_nn_tp_cmd_info.outImageCircularBufEndAddrPlus1 :0xffffffff 
+info.vx_nn_tp_cmd_info.needReorder:0x0 
+info.vx_nn_tp_cmd_info.noFlush:0x1 
+info.vx_nn_tp_cmd_info.last:0x1 
+info.vx_nn_tp_cmd_info.aluHorzProcCount:0x39 
+info.vx_nn_tp_cmd_info.aluVertProcCount:0x3 
+info.vx_nn_tp_cmd_info.aluLoadPwlLUTAddress:0xf8580d00 
+info.vx_nn_tp_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_tp_cmd_info.inTileListGlobalMem:0x0 
+info.vx_nn_tp_cmd_info.inImageGlobalMem:0x1 
+info.vx_nn_tp_cmd_info.aluI2FEnable :0x1 
+info.vx_nn_tp_cmd_info.aluSquareEnable:0x0 
+info.vx_nn_tp_cmd_info.aluHorzProcessing :0x0 
+info.vx_nn_tp_cmd_info.aluHorzProcStride :0x0 
+info.vx_nn_tp_cmd_info.aluVertProcessing :0x0 
+info.vx_nn_tp_cmd_info.aluVertProcStride :0x0 
+info.vx_nn_tp_cmd_info.aluNmsEnable :0x0 
+info.vx_nn_tp_cmd_info.aluPwlEnable :0x0 
+info.vx_nn_tp_cmd_info.aluMultEnable :0x0 
+info.vx_nn_tp_cmd_info.aluF2IEnable :0x1 
+info.vx_nn_tp_cmd_info.aluLoadPwlLUT:0x0 
+info.vx_nn_tp_cmd_info.aluLoadPwlLUTGlobalMem:0x1 
+info.vx_nn_tp_cmd_info.outTileSkipAtborder :0x0 
+info.vx_nn_tp_cmd_info.outGlobalMem :0x1 
+info.vx_nn_tp_cmd_info.outBrickMode :0x0 
+info.vx_nn_tp_cmd_info.aluZFilterMode :0x0 
+info.vx_nn_tp_cmd_info.inWindowZStartOverfetch :0x0 
+info.vx_nn_tp_cmd_info.inWindowZEndOverfetch :0x0 
+info.vx_nn_tp_cmd_info.aluSquarePreshift :0x0 
+info.vx_nn_tp_cmd_info.inImageDataType :0x0 
+info.vx_nn_tp_cmd_info.outImageDataType :0x0 
+info.vx_nn_tp_cmd_info.kernelDataType :0x0 
+info.vx_nn_tp_cmd_info.aluFilterPwlSwap :0x0 
+info.vx_nn_tp_cmd_info.aluPwlSignSupport :0x0 
+info.vx_nn_tp_cmd_info.aluReluEnable :0x0 
+info.vx_nn_tp_cmd_info.floatRoundingMode :0x1 
+info.vx_nn_tp_cmd_info.integeroundingMode :0x1 
+info.vx_nn_tp_cmd_info.inImageBorderConst :0x0 
+info.vx_nn_tp_cmd_info.aluInputPreshift :0x0 
+info.vx_nn_tp_cmd_info.aluOutputPostshift :0xb 
+info.vx_nn_tp_cmd_info.aluOutputPostshiftBit6to5 :0x0 
+info.vx_nn_tp_cmd_info.coefZP :0x4a 
+info.vx_nn_tp_cmd_info.inputZP :0x0 
+info.vx_nn_tp_cmd_info.outputZP :0x50 
+info.vx_nn_tp_cmd_info.aluOutputPostMultiplier :0x56c1 
+info.vx_nn_tp_cmd_info.aluOutputPostMultiplierBit22to15 :0x0 
+info.vx_nn_tp_cmd_info.tpSoftmaxBeta :0x0 
+info.vx_nn_tp_cmd_info.tpSoftmaxSkipMax :0x0 
+info.vx_nn_tp_cmd_info.tpSoftmaxEnable :0x0 
+info.vx_nn_tp_cmd_info.elementWiseEnable :0x0 
+info.vx_nn_tp_cmd_info.elementWiseOpType :0x0 
+info.vx_nn_tp_cmd_info.elementWiseOutX :0x0 
+info.vx_nn_tp_cmd_info.elementWiseOutY :0x0 
+info.vx_nn_tp_cmd_info.elementWiseOutZ :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAX :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAY :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAZ :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorATotalSize :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAMultiLow16Bit :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAMultiHigh16Bit :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorADataType :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBX :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBY :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBZ :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBTotalSize :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBMulti :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBShift :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBDataType :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBAddress :0x0 
+
+===========================
+**********Show Command*****
+===========================
+layer_id: 30 layer name:FullyConnectedReluLayer operation[0]:VXNNE_OPERATOR_FULLYCONNECTED target:VXNNE_OPERATION_TARGET_TP.
+uid: 5
+abs_op_id: 29
+info.vx_nn_tp_cmd_info.inImageXSize:0x1 
+info.vx_nn_tp_cmd_info.inImageYSize:0x1 
+info.vx_nn_tp_cmd_info.inImageZSize :0x400 
+info.vx_nn_tp_cmd_info.inImageStride :0x1 
+info.vx_nn_tp_cmd_info.inImageSlice :0x1 
+info.vx_nn_tp_cmd_info. inWindowXStart :0x0 
+info.vx_nn_tp_cmd_info.inWindowYStart :0x0 
+info.vx_nn_tp_cmd_info.inWindowXEnd :0x0 
+info.vx_nn_tp_cmd_info.inWindowYEnd :0x0 
+info.vx_nn_tp_cmd_info.inImageBaseAddress :0xf82fe080 
+info.vx_nn_tp_cmd_info.inTileListAddress :0x0 
+info.vx_nn_tp_cmd_info.inTileXSize :0x1 
+info.vx_nn_tp_cmd_info.inTileYSize :0x1 
+info.vx_nn_tp_cmd_info.inTileXInc :0x1 
+info.vx_nn_tp_cmd_info.inTileYInc :0x1 
+info.vx_nn_tp_cmd_info.inTileSequence :0x3 
+info.vx_nn_tp_cmd_info.inWindowZStartOverfetch2 :0x0 
+info.vx_nn_tp_cmd_info.inWindowZEndOverfetch2 :0x0 
+info.vx_nn_tp_cmd_info.outBaseAddress :0xf82ff36f 
+info.vx_nn_tp_cmd_info.outLoop1Reset) :0x0 
+info.vx_nn_tp_cmd_info.outLoop2Reset :0x0 
+info.vx_nn_tp_cmd_info.outLoop3Reset :0x0 
+info.vx_nn_tp_cmd_info.outLoop0Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop1Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop2Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop3Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop4Inc :0x1 
+info.vx_nn_tp_cmd_info.outLoop5Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop6Inc :0x0 
+info.vx_nn_tp_cmd_info.outLoop0Count :0x1 
+info.vx_nn_tp_cmd_info.outLoop1Count :0x1 
+info.vx_nn_tp_cmd_info.outLoop2Count :0x1 
+info.vx_nn_tp_cmd_info.outLoop3Count :0x1 
+info.vx_nn_tp_cmd_info.outLoop4Count :0xfa 
+info.vx_nn_tp_cmd_info.outLoop5Count :0x1 
+info.vx_nn_tp_cmd_info.aluReorderBitsUsed :0x0 
+info.vx_nn_tp_cmd_info.aluReorderLoop2Mode :0x0 
+info.vx_nn_tp_cmd_info.inImageCircularBufSize :0x0 
+info.vx_nn_tp_cmd_info.inImageCircularBufEndAddrPlus1 :0xffffffff 
+info.vx_nn_tp_cmd_info.outImageCircularBufSize :0x0 
+info.vx_nn_tp_cmd_info.outImageCircularBufEndAddrPlus1 :0xffffffff 
+info.vx_nn_tp_cmd_info.needReorder:0x0 
+info.vx_nn_tp_cmd_info.noFlush:0x0 
+info.vx_nn_tp_cmd_info.last:0x1 
+info.vx_nn_tp_cmd_info.aluHorzProcCount:0x39 
+info.vx_nn_tp_cmd_info.aluVertProcCount:0x3 
+info.vx_nn_tp_cmd_info.aluLoadPwlLUTAddress:0xf85c1380 
+info.vx_nn_tp_cmd_info.inImageBorderMode:0x0 
+info.vx_nn_tp_cmd_info.inTileListGlobalMem:0x0 
+info.vx_nn_tp_cmd_info.inImageGlobalMem:0x1 
+info.vx_nn_tp_cmd_info.aluI2FEnable :0x1 
+info.vx_nn_tp_cmd_info.aluSquareEnable:0x0 
+info.vx_nn_tp_cmd_info.aluHorzProcessing :0x0 
+info.vx_nn_tp_cmd_info.aluHorzProcStride :0x0 
+info.vx_nn_tp_cmd_info.aluVertProcessing :0x0 
+info.vx_nn_tp_cmd_info.aluVertProcStride :0x0 
+info.vx_nn_tp_cmd_info.aluNmsEnable :0x0 
+info.vx_nn_tp_cmd_info.aluPwlEnable :0x0 
+info.vx_nn_tp_cmd_info.aluMultEnable :0x0 
+info.vx_nn_tp_cmd_info.aluF2IEnable :0x1 
+info.vx_nn_tp_cmd_info.aluLoadPwlLUT:0x0 
+info.vx_nn_tp_cmd_info.aluLoadPwlLUTGlobalMem:0x1 
+info.vx_nn_tp_cmd_info.outTileSkipAtborder :0x0 
+info.vx_nn_tp_cmd_info.outGlobalMem :0x1 
+info.vx_nn_tp_cmd_info.outBrickMode :0x0 
+info.vx_nn_tp_cmd_info.aluZFilterMode :0x0 
+info.vx_nn_tp_cmd_info.inWindowZStartOverfetch :0x0 
+info.vx_nn_tp_cmd_info.inWindowZEndOverfetch :0x0 
+info.vx_nn_tp_cmd_info.aluSquarePreshift :0x0 
+info.vx_nn_tp_cmd_info.inImageDataType :0x0 
+info.vx_nn_tp_cmd_info.outImageDataType :0x0 
+info.vx_nn_tp_cmd_info.kernelDataType :0x0 
+info.vx_nn_tp_cmd_info.aluFilterPwlSwap :0x0 
+info.vx_nn_tp_cmd_info.aluPwlSignSupport :0x0 
+info.vx_nn_tp_cmd_info.aluReluEnable :0x0 
+info.vx_nn_tp_cmd_info.floatRoundingMode :0x1 
+info.vx_nn_tp_cmd_info.integeroundingMode :0x1 
+info.vx_nn_tp_cmd_info.inImageBorderConst :0x0 
+info.vx_nn_tp_cmd_info.aluInputPreshift :0x0 
+info.vx_nn_tp_cmd_info.aluOutputPostshift :0xb 
+info.vx_nn_tp_cmd_info.aluOutputPostshiftBit6to5 :0x0 
+info.vx_nn_tp_cmd_info.coefZP :0x4a 
+info.vx_nn_tp_cmd_info.inputZP :0x0 
+info.vx_nn_tp_cmd_info.outputZP :0x50 
+info.vx_nn_tp_cmd_info.aluOutputPostMultiplier :0x56c1 
+info.vx_nn_tp_cmd_info.aluOutputPostMultiplierBit22to15 :0x0 
+info.vx_nn_tp_cmd_info.tpSoftmaxBeta :0x0 
+info.vx_nn_tp_cmd_info.tpSoftmaxSkipMax :0x0 
+info.vx_nn_tp_cmd_info.tpSoftmaxEnable :0x0 
+info.vx_nn_tp_cmd_info.elementWiseEnable :0x0 
+info.vx_nn_tp_cmd_info.elementWiseOpType :0x0 
+info.vx_nn_tp_cmd_info.elementWiseOutX :0x0 
+info.vx_nn_tp_cmd_info.elementWiseOutY :0x0 
+info.vx_nn_tp_cmd_info.elementWiseOutZ :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAX :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAY :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAZ :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorATotalSize :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAMultiLow16Bit :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorAMultiHigh16Bit :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorADataType :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBX :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBY :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBZ :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBTotalSize :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBMulti :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBShift :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBDataType :0x0 
+info.vx_nn_tp_cmd_info.elementWiseTensorBAddress :0x0 
+Verify Graph: 26683ms or 26683993us
+Start run graph [1] times...
+***********dump layer : 0***************
+layer_id: 0 layer name:TensorTranspose operation[0]:VXNNE_OPERATOR_TENSOR_TRANS target:VXNNE_OPERATION_TARGET_TP.
+uid: 8
+abs_op_id: 0
+execution time:            219736 us
+***********dump layer : 1***************
+layer_id: 3 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 87
+abs_op_id: 1
+execution time:            491920 us
+***********dump layer : 2***************
+layer_id: 17 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 84
+abs_op_id: 2
+execution time:            496925 us
+***********dump layer : 3***************
+layer_id: 4 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 81
+abs_op_id: 3
+execution time:           1006774 us
+***********dump layer : 4***************
+layer_id: 18 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 78
+abs_op_id: 4
+execution time:            254091 us
+***********dump layer : 5***************
+layer_id: 5 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 75
+abs_op_id: 5
+execution time:            506140 us
+***********dump layer : 6***************
+layer_id: 19 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 72
+abs_op_id: 6
+execution time:            508730 us
+***********dump layer : 7***************
+layer_id: 6 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 69
+abs_op_id: 7
+execution time:            505770 us
+***********dump layer : 8***************
+layer_id: 20 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 66
+abs_op_id: 8
+execution time:            127646 us
+***********dump layer : 9***************
+layer_id: 7 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 63
+abs_op_id: 9
+execution time:            255313 us
+***********dump layer :10***************
+layer_id: 21 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 60
+abs_op_id: 10
+execution time:            253726 us
+***********dump layer :11***************
+layer_id: 8 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 57
+abs_op_id: 11
+execution time:            252563 us
+***********dump layer :12***************
+layer_id: 22 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 54
+abs_op_id: 12
+execution time:             64320 us
+***********dump layer :13***************
+layer_id: 9 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 51
+abs_op_id: 13
+execution time:            128402 us
+***********dump layer :14***************
+layer_id: 23 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 48
+abs_op_id: 14
+execution time:            126972 us
+***********dump layer :15***************
+layer_id: 10 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 45
+abs_op_id: 15
+execution time:            128294 us
+***********dump layer :16***************
+layer_id: 24 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 42
+abs_op_id: 16
+execution time:            127138 us
+***********dump layer :17***************
+layer_id: 11 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 39
+abs_op_id: 17
+execution time:            127970 us
+***********dump layer :18***************
+layer_id: 25 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 36
+abs_op_id: 18
+execution time:            126489 us
+***********dump layer :19***************
+layer_id: 12 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 33
+abs_op_id: 19
+execution time:            127588 us
+***********dump layer :20***************
+layer_id: 26 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 30
+abs_op_id: 20
+execution time:            126276 us
+***********dump layer :21***************
+layer_id: 13 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 27
+abs_op_id: 21
+execution time:            127177 us
+***********dump layer :22***************
+layer_id: 27 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 24
+abs_op_id: 22
+execution time:            126400 us
+***********dump layer :23***************
+layer_id: 14 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 21
+abs_op_id: 23
+execution time:            125362 us
+***********dump layer :24***************
+layer_id: 28 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 18
+abs_op_id: 24
+execution time:             32139 us
+***********dump layer :25***************
+layer_id: 15 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 15
+abs_op_id: 25
+execution time:             62860 us
+***********dump layer :26***************
+layer_id: 29 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 12
+abs_op_id: 26
+execution time:             64070 us
+***********dump layer :27***************
+layer_id: 16 layer name:ConvolutionReluPoolingLayer2 operation[0]:VXNNE_OPERATOR_CONVOLUTION target:VXNNE_OPERATION_TARGET_NN.
+uid: 9
+abs_op_id: 27
+execution time:             62526 us
+***********dump layer :28***************
+layer_id: 1 layer name:PoolingLayer2 operation[0]:VXNNE_OPERATOR_POOLING target:VXNNE_OPERATION_TARGET_SH.
+uid: 6
+abs_op_id: 28
+shader kernel name: vxcPooling_GlobalAvgUInt8K1_K8
+execution time:              1965 us
+***********dump layer :29***************
+layer_id: 30 layer name:FullyConnectedReluLayer operation[0]:VXNNE_OPERATOR_FULLYCONNECTED target:VXNNE_OPERATION_TARGET_TP.
+uid: 5
+abs_op_id: 29
+execution time:              1794 us
+==layer_id: 30 abs_op_id: 29 imageNonZeroRatio: 0.8740234
+***********dump layer :30***************
+layer_id: 2 layer name:Softmax2Layer operation[0]:VXNNE_OPERATOR_SOFTMAX target:VXNNE_OPERATION_TARGET_SH.
+uid: 2
+abs_op_id: 30
+shader kernel name: softmax_axis0_U8toF16_2D
+execution time:              1944 us
+Run the 1 time: 6569.00ms or 6569924.00us
+vxProcessGraph execution time:
+Total   6569.00ms or 6569945.00us
+Average 6569.94ms or 6569945.00us
+ --- Top5 ---
+813: 0.999023
+405: 0.000266
+868: 0.000135
+896: 0.000108
+  0: 0.000000
+Exit VX Thread: 0xb52cc1b0

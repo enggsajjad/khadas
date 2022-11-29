@@ -1,0 +1,105 @@
+===============================================================
+Fixing the error in sample_demo_x11_yolov3 while using the converted model from 608 cfg
+===============================================================
+Search "608" (4 hits in 1 file of 8 searched)
+  D:\Downloads\23July\yolov3_nbg_unify_608_hussainA\vnn_yolov3.c (4 hits)
+	Line 219:       input     - [608, 608, 3, 1]
+	Line 219:       input     - [608, 608, 3, 1]
+	Line 242:     attr.size[0] = 608;
+	Line 243:     attr.size[1] = 608;
+
+
+-----------------
+Search "416" (4 hits in 1 file of 8 searched)
+  D:\Downloads\23July\yolov3_nbg_unify_416_hussainA\vnn_yolov3.c (4 hits)
+	Line 219:       input     - [416, 416, 3, 1]
+	Line 219:       input     - [416, 416, 3, 1]
+	Line 242:     attr.size[0] = 416;
+	Line 243:     attr.size[1] = 416;
+
+-----------------
+Search "416" (6 hits in 2 files of 14 searched)
+  D:\Downloads\sample_demo_x11_yolov3\main.cpp (2 hits)
+	Line 125: 	amlge2d.ge2dinfo.dst_info.canvas_w = 416;
+	Line 126: 	amlge2d.ge2dinfo.dst_info.canvas_h = 416;
+  D:\Downloads\sample_demo_x11_yolov3\vnn_yolov3.c (4 hits)
+	Line 219:       input     - [416, 416, 3, 1]
+	Line 219:       input     - [416, 416, 3, 1]
+	Line 242:     attr.size[0] = 416;
+	Line 243:     attr.size[1] = 416;
+
+
+-----------------
+Changed 416 to 608:
+	Line 125: 	amlge2d.ge2dinfo.dst_info.canvas_w = 416;
+	Line 126: 	amlge2d.ge2dinfo.dst_info.canvas_h = 416;
+
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3_608$ copied recommended c,h and nb file^C
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3_608$ vim main.cpp
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3_608$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/sample_demo_x11_yolov3_608/main.cpp
+main.cpp: In function ‘int run_detect_model(int, char**)’:
+main.cpp:334:10: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+  334 |   return NULL;
+      |          ^~~~
+main.cpp:279:39: warning: unused variable ‘img_width’ [-Wunused-variable]
+  279 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                       ^~~~~~~~~
+main.cpp:279:50: warning: unused variable ‘img_height’ [-Wunused-variable]
+  279 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                                  ^~~~~~~~~~
+main.cpp: At global scope:
+main.cpp:251:13: warning: ‘void crop_face(cv::Mat, cv::Mat&, DetectResult, int, int)’ defined but not used [-Wunused-function]
+  251 | static void crop_face(cv::Mat sourceFrame, cv::Mat& imageROI, DetectResult resultData, int img_height, int img_width) {
+      |             ^~~~~~~~~
+main.cpp:98:17: warning: ‘screensize’ defined but not used [-Wunused-variable]
+   98 | static long int screensize = 0;
+      |                 ^~~~~~~~~~
+main.cpp:97:33: warning: ‘finfo’ defined but not used [-Wunused-variable]
+   97 | static struct fb_fix_screeninfo finfo;
+      |                                 ^~~~~
+main.cpp:96:33: warning: ‘vinfo’ defined but not used [-Wunused-variable]
+   96 | static struct fb_var_screeninfo vinfo;
+      |                                 ^~~~~
+main.cpp:95:12: warning: ‘fbfd’ defined but not used [-Wunused-variable]
+   95 | static int fbfd = 0;
+      |            ^~~~
+make: Nothing to be done for 'all'.
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3_608$ cd bin_r_cv4/
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3_608/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ~/hussain/img/1920x1056/dog_1920x1056.jpg
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:608
+model.height:608
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=3
+result type is 2
+i:3 left:1223.8 right:1694.16 top:154.21 bottom:314.078
+i:3 left:270 right:1447.89 top:209.381 bottom:788.46
+i:3 left:370.242 right:753.904 top:410.405 bottom:990.278
+ khadas@Khadas:~/hussain/sample_demo_x11_yolov3_608/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ~/hussain/img/1920x1056/person_1920x1056.jpg
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:608
+model.height:608
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=3
+result type is 2
+i:3 left:576.057 right:808.759 top:224.556 bottom:969.128
+i:3 left:1189.88 right:1822.43 top:317.091 bottom:896.963
+i:3 left:228.718 right:595.034 top:657.77 bottom:863.045
+khadas@Khadas:~/hussain/sample_demo_x11_yolov3_608/bin_r_cv4$

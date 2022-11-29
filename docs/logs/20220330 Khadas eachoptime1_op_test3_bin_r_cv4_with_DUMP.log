@@ -1,0 +1,17 @@
+khadas@Khadas-teco:~/sajjad/eachoptime1/op_test3$ ./build_vx.sh 
+  COMPILE /home/khadas/sajjad/eachoptime1/op_test3/vnn_pre_process.c
+  COMPILE /home/khadas/sajjad/eachoptime1/op_test3/vnn_mobilenettf.c
+  COMPILE /home/khadas/sajjad/eachoptime1/op_test3/main.c
+  COMPILE /home/khadas/sajjad/eachoptime1/op_test3/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/eachoptime1/op_test3$ export VIVANTE_SDK_DIR=/home/khadas/sajjad/eachoptime1/Just_for_get_op_time/data/vcmdtools
+khadas@Khadas-teco:~/sajjad/eachoptime1/op_test3$ export LD_LIBRARY_PATH=/home/khadas/sajjad/eachoptime1/Just_for_get_op_time/data/drivers_64_exportdata
+khadas@Khadas-teco:~/sajjad/eachoptime1/op_test3$ export VIV_VX_DEBUG_LEVEL=1
+khadas@Khadas-teco:~/sajjad/eachoptime1/op_test3$ export CNN_PERF=1
+khadas@Khadas-teco:~/sajjad/eachoptime1/op_test3$ export NN_LAYER_DUMP=1
+khadas@Khadas-teco:~/sajjad/eachoptime1/op_test3$ cd bin_r_cv4
+khadas@Khadas-teco:~/sajjad/eachoptime1/op_test3/bin_r_cv4$ ./detect_mobilnet ../                                                                                                
+bin_r_cv4/              build_vx.sh             main.c                  makefile.linux.def      vnn_global.h            vnn_mobilenettf.h       vnn_post_process.h      vnn_pre_process.h
+bin_r_cv4_without DUMP/ linux_build_sample.log  makefile.linux          makefile.target_name    vnn_mobilenettf.c       vnn_post_process.c      vnn_pre_process.c       
+khadas@Khadas-teco:~/sajjad/eachoptime1/op_test3/bin_r_cv4$ ./detect_mobilnet ../no .export.data file^C
+khadas@Khadas-teco:~/sajjad/eachoptime1/op_test3/bin_r_cv4$

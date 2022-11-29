@@ -1,0 +1,51 @@
+khadas@Khadas:~/hussain/compilable/nbg_unify_mobilenet_tf_original$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/compilable/nbg_unify_mobilenet_tf_original/vnn_pre_process.c
+  COMPILE /home/khadas/hussain/compilable/nbg_unify_mobilenet_tf_original/vnn_mobilenettf.c
+vnn_mobilenettf.c: In function ‘vnn_CreateMobilenetTf’:
+vnn_mobilenettf.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_mobilenettf.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/hussain/compilable/nbg_unify_mobilenet_tf_original/main.c
+  COMPILE /home/khadas/hussain/compilable/nbg_unify_mobilenet_tf_original/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas:~/hussain/compilable/nbg_unify_mobilenet_tf_original$ cd bin_r/
+khadas@Khadas:~/hussain/compilable/nbg_unify_mobilenet_tf_original/bin_r$ ls
+main.o  vnn_mobilenettf.o  vnn_post_process.o  vnn_pre_process.o  yolov3
+khadas@Khadas:~/hussain/compilable/nbg_unify_mobilenet_tf_original/bin_r$ cd ..
+khadas@Khadas:~/hussain/compilable/nbg_unify_mobilenet_tf_original$ vim makefile.linux
+khadas@Khadas:~/hussain/compilable/nbg_unify_mobilenet_tf_original$ rm -rf bin_r/
+khadas@Khadas:~/hussain/compilable/nbg_unify_mobilenet_tf_original$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/compilable/nbg_unify_mobilenet_tf_original/vnn_pre_process.c
+  COMPILE /home/khadas/hussain/compilable/nbg_unify_mobilenet_tf_original/vnn_mobilenettf.c
+vnn_mobilenettf.c: In function ‘vnn_CreateMobilenetTf’:
+vnn_mobilenettf.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_mobilenettf.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/hussain/compilable/nbg_unify_mobilenet_tf_original/main.c
+  COMPILE /home/khadas/hussain/compilable/nbg_unify_mobilenet_tf_original/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas:~/hussain/compilable/nbg_unify_mobilenet_tf_original$ cd bin_r/
+khadas@Khadas:~/hussain/compilable/nbg_unify_mobilenet_tf_original/bin_r$ ./mobilenet ../mobilenet_tf.nb ../space_shuttle_224.jpg
+Create Neural Network: 95ms or 95930us
+Verify...
+Verify Graph: 4ms or 4335us
+Start run graph [1] times...
+Run the 1 time: 22.00ms or 22772.00us
+vxProcessGraph execution time:
+Total   23.00ms or 23281.00us
+Average 23.28ms or 23281.00us
+ --- Top5 ---
+813: 0.999023
+405: 0.000266
+868: 0.000135
+896: 0.000108
+  0: 0.000000
+khadas@Khadas:~/hussain/compilable/nbg_unify_mobilenet_tf_original/bin_r$

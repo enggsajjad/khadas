@@ -1,0 +1,423 @@
+======================================================
+20220623 adding nopnet nbg (minimal) and standalone to novelsense git
+======================================================
+khadas@Khadas-teco:~$ cd hussain/
+khadas@Khadas-teco:~/hussain$ ls
+aml_npu_app     aml_npu_demo_binaries     img                       nbg     standalone_v3
+aml_npu_appwog  aml_npu_demo_binarieswog  Just_for_get_op_time_new  nopnet
+khadas@Khadas-teco:~/hussain$ mkdir novelsense_git
+khadas@Khadas-teco:~/hussain$ cd novelsense_git/
+khadas@Khadas-teco:~/hussain/novelsense_git$ git clone https://enggsajjad123@bitbucket.org/novelsense/khadas.git
+Cloning into 'khadas'...
+Password for 'https://enggsajjad123@bitbucket.org':
+remote: Enumerating objects: 235, done.
+remote: Counting objects: 100% (235/235), done.
+remote: Compressing objects: 100% (214/214), done.
+remote: Total 235 (delta 70), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (235/235), 18.95 MiB | 1.27 MiB/s, done.
+Resolving deltas: 100% (70/70), done.
+khadas@Khadas-teco:~/hussain/novelsense_git$ ls
+khadas
+khadas@Khadas-teco:~/hussain/novelsense_git$ cd khadas/
+khadas@Khadas-teco:~/hussain/novelsense_git/khadas$ ls
+example-network  README.md  test-quant-network
+khadas@Khadas-teco:~/hussain/novelsense_git/khadas$ git branch
+* master
+khadas@Khadas-teco:~/hussain/novelsense_git/khadas$ git checkout -b dev_sajjad
+Switched to a new branch 'dev_sajjad'
+khadas@Khadas-teco:~/hussain/novelsense_git/khadas$ cp -r ../../nbg .
+khadas@Khadas-teco:~/hussain/novelsense_git/khadas$ git add --all
+khadas@Khadas-teco:~/hussain/novelsense_git/khadas$ git commit -m "adding minimal code for yolov3 generated from sdk nbg folder"
+[dev_sajjad 2d441dc] adding minimal code for yolov3 generated from sdk nbg folder
+ 61 files changed, 7975 insertions(+)
+ create mode 100644 nbg/execution log.log
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/.cproject
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/.project
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/1080p-416x416.jpg
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/1080p-608x608.jpg
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/BUILD
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/bin_r_cv4/input_0.dat
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/bin_r_cv4/main.o
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/bin_r_cv4/output0_13_13_255_1.dat
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/bin_r_cv4/output1_26_26_255_1.dat
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/bin_r_cv4/output2_52_52_255_1.dat
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/bin_r_cv4/vnn_post_process.o
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/bin_r_cv4/vnn_pre_process.o
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/bin_r_cv4/vnn_yolov3.o
+ create mode 100755 nbg/yolov3_nbg_unify_416_hussainA/bin_r_cv4/yolov3test
+ create mode 100755 nbg/yolov3_nbg_unify_416_hussainA/build_vx.sh
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/linux_build_sample.log
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/main.c
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/makefile.linux
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/makefile.linux.def
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/makefile.target_name
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/nbg_meta.json
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/vnn_global.h
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/vnn_post_process.c
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/vnn_post_process.h
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/vnn_pre_process.c
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/vnn_pre_process.h
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/vnn_yolov3.c
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/vnn_yolov3.h
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/yolov3.vcxproj
+ create mode 100644 nbg/yolov3_nbg_unify_416_hussainA/yolov3_88.nb
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/.cproject
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/.project
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/1080p-416x416.jpg
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/1080p-608x608.jpg
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/BUILD
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/bin_r_cv4/input_0.dat
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/bin_r_cv4/main.o
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/bin_r_cv4/output0_19_19_255_1.dat
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/bin_r_cv4/output1_38_38_255_1.dat
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/bin_r_cv4/output2_76_76_255_1.dat
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/bin_r_cv4/vnn_post_process.o
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/bin_r_cv4/vnn_pre_process.o
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/bin_r_cv4/vnn_yolov3.o
+ create mode 100755 nbg/yolov3_nbg_unify_608_hussainA/bin_r_cv4/yolov3test
+ create mode 100755 nbg/yolov3_nbg_unify_608_hussainA/build_vx.sh
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/linux_build_sample.log
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/main.c
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/makefile.linux
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/makefile.linux.def
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/makefile.target_name
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/nbg_meta.json
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/vnn_global.h
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/vnn_post_process.c
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/vnn_post_process.h
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/vnn_pre_process.c
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/vnn_pre_process.h
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/vnn_yolov3.c
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/vnn_yolov3.h
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/yolov3.vcxproj
+ create mode 100644 nbg/yolov3_nbg_unify_608_hussainA/yolov3_88.nb
+khadas@Khadas-teco:~/hussain/novelsense_git/khadas$ git push --all
+Password for 'https://enggsajjad123@bitbucket.org':
+Enumerating objects: 45, done.
+Counting objects: 100% (45/45), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (43/43), done.
+Writing objects: 100% (44/44), 81.12 MiB | 2.05 MiB/s, done.
+Total 44 (delta 6), reused 0 (delta 0)
+remote:
+remote: Create pull request for dev_sajjad:
+remote:   https://bitbucket.org/novelsense/khadas/pull-requests/new?source=dev_sajjad&t=1
+remote:
+To https://bitbucket.org/novelsense/khadas.git
+ * [new branch]      dev_sajjad -> dev_sajjad
+khadas@Khadas-teco:~/hussain/novelsense_git/khadas$ cp -r ../../nopnet .
+khadas@Khadas-teco:~/hussain/novelsense_git/khadas$ git add --all
+khadas@Khadas-teco:~/hussain/novelsense_git/khadas$ git commit -m "adding the profiling for nopnet with and without Markus extra code adaption for bytes comparision"
+[dev_sajjad 3a4f8e1] adding the profiling for nopnet with and without Markus extra code adaption for bytes comparision
+ 200 files changed, 56728 insertions(+)
+ create mode 100644 nopnet/execution log.log
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/.project
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/28x28.jpg
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/BUILD
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/README.md
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/bin_r_cv4/main.o
+ create mode 100755 nopnet/newimage/3_compile_and_run_using_c_code1/bin_r_cv4/nopnet
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/bin_r_cv4/vnn_nopnet.o
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/bin_r_cv4/vnn_post_process.o
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/bin_r_cv4/vnn_pre_process.o
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/bin_r_cv4_newimage/input_0.dat
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/bin_r_cv4_newimage/main.o
+ create mode 100755 nopnet/newimage/3_compile_and_run_using_c_code1/bin_r_cv4_newimage/nopnet
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/bin_r_cv4_newimage/output0_2352.dat
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/bin_r_cv4_newimage/vnn_nopnet.o
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/bin_r_cv4_newimage/vnn_post_process.o
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/bin_r_cv4_newimage/vnn_pre_process.o
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/black.jpg
+ create mode 100755 nopnet/newimage/3_compile_and_run_using_c_code1/build_vx.sh
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/input_0.dat
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/linux_build_sample.log
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/main.c
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/makefile.linux
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/makefile.linux.def
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/makefile.target_name
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/nbg_meta.json
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/nopnet.vcxproj
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/nopnet_88.nb
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/output0_2352.dat
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/vnn_global.h
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/vnn_nopnet.c
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/vnn_nopnet.h
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/vnn_post_process.c
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/vnn_post_process.h
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/vnn_pre_process.c
+ create mode 100644 nopnet/newimage/3_compile_and_run_using_c_code1/vnn_pre_process.h
+ create mode 100644 nopnet/newimage/op_test_nopnet/0_network_binary_graph_operation_0.txt
+ create mode 100644 nopnet/newimage/op_test_nopnet/28x28.jpg
+ create mode 100644 nopnet/newimage/op_test_nopnet/bin_r_cv4/0_network_binary_graph_operation_0.txt
+ create mode 100644 nopnet/newimage/op_test_nopnet/bin_r_cv4/gpuID_0_tensorName_uid_0_out_0_NodeID_0_network_binary_graph_w_2352_h_1_d_1_batchID_0_out_0.txt
+ create mode 100644 nopnet/newimage/op_test_nopnet/bin_r_cv4/input_0.dat
+ create mode 100644 nopnet/newimage/op_test_nopnet/bin_r_cv4/layer_0_TensorAdd_operation_1_out_0_size_2352.bin
+ create mode 100644 nopnet/newimage/op_test_nopnet/bin_r_cv4/main.o
+ create mode 100755 nopnet/newimage/op_test_nopnet/bin_r_cv4/nopnet
+ create mode 100644 nopnet/newimage/op_test_nopnet/bin_r_cv4/output0_2352.dat
+ create mode 100644 nopnet/newimage/op_test_nopnet/bin_r_cv4/vnn_nopnet.o
+ create mode 100644 nopnet/newimage/op_test_nopnet/bin_r_cv4/vnn_post_process.o
+ create mode 100644 nopnet/newimage/op_test_nopnet/bin_r_cv4/vnn_pre_process.o
+ create mode 100644 nopnet/newimage/op_test_nopnet/black.jpg
+ create mode 100755 nopnet/newimage/op_test_nopnet/build_profile.sh
+ create mode 100755 nopnet/newimage/op_test_nopnet/build_vx.sh
+ create mode 100644 nopnet/newimage/op_test_nopnet/gpuID_0_tensorName_uid_0_out_0_NodeID_0_network_binary_graph_w_2352_h_1_d_1_batchID_0_out_0.txt
+ create mode 100644 nopnet/newimage/op_test_nopnet/input_0.dat
+ create mode 100644 nopnet/newimage/op_test_nopnet/layer_0_TensorAdd_operation_1_out_0_size_2352.bin
+ create mode 100644 nopnet/newimage/op_test_nopnet/linux_build_sample.log
+ create mode 100644 nopnet/newimage/op_test_nopnet/main.c
+ create mode 100644 nopnet/newimage/op_test_nopnet/makefile.linux
+ create mode 100644 nopnet/newimage/op_test_nopnet/makefile.linux.def
+ create mode 100644 nopnet/newimage/op_test_nopnet/makefile.target_name
+ create mode 100644 nopnet/newimage/op_test_nopnet/nbg_meta.json
+ create mode 100644 nopnet/newimage/op_test_nopnet/nopnet.export.data
+ create mode 100644 nopnet/newimage/op_test_nopnet/nopnet_88.nb
+ create mode 100644 nopnet/newimage/op_test_nopnet/output0_2352.dat
+ create mode 100644 nopnet/newimage/op_test_nopnet/vnn_global.h
+ create mode 100644 nopnet/newimage/op_test_nopnet/vnn_nopnet.c
+ create mode 100644 nopnet/newimage/op_test_nopnet/vnn_nopnet.h
+ create mode 100644 nopnet/newimage/op_test_nopnet/vnn_post_process.c
+ create mode 100644 nopnet/newimage/op_test_nopnet/vnn_post_process.h
+ create mode 100644 nopnet/newimage/op_test_nopnet/vnn_pre_process.c
+ create mode 100644 nopnet/newimage/op_test_nopnet/vnn_pre_process.h
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/0_network_binary_graph_operation_0.txt
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/28x28.jpg
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/bin_r_cv4/0_network_binary_graph_operation_0.txt
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/bin_r_cv4/gpuID_0_tensorName_uid_0_out_0_NodeID_0_network_binary_graph_w_2352_h_1_d_1_batchID_0_out_0.txt
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/bin_r_cv4/input_0.dat
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/bin_r_cv4/layer_0_TensorAdd_operation_1_out_0_size_2352.bin
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/bin_r_cv4/main.o
+ create mode 100755 nopnet/newimage/op_test_nopnet_adapted/bin_r_cv4/nopnet
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/bin_r_cv4/output0_2352.dat
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/bin_r_cv4/vnn_nopnet.o
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/bin_r_cv4/vnn_post_process.o
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/bin_r_cv4/vnn_pre_process.o
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/black.jpg
+ create mode 100755 nopnet/newimage/op_test_nopnet_adapted/build_profile.sh
+ create mode 100755 nopnet/newimage/op_test_nopnet_adapted/build_vx.sh
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/gpuID_0_tensorName_uid_0_out_0_NodeID_0_network_binary_graph_w_2352_h_1_d_1_batchID_0_out_0.txt
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/input_0.dat
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/layer_0_TensorAdd_operation_1_out_0_size_2352.bin
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/linux_build_sample.log
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/main.c
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/makefile.linux
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/makefile.linux.def
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/makefile.target_name
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/nbg_meta.json
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/nopnet.export.data
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/nopnet_88.nb
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/output0_2352.dat
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/vnn_global.h
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/vnn_nopnet.c
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/vnn_nopnet.h
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/vnn_post_process.c
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/vnn_post_process.h
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/vnn_pre_process.c
+ create mode 100644 nopnet/newimage/op_test_nopnet_adapted/vnn_pre_process.h
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/.project
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/28x28.jpg
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/BUILD
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/README.md
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/bin_r_cv4/main.o
+ create mode 100755 nopnet/oldimage/3_compile_and_run_using_c_code1/bin_r_cv4/nopnet
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/bin_r_cv4/vnn_nopnet.o
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/bin_r_cv4/vnn_post_process.o
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/bin_r_cv4/vnn_pre_process.o
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/black.jpg
+ create mode 100755 nopnet/oldimage/3_compile_and_run_using_c_code1/build_vx.sh
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/input_0.dat
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/linux_build_sample.log
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/main.c
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/makefile.linux
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/makefile.linux.def
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/makefile.target_name
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/nbg_meta.json
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/nopnet.vcxproj
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/nopnet_88.nb
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/output0_2352.dat
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/vnn_global.h
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/vnn_nopnet.c
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/vnn_nopnet.h
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/vnn_post_process.c
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/vnn_post_process.h
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/vnn_pre_process.c
+ create mode 100644 nopnet/oldimage/3_compile_and_run_using_c_code1/vnn_pre_process.h
+ create mode 100644 nopnet/oldimage/op_test_nopnet/0_network_binary_graph_operation_0.txt
+ create mode 100644 nopnet/oldimage/op_test_nopnet/28x28.jpg
+ create mode 100644 nopnet/oldimage/op_test_nopnet/bin_r_cv4/0_network_binary_graph_operation_0.txt
+ create mode 100644 nopnet/oldimage/op_test_nopnet/bin_r_cv4/gpuID_0_tensorName_uid_0_out_0_NodeID_0_network_binary_graph_w_2352_h_1_d_1_batchID_0_out_0.txt
+ create mode 100644 nopnet/oldimage/op_test_nopnet/bin_r_cv4/input_0.dat
+ create mode 100644 nopnet/oldimage/op_test_nopnet/bin_r_cv4/layer_0_TensorAdd_operation_1_out_0_size_2352.bin
+ create mode 100644 nopnet/oldimage/op_test_nopnet/bin_r_cv4/main.o
+ create mode 100755 nopnet/oldimage/op_test_nopnet/bin_r_cv4/nopnet
+ create mode 100644 nopnet/oldimage/op_test_nopnet/bin_r_cv4/output0_2352.dat
+ create mode 100644 nopnet/oldimage/op_test_nopnet/bin_r_cv4/vnn_nopnet.o
+ create mode 100644 nopnet/oldimage/op_test_nopnet/bin_r_cv4/vnn_post_process.o
+ create mode 100644 nopnet/oldimage/op_test_nopnet/bin_r_cv4/vnn_pre_process.o
+ create mode 100644 nopnet/oldimage/op_test_nopnet/black.jpg
+ create mode 100755 nopnet/oldimage/op_test_nopnet/build_profile.sh
+ create mode 100755 nopnet/oldimage/op_test_nopnet/build_vx.sh
+ create mode 100644 nopnet/oldimage/op_test_nopnet/gpuID_0_tensorName_uid_0_out_0_NodeID_0_network_binary_graph_w_2352_h_1_d_1_batchID_0_out_0.txt
+ create mode 100644 nopnet/oldimage/op_test_nopnet/input_0.dat
+ create mode 100644 nopnet/oldimage/op_test_nopnet/layer_0_TensorAdd_operation_1_out_0_size_2352.bin
+ create mode 100644 nopnet/oldimage/op_test_nopnet/linux_build_sample.log
+ create mode 100644 nopnet/oldimage/op_test_nopnet/main.c
+ create mode 100644 nopnet/oldimage/op_test_nopnet/makefile.linux
+ create mode 100644 nopnet/oldimage/op_test_nopnet/makefile.linux.def
+ create mode 100644 nopnet/oldimage/op_test_nopnet/makefile.target_name
+ create mode 100644 nopnet/oldimage/op_test_nopnet/nbg_meta.json
+ create mode 100644 nopnet/oldimage/op_test_nopnet/nopnet.export.data
+ create mode 100644 nopnet/oldimage/op_test_nopnet/nopnet_88.nb
+ create mode 100644 nopnet/oldimage/op_test_nopnet/output0_2352.dat
+ create mode 100644 nopnet/oldimage/op_test_nopnet/vnn_global.h
+ create mode 100644 nopnet/oldimage/op_test_nopnet/vnn_nopnet.c
+ create mode 100644 nopnet/oldimage/op_test_nopnet/vnn_nopnet.h
+ create mode 100644 nopnet/oldimage/op_test_nopnet/vnn_post_process.c
+ create mode 100644 nopnet/oldimage/op_test_nopnet/vnn_post_process.h
+ create mode 100644 nopnet/oldimage/op_test_nopnet/vnn_pre_process.c
+ create mode 100644 nopnet/oldimage/op_test_nopnet/vnn_pre_process.h
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/0_network_binary_graph_operation_0.txt
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/28x28.jpg
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/bin_r_cv4/0_network_binary_graph_operation_0.txt
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/bin_r_cv4/gpuID_0_tensorName_uid_0_out_0_NodeID_0_network_binary_graph_w_2352_h_1_d_1_batchID_0_out_0.txt
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/bin_r_cv4/input_0.dat
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/bin_r_cv4/layer_0_TensorAdd_operation_1_out_0_size_2352.bin
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/bin_r_cv4/main.o
+ create mode 100755 nopnet/oldimage/op_test_nopnet_adapted/bin_r_cv4/nopnet
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/bin_r_cv4/output0_2352.dat
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/bin_r_cv4/vnn_nopnet.o
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/bin_r_cv4/vnn_post_process.o
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/bin_r_cv4/vnn_pre_process.o
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/black.jpg
+ create mode 100755 nopnet/oldimage/op_test_nopnet_adapted/build_profile.sh
+ create mode 100755 nopnet/oldimage/op_test_nopnet_adapted/build_vx.sh
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/gpuID_0_tensorName_uid_0_out_0_NodeID_0_network_binary_graph_w_2352_h_1_d_1_batchID_0_out_0.txt
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/input_0.dat
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/layer_0_TensorAdd_operation_1_out_0_size_2352.bin
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/linux_build_sample.log
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/main.c
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/makefile.linux
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/makefile.linux.def
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/makefile.target_name
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/nbg_meta.json
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/nopnet.export.data
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/nopnet_88.nb
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/output0_2352.dat
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/vnn_global.h
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/vnn_nopnet.c
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/vnn_nopnet.h
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/vnn_post_process.c
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/vnn_post_process.h
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/vnn_pre_process.c
+ create mode 100644 nopnet/oldimage/op_test_nopnet_adapted/vnn_pre_process.h
+khadas@Khadas-teco:~/hussain/novelsense_git/khadas$ git push --all
+Password for 'https://enggsajjad123@bitbucket.org':
+Enumerating objects: 66, done.
+Counting objects: 100% (66/66), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (65/65), done.
+Writing objects: 100% (65/65), 192.36 KiB | 2.71 MiB/s, done.
+Total 65 (delta 32), reused 0 (delta 0)
+remote:
+remote: Create pull request for dev_sajjad:
+remote:   https://bitbucket.org/novelsense/khadas/pull-requests/new?source=dev_sajjad&t=1
+remote:
+To https://bitbucket.org/novelsense/khadas.git
+   2d441dc..3a4f8e1  dev_sajjad -> dev_sajjad
+khadas@Khadas-teco:~/hussain/novelsense_git/khadas$ cp -r ../../standalone_v3 standalone
+khadas@Khadas-teco:~/hussain/novelsense_git/khadas$ git add --all
+khadas@Khadas-teco:~/hussain/novelsense_git/khadas$ git commit -m "adding standalone for yolov3 without requiring libnn_detect.so and libnn_yolov3.so"
+[dev_sajjad 457285e] adding standalone for yolov3 without requiring libnn_detect.so and libnn_yolov3.so
+ 77 files changed, 7331 insertions(+)
+ create mode 100644 standalone/execution log.log
+ create mode 100644 standalone/newscripts/sample_demo_x11B/1.bmp
+ create mode 100644 standalone/newscripts/sample_demo_x11B/1080p.bmp
+ create mode 100644 standalone/newscripts/sample_demo_x11B/2.bmp
+ create mode 100644 standalone/newscripts/sample_demo_x11B/ReadMe.txt
+ create mode 100755 standalone/newscripts/sample_demo_x11B/bin_r_cv4/detect_demo_x11
+ create mode 100644 standalone/newscripts/sample_demo_x11B/bin_r_cv4/detect_log.o
+ create mode 100644 standalone/newscripts/sample_demo_x11B/bin_r_cv4/main.o
+ create mode 100644 standalone/newscripts/sample_demo_x11B/bin_r_cv4/nn_data/yolov3_88.nb
+ create mode 100644 standalone/newscripts/sample_demo_x11B/bin_r_cv4/output.bmp
+ create mode 100644 standalone/newscripts/sample_demo_x11B/bin_r_cv4/output0_13_13_255_1.dat
+ create mode 100644 standalone/newscripts/sample_demo_x11B/bin_r_cv4/output1_26_26_255_1.dat
+ create mode 100644 standalone/newscripts/sample_demo_x11B/bin_r_cv4/output2_52_52_255_1.dat
+ create mode 100644 standalone/newscripts/sample_demo_x11B/bin_r_cv4/vnn_yolov3.o
+ create mode 100644 standalone/newscripts/sample_demo_x11B/bin_r_cv4/yolo_v3.o
+ create mode 100644 standalone/newscripts/sample_demo_x11B/bin_r_cv4/yolov3_process.o
+ create mode 100644 standalone/newscripts/sample_demo_x11B/build_vx.sh
+ create mode 100644 standalone/newscripts/sample_demo_x11B/detect_c
+ create mode 100644 standalone/newscripts/sample_demo_x11B/detect_log.c
+ create mode 100644 standalone/newscripts/sample_demo_x11B/dog_1920*1080.bmp
+ create mode 100644 standalone/newscripts/sample_demo_x11B/emb.db
+ create mode 100644 standalone/newscripts/sample_demo_x11B/include/detect.h
+ create mode 100644 standalone/newscripts/sample_demo_x11B/include/detect_log.h
+ create mode 100644 standalone/newscripts/sample_demo_x11B/include/nbg_meta.json
+ create mode 100644 standalone/newscripts/sample_demo_x11B/include/nn_detect.h
+ create mode 100644 standalone/newscripts/sample_demo_x11B/include/nn_detect_common.h
+ create mode 100644 standalone/newscripts/sample_demo_x11B/include/nn_detect_utils.h
+ create mode 100644 standalone/newscripts/sample_demo_x11B/include/vnn_global.h
+ create mode 100644 standalone/newscripts/sample_demo_x11B/include/vnn_post_process.h
+ create mode 100644 standalone/newscripts/sample_demo_x11B/include/vnn_pre_process.h
+ create mode 100644 standalone/newscripts/sample_demo_x11B/include/vnn_yolov3.h
+ create mode 100644 standalone/newscripts/sample_demo_x11B/include/yolo_v3.h
+ create mode 100644 standalone/newscripts/sample_demo_x11B/include/yolov3_process.h
+ create mode 100644 standalone/newscripts/sample_demo_x11B/linux_build_sample.log
+ create mode 100644 standalone/newscripts/sample_demo_x11B/main.cpp
+ create mode 100644 standalone/newscripts/sample_demo_x11B/makefile.linux
+ create mode 100644 standalone/newscripts/sample_demo_x11B/makefile.linux.def
+ create mode 100644 standalone/newscripts/sample_demo_x11B/makefile.target_name
+ create mode 100644 standalone/newscripts/sample_demo_x11B/vnn_yolov3.c
+ create mode 100644 standalone/newscripts/sample_demo_x11B/yolo_v3.c
+ create mode 100644 standalone/newscripts/sample_demo_x11B/yolov3_process.c
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/1080p.bmp
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/ReadMe.txt
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/bin_r_cv4/detect_demo_x11
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/bin_r_cv4/detect_log.o
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/bin_r_cv4/main.o
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/bin_r_cv4/nn_data/yolov3_88.nb
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/bin_r_cv4/output.bmp
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/bin_r_cv4/vnn_yolov3.o
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/bin_r_cv4/yolo_v3.o
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/bin_r_cv4/yolov3_process.o
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/build_vx.sh
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/detect_c
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/detect_log.c
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/emb.db
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/include/detect.h
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/include/detect_log.h
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/include/nn_detect.h
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/include/nn_detect_common.h
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/include/nn_detect_utils.h
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/include/vnn_global.h
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/include/vnn_post_process.h
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/include/vnn_pre_process.h
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/include/vnn_yolov3.h
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/include/yolo_v3.h
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/include/yolov3_process.h
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/linux_build_sample.log
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/main.cpp
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/makefile.linux
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/makefile.linux.def
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/makefile.target_name
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/vnn_post_process.h
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/vnn_pre_process.h
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/vnn_yolov3.c
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/vnn_yolov3.h
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/yolo_v3.c
+ create mode 100644 standalone/oldscripts/sample_demo_x11B/yolov3_process.c
+khadas@Khadas-teco:~/hussain/novelsense_git/khadas$ git push --all
+Password for 'https://enggsajjad123@bitbucket.org':
+Enumerating objects: 57, done.
+Counting objects: 100% (57/57), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (52/52), done.
+Writing objects: 100% (56/56), 21.22 MiB | 2.94 MiB/s, done.
+Total 56 (delta 11), reused 0 (delta 0)
+remote:
+remote: Create pull request for dev_sajjad:
+remote:   https://bitbucket.org/novelsense/khadas/pull-requests/new?source=dev_sajjad&t=1
+remote:
+To https://bitbucket.org/novelsense/khadas.git
+   3a4f8e1..457285e  dev_sajjad -> dev_sajjad
+khadas@Khadas-teco:~/hussain/novelsense_git/khadas$

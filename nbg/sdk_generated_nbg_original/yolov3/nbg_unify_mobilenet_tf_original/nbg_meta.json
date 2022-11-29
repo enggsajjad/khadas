@@ -1,0 +1,36 @@
+{
+    "Inputs": {
+        "attach_input/out0_1": {
+            "name": "attach_input/out0",
+            "shape": [
+                1,
+                224,
+                224,
+                3
+            ],
+            "format": "nhwc",
+            "quantizer": "asymmetric_affine",
+            "quantize": {
+                "qtype": "u8",
+                "zero_point": [
+                    128
+                ],
+                "scale": [
+                    0.0078125
+                ]
+            }
+        }
+    },
+    "Outputs": {
+        "attach_MobilenetV1/Predictions/Softmax/out0_0": {
+            "name": "attach_MobilenetV1/Predictions/Softmax/out0",
+            "shape": [
+                1,
+                1001
+            ],
+            "format": "nhwc",
+            "dtype": "float32"
+        }
+    },
+    "Recurrent_connections": {}
+}

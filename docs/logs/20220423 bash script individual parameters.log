@@ -1,0 +1,275 @@
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ ../bin/convertensorflow --help
+usage: convertensorflow [-h] --tf-pb TF_PB [--inputs INPUTS]
+                        [--input-size-list INPUT_SIZE_LIST]
+                        [--size-with-batch SIZE_WITH_BATCH]
+                        [--mean-values MEAN_VALUES] [--std-values STD_VALUES]
+                        [--outputs OUTPUTS] [--net-output NET_OUTPUT]
+                        [--data-output DATA_OUTPUT]
+                        [--predef-file PREDEF_FILE] [--subgraphs SUBGRAPHS]
+
+Tensorzone convert tool.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --tf-pb TF_PB         Tensorflow model proto file
+  --inputs INPUTS       User give feed inputs
+  --input-size-list INPUT_SIZE_LIST
+                        Set each input tensor size list, each input size split
+                        by #, each size split by ,Each entry in the list
+                        should match an entry in '--inputs'
+  --size-with-batch SIZE_WITH_BATCH
+                        Set each input tensor size if contain batch dim or
+                        not, each input batch split by #,
+  --mean-values MEAN_VALUES
+                        mean values parameter, comma-separated list of
+                        doubles,Each entry in the list should match an entry
+                        in '--inputs'
+  --std-values STD_VALUES
+                        std values parameter, comma-separated list of
+                        doubles,Each entry in the list should match an entry
+                        in '--inputs'
+  --outputs OUTPUTS     User give fetch outputs
+  --net-output NET_OUTPUT
+                        Acuity net output file
+  --data-output DATA_OUTPUT
+                        Acuity net data output file
+  --predef-file PREDEF_FILE
+                        To support some control logic, need provide a npz
+                        format predef-file, generate it like
+                        np.savez('prd.npz',
+                        placeholder_name=predefine_value).If there are numpy
+                        not support character in placeholder name, you can use
+                        'map' as key word to store a dict to map it to normal
+                        key valueeg: 'inference/train_stage' is placeholder
+                        name, numpy not support '/', you can use:
+                        np.savez('prd.npz', stage=False,
+                        map={'stage':'inference/train_stage'}
+  --subgraphs SUBGRAPHS
+                        Sepecify subgraph input and output nodes. To support
+                        complex network import syntax "g1in1,g1in2,...#g1o1,g1
+                        o2,...;g2in1,g2i2,...#g2o1,g2o2..." ','use for node
+                        split, '#' use for in out split, ';' use for graph
+                        split.
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ ../bin/convertonnx --help
+usage: convertonnx [-h] --onnx-model ONNX_MODEL [--inputs INPUTS]
+                   [--input-size-list INPUT_SIZE_LIST]
+                   [--size-with-batch SIZE_WITH_BATCH]
+                   [--input-dtype-list INPUT_DTYPE_LIST] [--outputs OUTPUTS]
+                   [--net-output NET_OUTPUT] [--data-output DATA_OUTPUT]
+
+ONNX convert tool.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --onnx-model ONNX_MODEL
+                        ONNX model proto file
+  --inputs INPUTS       User give feed inputs
+  --input-size-list INPUT_SIZE_LIST
+                        User specified input tensor size list.
+  --size-with-batch SIZE_WITH_BATCH
+                        Set input tensor size list if contain batch dim or
+                        not.
+  --input-dtype-list INPUT_DTYPE_LIST
+                        Set input tensor dtype list. e.g. "int8", "uint8",
+                        "int16", "uint16" "float".
+  --outputs OUTPUTS     User give fetch outputs
+  --net-output NET_OUTPUT
+                        Acuity net output file
+  --data-output DATA_OUTPUT
+                        Acuity net data output file
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ ../bin/tensorzonex --help
+usage: tensorzonex [-h] [--action ACTION] [--debug] [--dtype DTYPE]
+                   [--device DEVICE] --model-input MODEL_INPUT
+                   [--model-data MODEL_DATA] [--model-quantize MODEL_QUANTIZE]
+                   [--model-data-format MODEL_DATA_FORMAT]
+                   [--validation-output VALIDATION_OUTPUT] [--source SOURCE]
+                   [--source-file SOURCE_FILE] [--restart]
+                   [--batch-size BATCH_SIZE] [--samples SAMPLES]
+                   [--config CONFIG] [--output-num OUTPUT_NUM]
+                   [--data-output DATA_OUTPUT] [--epochs EPOCHS]
+                   [--optimizer OPTIMIZER] [--lr LR]
+                   [--epochs-per-decay EPOCHS_PER_DECAY]
+                   [--quantized-dtype QUANTIZED_DTYPE]
+                   [--quantized-moving-alpha QUANTIZED_MOVING_ALPHA]
+                   [--quantized-algorithm QUANTIZED_ALGORITHM]
+                   [--quantized-divergence-nbins QUANTIZED_DIVERGENCE_NBINS]
+                   [--divergence-first-quantize-bits DIVERGENCE_FIRST_QUANTIZE_BITS]
+                   [--quantized-rebuild] [--quantized-rebuild-all]
+                   [--quantized-hybrid] [--reorder-channel REORDER_CHANNEL]
+                   [--input-fitting INPUT_FITTING]
+                   [--input-normalization INPUT_NORMALIZATION]
+                   [--channel-mean-value CHANNEL_MEAN_VALUE]
+                   [--mean-file MEAN_FILE] [--caffe-mean-file CAFFE_MEAN_FILE]
+                   [--random-crop] [--random-mirror] [--random-flip]
+                   [--random-contrast RANDOM_CONTRAST]
+                   [--random-brightness RANDOM_BRIGHTNESS] [--force-gray]
+                   [--task TASK] [--prune-epochs PRUNE_EPOCHS]
+                   [--prune-loss PRUNE_LOSS] [--fpfs-epochs FPFS_EPOCHS]
+                   [--fpfs-reduce-target FPFS_REDUCE_TARGET]
+                   [--fpfs-delta0 FPFS_DELTA0] [--pfps-epochs PFPS_EPOCHS]
+                   [--pfps-reduce-target PFPS_REDUCE_TARGET]
+                   [--pfps-delta0 PFPS_DELTA0] [--without-update-masked-grad]
+                   [--capture-format CAPTURE_FORMAT] [--capture-quantized]
+                   [--output-dir OUTPUT_DIR] [--pb-name PB_NAME]
+
+TensorZone training and testing tool.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --action ACTION       What to do for the network[train | test | inference |
+                        snapshot | quantization | measure | prune]
+  --debug               Produce additional debug output.
+  --dtype DTYPE         Data type used for calculation
+  --device DEVICE       Specify the compute device, gpu:0 or cpu:0
+  --model-input MODEL_INPUT
+                        Network model input file
+  --model-data MODEL_DATA
+                        Network coefficient input file
+  --model-quantize MODEL_QUANTIZE
+                        Quantized tensor description file
+  --model-data-format MODEL_DATA_FORMAT
+                        Network coefficient input file type
+  --validation-output VALIDATION_OUTPUT
+                        Validation output file
+  --source SOURCE       Dataset source(sqlite, text)
+  --source-file SOURCE_FILE
+                        Dataset source file
+  --restart             Do not load the trained coefficients and retrain it
+  --batch-size BATCH_SIZE
+                        Batch size.
+  --samples SAMPLES     Sample total ssize.
+  --config CONFIG       Acuity config file.
+  --output-num OUTPUT_NUM
+                        Inference Only - Number of outputs.
+  --data-output DATA_OUTPUT
+                        Train/PFPS Only - Network coefficient output file
+  --epochs EPOCHS       Train Only - Number of epochs to train the model, each
+                        epoch uses the entire training set.
+  --optimizer OPTIMIZER
+                        Train Only - SGD Optimizer (Static, Momentum)
+  --lr LR               Train Only - Learning rate.
+  --epochs-per-decay EPOCHS_PER_DECAY
+                        Train Only - Epochs required for next decay for
+                        learning rate decaying algorithms.
+  --quantized-dtype QUANTIZED_DTYPE
+                        Quantization data type
+  --quantized-moving-alpha QUANTIZED_MOVING_ALPHA
+                        Quantization parameter moving average coef.
+  --quantized-algorithm QUANTIZED_ALGORITHM
+                        Quantization algorithm, support "normal",
+                        "moving_average", "kl_divergence".
+  --quantized-divergence-nbins QUANTIZED_DIVERGENCE_NBINS
+                        kl divergence histogram nbins.
+  --divergence-first-quantize-bits DIVERGENCE_FIRST_QUANTIZE_BITS
+                        kl divergence first quantize bits.
+  --quantized-rebuild   Rebuild quantize table containing default specified
+                        tensors, mutually exclusive with --quantized-rebuild-
+                        all
+  --quantized-rebuild-all
+                        Rebuild quantize table containing all tensors,
+                        mutually exclusive with --quantized-rebuild
+  --quantized-hybrid    Setup a hybrid quantize network
+  --reorder-channel REORDER_CHANNEL
+                        Transform - Change channel to BGR or RGB.
+  --input-fitting INPUT_FITTING
+                        Transform - How to fit image input into network (scale
+                        or crop/pad).
+  --input-normalization INPUT_NORMALIZATION
+                        Transform - Normalization method for input into
+                        network (image, pixel, none).
+  --channel-mean-value CHANNEL_MEAN_VALUE
+                        Transform - Input channel mean value.
+  --mean-file MEAN_FILE
+                        Transform - Input mean file.
+  --caffe-mean-file CAFFE_MEAN_FILE
+                        Transform - Input mean file.
+  --random-crop         Transform - Augment training images with randomized
+                        crop.
+  --random-mirror       Transform - Augment training images with randomized
+                        mirror (horizontal)
+  --random-flip         Transform - Augment training images with randomized
+                        flip (vertical)
+  --random-contrast RANDOM_CONTRAST
+                        Transform - Augment training images with randomized
+                        contrast (provide min-max contrast)
+  --random-brightness RANDOM_BRIGHTNESS
+                        Transform - Augment training images with randomized
+                        brightness (provide max delta)
+  --force-gray          Force channel to gray
+  --task TASK           Related task
+  --prune-epochs PRUNE_EPOCHS
+                        AutoPruner Only - Prune max try times
+  --prune-loss PRUNE_LOSS
+                        AutoPruner Only - Prune accracy loss
+  --fpfs-epochs FPFS_EPOCHS
+                        AutoPruner Only - FPFS max try times, deprecated, use
+                        --pfps-epochs
+  --fpfs-reduce-target FPFS_REDUCE_TARGET
+                        AutoPruner Only - FPFS reduce target, deprecated, use
+                        --pfps-reduce-target
+  --fpfs-delta0 FPFS_DELTA0
+                        AutoPruner Only - delta between peak accuracy and full
+                        connection training exit,deprecated, use --pfps-delta0
+  --pfps-epochs PFPS_EPOCHS
+                        AutoPruner Only - PFPS max try times, deprecated, use
+  --pfps-reduce-target PFPS_REDUCE_TARGET
+                        AutoPruner Only - PFPS reduce target
+  --pfps-delta0 PFPS_DELTA0
+                        AutoPruner Only - delta between peak accuracy and full
+                        connection training exit
+  --without-update-masked-grad
+                        AutoPruner Only - without update the gradients of the
+                        masked weight/bias elements
+  --capture-format CAPTURE_FORMAT
+                        When saving snapshot, save data in nchw/nhwc format
+  --capture-quantized   When saving snapshot, save data in quantized format
+  --output-dir OUTPUT_DIR
+                        Output directory of snapshot files
+  --pb-name PB_NAME     Save Graph and Coefficients in Tensorflow PB format
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$ ../bin/ovxgenerator --help
+usage: ovxgenerator [-h] --model-input MODEL_INPUT --data-input DATA_INPUT
+                    [--model-quantize MODEL_QUANTIZE]
+                    [--model-output MODEL_OUTPUT] [--optimize OPTIMIZE]
+                    [--export-dtype EXPORT_DTYPE]
+                    [--channel-mean-value CHANNEL_MEAN_VALUE]
+                    [--reorder-channel REORDER_CHANNEL] [--save-fused-graph]
+                    [--pack-vdata] [--pack-nbg-unify] [--pack-nbg-viplite]
+                    [--viv-sdk VIV_SDK] [--build-platform BUILD_PLATFORM]
+                    [--target-ide-project TARGET_IDE_PROJECT]
+                    [--batch-size BATCH_SIZE] [--force-remove-permute]
+
+OpenVX Code Generator
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --model-input MODEL_INPUT
+                        Network model input file
+  --data-input DATA_INPUT
+                        Network coefficient input file
+  --model-quantize MODEL_QUANTIZE
+                        Quantized tensor description file
+  --model-output MODEL_OUTPUT
+                        Network model output file
+  --optimize OPTIMIZE   optimize network
+  --export-dtype EXPORT_DTYPE
+                        export with data type
+  --channel-mean-value CHANNEL_MEAN_VALUE
+                        Transfom - Input channel mean value.
+  --reorder-channel REORDER_CHANNEL
+                        Transfom - Change channel to BGR or RGB.
+  --save-fused-graph    Whether to save fused graph.
+  --pack-vdata          pack vdata
+  --pack-nbg-unify      pack binary graph for unify driver.
+  --pack-nbg-viplite    pack binary graph for viplite driver.
+  --viv-sdk VIV_SDK     if pack-vdata/pack-nbg-unify/pack-nbg-viplite
+                        given,please specify viv-sdk.
+  --build-platform BUILD_PLATFORM
+                        build platform for network case, support 'make' only,
+                        deprecated
+  --target-ide-project TARGET_IDE_PROJECT
+                        target ide for network case, in 'linux64','win32'
+  --batch-size BATCH_SIZE
+                        Batch size for export ovx code.
+  --force-remove-permute
+                        Try force remove permute of graph IO
+sajjad@teco:~/sajjad/npusdk3/aml_npu_sdk/acuity-toolkit/demo$

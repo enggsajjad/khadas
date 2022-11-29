@@ -1,0 +1,151 @@
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to khadas@10.10.254.119                                │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+
+Welcome to Fenix 1.0.9 Ubuntu 20.04.3 LTS Linux 4.9.241
+ _  ___               _            __     _____ __  __ _____
+| |/ / |__   __ _  __| | __ _ ___  \ \   / /_ _|  \/  |___ /
+| ' /| '_ \ / _` |/ _` |/ _` / __|  \ \ / / | || |\/| | |_ \
+| . \| | | | (_| | (_| | (_| \__ \   \ V /  | || |  | |___) |
+|_|\_\_| |_|\__,_|\__,_|\__,_|___/    \_/  |___|_|  |_|____/
+
+
+ * Website:        https://www.khadas.com
+ * Documentation:  https://docs.khadas.com
+ * Forum:          https://forum.khadas.com
+
+Last login: Tue Sep 20 20:48:54 2022 from 129.13.170.244
+khadas@Khadas:~$ cd hussain/
+khadas@Khadas:~/hussain$ l
+compilable/            nbg_unify_mnist2/    nbg_unify_mnistrA2/  nbg_unify_mnistrC0/              yolov3_nbg_unify_416_hussainA/
+Just_for_get_op_time/  nbg_unify_mnist3/    nbg_unify_mnistrA3/  nbg_unify_mnistx/
+nbg_unify_mnist/       nbg_unify_mnist4/    nbg_unify_mnistrA4/  op_test_mnist_normal_case_demo/
+nbg_unify_mnist0/      nbg_unify_mnistrA0/  nbg_unify_mnistrAx/  profile/
+nbg_unify_mnist1/      nbg_unify_mnistrA1/  nbg_unify_mnistrB0/  sample_demo_x11_yolov3/
+khadas@Khadas:~/hussain$ cp -r nbg_unify_mnist nbg_unify_mnist32
+khadas@Khadas:~/hussain$ cp -r nbg_unify_mnist nbg_unify_mnist64
+khadas@Khadas:~/hussain$ cd nbg_unify_mnist32/
+khadas@Khadas:~/hussain/nbg_unify_mnist32$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/nbg_unify_mnist32/vnn_pre_process.c
+  COMPILE /home/khadas/hussain/nbg_unify_mnist32/vnn_mnist.c
+vnn_mnist.c: In function ‘vnn_CreateMnist’:
+vnn_mnist.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_mnist.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/hussain/nbg_unify_mnist32/main.c
+  COMPILE /home/khadas/hussain/nbg_unify_mnist32/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas:~/hussain/nbg_unify_mnist32$ ./bin_r_cv4/mnist mnist.nb 0.bmp.jpg
+Create Neural Network: 12ms or 12365us
+wrong jpg file , the jpg file size should be 32 32 3
+E [_get_jpeg_data:606]CHECK PTR 606
+E [_handle_multiple_inputs:745]CHECK PTR 745
+E [vnn_PreProcessMnist:892]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E [main:233]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+khadas@Khadas:~/hussain/nbg_unify_mnist32$ convert 0.bmp.jpg -resize 32x32 032.bmp.jpg
+khadas@Khadas:~/hussain/nbg_unify_mnist32$ ./bin_r_cv4/mnist mnist.nb 032.bmp.jpg
+Create Neural Network: 13ms or 13652us
+wrong jpg file , the jpg file size should be 32 32 3
+E [_get_jpeg_data:606]CHECK PTR 606
+E [_handle_multiple_inputs:745]CHECK PTR 745
+E [vnn_PreProcessMnist:892]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E [main:233]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+khadas@Khadas:~/hussain/nbg_unify_mnist32$ file 032.bmp.jpg
+032.bmp.jpg: JPEG image data, JFIF standard 1.01, resolution (DPCM), density 37x37, segment length 16, baseline, precision 8, 32x32, components 1
+khadas@Khadas:~/hussain/nbg_unify_mnist32$ convert 0.bmp.jpg -resize '32x32!' 032.bmp.jpg
+khadas@Khadas:~/hussain/nbg_unify_mnist32$ ./bin_r_cv4/mnist mnist.nb 032.bmp.jpg
+Create Neural Network: 12ms or 12233us
+wrong jpg file , the jpg file size should be 32 32 3
+E [_get_jpeg_data:606]CHECK PTR 606
+E [_handle_multiple_inputs:745]CHECK PTR 745
+E [vnn_PreProcessMnist:892]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E [main:233]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+khadas@Khadas:~/hussain/nbg_unify_mnist32$ file 032.bmp.jpg
+032.bmp.jpg: JPEG image data, JFIF standard 1.01, resolution (DPCM), density 37x37, segment length 16, baseline, precision 8, 32x32, components 1
+khadas@Khadas:~/hussain/nbg_unify_mnist32$ convert 0.bmp.jpg -resize 32x32! 032.bmp.jpg
+khadas@Khadas:~/hussain/nbg_unify_mnist32$ ./bin_r_cv4/mnist mnist.nb 032.bmp.jpg
+Create Neural Network: 14ms or 14212us
+wrong jpg file , the jpg file size should be 32 32 3
+E [_get_jpeg_data:606]CHECK PTR 606
+E [_handle_multiple_inputs:745]CHECK PTR 745
+E [vnn_PreProcessMnist:892]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E [main:233]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+khadas@Khadas:~/hussain/nbg_unify_mnist32$ ./bin_r_cv4/mnist mnist.nb 032.jpg
+Create Neural Network: 12ms or 12361us
+Verify...
+Verify Graph: 1ms or 1845us
+Start run graph [1] times...
+Run the 1 time: 1.00ms or 1037.00us
+vxProcessGraph execution time:
+Total   1.00ms or 1106.00us
+Average 1.11ms or 1106.00us
+ --- Top5 ---
+  0: -0.762248
+  2: -1.143372
+  5: -2.739330
+  8: -3.048993
+  7: -3.549218
+khadas@Khadas:~/hussain/nbg_unify_mnist32$ 
+khadas@Khadas:~/hussain/nbg_unify_mnist32$ cd ../nbg_unify_mnist64
+khadas@Khadas:~/hussain/nbg_unify_mnist64$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/nbg_unify_mnist64/vnn_pre_process.c
+  COMPILE /home/khadas/hussain/nbg_unify_mnist64/vnn_mnist.c
+vnn_mnist.c: In function ‘vnn_CreateMnist’:
+vnn_mnist.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_mnist.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/hussain/nbg_unify_mnist64/main.c
+  COMPILE /home/khadas/hussain/nbg_unify_mnist64/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas:~/hussain/nbg_unify_mnist64$ ./bin_r_cv4/mnist mnist.nb 064.jpg
+Create Neural Network: 17ms or 17095us
+Verify...
+Verify Graph: 0ms or 828us
+Start run graph [1] times...
+Run the 1 time: 1.00ms or 1277.00us
+vxProcessGraph execution time:
+Total   1.00ms or 1312.00us
+Average 1.31ms or 1312.00us
+ --- Top5 ---
+  0: -0.809725
+  7: -1.700423
+  2: -1.808387
+  5: -2.375194
+  3: -3.076956
+khadas@Khadas:~/hussain/nbg_unify_mnist64$ cd ../nbg_unify_mnist
+khadas@Khadas:~/hussain/nbg_unify_mnist$ ./bin_r_cv4/mnist mnist.nb 0.bmp.jpg
+Usage: ./bin_r_cv4/mnist data_file inputs...
+khadas@Khadas:~/hussain/nbg_unify_mnist$ ./bin_r_cv4/mnist mnist.nb 0.bmp.jpg 1
+Create Neural Network: 9ms or 9579us
+Verify...
+Verify Graph: 0ms or 882us
+Start run graph [1] times...
+Run the 1 time: 0.00ms or 704.00us
+vxProcessGraph execution time:
+Total   0.00ms or 738.00us
+Average 0.74ms or 738.00us
+ --- Top5 ---
+  0: -0.609649
+  2: -1.551834
+  5: -2.577153
+  3: -2.604864
+  7: -2.798844
+khadas@Khadas:~/hussain/nbg_unify_mni

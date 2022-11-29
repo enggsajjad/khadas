@@ -1,0 +1,150 @@
+=========================================================================================
+Changes not staged for commit:
+ASIPMeisterProjects/Applications/17matrix (modified content, untracked content)
+
+The error of “modified content, untracked content” appears in Git commit
+https://developpaper.com/the-error-of-modified-content-untracked-content-appears-in-git-commit/
+
+=========================================================================================
+
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to sajjad@141.3.72.86                                  │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.4.0-210-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+4 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+Last login: Mon Jun 13 01:35:26 2022 from 172.30.87.217
+sajjad@i80pc93:~$ cd Research/github/asiplab/asip_projects/
+sajjad@i80pc93:~/Research/github/asiplab/asip_projects$ cd SS20/
+sajjad@i80pc93:~/Research/github/asiplab/asip_projects/SS20$ ls
+ASIPMeisterProjects  dlxsimbr  dlxsimbr_Laboratory  mkimg  README.md  stdLib  TEMPLATE_PROJECT
+sajjad@i80pc93:~/Research/github/asiplab/asip_projects/SS20$ git add --all
+sajjad@i80pc93:~/Research/github/asiplab/asip_projects/SS20$ git commit -m "commit again"
+On branch main
+Your branch is up-to-date with 'origin/main'.
+Changes not staged for commit:
+        modified:   ASIPMeisterProjects/Applications/17matrix (modified content, untracked content)
+
+no changes added to commit
+sajjad@i80pc93:~/Research/github/asiplab/asip_projects/SS20$ git rm -rf --cached ASIPMeisterProjects/Applications/17matrix/
+create-matrixes.py      dummy_matrix_mul.so     ijk-algorithm.py        LICENSE                 resources
+DummyMatrixMul          .gitignore              libdummy_matrix_mul.so  README.md               results
+sajjad@i80pc93:~/Research/github/asiplab/asip_projects/SS20$ git rm -rf --cached ASIPMeisterProjects/Applications/17matrix
+rm 'ASIPMeisterProjects/Applications/17matrix'
+sajjad@i80pc93:~/Research/github/asiplab/asip_projects/SS20$ git commit -m "commit again"
+[main 38cdb18] commit again
+ 1 file changed, 1 deletion(-)
+ delete mode 160000 ASIPMeisterProjects/Applications/17matrix
+sajjad@i80pc93:~/Research/github/asiplab/asip_projects/SS20$ git push all
+warning: push.default is unset; its implicit value has changed in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the traditional behavior, use:
+
+  git config --global push.default matching
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+
+When push.default is set to 'matching', git will push local branches
+to the remote branches that already exist with the same name.
+
+Since Git 2.0, Git defaults to the more conservative 'simple'
+behavior, which only pushes the current branch to the corresponding
+remote branch that 'git pull' uses to update the current branch.
+
+See 'git help config' and search for 'push.default' for further information.
+(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
+'current' instead of 'simple' if you sometimes use older versions of Git)
+
+fatal: 'all' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+sajjad@i80pc93:~/Research/github/asiplab/asip_projects/SS20$ git push --all
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+fatal: Authentication failed for 'https://github.com/enggsajjad/SS20.git/'
+sajjad@i80pc93:~/Research/github/asiplab/asip_projects/SS20$ git push --all
+Username for 'https://github.com': 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
+Password for 'https://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@github.com':
+sajjad@i80pc93:~/Research/github/asiplab/asip_projects/SS20$ git push --all
+Username for 'https://github.com': enggsajjad
+Password for 'https://enggsajjad@github.com':
+Counting objects: 4, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 349 bytes | 0 bytes/s, done.
+Total 4 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/enggsajjad/SS20.git
+   d599d87..38cdb18  main -> main
+sajjad@i80pc93:~/Research/github/asiplab/asip_projects/SS20$ ls ASIPMeisterProjects/Applications/17matrix
+browtb.x           dataset1.h  dataset4.h       DM.coe     handler.s  matrix.mem  MM_int        MM_int.o   startup.s
+BUILD_FPGA         dataset2.h  dataset_float.h  DM.mif     IM.coe     matrix.vcd  MM_int.c      MM_int.s   TestData.DM
+compile_manual.sh  dataset3.h  dataset_int.h    handler.o  IM.mif     MM_f.c      MM_int_nop.s  startup.o  TestData.IM
+sajjad@i80pc93:~/Research/github/asiplab/asip_projects/SS20$ git add --all
+sajjad@i80pc93:~/Research/github/asiplab/asip_projects/SS20$ git commit -m "commit again with 17matrix"
+[main 8925fba] commit again with 17matrix
+ 1 file changed, 1 insertion(+)
+ create mode 160000 ASIPMeisterProjects/Applications/17matrix
+sajjad@i80pc93:~/Research/github/asiplab/asip_projects/SS20$ git push --all
+Counting objects: 4, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 401 bytes | 0 bytes/s, done.
+Total 4 (delta 3), reused 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/enggsajjad/SS20.git
+   38cdb18..8925fba  main -> main
+sajjad@i80pc93:~/Research/github/asiplab/asip_projects/SS20$ cd ..
+sajjad@i80pc93:~/Research/github/asiplab/asip_projects$ git add --all
+sajjad@i80pc93:~/Research/github/asiplab/asip_projects$ git commit -m "asip-projects commit again with 17matrix"
+[main 88ad64c] asip-projects commit again with 17matrix
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+sajjad@i80pc93:~/Research/github/asiplab/asip_projects$ git push --all
+Counting objects: 2, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 267 bytes | 0 bytes/s, done.
+Total 2 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://enggsajjad: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@github.com/enggsajjad/asip_projects.git
+   507ced8..88ad64c  main -> main
+sajjad@i80pc93:~/Research/github/asiplab/asip_projects$ cd ..
+sajjad@i80pc93:~/Research/github/asiplab$ git add --all
+sajjad@i80pc93:~/Research/github/asiplab$ git commit -m "asiplabs commit again with 17matrix"
+[master a139c08] asiplabs commit again with 17matrix
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+sajjad@i80pc93:~/Research/github/asiplab$ git push --all
+Counting objects: 2, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 263 bytes | 0 bytes/s, done.
+Total 2 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/enggsajjad/asiplab.git
+   5c18ec6..a139c08  master -> master
+sajjad@i80pc93:~/Research/github/asiplab$

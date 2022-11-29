@@ -1,0 +1,11 @@
+{
+	"Layers":{
+		"uid_0":{
+			"op": "NBG",
+			"inputs": [ "datainput_0:out0" ],
+			"inut_shape": [ [ 28, 28, 3, 1 ] ],
+			"outputs": [ "out0" ],
+			"output_shape": [ [ 2352 ] ]
+		}
+	}
+}

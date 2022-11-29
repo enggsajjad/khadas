@@ -1,0 +1,116 @@
+====================================================================================
+How to tell git which private key to use?
+There are 2 accounts from bitbucket and one from github.
+So how to use to ssh keys id_rsa and id_rsa1 between 2 bitbucket accounts
+====================================================================================
+https://superuser.com/questions/232373/how-to-tell-git-which-private-key-to-use
+In ~/.ssh/config, add:
+
+Host github.com
+ HostName github.com
+ IdentityFile ~/.ssh/id_rsa_github
+If the config file is new, you might need to do chmod 600 ~/.ssh/config
+
+Now you can do git clone git@github.com:{ORG_NAME}/{REPO_NAME}.git
+
+Where {ORG_NAME} is your GitHub user account (or organization account)'s GitHub URI name.
+Note that there is a colon : after github.com instead of the slash / - as this is not a URI.
+And {REPO_NAME} is your GitHub repo's URI name
+For example, for the Linux kernel this would be git clone git@github.com:torvalds/linux.git).
+NOTE: On Linux and macOS, verify that the permissions on your IdentityFile are 400. SSH will reject, in a not clearly explicit manner, SSH keys that are too readable. It will just look like a credential rejection. The solution, in this case, is:
+
+chmod 400 ~/.ssh/id_rsa_github
+
+====================================================================================
+testrepo push to bitbucket
+====================================================================================
+khadas@Khadas:~/hussain/github/bitbucket/testrepo$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/khadas/.ssh/id_rsa): /home/khadas/.ssh/id_rsa1
+/home/khadas/.ssh/id_rsa1 already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/khadas/.ssh/id_rsa1
+Your public key has been saved in /home/khadas/.ssh/id_rsa1.pub
+The key fingerprint is:
+SHA256:mqG2cV06SARLewtg2ntcVD9hbyFQlGA09ypGpiqUJ68 khadas@Khadas
+The key's randomart image is:
++---[RSA 3072]----+
+|  o o .oB=B..    |
+| + o = . =.= .   |
+|. . + + o o +    |
+|   + = =   +     |
+|  = + = S o      |
+| . = + B +       |
+|  . * = +        |
+|   + +   .       |
+|  E .            |
++----[SHA256]-----+
+khadas@Khadas:~/hussain/github/bitbucket/testrepo$ vim ~/.ssh/config                                                              khadas@Khadas:~/hussain/github/bitbucket/testrepo$ chmod 600 ~/.ssh/config                                                        
+khadas@Khadas:~/hussain/github/bitbucket/testrepo$ cat ~/.ssh/config
+Host github.com
+  HostName github.com
+  IdentityFile ~/.ssh/id_rsa
+  User git
+
+Host bitbucket.org
+  HostName bitbucket.org
+  IdentityFile ~/.ssh/id_rsa1
+  User git
+khadas@Khadas:~/hussain/github/bitbucket/testrepo$
+khadas@Khadas:~/hussain/github/bitbucket/testrepo$ git config user.email "enggsajjadhussain@gmail.com"
+khadas@Khadas:~/hussain/github/bitbucket/testrepo$ git config user.name "engrsajjad"
+
+
+
+khadas@Khadas:~/hussain/github/bitbucket/testrepo$ ssh -T git@bitbucket.org                                                       authenticated via ssh key.
+
+You can use git to connect to Bitbucket. Shell access is disabled
+
+khadas@Khadas:~/hussain/github/bitbucket/testrepo$ git remote set-url origin git+ssh://engrsajjad@bitbucket.org/engg_sajjad/testrepo.git
+khadas@Khadas:~/hussain/github/bitbucket/testrepo$ git push --all
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 329 bytes | 329.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+To git+ssh://bitbucket.org/engg_sajjad/testrepo.git
+   2913c4a..6247507  master -> master
+khadas@Khadas:~/hussain/github/bitbucket/testrepo$
+
+
+====================================================================================
+just_for_get_op_time_new push to bitbucket
+====================================================================================
+khadas@Khadas:~/hussain/github/bitbucket/testrepo$ git config user.email "enggsajjadhussain@gmail.com"
+khadas@Khadas:~/hussain/github/bitbucket/testrepo$ git config user.name "engrsajjad"
+khadas@Khadas:~/hussain/github/bitbucket/testrepo$ cd
+khadas@Khadas:~$ cd just_for_get_op_time_new/
+khadas@Khadas:~/just_for_get_op_time_new$ ls
+Just_for_get_op_time  README.md
+khadas@Khadas:~/just_for_get_op_time_new$ git config user.email "enggsajjadhussain@gmail.com"
+khadas@Khadas:~/just_for_get_op_time_new$ git config user.name "engrsajjad"
+khadas@Khadas:~/just_for_get_op_time_new$ ssh -T git@bitbucket.org
+authenticated via ssh key.
+
+You can use git to connect to Bitbucket. Shell access is disabled
+khadas@Khadas:~/just_for_get_op_time_new$ git remote set-url origin git+ssh://engrsajjad@bitbucket.org/engg_sajjad/just_for_get_op_time_new.git
+khadas@Khadas:~/just_for_get_op_time_new$ git add --all
+khadas@Khadas:~/just_for_get_op_time_new$ git commit -m "add after ssh"
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+khadas@Khadas:~/just_for_get_op_time_new$ git push --all
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 346 bytes | 346.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+To git+ssh://bitbucket.org/engg_sajjad/just_for_get_op_time_new.git
+   2890419..06bf4d5  master -> master
+khadas@Khadas:~/just_for_get_op_time_new$

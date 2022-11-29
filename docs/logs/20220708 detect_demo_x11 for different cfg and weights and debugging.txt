@@ -1,0 +1,273 @@
+=============================================================
+ weights and cfg from frank
+=============================================================
+khadas@Khadas:~/hussain/milestone/standalone_initial/newscripts/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -w 416 -h 416 -p ~/hussain/img/416/person_416.jpg
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+ --- Top5 ---
+15305: 11.750000
+15306: 9.250000
+15292: 8.250000
+795: 7.250000
+18184: 7.250000
+Det_get_result END
+
+resultData.detect_num=3
+result type is 2
+i:3 left:249.126 right:405.126 top:141 bottom:339
+i:3 left:42.2234 right:132.564 top:255.081 bottom:345.081
+i:3 left:121.505 right:180.505 top:107.033 bottom:358.956
+khadas@Khadas:~/hussain/milestone/standalone_initial/newscripts/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -w 416 -h 416 -p ~/hussain/img/608/person_608.jpg
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+ --- Top5 ---
+3191: 1.750000
+14556: 1.750000
+14557: 1.750000
+28800: 1.750000
+28865: 1.750000
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas:~/hussain/milestone/standalone_initial/newscripts/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -w 608 -h 608 -p ~/hussain/img/608/person_608.jpg
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+ --- Top5 ---
+15305: 11.250000
+15306: 8.750000
+15292: 8.000000
+18184: 8.000000
+795: 7.250000
+Det_get_result END
+
+resultData.detect_num=3
+result type is 2
+i:3 left:389.325 right:566.891 top:203.169 bottom:492.554
+i:3 left:61.7112 right:193.748 top:372.811 bottom:504.35
+i:3 left:177.584 right:263.815 top:154.979 bottom:523.174
+khadas@Khadas:~/hussain/milestone/standalone_initial/newscripts/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -w 608 -h 608 -p ~/hussain/img/416/person_416.jpg
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Segmentation fault
+khadas@Khadas:~/hussain/milestone/standalone_initial/newscripts/sample_demo_x11B/bin_r_cv4$
+
+=============================================================
+darknet weights and cfg from frank
+=============================================================
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B$ cd bin_r_cv4/
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -w 608 -h 608 -p ~/hussain/img/608/person_608.jpg
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+ --- Top5 ---
+15305: 11.250000
+15306: 8.750000
+15292: 8.000000
+18184: 8.000000
+795: 7.250000
+Det_get_result END
+
+resultData.detect_num=3
+result type is 2
+i:3 left:389.325 right:566.891 top:203.169 bottom:492.554
+i:3 left:61.7112 right:193.748 top:372.811 bottom:504.35
+i:3 left:177.584 right:263.815 top:154.979 bottom:523.174
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -w 416 -h 416 -p ~/hussain/img/608/person_608.jpg
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+ --- Top5 ---
+3191: 1.750000
+14556: 1.750000
+14557: 1.750000
+28800: 1.750000
+28865: 1.750000
+Det_get_result END
+
+resultData.detect_num=0
+result type is 0
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -w 608 -h 608 -p ~/hussain/img/416/person_416.jpg
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Segmentation fault
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -w 416 -h 416 -p ~/hussain/img/416/person_416.jpg
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+ --- Top5 ---
+15305: 11.750000
+15306: 9.250000
+15292: 8.250000
+795: 7.250000
+18184: 7.250000
+Det_get_result END
+
+resultData.detect_num=3
+result type is 2
+i:3 left:249.126 right:405.126 top:141 bottom:339
+i:3 left:42.2234 right:132.564 top:255.081 bottom:345.081
+i:3 left:121.505 right:180.505 top:107.033 bottom:358.956
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -w 416 -h 416 -p ~/hussain/img/416/person_416.jpg
+
+
+=============================================================
+diff
+=============================================================
+sajjad@teco:~/hussain/npusdk2_basis/aml_npu_sdk/acuity-toolkit/demo$ diff ~/sajjad/darknet/cfg/yolov3.cfg ~/sajjad/models-zoo/darknet/yolov3/yolov3/yolov3.cfg
+3,4c3,4
+< # batch=1
+< # subdivisions=1
+---
+> batch=1
+> subdivisions=1
+6,9c6,9
+< batch=64
+< subdivisions=16
+< width=608
+< height=608
+---
+> # batch=64
+> # subdivisions=16
+> width=416
+> height=416
+sajjad@teco:~/hussain/npusdk2_basis/aml_npu_sdk/acuity-toolkit/demo$
+
+=============================================================
+diff
+=============================================================
+vim 0_import_model_608A_using_cfg_modi.sh
+----------------------------------------
+$pegasus import darknet\
+    --model  /home/sajjad/sajjad/darknet/cfg/yolov3modi.cfg \
+    --weights  /home/sajjad/sajjad/darknet/yolov3.weights \
+    --output-model ${NAME}.json \
+    --output-data ${NAME}.data \
+
+#generate inpumeta  --source-file dataset.txt
+$pegasus generate inputmeta \
+        --model ${NAME}.json \
+        --input-meta-output ${NAME}_inputmeta.yml \
+        --channel-mean-value "0 0 0 0.00390625"  \
+        --source-file data/validation_tf_416.txt
+#       --source-file dataset.txt
+
+vim ~/sajjad/darknet/cfg/yolov3modi.cfg
+-------------------------------------
+[net]
+# Testing
+#batch=1
+#subdivisions=1
+# Training
+batch=64
+subdivisions=16
+width=416
+height=416
+channels=3
+
+
+
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -w 608 -h 608 -p ~/hussain/img/608/person_608.jpg
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+ --- Top5 ---
+15305: 11.250000
+15306: 8.750000
+15292: 8.000000
+18184: 8.000000
+795: 7.250000
+Det_get_result END
+
+resultData.detect_num=3
+result type is 2
+i:3 left:389.325 right:566.891 top:203.169 bottom:492.554
+i:3 left:61.7112 right:193.748 top:372.811 bottom:504.35
+i:3 left:177.584 right:263.815 top:154.979 bottom:523.174
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -w 416 -h 416 -p ~/hussain/img/416/person_416.jpg
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+ --- Top5 ---
+15305: 11.750000
+15306: 9.250000
+15292: 8.250000
+795: 7.250000
+18184: 7.250000
+Det_get_result END
+
+resultData.detect_num=3
+result type is 2
+i:3 left:249.126 right:405.126 top:141 bottom:339
+i:3 left:42.2234 right:132.564 top:255.081 bottom:345.081
+i:3 left:121.505 right:180.505 top:107.033 bottom:358.956
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B/bin_r_cv4$

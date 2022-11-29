@@ -1,0 +1,29 @@
+in npusdk2/aml_npu_sdk
+==================================================
+generated nbg_unify_yolo3
+have a makefile.linux and some c files
+I guess these are the converted model files
+
+/home/khadas/sajjad/NPUApp/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3/
+==================================================
+detect_yolo_v3
+used to generate *.so file in bin_r folder
+contains makefile.linux makefile.linus.def makefile.target_name
+some c files and include folder
+
+/home/khadas/sajjad/NPUApp/aml_npu_app/detect_library/sample_demo_x11b/
+==================================================
+used to build the yoloface application
+contains makefile.linux makefile.linux.def makefile.target_name
+some c files and include folder
+detect_demo_x11 is generated in bin_r_c4,
+lib and nn_data from detect_library/model_code/detect_yolo_v3/ is copied here
+and then
+detect_demo_x11 -m 0 -p ../1080.bmp works
+ 
+
+
+/home/khadas/sajjad/npu1/aml_npu_demo_binaries/
+==================================================
+
+

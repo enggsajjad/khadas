@@ -1,0 +1,235 @@
+operation time gives error while exporting data from new recent sdk on old VIM image
+
+=======================================================
+khadas@Khadas-teco:~/sajjad/eachoptime$ cp op_test_nopnet/
+cp: missing destination file operand after 'op_test_nopnet/'
+Try 'cp --help' for more information.
+khadas@Khadas-teco:~/sajjad/eachoptime$ cd op_test_nopnet/
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ ls
+bin_r_cv4      linux_build_sample.log  makefile.linux.def        vnn_global.h       vnn_post_process.c  vnn_pre_process.h
+bin_r_cv4_old  main.c                  makefile.target_name      vnn_mobilenettf.c  vnn_post_process.h
+build_vx.sh    makefile.linux          mobilenet_tf.export.data  vnn_mobilenettf.h  vnn_pre_process.c
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ rm -rn bin_r_cv4*
+rm: invalid option -- 'n'
+Try 'rm --help' for more information.
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ rm -rf bin_r_cv4*
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ ls
+build_vx.sh             makefile.linux        mobilenet_tf.export.data  vnn_mobilenettf.h   vnn_pre_process.c
+linux_build_sample.log  makefile.linux.def    vnn_global.h              vnn_post_process.c  vnn_pre_process.h
+main.c                  makefile.target_name  vnn_mobilenettf.c         vnn_post_process.h
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ rm -rf *.c *.h mobilenet_tf.export.data
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ ls
+build_vx.sh  linux_build_sample.log  makefile.linux  makefile.linux.def  makefile.target_name
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ head makefile.target_name
+TARGET_NAME = detect_mobilnet
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ pwd
+/home/khadas/sajjad/eachoptime/op_test_nopnet
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ vim makefile.target_name
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ ./build_vx.sh
+  COMPILE /home/khadas/sajjad/eachoptime/op_test_nopnet/vnn_pre_process.c
+  COMPILE /home/khadas/sajjad/eachoptime/op_test_nopnet/vnn_nopnet.c
+vnn_nopnet.c: In function ‘vnn_CreateNopnet’:
+vnn_nopnet.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_nopnet.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/sajjad/eachoptime/op_test_nopnet/main.c
+  COMPILE /home/khadas/sajjad/eachoptime/op_test_nopnet/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ export VIVANTE_SDK_DIR=/home/khadas/sajjad/eachoptime/Just_for_get_op_time/data/vcmdtools
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ export LD_LIBRARY_PATH=/home/khadas/sajjad/eachoptime/Just_for_get_op_time/data/drivers_64_exportdata
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ export VIV_VX_DEBUG_LEVEL=1
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ export CNN_PERF=1
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ export NN_LAYER_DUMP=1
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet$ cd bin_r_cv4/
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet/bin_r_cv4$ ls
+main.o  nopnet  vnn_nopnet.o  vnn_post_process.o  vnn_pre_process.o
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet/bin_r_cv4$ ./nopnet ../nopnet_88.nb ../black.jpg
+[     1] HAL user version 6.4.6.2.345497
+[     2] HAL kernel version 6.4.6.2.345497
+E [vnn_CreateNopnet:196]Create graph fail.
+E [vnn_CreateNeuralNetwork:196]CHECK PTR 196
+E [main:229]CHECK PTR 229
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet/bin_r_cv4$ ll ../nopnet.export.data
+-rw-r--r-- 1 khadas khadas 2352 Jun 15 01:47 ../nopnet.export.data
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet/bin_r_cv4$ ./nopnet ../nopnet.export.data ../black.jpg
+[     1] HAL user version 6.4.6.2.345497
+[     2] HAL kernel version 6.4.6.2.345497
+E [vnn_CreateNopnet:196]Create graph fail.
+E [vnn_CreateNeuralNetwork:196]CHECK PTR 196
+E [main:229]CHECK PTR 229
+khadas@Khadas-teco:~/sajjad/eachoptime/op_test_nopnet/bin_r_cv4$ cd
+khadas@Khadas-teco:~$ cd sajjad/
+khadas@Khadas-teco:~/sajjad$ mkdir eachoptime2
+khadas@Khadas-teco:~/sajjad$ cd eachoptime2/
+khadas@Khadas-teco:~/sajjad/eachoptime2$ ls ~/sajjad/eachoptime
+Just_for_get_op_time  op_test  op_test_nopnet
+khadas@Khadas-teco:~/sajjad/eachoptime2$ git clone https://github.com/yan-wyb/Just_for_get_op_time.git
+Cloning into 'Just_for_get_op_time'...
+remote: Enumerating objects: 944, done.
+remote: Total 944 (delta 0), reused 0 (delta 0), pack-reused 944
+Receiving objects: 100% (944/944), 115.32 MiB | 13.20 MiB/s, done.
+Resolving deltas: 100% (430/430), done.
+Updating files:   3% (31/922)
+Network error: Software caused connection abort
+
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Session stopped
+    - Press <return> to exit tab
+    - Press R to restart session
+    - Press S to save terminal output to file
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to khadas@192.168.178.139                              │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+
+Welcome to Fenix 1.0.11 Ubuntu 20.04.4 LTS Linux 4.9.241
+ _  ___               _            __     _____ __  __ _____
+| |/ / |__   __ _  __| | __ _ ___  \ \   / /_ _|  \/  |___ /
+| ' /| '_ \ / _` |/ _` |/ _` / __|  \ \ / / | || |\/| | |_ \
+| . \| | | | (_| | (_| | (_| \__ \   \ V /  | || |  | |___) |
+|_|\_\_| |_|\__,_|\__,_|\__,_|___/    \_/  |___|_|  |_|____/
+
+
+ * Website:        https://www.khadas.com
+ * Documentation:  https://docs.khadas.com
+ * Forum:          https://forum.khadas.com
+
+Last login: Wed Jun 15 01:19:23 2022 from 192.168.178.33
+khadas@Khadas-teco:~$ cd ~/sajjad/eachoptime2
+khadas@Khadas-teco:~/sajjad/eachoptime2$ git clone https://github.com/yan-wyb/Just_for_get_op_time.git
+fatal: destination path 'Just_for_get_op_time' already exists and is not an empty directory.
+khadas@Khadas-teco:~/sajjad/eachoptime2$ rm -rf Just_for_get_op_time/
+khadas@Khadas-teco:~/sajjad/eachoptime2$ git clone https://github.com/yan-wyb/Just_for_get_op_time.git
+Cloning into 'Just_for_get_op_time'...
+remote: Enumerating objects: 944, done.
+remote: Total 944 (delta 0), reused 0 (delta 0), pack-reused 944
+Receiving objects: 100% (944/944), 115.32 MiB | 10.54 MiB/s, done.
+Resolving deltas: 100% (430/430), done.
+Updating files:  29% (268/922)
+Network error: Software caused connection abort
+
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Session stopped
+    - Press <return> to exit tab
+    - Press R to restart session
+    - Press S to save terminal output to file
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to khadas@192.168.178.139                              │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+
+Welcome to Fenix 1.0.11 Ubuntu 20.04.4 LTS Linux 4.9.241
+ _  ___               _            __     _____ __  __ _____
+| |/ / |__   __ _  __| | __ _ ___  \ \   / /_ _|  \/  |___ /
+| ' /| '_ \ / _` |/ _` |/ _` / __|  \ \ / / | || |\/| | |_ \
+| . \| | | | (_| | (_| | (_| \__ \   \ V /  | || |  | |___) |
+|_|\_\_| |_|\__,_|\__,_|\__,_|___/    \_/  |___|_|  |_|____/
+
+
+ * Website:        https://www.khadas.com
+ * Documentation:  https://docs.khadas.com
+ * Forum:          https://forum.khadas.com
+
+Last login: Wed Jun 15 01:52:08 2022 from 192.168.178.33
+khadas@Khadas-teco:~$ cd ~/sajjad/eachoptime2
+khadas@Khadas-teco:~/sajjad/eachoptime2$ rm -rf Just_for_get_op_time/
+khadas@Khadas-teco:~/sajjad/eachoptime2$ git clone https://github.com/yan-wyb/Just_for_get_op_time.git
+Cloning into 'Just_for_get_op_time'...
+remote: Enumerating objects: 944, done.
+remote: Total 944 (delta 0), reused 0 (delta 0), pack-reused 944
+Receiving objects: 100% (944/944), 115.32 MiB | 12.81 MiB/s, done.
+Resolving deltas: 100% (430/430), done.
+Updating files: 100% (922/922), done.
+khadas@Khadas-teco:~/sajjad/eachoptime2$ ls
+Just_for_get_op_time
+khadas@Khadas-teco:~/sajjad/eachoptime2$ mv ../eachoptime1/
+build_vx.sh           Just_for_get_op_time/ makefile.linux        makefile.linux.def    makefile.target_name
+khadas@Khadas-teco:~/sajjad/eachoptime2$ mv ../eachoptime/op_test_nopnet op_test_nopnet
+khadas@Khadas-teco:~/sajjad/eachoptime2$ cd op_test_nopnet/
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ ls
+28x28.jpg  build_vx.sh             makefile.linux        nbg_meta.json       vnn_global.h  vnn_post_process.c  vnn_pre_process.h
+bin_r_cv4  linux_build_sample.log  makefile.linux.def    nopnet_88.nb        vnn_nopnet.c  vnn_post_process.h
+black.jpg  main.c                  makefile.target_name  nopnet.export.data  vnn_nopnet.h  vnn_pre_process.c
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ wget https://raw.githubusercontent.com/khadas/aml_npu_app/master/detect_library/inception/makefile.linux.def
+--2022-06-15 01:59:04--  https://raw.githubusercontent.com/khadas/aml_npu_app/master/detect_library/inception/makefile.linux.def
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 2606:50c0:8001::154, 2606:50c0:8003::154, 2606:50c0:8000::154, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|2606:50c0:8001::154|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 16406 (16K) [text/plain]
+Saving to: ‘makefile.linux.def.1’
+
+makefile.linux.def.1                100%[================================================================>]  16.02K  --.-KB/s    in 0.001s
+
+2022-06-15 01:59:04 (10.6 MB/s) - ‘makefile.linux.def.1’ saved [16406/16406]
+
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ wget https://raw.githubusercontent.com/khadas/aml_npu_app/master/detect_library/inception/build_vx.sh
+--2022-06-15 01:59:18--  https://raw.githubusercontent.com/khadas/aml_npu_app/master/detect_library/inception/build_vx.sh
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 2606:50c0:8001::154, 2606:50c0:8003::154, 2606:50c0:8000::154, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|2606:50c0:8001::154|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9312 (9.1K) [text/plain]
+Saving to: ‘build_vx.sh.1’
+
+build_vx.sh.1                       100%[================================================================>]   9.09K  --.-KB/s    in 0.005s
+
+2022-06-15 01:59:18 (1.86 MB/s) - ‘build_vx.sh.1’ saved [9312/9312]
+
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ echo "TARGET_NAME = nopnet"  > makefile.target_name
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ vim makefile.linux
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ ./build_vx.sh
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ rm -rf bin_r_cv4/
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ ./build_vx.sh
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_nopnet/vnn_pre_process.c
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_nopnet/vnn_nopnet.c
+vnn_nopnet.c: In function ‘vnn_CreateNopnet’:
+vnn_nopnet.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_nopnet.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_nopnet/main.c
+  COMPILE /home/khadas/sajjad/eachoptime2/op_test_nopnet/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ /home/khadas/sajjad/eachoptime2/Just_for_get_op_time/data/
+-bash: /home/khadas/sajjad/eachoptime2/Just_for_get_op_time/data/: Is a directory
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ export VIVANTE_SDK_DIR=/home/khadas/sajjad/eachoptime2/Just_for_get_op_time/data/vcmdtools
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ export LD_LIBRARY_PATH=/home/khadas/sajjad/eachoptime2/Just_for_get_op_time/data/drivers_64_exportdata
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ export VIV_VX_DEBUG_LEVEL=1
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ export CNN_PERF=1
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ export NN_LAYER_DUMP=1
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet$ cd bin_r_cv4/
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet/bin_r_cv4$ ./nopnet ../nopnet.export.data ../black.jpg
+[     1] HAL user version 6.4.6.2.345497
+[     2] HAL kernel version 6.4.6.2.345497
+E [vnn_CreateNopnet:196]Create graph fail.
+E [vnn_CreateNeuralNetwork:196]CHECK PTR 196
+E [main:229]CHECK PTR 229
+khadas@Khadas-teco:~/sajjad/eachoptime2/op_test_nopnet/bin_r_cv4$

@@ -1,0 +1,101 @@
+===========================================================================
+20220811 profiling various mnist.onnx on khadas for few times
+===========================================================================
+khadas@Khadas:~/hussain$ cd profile/
+khadas@Khadas:~/hussain/profile$ ls
+op_test_mobilenet_tf_normal_case_demo_original  op_test_yolov3_normal_case_demo_sajjad_416
+khadas@Khadas:~/hussain/profile$ mkdir op_test_mnist_normal_case_demox
+khadas@Khadas:~/hussain/profile$ cd op_test_mobilenet_tf_normal_case_demo_original/
+khadas@Khadas:~/hussain/profile/op_test_mobilenet_tf_normal_case_demo_original$ ls
+bin_r_cv4               main.c              makefile.target_name      vnn_global.h       vnn_post_process.c  vnn_pre_process.h
+build_vx.sh             makefile.linux      mobilenet_tf.export.data  vnn_mobilenettf.c  vnn_post_process.h
+linux_build_sample.log  makefile.linux.def  space_shuttle_224.jpg     vnn_mobilenettf.h  vnn_pre_process.c
+khadas@Khadas:~/hussain/profile/op_test_mobilenet_tf_normal_case_demo_original$ cp -r build_vx.sh makefile.* ../op_test_mnist_normal_case_demox/.
+khadas@Khadas:~/hussain/profile/op_test_mobilenet_tf_normal_case_demo_original$ cd ../op_test_mnist_normal_case_demox/
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox$ cp -r ../../nbg_unify_mnistx/bmp .
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox$ ls
+bmp  build_vx.sh  makefile.linux  makefile.linux.def  makefile.target_name
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox$ vim makefile.target_name
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox$ vim makefile.linux
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox$ vim profiling.sh
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox$ chmod +x ./profiling.sh
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox$ ./profiling.sh
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox$ echo $VIVANTE_SDK_DIR
+/usr/share/npu/sdk
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox$ echo $NN_LAYER_DUMP
+
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox$ vim profiling.sh
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox$ ./profiling.sh
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox$ echo $NN_LAYER_DUMP
+
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox$ echo $(NN_LAYER_DUMP)
+NN_LAYER_DUMP: command not found
+
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox$ echo ${NN_LAYER_DUMP}
+
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox$ export VIVANTE_SDK_DIR=/home/khadas/hussain/Just_for_get_op_time/data/vcmdtools
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox$ export LD_LIBRARY_PATH=/home/khadas/hussain/Just_for_get_op_time/data/drivers_64_exportdata
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox$ export VIV_VX_DEBUG_LEVEL=1
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox$ export CNN_PERF=1
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox$ export NN_LAYER_DUMP=1
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demox/vnn_pre_process.c
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demox/vnn_mnist.c
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demox/main.c
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demox/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox/bin_r_cv4$ ./mnist ../mnist.export.data ../bmp/2.bmp.jpg | tee ../log_op_test_mnist_normal_case_demox_run0.log
+....
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demox/bin_r_cv4$ cd ../../
+khadas@Khadas:~/hussain/profile$ cp -r op_test_mnist_normal_case_demox op_test_mnist_normal_case_demo0
+khadas@Khadas:~/hussain/profile$ cp -r op_test_mnist_normal_case_demox op_test_mnist_normal_case_demo1
+khadas@Khadas:~/hussain/profile$ cp -r op_test_mnist_normal_case_demox op_test_mnist_normal_case_demo2
+khadas@Khadas:~/hussain/profile$ cp -r op_test_mnist_normal_case_demox op_test_mnist_normal_case_demo3
+khadas@Khadas:~/hussain/profile$ cp -r op_test_mnist_normal_case_demox op_test_mnist_normal_case_demo4
+khadas@Khadas:~/hussain/profile$
+khadas@Khadas:~/hussain/profile$ cd op_test_mnist_normal_case_demo0/
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demo0$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demo0/vnn_pre_process.c
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demo0/vnn_mnist.c
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demo0/main.c
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demo0/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demo0$ cd bin_r_cv4/
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demo0/bin_r_cv4$ ./mnist ../mnist.export.data ../bmp/2.bmp.jpg | tee ../log_op_test_mnist_normal_case_demo0_run1.log
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demo0/bin_r_cv4$ cd ../../op_test_mnist_normal_case_demo1/
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demo1$
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demo1$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demo1/vnn_pre_process.c
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demo1/vnn_mnist.c
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demo1/main.c
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demo1/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demo1$
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demo1/bin_r_cv4$ ./mnist ../mnist.export.data ../bmp/2.bmp.jpg | tee ../log_op_test_mnist_normal_case_demo1_run5.log
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demo1/bin_r_cv4$ cd ../../op_test_mnist_normal_case_demo2/
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demo2$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demo2/vnn_pre_process.c
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demo2/vnn_mnist.c
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demo2/main.c
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demo2/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demo2$ cd bin_r_cv4/khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demo2/bin_r_cv4$ ./mnist ../mnist.export.data ../bmp/2.bmp.jpg | tee ../log_op_test_mnist_normal_case_demo2_run5.log
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demo2/bin_r_cv4$ cd ../../op_test_mnist_normal_case_demo3/
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demo3$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demo3/vnn_pre_process.c
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demo3/vnn_mnist.c
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demo3/main.c
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demo3/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demo3$ cd bin_r_cv4/
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demo3/bin_r_cv4$ ./mnist ../mnist.export.data ../bmp/2.bmp.jpg | tee ../log_op_test_mnist_normal_case_demo3_run1.log
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demo3/bin_r_cv4$ cd ../../op_test_mnist_normal_case_demo4
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demo4$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demo4/vnn_pre_process.c
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demo4/vnn_mnist.c
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demo4/main.c
+  COMPILE /home/khadas/hussain/profile/op_test_mnist_normal_case_demo4/vnn_post_process.c
+make: Nothing to be done for 'all'.
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demo4$ cd bin_r_cv4/
+khadas@Khadas:~/hussain/profile/op_test_mnist_normal_case_demo4/bin_r_cv4$ ./mnist ../mnist.export.data ../bmp/2.bmp.jpg | tee ../log_op_test_mnist_normal_case_demo4_run1.log
+

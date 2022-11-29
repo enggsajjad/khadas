@@ -1,0 +1,1393 @@
+Don't know why the Ubuntu was corrupted and has to reinstall the ubuntu 18.04 from the USB
+Gives the follow error:
+Error: unknown filesystem.
+grub rescue>
+
+1. Tried this befoew OpenVPN Opening (MobaXterm)
+========================================================
+
+
+Network error: Connection timed out
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Session stopped
+    - Press <return> to exit tab
+    - Press R to restart session
+    - Press S to save terminal output to file
+
+
+
+
+2. Tried this after OpenVPN Opening openvpn>teco>connect
+========================================================
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to sajjad@10.10.254.220                                │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 5.4.0-84-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+24 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.4 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Your Hardware Enablement Stack (HWE) is supported until April 2023.
+*** System restart required ***
+Last login: Wed Apr 13 20:13:27 2022 from 10.10.254.221
+sajjad@teco:~$ installing ssh server  ^C
+sajjad@teco:~$ip addr show
+sajjad@teco:~$sudo apt update
+sajjad@teco:~$sudo apt install openssh-server
+sajjad@teco:~$sudo systemctl status ssh
+sajjad@teco:~$sudo ufw allow ssh
+sajjad@teco:~$
+sajjad@teco:~$ uname -a
+Linux teco 5.4.0-84-generic #94~18.04.1-Ubuntu SMP Thu Aug 26 23:17:46 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+
+================================
+Install Docker
+================================
+sajjad@teco:~$ sudo apt-get update
+[sudo] password for sajjad:
+Hit:1 http://de.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 http://de.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:3 http://de.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Reading package lists... Done
+sajjad@teco:~$ sudo apt-get install ca-certificates curl gnupg lsb-release
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+lsb-release is already the newest version (9.20170808ubuntu1).
+lsb-release set to manually installed.
+ca-certificates is already the newest version (20210119~18.04.2).
+ca-certificates set to manually installed.
+gnupg is already the newest version (2.2.4-1ubuntu1.4).
+gnupg set to manually installed.
+The following additional packages will be installed:
+  libcurl4
+The following NEW packages will be installed:
+  curl libcurl4
+0 upgraded, 2 newly installed, 0 to remove and 24 not upgraded.
+Need to get 378 kB of archives.
+After this operation, 1.053 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://de.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcurl4 amd64 7.58.0-2ubuntu3.16 [220 kB]
+Get:2 http://de.archive.ubuntu.com/ubuntu bionic-updates/main amd64 curl amd64 7.58.0-2ubuntu3.16 [159 kB]
+Fetched 378 kB in 0s (2.084 kB/s)
+Selecting previously unselected package libcurl4:amd64.
+(Reading database ... 166646 files and directories currently installed.)
+Preparing to unpack .../libcurl4_7.58.0-2ubuntu3.16_amd64.deb ...
+Unpacking libcurl4:amd64 (7.58.0-2ubuntu3.16) ...
+Selecting previously unselected package curl.
+Preparing to unpack .../curl_7.58.0-2ubuntu3.16_amd64.deb ...
+Unpacking curl (7.58.0-2ubuntu3.16) ...
+Setting up libcurl4:amd64 (7.58.0-2ubuntu3.16) ...
+Setting up curl (7.58.0-2ubuntu3.16) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.5) ...
+sajjad@teco:~$  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+gpg: WARNING: unsafe ownership on homedir '/home/sajjad/.gnupg'
+sajjad@teco:~$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+gpg: WARNING: unsafe ownership on homedir '/home/sajjad/.gnupg'
+File '/usr/share/keyrings/docker-archive-keyring.gpg' exists. Overwrite? (y/N) Y
+sajjad@teco:~$ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sajjad@teco:~$ sudo apt-get update
+Hit:1 http://de.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 http://de.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:3 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Get:4 https://download.docker.com/linux/ubuntu bionic InRelease [64,4 kB]
+Hit:5 http://de.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Get:6 https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages [24,3 kB]
+Fetched 88,8 kB in 0s (215 kB/s)
+Reading package lists... Done
+sajjad@teco:~$ sudo apt-get install docker-ce docker-ce-cli containerd.io
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  docker-ce-rootless-extras docker-scan-plugin git git-man liberror-perl pigz
+Suggested packages:
+  aufs-tools cgroupfs-mount | cgroup-lite git-daemon-run | git-daemon-sysvinit git-doc git-el git-email git-gui
+  gitk gitweb git-cvs git-mediawiki git-svn
+Recommended packages:
+  slirp4netns
+The following NEW packages will be installed:
+  containerd.io docker-ce docker-ce-cli docker-ce-rootless-extras docker-scan-plugin git git-man liberror-perl
+  pigz
+0 upgraded, 9 newly installed, 0 to remove and 24 not upgraded.
+Need to get 101 MB of archives.
+After this operation, 439 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 https://download.docker.com/linux/ubuntu bionic/stable amd64 containerd.io amd64 1.5.11-1 [22,9 MB]
+Get:2 http://de.archive.ubuntu.com/ubuntu bionic/universe amd64 pigz amd64 2.4-1 [57,4 kB]
+Get:3 http://de.archive.ubuntu.com/ubuntu bionic/main amd64 liberror-perl all 0.17025-1 [22,8 kB]
+Get:4 http://de.archive.ubuntu.com/ubuntu bionic-updates/main amd64 git-man all 1:2.17.1-1ubuntu0.10 [804 kB]
+Get:5 https://download.docker.com/linux/ubuntu bionic/stable amd64 docker-ce-cli amd64 5:20.10.14~3-0~ubuntu-bionic [41,0 MB]
+Get:6 http://de.archive.ubuntu.com/ubuntu bionic-updates/main amd64 git amd64 1:2.17.1-1ubuntu0.10 [3.923 kB]
+Get:7 https://download.docker.com/linux/ubuntu bionic/stable amd64 docker-ce amd64 5:20.10.14~3-0~ubuntu-bionic [20,9 MB]
+Get:8 https://download.docker.com/linux/ubuntu bionic/stable amd64 docker-ce-rootless-extras amd64 5:20.10.14~3-0~ubuntu-bionic [7.926 kB]
+Get:9 https://download.docker.com/linux/ubuntu bionic/stable amd64 docker-scan-plugin amd64 0.17.0~ubuntu-bionic [3.521 kB]
+Fetched 101 MB in 2s (56,4 MB/s)
+Selecting previously unselected package pigz.
+(Reading database ... 166659 files and directories currently installed.)
+Preparing to unpack .../0-pigz_2.4-1_amd64.deb ...
+Unpacking pigz (2.4-1) ...
+Selecting previously unselected package containerd.io.
+Preparing to unpack .../1-containerd.io_1.5.11-1_amd64.deb ...
+Unpacking containerd.io (1.5.11-1) ...
+Selecting previously unselected package docker-ce-cli.
+Preparing to unpack .../2-docker-ce-cli_5%3a20.10.14~3-0~ubuntu-bionic_amd64.deb ...
+Unpacking docker-ce-cli (5:20.10.14~3-0~ubuntu-bionic) ...
+Selecting previously unselected package docker-ce.
+Preparing to unpack .../3-docker-ce_5%3a20.10.14~3-0~ubuntu-bionic_amd64.deb ...
+Unpacking docker-ce (5:20.10.14~3-0~ubuntu-bionic) ...
+Selecting previously unselected package docker-ce-rootless-extras.
+Preparing to unpack .../4-docker-ce-rootless-extras_5%3a20.10.14~3-0~ubuntu-bionic_amd64.deb ...
+Unpacking docker-ce-rootless-extras (5:20.10.14~3-0~ubuntu-bionic) ...
+Selecting previously unselected package docker-scan-plugin.
+Preparing to unpack .../5-docker-scan-plugin_0.17.0~ubuntu-bionic_amd64.deb ...
+Unpacking docker-scan-plugin (0.17.0~ubuntu-bionic) ...
+Selecting previously unselected package liberror-perl.
+Preparing to unpack .../6-liberror-perl_0.17025-1_all.deb ...
+Unpacking liberror-perl (0.17025-1) ...
+Selecting previously unselected package git-man.
+Preparing to unpack .../7-git-man_1%3a2.17.1-1ubuntu0.10_all.deb ...
+Unpacking git-man (1:2.17.1-1ubuntu0.10) ...
+Selecting previously unselected package git.
+Preparing to unpack .../8-git_1%3a2.17.1-1ubuntu0.10_amd64.deb ...
+Unpacking git (1:2.17.1-1ubuntu0.10) ...
+Setting up git-man (1:2.17.1-1ubuntu0.10) ...
+Setting up containerd.io (1.5.11-1) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/containerd.service → /lib/systemd/system/containerd.service.
+Setting up liberror-perl (0.17025-1) ...
+Setting up docker-ce-rootless-extras (5:20.10.14~3-0~ubuntu-bionic) ...
+Setting up docker-scan-plugin (0.17.0~ubuntu-bionic) ...
+Setting up docker-ce-cli (5:20.10.14~3-0~ubuntu-bionic) ...
+Setting up pigz (2.4-1) ...
+Setting up git (1:2.17.1-1ubuntu0.10) ...
+Setting up docker-ce (5:20.10.14~3-0~ubuntu-bionic) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/docker.service → /lib/systemd/system/docker.service.
+Created symlink /etc/systemd/system/sockets.target.wants/docker.socket → /lib/systemd/system/docker.socket.
+Processing triggers for systemd (237-3ubuntu10.52) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+sajjad@teco:~$ apt-cache madison docker-ce
+ docker-ce | 5:20.10.14~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:20.10.13~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:20.10.12~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:20.10.11~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:20.10.10~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:20.10.9~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:20.10.8~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:20.10.7~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:20.10.6~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:20.10.5~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:20.10.4~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:20.10.3~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:20.10.2~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:20.10.1~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:20.10.0~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:19.03.15~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:19.03.14~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:19.03.13~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:19.03.12~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:19.03.11~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:19.03.10~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:19.03.9~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:19.03.8~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:19.03.7~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:19.03.6~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:19.03.5~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:19.03.4~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:19.03.3~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:19.03.2~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:19.03.1~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:19.03.0~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:18.09.9~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:18.09.8~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:18.09.7~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:18.09.6~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:18.09.5~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:18.09.4~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:18.09.3~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:18.09.2~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:18.09.1~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 5:18.09.0~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 18.06.3~ce~3-0~ubuntu | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 18.06.2~ce~3-0~ubuntu | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 18.06.1~ce~3-0~ubuntu | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 18.06.0~ce~3-0~ubuntu | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+ docker-ce | 18.03.1~ce~3-0~ubuntu | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+sajjad@teco:~$ sudo apt-get install docker-ce=18.03.1~ce~3-0~ubuntu docker-ce-cli=18.03.1~ce~3-0~ubuntu containerd.io
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+E: Version '18.03.1~ce~3-0~ubuntu' for 'docker-ce-cli' was not found
+sajjad@teco:~$ sudo apt-get install docker-ce=18.03.1~ce~3-0~ubuntu
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  docker-ce-rootless-extras docker-scan-plugin
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  aufs-tools cgroupfs-mount
+The following packages will be REMOVED:
+  docker-ce-cli
+The following NEW packages will be installed:
+  aufs-tools cgroupfs-mount
+The following packages will be DOWNGRADED:
+  docker-ce
+0 upgraded, 2 newly installed, 1 downgraded, 1 to remove and 24 not upgraded.
+Need to get 34,0 MB of archives.
+After this operation, 81,8 MB disk space will be freed.
+Do you want to continue? [Y/n] Y
+Get:1 http://de.archive.ubuntu.com/ubuntu bionic/universe amd64 aufs-tools amd64 1:4.9+20170918-1ubuntu1 [104 kB]
+Get:2 http://de.archive.ubuntu.com/ubuntu bionic/universe amd64 cgroupfs-mount all 1.4 [6.320 B]
+Get:3 https://download.docker.com/linux/ubuntu bionic/stable amd64 docker-ce amd64 18.03.1~ce~3-0~ubuntu [33,9 MB]
+Fetched 34,0 MB in 2s (17,1 MB/s)
+dpkg: docker-ce-cli: dependency problems, but removing anyway as you requested:
+ docker-ce depends on docker-ce-cli.
+
+(Reading database ... 167809 files and directories currently installed.)
+Removing docker-ce-cli (5:20.10.14~3-0~ubuntu-bionic) ...
+dpkg: warning: downgrading docker-ce from 5:20.10.14~3-0~ubuntu-bionic to 18.03.1~ce~3-0~ubuntu
+(Reading database ... 167613 files and directories currently installed.)
+Preparing to unpack .../docker-ce_18.03.1~ce~3-0~ubuntu_amd64.deb ...
+Unpacking docker-ce (18.03.1~ce~3-0~ubuntu) over (5:20.10.14~3-0~ubuntu-bionic) ...
+Selecting previously unselected package aufs-tools.
+Preparing to unpack .../aufs-tools_1%3a4.9+20170918-1ubuntu1_amd64.deb ...
+Unpacking aufs-tools (1:4.9+20170918-1ubuntu1) ...
+Selecting previously unselected package cgroupfs-mount.
+Preparing to unpack .../cgroupfs-mount_1.4_all.deb ...
+Unpacking cgroupfs-mount (1.4) ...
+Setting up aufs-tools (1:4.9+20170918-1ubuntu1) ...
+Setting up docker-ce (18.03.1~ce~3-0~ubuntu) ...
+Setting up cgroupfs-mount (1.4) ...
+Processing triggers for systemd (237-3ubuntu10.52) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.5) ...
+sajjad@teco:~$ sudo docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+2db29710123e: Pull complete
+Digest: sha256:10d7d58d5ebd2a652f4d93fdd86da8f265f5318c6a73cc5b6a9798ff6d2b2e67
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+sajjad@teco:~$ 18.03.1~ce~3-0~ubuntu
+======================================================
+Python
+======================================================
+sajjad@teco:~$ python --version
+
+Command 'python' not found, but can be installed with:
+
+sudo apt install python3
+sudo apt install python
+sudo apt install python-minimal
+
+You also have python3 installed, you can run 'python3' instead.
+
+sajjad@teco:~$ python3 --version
+Python 3.6.9
+sajjad@teco:~$
+
+======================================================
+GIT
+======================================================
+sajjad@teco:~$ sudo apt update
+[sudo] password for sajjad:
+Hit:1 https://download.docker.com/linux/ubuntu bionic InRelease
+Hit:2 http://de.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:3 http://de.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:4 http://de.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Hit:5 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+25 packages can be upgraded. Run 'apt list --upgradable' to see them.
+sajjad@teco:~$ sudo apt install git
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+git is already the newest version (1:2.17.1-1ubuntu0.10).
+git set to manually installed.
+The following packages were automatically installed and are no longer required:
+  docker-ce-rootless-extras docker-scan-plugin
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 25 not upgraded.
+sajjad@teco:~$ git --version
+git version 2.17.1
+sajjad@teco:~$ git config --global user.email enggsajjadhussain@gmail.com
+sajjad@teco:~$ git config --global user.name enggsajjad
+sajjad@teco:~$ git config --global user.name
+enggsajjad
+sajjad@teco:~$ git config --global user.email
+enggsajjadhussain@gmail.com
+sajjad@teco:~$ git config --list
+user.email=enggsajjadhussain@gmail.com
+user.name=enggsajjad
+sajjad@teco:~$ cd Downloads/
+sajjad@teco:~/Downloads$ ls
+sajjad@teco:~/Downloads$ git clone https://enggsajjad123@bitbucket.org/novelsense/khadas.git
+Cloning into 'khadas'...
+Password for 'https://enggsajjad123@bitbucket.org':
+remote: Bitbucket Cloud recently stopped supporting account passwords for Git authentication.
+remote: See our community post for more details: https://atlassian.community/t5/x/x/ba-p/1948231
+remote: App passwords are recommended for most use cases and can be created in your Personal settings:
+remote: https://bitbucket.org/account/settings/app-passwords/
+fatal: Authentication failed for 'https://enggsajjad123@bitbucket.org/novelsense/khadas.git/'
+sajjad@teco:~/Downloads$ git clone https://bitbucket.org/novelsense/khadas.git
+Cloning into 'khadas'...
+Username for 'https://bitbucket.org': enggsajjad123
+Password for 'https://enggsajjad123@bitbucket.org':
+remote: Bitbucket Cloud recently stopped supporting account passwords for Git authentication.
+remote: See our community post for more details: https://atlassian.community/t5/x/x/ba-p/1948231
+remote: App passwords are recommended for most use cases and can be created in your Personal settings:
+remote: https://bitbucket.org/account/settings/app-passwords/
+fatal: Authentication failed for 'https://bitbucket.org/novelsense/khadas.git/'
+sajjad@teco:~/Downloads$ git clone https://bitbucket.org/novelsense/khadas.git
+Cloning into 'khadas'...
+Username for 'https://bitbucket.org': sajjad
+Password for 'https://sajjad@bitbucket.org':
+remote: Bitbucket Cloud recently stopped supporting account passwords for Git authentication.
+remote: See our community post for more details: https://atlassian.community/t5/x/x/ba-p/1948231
+remote: App passwords are recommended for most use cases and can be created in your Personal settings:
+remote: https://bitbucket.org/account/settings/app-passwords/
+fatal: Authentication failed for 'https://bitbucket.org/novelsense/khadas.git/'
+sajjad@teco:~/Downloads$ git config --global user.name enggsajjad123
+sajjad@teco:~/Downloads$ git config --global user.email hussain@teco.edu
+sajjad@teco:~/Downloads$ git clone https://enggsajjad123@bitbucket.org/novelsense/khadas.git
+Cloning into 'khadas'...
+Password for 'https://enggsajjad123@bitbucket.org':
+remote: Bitbucket Cloud recently stopped supporting account passwords for Git authentication.
+remote: See our community post for more details: https://atlassian.community/t5/x/x/ba-p/1948231
+remote: App passwords are recommended for most use cases and can be created in your Personal settings:
+remote: https://bitbucket.org/account/settings/app-passwords/
+fatal: Authentication failed for 'https://enggsajjad123@bitbucket.org/novelsense/khadas.git/'
+sajjad@teco:~/Downloads$
+
+
+======================================================
+FIREFOX
+======================================================
+sajjad@teco:~/Downloads$ sudo pkill -9 firefox
+sajjad@teco:~/Downloads$ ls
+sajjad@teco:~/Downloads$ clear
+sajjad@teco:~/Downloads$ firefox &
+
+
+======================================================
+DOCKER
+======================================================
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ docker run --rm --name conv-test -it --entrypoint=/bin/bash  ghcr.io/scholz/aml-container:0.0.1
+docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.37/containers/create?name=conv-test: dial unix /var/run/docker.sock: connect: permission denied.
+See 'docker run --help'.
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$
+
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ sudo groupadd docker
+groupadd: group 'docker' already exists
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ sudo usermod -aG docker ${USER}
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ echo ${USER}
+sajjad
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ su -s ${USER}
+Password:
+su: Authentication failure
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ su -s ${USER}
+Password:
+su: Authentication failure
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ su -s ${USER}
+Password:
+su: Authentication failure
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ su -s ${USER}
+Password:
+su: Authentication failure
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ docker run hello-world
+docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.37/containers/create: dial unix /var/run/docker.sock: connect: permission denied.
+See 'docker run --help'.
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ sudo groupadd docker
+groupadd: group 'docker' already exists
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ sudo usermod -aG docker $USER
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ newgrp docker
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ docker run --rm --name conv-test -it --entrypoint=/bin/bash  ghcr.io/scholz/aml-container:0.0.1
+Unable to find image 'ghcr.io/scholz/aml-container:0.0.1' locally
+0.0.1: Pulling from scholz/aml-container
+11323ed2c653: Pull complete
+7afc07ef8dcc: Pull complete
+6db1e0ca51d0: Pull complete
+e55aa4fb9b12: Pull complete
+bb9f92fbdfe2: Pull complete
+Digest: sha256:7b0f8f8eb2843ae7fc1350f230b2c7d4a8ae7cb8db0f433c680b5f9cc6f4a012
+Status: Downloaded newer image for ghcr.io/scholz/aml-container:0.0.1
+root@e59af25fa98c:/acuity-toolkit#
+root@e59af25fa98c:/acuity-toolkit# ./bin/convertonnx
+2022-04-14 06:40:12.742009: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /acuity-toolkit/bin/acuitylib
+2022-04-14 06:40:12.742039: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+usage: convertonnx [-h] --onnx-model ONNX_MODEL [--inputs INPUTS]
+                   [--input-size-list INPUT_SIZE_LIST]
+                   [--size-with-batch SIZE_WITH_BATCH]
+                   [--input-dtype-list INPUT_DTYPE_LIST] [--outputs OUTPUTS]
+                   [--net-output NET_OUTPUT] [--data-output DATA_OUTPUT]
+convertonnx: error: the following arguments are required: --onnx-model
+root@e59af25fa98c:/acuity-toolkit# exit
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ docker run --rm --name conv-test -it  --mount type=bind,source=./data,target=/acuity-toolkit/python/data  --mount type=bind,source=./network,target=/acuity-toolkit/python/network   --mount type=bind,source=./outputs,target=/acuity-toolkit/python/outputs  --entrypoint=/acuity-toolkit/python/network/convert-lenet-onnx-to-khadas.sh   ghcr.io/scholz/aml-container:0.0.1
+docker: Error response from daemon: invalid mount config for type "bind": invalid mount path: './data' mount path must be absolute.
+See 'docker run --help'.
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ /home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network//home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/^C
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ docker run --rm --name conv-test -it  --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/data,target=/acuity-toolkit/python/data  --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/network,target=/acuity-toolkit/python/network   --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/outputs,target=/acuity-toolkit/python/outputs  --entrypoint=/acuity-toolkit/python/network/convert-lenet-onnx-to-khadas.sh   ghcr.io/scholz/aml-container:0.0.1
+docker: Error response from daemon: failed to create shim: OCI runtime create failed: container_linux.go:380: starting container process caused: exec: "/acuity-toolkit/python/network/convert-lenet-onnx-to-khadas.sh": permission denied: unknown.
+sajjad@teco:~/Downloads/novelsense/novelsense/example-network/2_convert_network$ docker run --rm --name conv-test -it  --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/data,target=/acuity-toolkit/python/data  --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/network,target=/acuity-toolkit/python/network   --mount type=bind,source=/home/sajjad/Downloads/novelsense/novelsense/example-network/2_convert_network/outputs,target=/acuity-toolkit/python/outputs  --entrypoint=/bin/bash   ghcr.io/scholz/aml-container:0.0.1
+root@49279c91386e:/acuity-toolkit# ls
+bin  demo  python  ReadMe.txt  requirements.txt
+root@49279c91386e:/acuity-toolkit# ./python/convert --model-name lenet --platform onnx --outputs "output" --inputs "input" --input-size-list '28,28,3' --model ./network/lenet.onnx --mean-values '127.5,127.5,127.5,255.0' --quantized-dtype asymmetric_affine --qtype int16 --kboard VIM3 --print-level 1
+
+
+--+ KSNN Convert tools v1.2 +--
+
+
+./network/lenet.onnx not exist
+root@49279c91386e:/acuity-toolkit# ls network
+ls: cannot access 'network': No such file or directory
+root@49279c91386e:/acuity-toolkit# cd ..
+root@49279c91386e:/# ls network
+ls: cannot access 'network': No such file or directory
+root@49279c91386e:/# cd -
+/acuity-toolkit
+root@49279c91386e:/acuity-toolkit# cd python/
+root@49279c91386e:/acuity-toolkit/python# ./convert --model-name lenet --platform onnx --outputs "output" --inputs "input" --input-size-list '28,28,3' --model ./network/lenet.onnx --mean-values '127.5,127.5,127.5,255.0' --quantized-dtype asymmetric_affine --qtype int16 --kboard VIM3 --print-level 1
+
+
+--+ KSNN Convert tools v1.2 +--
+
+
+Start import model ...
+2022-04-14 06:52:30.337604: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /acuity-toolkit/bin/acuitylib:/tmp/_MEIljQyUx
+
+2022-04-14 06:52:30.337632: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+
+I Namespace(import='onnx', input_dtype_list=None, input_size_list='28,28,3', inputs='input', model='./network/lenet.onnx', output_data='Model.data', output_model='Model.json', outputs='output', size_with_batch=None, which='import')
+
+I Start importing onnx...
+
+I Current ONNX Model use ir_version 3 opset_version 7
+
+I Call acuity onnx optimize 'eliminate_option_const' success
+
+I Call acuity onnx optimize 'froze_const_branch' success
+
+I Call acuity onnx optimize 'froze_if' success
+
+I Call acuity onnx optimize 'merge_sequence_construct_concat_from_sequence' success
+
+I Call acuity onnx optimize 'merge_lrn_lowlevel_implement' success
+
+D Calc tensor Initializer_conv1.bias shape: [20]
+
+D Calc tensor Initializer_conv2.bias shape: [50]
+
+D Calc tensor Initializer_conv1.weight shape: [20, 1, 5, 5]
+
+D Calc tensor Initializer_fc1.weight shape: [500, 800]
+
+D Calc tensor Constant_onnx::Gather_27 shape: []
+
+D Calc tensor Constant_onnx::Reshape_29 shape: [2]
+
+D Calc tensor Constant_onnx::Reshape_28 shape: [4]
+
+D Calc tensor Constant_onnx::Reshape_26 shape: [4]
+
+D Calc tensor Reshape_x shape: [1, 3, 28, 28]
+
+D Calc tensor Gather_onnx::Reshape_12 shape: [1, 28, 28]
+
+D Calc tensor Reshape_input.1 shape: [1, 1, 28, 28]
+
+D Calc tensor Initializer_fc2.weight shape: [10, 500]
+
+D Calc tensor Initializer_conv2.weight shape: [50, 20, 5, 5]
+
+D Calc tensor Initializer_fc1.bias shape: [500]
+
+D Calc tensor Conv_input.3 shape: [1, 20, 24, 24]
+
+D Calc tensor Initializer_fc2.bias shape: [10]
+
+D Calc tensor Relu_input.7 shape: [1, 20, 24, 24]
+
+D Calc tensor MaxPool_input.11 shape: [1, 20, 12, 12]
+
+D Calc tensor Conv_input.15 shape: [1, 50, 8, 8]
+
+D Calc tensor Relu_input.19 shape: [1, 50, 8, 8]
+
+D Calc tensor MaxPool_x.4 shape: [1, 50, 4, 4]
+
+D Calc tensor Reshape_input.23 shape: [1, 800]
+
+D Calc tensor Gemm_input.27 shape: [1, 500]
+
+D Calc tensor Relu_input.31 shape: [1, 500]
+
+D Calc tensor Gemm_output shape: [1, 10]
+
+I build output layer attach_Gemm_Gemm_20:out0
+
+I Try match Gemm_Gemm_20:out0
+
+I Match r_gemm_2_fc_wb [['Gemm_Gemm_20', 'Initializer_fc2.weight', 'Initializer_fc2.bias']] [['Gemm', 'Constant_0', 'Constant_1']] to [['fullconnect']]
+
+I Try match Relu_Relu_19:out0
+
+I Match r_relu [['Relu_Relu_19']] [['Relu']] to [['relu']]
+
+I Try match Gemm_Gemm_18:out0
+
+I Match r_gemm_2_fc_wb [['Gemm_Gemm_18', 'Initializer_fc1.weight', 'Initializer_fc1.bias']] [['Gemm', 'Constant_0', 'Constant_1']] to [['fullconnect']]
+
+I Try match Reshape_Reshape_17:out0
+
+I Match r_rsp_v5 [['Constant_Cast_16_onnx__Reshape_29_as_const', 'Reshape_Reshape_17']] [['Reshape', 'Constant_0']] to [['reshape']]
+
+I Try match MaxPool_MaxPool_14:out0
+
+I Match r_maxpool [['MaxPool_MaxPool_14']] [['MaxPool']] to [['pooling']]
+
+I Try match Relu_Relu_13:out0
+
+I Match r_relu [['Relu_Relu_13']] [['Relu']] to [['relu']]
+
+I Try match Conv_Conv_12:out0
+
+I Match r_conv [['Initializer_conv2.weight', 'Conv_Conv_12', 'Initializer_conv2.bias']] [['Conv', 'Constant_0', 'Constant_1']] to [['convolution']]
+
+I Try match MaxPool_MaxPool_11:out0
+
+I Match r_maxpool [['MaxPool_MaxPool_11']] [['MaxPool']] to [['pooling']]
+
+I Try match Relu_Relu_10:out0
+
+I Match r_relu [['Relu_Relu_10']] [['Relu']] to [['relu']]
+
+I Try match Conv_Conv_9:out0
+
+I Match r_conv [['Initializer_conv1.weight', 'Conv_Conv_9', 'Initializer_conv1.bias']] [['Conv', 'Constant_0', 'Constant_1']] to [['convolution']]
+
+I Try match Reshape_Reshape_8:out0
+
+I Match r_rsp_v5 [['Constant_Cast_7_onnx__Reshape_28_as_const', 'Reshape_Reshape_8']] [['Reshape', 'Constant_0']] to [['reshape']]
+
+I Try match Gather_Gather_5:out0
+
+I Match r_gather [['Gather_Gather_5']] [['Gather']] to [['gather']]
+
+I Try match Reshape_Reshape_2:out0
+
+I Match r_rsp_v5 [['Constant_Cast_1_onnx__Reshape_26_as_const', 'Reshape_Reshape_2']] [['Reshape', 'Constant_0']] to [['reshape']]
+
+I Try match Constant_Cast_4_onnx__Gather_27_as_const:out0
+
+I Match r_variable [['Constant_Cast_4_onnx__Gather_27_as_const']] [['Constant']] to [['variable']]
+
+I build input layer input:out0
+
+D connect Relu_Relu_19_2 0  ~ Gemm_Gemm_20_1 0
+
+D connect Gemm_Gemm_18_3 0  ~ Relu_Relu_19_2 0
+
+D connect Reshape_Reshape_17_4 0  ~ Gemm_Gemm_18_3 0
+
+D connect MaxPool_MaxPool_14_5 0  ~ Reshape_Reshape_17_4 0
+
+D connect Relu_Relu_13_6 0  ~ MaxPool_MaxPool_14_5 0
+
+D connect Conv_Conv_12_7 0  ~ Relu_Relu_13_6 0
+
+D connect MaxPool_MaxPool_11_8 0  ~ Conv_Conv_12_7 0
+
+D connect Relu_Relu_10_9 0  ~ MaxPool_MaxPool_11_8 0
+
+D connect Conv_Conv_9_10 0  ~ Relu_Relu_10_9 0
+
+D connect Reshape_Reshape_8_11 0  ~ Conv_Conv_9_10 0
+
+D connect Gather_Gather_5_12 0  ~ Reshape_Reshape_8_11 0
+
+D connect Reshape_Reshape_2_13 0  ~ Gather_Gather_5_12 0
+
+D connect Constant_Cast_4_onnx__Gather_27_as_const_14 0  ~ Gather_Gather_5_12 1
+
+D connect input_15 0  ~ Reshape_Reshape_2_13 0
+
+D connect Gemm_Gemm_20_1 0  ~ attach_Gemm_Gemm_20/out0_0 0
+
+2022-04-14 06:52:31.751798: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+
+2022-04-14 06:52:31.773565: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792945000 Hz
+
+2022-04-14 06:52:31.774059: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x67dc210 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+
+2022-04-14 06:52:31.774082: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+
+2022-04-14 06:52:31.775755: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /acuity-toolkit/bin/acuitylib:/tmp/_MEIljQyUx
+
+2022-04-14 06:52:31.775781: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+
+2022-04-14 06:52:31.775798: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (49279c91386e): /proc/driver/nvidia/version does not exist
+
+D Process input_15 ...
+
+D Acuity output shape(input): (1 28 28 3)
+
+D Tensor @input_15:out0 type: float32
+
+D Process Reshape_Reshape_2_13 ...
+
+D Acuity output shape(reshape): (1 3 28 28)
+
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+
+D Acuity output shape(variable): (1)
+
+D Process Gather_Gather_5_12 ...
+
+D Acuity output shape(gather): (1 28 28)
+
+D Tensor @Gather_Gather_5_12:out0 type: float32
+
+D Process Reshape_Reshape_8_11 ...
+
+D Acuity output shape(reshape): (1 1 28 28)
+
+D Tensor @Reshape_Reshape_8_11:out0 type: float32
+
+D Process Conv_Conv_9_10 ...
+
+D Acuity output shape(convolution): (1 20 24 24)
+
+D Tensor @Conv_Conv_9_10:out0 type: float32
+
+D Process Relu_Relu_10_9 ...
+
+D Acuity output shape(relu): (1 20 24 24)
+
+D Tensor @Relu_Relu_10_9:out0 type: float32
+
+D Process MaxPool_MaxPool_11_8 ...
+
+D Acuity output shape(pooling): (1 20 12 12)
+
+D Tensor @MaxPool_MaxPool_11_8:out0 type: float32
+
+D Process Conv_Conv_12_7 ...
+
+D Acuity output shape(convolution): (1 50 8 8)
+
+D Tensor @Conv_Conv_12_7:out0 type: float32
+
+D Process Relu_Relu_13_6 ...
+
+D Acuity output shape(relu): (1 50 8 8)
+
+D Tensor @Relu_Relu_13_6:out0 type: float32
+
+D Process MaxPool_MaxPool_14_5 ...
+
+D Acuity output shape(pooling): (1 50 4 4)
+
+D Tensor @MaxPool_MaxPool_14_5:out0 type: float32
+
+D Process Reshape_Reshape_17_4 ...
+
+D Acuity output shape(reshape): (1 800)
+
+D Tensor @Reshape_Reshape_17_4:out0 type: float32
+
+D Process Gemm_Gemm_18_3 ...
+
+D Acuity output shape(fullconnect): (1 500)
+
+D Tensor @Gemm_Gemm_18_3:out0 type: float32
+
+D Process Relu_Relu_19_2 ...
+
+D Acuity output shape(relu): (1 500)
+
+D Tensor @Relu_Relu_19_2:out0 type: float32
+
+D Process Gemm_Gemm_20_1 ...
+
+D Acuity output shape(fullconnect): (1 10)
+
+D Tensor @Gemm_Gemm_20_1:out0 type: float32
+
+D Process attach_Gemm_Gemm_20/out0_0 ...
+
+D Acuity output shape(output): (1 10)
+
+D Tensor @attach_Gemm_Gemm_20/out0_0:out0 type: float32
+
+I Build torch-jit-export complete.
+
+I Start C2T Switcher...
+
+D Optimizing network with broadcast_op
+
+D insert permute Reshape_Reshape_17_4_acuity_mark_perm_16 before Reshape_Reshape_17_4
+
+D insert permute Conv_Conv_9_10_acuity_mark_perm_17 before Conv_Conv_9_10
+
+I End C2T Switcher...
+
+D Process input_15 ...
+
+D Acuity output shape(input): (1 28 28 3)
+
+D Tensor @input_15:out0 type: float32
+
+D Process Reshape_Reshape_2_13 ...
+
+D Acuity output shape(reshape): (1 3 28 28)
+
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+
+D Acuity output shape(variable): (1)
+
+D Process Gather_Gather_5_12 ...
+
+D Acuity output shape(gather): (1 28 28)
+
+D Tensor @Gather_Gather_5_12:out0 type: float32
+
+D Process Reshape_Reshape_8_11 ...
+
+D Acuity output shape(reshape): (1 1 28 28)
+
+D Tensor @Reshape_Reshape_8_11:out0 type: float32
+
+D Process Conv_Conv_9_10_acuity_mark_perm_17 ...
+
+D Acuity output shape(permute): (1 28 28 1)
+
+D Tensor @Conv_Conv_9_10_acuity_mark_perm_17:out0 type: float32
+
+D Process Conv_Conv_9_10 ...
+
+D Acuity output shape(convolution): (1 24 24 20)
+
+D Tensor @Conv_Conv_9_10:out0 type: float32
+
+D Process Relu_Relu_10_9 ...
+
+D Acuity output shape(relu): (1 24 24 20)
+
+D Tensor @Relu_Relu_10_9:out0 type: float32
+
+D Process MaxPool_MaxPool_11_8 ...
+
+D Acuity output shape(pooling): (1 12 12 20)
+
+D Tensor @MaxPool_MaxPool_11_8:out0 type: float32
+
+D Process Conv_Conv_12_7 ...
+
+D Acuity output shape(convolution): (1 8 8 50)
+
+D Tensor @Conv_Conv_12_7:out0 type: float32
+
+D Process Relu_Relu_13_6 ...
+
+D Acuity output shape(relu): (1 8 8 50)
+
+D Tensor @Relu_Relu_13_6:out0 type: float32
+
+D Process MaxPool_MaxPool_14_5 ...
+
+D Acuity output shape(pooling): (1 4 4 50)
+
+D Tensor @MaxPool_MaxPool_14_5:out0 type: float32
+
+D Process Reshape_Reshape_17_4_acuity_mark_perm_16 ...
+
+D Acuity output shape(permute): (1 50 4 4)
+
+D Tensor @Reshape_Reshape_17_4_acuity_mark_perm_16:out0 type: float32
+
+D Process Reshape_Reshape_17_4 ...
+
+D Acuity output shape(reshape): (1 800)
+
+D Tensor @Reshape_Reshape_17_4:out0 type: float32
+
+D Process Gemm_Gemm_18_3 ...
+
+D Acuity output shape(fullconnect): (1 500)
+
+D Tensor @Gemm_Gemm_18_3:out0 type: float32
+
+D Process Relu_Relu_19_2 ...
+
+D Acuity output shape(relu): (1 500)
+
+D Tensor @Relu_Relu_19_2:out0 type: float32
+
+D Process Gemm_Gemm_20_1 ...
+
+D Acuity output shape(fullconnect): (1 10)
+
+D Tensor @Gemm_Gemm_20_1:out0 type: float32
+
+D Process attach_Gemm_Gemm_20/out0_0 ...
+
+D Acuity output shape(output): (1 10)
+
+D Tensor @attach_Gemm_Gemm_20/out0_0:out0 type: float32
+
+I Build torch-jit-export complete.
+
+D Optimizing network with force_1d_tensor, swapper, merge_duplicate_quantize_dequantize, merge_layer, auto_fill_bn, auto_fill_l2normalizescale, auto_fill_instancenormalize, resize_nearest_transformer, auto_fill_multiply, compute_gather_negative, auto_fill_zero_bias, proposal_opt_import, special_add_to_conv2d, extend_gather_to_gather_reshape
+
+I End importing onnx...
+
+I Dump net to Model.json
+
+I Save net to Model.data
+
+I ----------------Error(0),Warning(0)----------------
+
+
+Done.import model success !!!
+
+
+Start to Generate inputmeta ...
+2022-04-14 06:52:32.335910: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /acuity-toolkit/bin/acuitylib:/tmp/_MEIljQyUx
+
+2022-04-14 06:52:32.335939: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+
+I Namespace(generate='inputmeta', input_meta_output=None, model='Model.json', separated_database=True, which='generate')
+
+I Load model in Model.json
+
+I Generate input meta Model_inputmeta.yml
+
+I ----------------Error(0),Warning(0)----------------
+
+
+[['127.5', '127.5', '127.5', '255.0']]
+./data/dataset/dataset_0.txt
+Done.Gerate inputmeta success !!!
+
+
+Start quantize ...
+2022-04-14 06:52:34.238033: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /acuity-toolkit/bin/acuitylib:/tmp/_MEIljQyUx
+
+2022-04-14 06:52:34.238063: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+
+I Namespace(algorithm='normal', batch_size=0, compute_entropy=False, device=None, divergence_first_quantize_bits=11, divergence_nbins=0, hybrid=False, iterations=1, model='Model.json', model_data='Model.data', model_quantize=None, moving_average_weight=0.01, output_dir=None, qtype='uint8', quantizer='asymmetric_affine', rebuild=True, rebuild_all=False, which='quantize', with_input_meta='Model_inputmeta.yml')
+
+2022-04-14 06:52:35.501292: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+
+2022-04-14 06:52:35.525565: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 3792945000 Hz
+
+2022-04-14 06:52:35.526157: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x633c1d0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+
+2022-04-14 06:52:35.526190: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+
+2022-04-14 06:52:35.527966: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /acuity-toolkit/bin/acuitylib:/tmp/_MEIljQyUx
+
+2022-04-14 06:52:35.527985: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+
+2022-04-14 06:52:35.528003: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (49279c91386e): /proc/driver/nvidia/version does not exist
+
+I Load model in Model.json
+
+I Load data in Model.data
+
+I Load input meta Model_inputmeta.yml
+
+I Start quantization...
+
+D set up a quantize net
+
+D Process input_15 ...
+
+D Acuity output shape(input): (1 28 28 3)
+
+D Tensor @input_15:out0 type: float32
+
+D Process Reshape_Reshape_2_13 ...
+
+D Acuity output shape(reshape): (1 3 28 28)
+
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+
+D Acuity output shape(variable): (1)
+
+D Process Gather_Gather_5_12 ...
+
+D Acuity output shape(gather): (1 1 28 28)
+
+D Tensor @Gather_Gather_5_12:out0 type: float32
+
+D Process Gather_Gather_5_12_acuity_opt_gather_reshape_18 ...
+
+D Acuity output shape(reshape): (1 28 28)
+
+D Tensor @Gather_Gather_5_12_acuity_opt_gather_reshape_18:out0 type: float32
+
+D Process Reshape_Reshape_8_11 ...
+
+D Acuity output shape(reshape): (1 1 28 28)
+
+D Tensor @Reshape_Reshape_8_11:out0 type: float32
+
+D Process Conv_Conv_9_10_acuity_mark_perm_17 ...
+
+D Acuity output shape(permute): (1 28 28 1)
+
+D Tensor @Conv_Conv_9_10_acuity_mark_perm_17:out0 type: asymmetric_affine
+
+D Process Conv_Conv_9_10 ...
+
+D Acuity output shape(convolution): (1 24 24 20)
+
+D Tensor @Conv_Conv_9_10:out0 type: asymmetric_affine
+
+D Process Relu_Relu_10_9 ...
+
+D Acuity output shape(relu): (1 24 24 20)
+
+D Tensor @Relu_Relu_10_9:out0 type: asymmetric_affine
+
+D Process MaxPool_MaxPool_11_8 ...
+
+D Acuity output shape(pooling): (1 12 12 20)
+
+D Tensor @MaxPool_MaxPool_11_8:out0 type: asymmetric_affine
+
+D Process Conv_Conv_12_7 ...
+
+D Acuity output shape(convolution): (1 8 8 50)
+
+D Tensor @Conv_Conv_12_7:out0 type: asymmetric_affine
+
+D Process Relu_Relu_13_6 ...
+
+D Acuity output shape(relu): (1 8 8 50)
+
+D Tensor @Relu_Relu_13_6:out0 type: asymmetric_affine
+
+D Process MaxPool_MaxPool_14_5 ...
+
+D Acuity output shape(pooling): (1 4 4 50)
+
+D Tensor @MaxPool_MaxPool_14_5:out0 type: float32
+
+D Process Reshape_Reshape_17_4_acuity_mark_perm_16 ...
+
+D Acuity output shape(permute): (1 50 4 4)
+
+D Tensor @Reshape_Reshape_17_4_acuity_mark_perm_16:out0 type: float32
+
+D Process Reshape_Reshape_17_4 ...
+
+D Acuity output shape(reshape): (1 800)
+
+D Tensor @Reshape_Reshape_17_4:out0 type: asymmetric_affine
+
+D Process Gemm_Gemm_18_3 ...
+
+D Acuity output shape(fullconnect): (1 500)
+
+D Tensor @Gemm_Gemm_18_3:out0 type: asymmetric_affine
+
+D Process Relu_Relu_19_2 ...
+
+D Acuity output shape(relu): (1 500)
+
+D Tensor @Relu_Relu_19_2:out0 type: asymmetric_affine
+
+D Process Gemm_Gemm_20_1 ...
+
+D Acuity output shape(fullconnect): (1 10)
+
+D Tensor @Gemm_Gemm_20_1:out0 type: asymmetric_affine
+
+D Process attach_Gemm_Gemm_20/out0_0 ...
+
+D Acuity output shape(output): (1 10)
+
+D Tensor @attach_Gemm_Gemm_20/out0_0:out0 type: float32
+
+I Build torch-jit-export complete.
+
+D Thinning network with DeadChannelRemoval, to zeros: True.
+
+D Build analyzer ...
+
+D Forward analyze range.
+
+D Backward analyze range.
+
+D Forward analyze range.
+
+D Backward analyze range.
+
+D Analyze range done.
+
+D *********** Setup input meta ***********
+
+D *********** Setup database (1) ***********
+
+D Setup provider layer "text_input_layer":
+
+D Lids: ['input_15']
+
+D Layouts: ['nchw']
+
+D Shapes: [[1, 28, 28, 3]]
+
+D Data types: ['float32']
+
+D Sparse tensors: []
+
+D Tensor names(H5FS only): []
+
+D Add preprocess "[('reverse_channel', True), ('scale', 1.0), ('preproc_node_params', ordereddict([('add_preproc_node', False), ('preproc_type', 'IMAGE_RGB'), ('preproc_perm', [0, 1, 2, 3])]))]" for "input_15"
+
+D *********** Setup input meta complete ***********
+
+D Process input_15 ...
+
+D Acuity output shape(input): (1 28 28 3)
+
+D Tensor @input_15:out0 type: float32
+
+D Real output shape: (1, 28, 28, 3)
+
+D Process Reshape_Reshape_2_13 ...
+
+D Acuity output shape(reshape): (1 3 28 28)
+
+D Tensor @Reshape_Reshape_2_13:out0 type: float32
+
+D Real output shape: (1, 3, 28, 28)
+
+D Process Constant_Cast_4_onnx__Gather_27_as_const_14 ...
+
+D Acuity output shape(variable): (1)
+
+D Real output shape: (1,)
+
+D Process Gather_Gather_5_12 ...
+
+D Acuity output shape(gather): (1 1 28 28)
+
+D Tensor @Gather_Gather_5_12:out0 type: float32
+
+D Real output shape: (1, 1, 28, 28)
+
+D Process Gather_Gather_5_12_acuity_opt_gather_reshape_18 ...
+
+D Acuity output shape(reshape): (1 28 28)
+
+D Tensor @Gather_Gather_5_12_acuity_opt_gather_reshape_18:out0 type: float32
+
+D Real output shape: (1, 28, 28)
+
+D Process Reshape_Reshape_8_11 ...
+
+D Acuity output shape(reshape): (1 1 28 28)
+
+D Tensor @Reshape_Reshape_8_11:out0 type: float32
+
+D Real output shape: (1, 1, 28, 28)
+
+D Process Conv_Conv_9_10_acuity_mark_perm_17 ...
+
+D Acuity output shape(permute): (1 28 28 1)
+
+D Tensor @Conv_Conv_9_10_acuity_mark_perm_17:out0 type: asymmetric_affine
+
+D Real output shape: (1, 28, 28, 1)
+
+D Process Conv_Conv_9_10 ...
+
+D Acuity output shape(convolution): (1 24 24 20)
+
+D Tensor @Conv_Conv_9_10:out0 type: asymmetric_affine
+
+D Real output shape: (1, 24, 24, 20)
+
+D Process Relu_Relu_10_9 ...
+
+D Acuity output shape(relu): (1 24 24 20)
+
+D Tensor @Relu_Relu_10_9:out0 type: asymmetric_affine
+
+D Real output shape: (1, 24, 24, 20)
+
+D Process MaxPool_MaxPool_11_8 ...
+
+D Acuity output shape(pooling): (1 12 12 20)
+
+D Tensor @MaxPool_MaxPool_11_8:out0 type: asymmetric_affine
+
+D Real output shape: (1, 12, 12, 20)
+
+D Process Conv_Conv_12_7 ...
+
+D Acuity output shape(convolution): (1 8 8 50)
+
+D Tensor @Conv_Conv_12_7:out0 type: asymmetric_affine
+
+D Real output shape: (1, 8, 8, 50)
+
+D Process Relu_Relu_13_6 ...
+
+D Acuity output shape(relu): (1 8 8 50)
+
+D Tensor @Relu_Relu_13_6:out0 type: asymmetric_affine
+
+D Real output shape: (1, 8, 8, 50)
+
+D Process MaxPool_MaxPool_14_5 ...
+
+D Acuity output shape(pooling): (1 4 4 50)
+
+D Tensor @MaxPool_MaxPool_14_5:out0 type: float32
+
+D Real output shape: (1, 4, 4, 50)
+
+D Process Reshape_Reshape_17_4_acuity_mark_perm_16 ...
+
+D Acuity output shape(permute): (1 50 4 4)
+
+D Tensor @Reshape_Reshape_17_4_acuity_mark_perm_16:out0 type: float32
+
+D Real output shape: (1, 50, 4, 4)
+
+D Process Reshape_Reshape_17_4 ...
+
+D Acuity output shape(reshape): (1 800)
+
+D Tensor @Reshape_Reshape_17_4:out0 type: asymmetric_affine
+
+D Real output shape: (1, 800)
+
+D Process Gemm_Gemm_18_3 ...
+
+D Acuity output shape(fullconnect): (1 500)
+
+D Tensor @Gemm_Gemm_18_3:out0 type: asymmetric_affine
+
+D Real output shape: (1, 500)
+
+D Process Relu_Relu_19_2 ...
+
+D Acuity output shape(relu): (1 500)
+
+D Tensor @Relu_Relu_19_2:out0 type: asymmetric_affine
+
+D Real output shape: (1, 500)
+
+D Process Gemm_Gemm_20_1 ...
+
+D Acuity output shape(fullconnect): (1 10)
+
+D Tensor @Gemm_Gemm_20_1:out0 type: asymmetric_affine
+
+D Real output shape: (1, 10)
+
+D Process attach_Gemm_Gemm_20/out0_0 ...
+
+D Acuity output shape(output): (1 10)
+
+D Tensor @attach_Gemm_Gemm_20/out0_0:out0 type: float32
+
+D Real output shape: (1, 10)
+
+I Build torch-jit-export complete.
+
+I Running 1 iterations
+
+D 0(100.00%), Queue size 0
+
+I Queue cancelled.
+
+D Quantize tensor @Gemm_Gemm_20_1:out0.
+
+D Quantize tensor @Relu_Relu_19_2:out0.
+
+D Quantize tensor @Gemm_Gemm_18_3:out0.
+
+D Quantize tensor @Reshape_Reshape_17_4:out0.
+
+D Quantize tensor @Relu_Relu_13_6:out0.
+
+D Quantize tensor @Conv_Conv_12_7:out0.
+
+D Quantize tensor @MaxPool_MaxPool_11_8:out0.
+
+D Quantize tensor @Relu_Relu_10_9:out0.
+
+D Quantize tensor @Conv_Conv_9_10:out0.
+
+D Quantize tensor @Conv_Conv_9_10_acuity_mark_perm_17:out0.
+
+D Quantize tensor @Gemm_Gemm_20_1:weight.
+
+D Quantize tensor @Gemm_Gemm_18_3:weight.
+
+D Quantize tensor @Conv_Conv_12_7:weight.
+
+D Quantize tensor @Conv_Conv_9_10:weight.
+
+D Quantize tensor @Gemm_Gemm_20_1:bias.
+
+D Quantize tensor @Gemm_Gemm_18_3:bias.
+
+D Quantize tensor @Conv_Conv_12_7:bias.
+
+D Quantize tensor @Conv_Conv_9_10:bias.
+
+I Clean.
+
+D Optimizing network with align_quantize, broadcast_quantize, qnt_adjust_coef, qnt_adjust_param
+
+D Quantize tensor(@input_15:out0) with tensor(@Conv_Conv_9_10_acuity_mark_perm_17:out0)
+
+D Quantize tensor(@Reshape_Reshape_2_13:out0) with tensor(@input_15:out0)
+
+D Quantize tensor(@Gather_Gather_5_12:out0) with tensor(@Reshape_Reshape_2_13:out0)
+
+D Quantize tensor(@Gather_Gather_5_12_acuity_opt_gather_reshape_18:out0) with tensor(@Gather_Gather_5_12:out0)
+
+D Quantize tensor(@Reshape_Reshape_8_11:out0) with tensor(@Gather_Gather_5_12_acuity_opt_gather_reshape_18:out0)
+
+D Quantize tensor(@MaxPool_MaxPool_14_5:out0) with tensor(@Relu_Relu_13_6:out0)
+
+D Quantize tensor(@Reshape_Reshape_17_4_acuity_mark_perm_16:out0) with tensor(@MaxPool_MaxPool_14_5:out0)
+
+D Quantize tensor(@attach_Gemm_Gemm_20/out0_0:out0) with tensor(@Gemm_Gemm_20_1:out0)
+
+I End quantization...
+
+I Dump net quantize tensor table to Model.quantize
+
+I Save net to Model.data
+
+I ----------------Error(0),Warning(0)----------------
+
+
+Done.Quantize success !!!
+
+
+Start export model ...
+Done.Export model success !!!
+
+
+Start generate library...
+
+Done.Generate library success !!!
+
+
+All Done.
+root@49279c91386e:/acuity-toolkit/python# ls outputs/
+lenet
+root@49279c91386e:/acuity-toolkit/python# ls outputs/lenet/
+lenet.nb  libnn_lenet.so
+root@49279c91386e:/acuity-toolkit/python# ls outputs/lenet/
+root@49279c91386e:/acuity-toolkit/python# ll
+total 412872
+drwxr-xr-x 1 root root      4096 Apr 14 06:52 ./
+drwxr-xr-x 1 root root      4096 Apr 14 06:52 ../
+-rwxr-xr-x 1 root root 422744304 Apr  7 08:21 convert*
+drwxrwxr-x 3 1000 1000      4096 Apr  7 12:41 data/
+-rw-r--r-- 1 root root         8 Apr  7 08:21 .gitignore
+drwxrwxr-x 2 1000 1000      4096 Apr 11 04:07 network/
+drwxrwxr-x 3 1000 1000      4096 Apr 14 06:52 outputs/
+root@49279c91386e:/acuity-toolkit/python# ll outputs/lenet/
+total 740
+drwxr-xr-x 2 root root   4096 Apr 14 06:52 ./
+drwxrwxr-x 3 1000 1000   4096 Apr 14 06:52 ../
+-rw-r--r-- 1 root root 584913 Apr 14 06:52 lenet.nb
+-rwxr-xr-x 1 root root 163776 Apr 14 06:52 libnn_lenet.so*
+root@49279c91386e:/acuity-toolkit/python#
+
+
+======================================================
+======================================================
+

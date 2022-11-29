@@ -1,0 +1,61 @@
+Converting nbg folder into compilable and executable
+===================================================
+khadas@Khadas:~/hussain$ cd yolotiny_nbg_unify/
+khadas@Khadas:~/hussain/yolotiny_nbg_unify$ cp ../novelsense_git/khadas/nbg/yolov3_nbg_unify_416_hussainA/build_vx.sh .
+khadas@Khadas:~/hussain/yolotiny_nbg_unify$ ./build_vx.sh
+makefile.linux:126: /common.target: No such file or directory
+make: *** No rule to make target '/common.target'.  Stop.
+khadas@Khadas:~/hussain/yolotiny_nbg_unify$ cp ../novelsense_git/khadas/nbg/yolov3_nbg_unify_416_hussainA/makefile.linux.def .
+khadas@Khadas:~/hussain/yolotiny_nbg_unify$ cp ../novelsense_git/khadas/nbg/yolov3_nbg_unify_416_hussainA/makefile.target_name .
+khadas@Khadas:~/hussain/yolotiny_nbg_unify$
+
+khadas@Khadas:~/hussain/yolotiny_nbg_unify$ vim makefile.linux
+Add: after
+#include $(AQROOT)/makefile.linux.def
+include ./makefile.linux.def
+include ./makefile.target_name
+
+#LIBS += $(OVXLIB_DIR)/lib/libjpeg.a
+LIBS += /usr/lib/aarch64-linux-gnu/libjpeg.a
+
+
+#include $(AQROOT)/common.target
+
+LDFLAGS += -Wall -shared -Wl,-soname,$(TARGET_NAME) -Wl,-z,defs
+
+TARGET_OUTPUT = $(OBJ_DIR)/$(TARGET_NAME)
+
+all: $(TARGET_OUTPUT)
+
+clean:
+        @rm -rf $(OBJ_DIR)/* $(OBJ_DIR)
+
+install: $(TARGET_OUTPUT)
+        @mkdir -p $(INSTALL_DIR)
+        @-cp $(TARGET_OUTPUT) $(INSTALL_DIR)
+
+$(TARGET_OUTPUT): $(OBJECTS)
+        @$(CXX) $(OBJECTS) -o $(TARGET_OUTPUT) $(LIBS)
+
+$(OBJ_DIR)/%.o: %.c
+        @echo "  COMPILE $(abspath $<)"
+        @mkdir -p $(OBJ_DIR)
+khadas@Khadas:~/hussain/yolotiny_nbg_unify$ ./build_vx.sh
+make: Nothing to be done for 'all'.
+
+khadas@Khadas:~/hussain/yolotiny_nbg_unify$ ./bin_r/yolotiny yolotiny_88.nb ~/hussain/img/416/person_416.jpg
+Create Neural Network: 419ms or 419596us
+Verify...
+Verify Graph: 0ms or 711us
+Start run graph [1] times...
+Run the 1 time: 4.00ms or 4711.00us
+vxProcessGraph execution time:
+Total   4.00ms or 4745.00us
+Average 4.74ms or 4745.00us
+ --- Top5 ---
+15305: 7.750000
+15292: 6.250000
+3668: 5.750000
+3669: 5.500000
+3655: 4.500000
+khadas@Khadas:~/hussain/yolotiny_nbg_unify$

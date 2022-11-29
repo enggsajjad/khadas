@@ -1,0 +1,418 @@
+========================================================================
+diff detect_yolo_v3	source_code	sample_demo_x11	sample_demo_x11B
+
+========================================================================
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B$ diff ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/vnn_yolov3.c vnn_yolov3.c
+82c82
+< #define NET_NORM_TENSOR_NUM     (4)
+---
+> #define NET_NORM_TENSOR_NUM     (3)
+84c84
+< #define NET_VIRTUAL_TENSOR_NUM  (3)
+---
+> #define NET_VIRTUAL_TENSOR_NUM  (2)
+201c201
+<     vsi_nn_SetGraphOutputs( graph, NULL, 3 );
+---
+>     vsi_nn_SetGraphOutputs( graph, NULL, 2 );
+222d221
+<                   [52, 52, 255, 1]
+224c223
+<     NEW_VXNODE(node[0], VSI_NN_OP_NBG, 1, 3, 0);
+---
+>     NEW_VXNODE(node[0], VSI_NN_OP_NBG, 1, 2, 0);
+231c230
+<     NEW_VXNODE(node[0], VSI_NN_OP_NBG, 1, 3, 0);
+---
+>     NEW_VXNODE(node[0], VSI_NN_OP_NBG, 1, 2, 0);
+251c250
+<     /* @output_82_199:out0 */
+---
+>     /* @output_16_35:out0 */
+257c256
+<     attr.dtype.fl = 2;
+---
+>     attr.dtype.fl = -49;
+261c260
+<     /* @output_94_225:out0 */
+---
+>     /* @output_23_46:out0 */
+267c266
+<     attr.dtype.fl = 2;
+---
+>     attr.dtype.fl = -49;
+271,280d269
+<     /* @output_106_251:out0 */
+<     attr.size[0] = 52;
+<     attr.size[1] = 52;
+<     attr.size[2] = 255;
+<     attr.size[3] = 1;
+<     attr.dim_num = 4;
+<     attr.dtype.fl = 2;
+<     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+<     NEW_NORM_TENSOR(norm_tensor[3], attr, VSI_NN_TYPE_INT8);
+<
+295d283
+<     node[0]->output.tensors[2] = norm_tensor[3];
+306d293
+<     node[0]->output.tensors[2] = norm_tensor[3];
+312d298
+<     graph->output.tensors[2] = norm_tensor[3];
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B$ diff ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/yolo_v3.c  ./yolo_v3.c
+44c44
+<
+---
+>       MY_DBG("model_create1\n"); //Sajjad
+47a48
+>                       MY_DBG("model_create1.1\n"); //Sajjad
+50a52
+>                       MY_DBG("model_create1.2\n"); //Sajjad
+53a56
+>                       MY_DBG("model_create1.3\n"); //Sajjad
+57a61,62
+>       MY_DBG("model_create2\n"); //Sajjad
+>
+61a67
+>       MY_DBG("model_create3\n"); //Sajjad
+63a70,71
+>       MY_DBG("model_create4\n"); //Sajjad
+>
+64a73
+>       MY_DBG("model_create5\n"); //Sajjad
+86a96,210
+> ////Sajjad
+> static void save_output_data(vsi_nn_graph_t *graph)
+> {
+>     uint32_t i;
+> #define _DUMP_FILE_LENGTH 1028
+> #define _DUMP_SHAPE_LENGTH 128
+>     char filename[_DUMP_FILE_LENGTH] = {0}, shape[_DUMP_SHAPE_LENGTH] = {0};
+>     vsi_nn_tensor_t *tensor;
+>
+>     for(i = 0; i < graph->output.num; i++)
+>     {
+>         tensor = vsi_nn_GetTensor(graph, graph->output.tensors[i]);
+>         vsi_nn_ShapeToString( tensor->attr.size, tensor->attr.dim_num,
+>             shape, _DUMP_SHAPE_LENGTH, FALSE );
+>         snprintf(filename, _DUMP_FILE_LENGTH, "output%u_%s.dat", i, shape);
+>         vsi_nn_SaveTensorToBinary(graph, tensor, filename);
+>
+>     }
+> }
+>
+> static vsi_bool get_top
+>     (
+>     float *pfProb,
+>     float *pfMaxProb,
+>     vsi_size_t *pMaxClass,
+>     vsi_size_t outputCount,
+>     vsi_size_t topNum
+>     )
+> {
+>     vsi_size_t i, j, k;
+>
+>     #define MAX_TOP_NUM 20
+>     if (topNum > MAX_TOP_NUM) return FALSE;
+>
+>     memset(pfMaxProb, 0xfe, sizeof(float) * topNum);
+>     memset(pMaxClass, 0xff, sizeof(float) * topNum);
+>
+>     for (j = 0; j < topNum; j++)
+>     {
+>         for (i=0; i<outputCount; i++)
+>         {
+>             for (k=0; k < topNum; k ++)
+>             {
+>                 if(i == pMaxClass[k])
+>                     break;
+>             }
+>
+>             if (k != topNum)
+>                 continue;
+>
+>             if (pfProb[i] > *(pfMaxProb+j))
+>             {
+>                 *(pfMaxProb+j) = pfProb[i];
+>                 *(pMaxClass+j) = i;
+>             }
+>         }
+>     }
+>
+>     return TRUE;
+> }
+>
+> static vsi_status show_top5
+>     (
+>     vsi_nn_graph_t *graph,
+>     vsi_nn_tensor_t *tensor
+>     )
+> {
+>     vsi_status status = VSI_FAILURE;
+>     vsi_size_t i,sz,stride;
+>     float *buffer = NULL;
+>     uint8_t *tensor_data = NULL;
+>     vsi_size_t MaxClass[5];
+>     float fMaxProb[5];
+>     vsi_size_t topk = 5;
+>
+>     sz = 1;
+>     for(i = 0; i < tensor->attr.dim_num; i++)
+>     {
+>         sz *= tensor->attr.size[i];
+>     }
+>
+>     if(topk > sz)
+>         topk = sz;
+>
+>     stride = (vsi_size_t)vsi_nn_TypeGetBytes(tensor->attr.dtype.vx_type);
+>     tensor_data = (uint8_t *)vsi_nn_ConvertTensorToData(graph, tensor);
+>     buffer = (float *)malloc(sizeof(float) * sz);
+>
+>     for(i = 0; i < sz; i++)
+>     {
+>         status = vsi_nn_DtypeToFloat32(&tensor_data[stride * i], &buffer[i], &tensor->attr.dtype);
+>     }
+>
+>     if (!get_top(buffer, fMaxProb, MaxClass, sz, topk))
+>     {
+>         printf("Fail to show result.\n");
+>         goto final;
+>     }
+>
+>     printf(" --- Top%d ---\n", topk);
+>     for(i = 0; i< topk; i++)
+>     {
+>         printf("%3d: %8.6f\n", MaxClass[i], fMaxProb[i]);
+>     }
+>     status = VSI_SUCCESS;
+>
+> final:
+>     if(tensor_data)vsi_nn_Free(tensor_data);
+>     if(buffer)free(buffer);
+>     return status;
+> }
+>
+> vsi_status vnn_PostProcessYolov3(vsi_nn_graph_t *graph)
+> {
+>     vsi_status status = VSI_FAILURE;
+87a212,222
+>     /* Show the top5 result */
+>     status = show_top5(graph, vsi_nn_GetTensor(graph, graph->output.tensors[0]));
+>     TEST_CHECK_STATUS(status, final);
+>
+>     /* Save all output tensor data to txt file */
+>     save_output_data(graph);
+>
+> final:
+>     return VSI_SUCCESS;
+> }
+> ////Sajjad End
+101c236,238
+<
+---
+>       ///Sajjad
+>       vnn_PostProcessYolov3(g_graph);
+>       ///Sajjad End
+110a248,251
+> }
+> void myprint(void)
+> {
+>       MY_DBG("Hello from yolo_v3.c\n");
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B$ diff ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/yolov3_process.c ./yolov3_process.c
+18c18
+<
+---
+>     MY_DBG("yolov3_preprocess1\n"); //Sajjad
+19a20,21
+>     MY_DBG("yolov3_preprocess2\n"); //Sajjad
+>     MY_DBG("width=%d, height=%d, channel=%d\n",nn_width,nn_height,channels);
+21c23
+<
+---
+>     MY_DBG("yolov3_preprocess3\n"); //Sajjad
+34c36
+<
+---
+>     MY_DBG("yolov3_preprocess4\n"); //Sajjad
+41a44
+>     MY_DBG("yolov3_preprocess5\n"); //Sajjad
+194c197,199
+<
+---
+>             ///Sajjad
+>             MY_DBG("Names and Prob: %s, %0.f%%\n",names[classId], prob*100);
+>             ///Sajjad End
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B$ diff ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/nn_detect_common.h ./include/nn_detect_common.h
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B$ diff ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/nn_detect.h ./include/nn_detect.h
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B$ diff ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/nn_detect_utils.h ./include/nn_detect_utils.h
+15a16
+> #include "debug.h"
+\ No newline at end of file
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B$ diff ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/vnn_global.h ./include/vnn_global.h
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B$ diff ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/vnn_yolov3.h ./include/vnn_yolov3.h
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B$ diff ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/yolo_v3.h ./include/yolo_v3.h
+3a4,9
+>
+> #ifdef __cplusplus
+> extern "C"{
+> #endif
+>
+>
+12a19,24
+> void myprint(void);
+>
+>
+> #ifdef __cplusplus
+> }
+> #endif
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B$ diff ~/hussain/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/yolov3_process.h ./include/yolov3_process.h
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B$ diff ~/hussain/aml_npu_app/detect_library/source_code/detect_log.c ./detect_log.c
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B$ diff ~/hussain/aml_npu_app/detect_library/source_code/include/detect_log.h ./include/detect_log.h
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B$ diff ~/hussain/aml_npu_app/detect_library/source_code/include/nn_detect_common.h ./include/nn_detect_common.h
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B$ diff ~/hussain/aml_npu_app/detect_library/source_code/include/nn_detect_utils.h ./include/nn_detect_utils.h
+15a16
+> #include "debug.h"
+\ No newline at end of file
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B$ diff ~/hussain/aml_npu_app/detect_library/source_code/include/nn_detect.h ./include/nn_detect.h
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B$
+khadas@Khadas:~/hussain/standalone_initial/newscripts/sample_demo_x11B$ diff ~/hussain/aml_npu_app/detect_library/sample_demo_x11/main.cpp ./main.cpp 50c50
+< #include "nn_detect.h"
+---
+> //#include "nn_detect.h"  //Sajjad
+51a52,55
+> #include "yolo_v3.h" //Sajjad
+> const char* data_file_path1 = "nn_data"; //Sajjad
+>
+> dev_type g_dev_type1 = DEV_REVB; //Sajjad
+196d199
+<
+271d273
+<
+278c280
+<
+---
+>       uint8_t *pdata;//sajjad
+281c283
+<       det_set_log_config(DET_DEBUG_LEVEL_WARN,DET_LOG_TERMINAL);
+---
+>       //det_set_log_config(DET_DEBUG_LEVEL_WARN,DET_LOG_TERMINAL); //Sajjad
+285c287
+<       ret = det_set_model(type);
+---
+>       ret  = model_create(data_file_path1, g_dev_type1);//ret = det_set_model(type); //Sajjad
+292,296c294,298
+<       ret = det_get_model_size(type, &nn_width, &nn_height, &nn_channel);
+<       if (ret) {
+<               cout << "det_get_model_size fail" <<endl;
+<               return ret;
+<       }
+---
+>       model_getsize(&nn_width, &nn_height, &nn_channel);//ret = det_get_model_size(type, &nn_width, &nn_height, &nn_channel); //Sajjad
+>       //if (ret) {
+>       //      cout << "det_get_model_size fail" <<endl;
+>       //      return ret;
+>       //}
+301c303
+<
+---
+>       pdata = (uint8_t*) malloc(nn_width * nn_height * nn_channel * sizeof(uint8_t));//sajjad
+306c308
+<               det_release_model(type);
+---
+>               model_release(g_dev_type1);//det_release_model(type);
+329a332
+>
+332d334
+<
+341,346c343,348
+<       ret = det_set_input(image, type);
+<       if (ret) {
+<               cout << "det_set_input fail. ret=" << ret << endl;
+<               det_release_model(type);
+<               return ret;
+<       }
+---
+>       model_setinput(image, pdata);//ret = det_set_input(image, type); //Sajjad
+>       //if (ret) {
+>       //      cout << "det_set_input fail. ret=" << ret << endl;
+>       //      det_release_model(type);
+>       //      return ret;
+>       //}
+350c352
+<       ret = det_get_result(&resultData, type);
+---
+>       ret = model_getresult(&resultData, pdata);//ret = det_get_result(&resultData, type); //Sajjad
+353c355
+<               det_release_model(type);
+---
+>               model_release(g_dev_type1);//det_release_model(type); //Sajjad
+360c362
+<       det_release_model(type);
+---
+>       model_release(g_dev_type1);//det_release_model(type); //Sajjad
+363a366
+> /* //Sajjad
+535c538,539
+<
+---
+> */
+> /*
+564c568
+< /*============add for display BGR begin================,for imx290,reverse color*/
+---
+>     //============add for display BGR begin================,for imx290,reverse color
+588c592
+< /*============add for display BGR end ================*/
+---
+>     //============add for display BGR end ================
+603c607
+<
+---
+> */
+608c612
+<
+---
+>       myprint();
+652,654c656,658
+<               case DET_FACENET:
+<                       run_detect_facent(argc, argv);
+<                       break;
+---
+>               //case DET_FACENET: //Sajjad
+>                       //run_detect_facent(argc, argv);
+>               //      break;
+660c664,665
+<       return 0;
+---
+>     return 0;
+khadas@Khadas:~/hussain/sample_demo_x11B_tiny$ diff ~/hussain/aml_npu_app/detect_library/sample_demo_x11/makefile.linux ~/hussain/standalone_initial/newscripts/sample_demo_x11B/makefile.linux
+3a4,15
+> LIB_DIR=$(CC)/libc/lib
+> LIBS +=-L$(LIB_DIR) -l stdc++  -l m
+>
+> INCLUDE += -I$(OVXLIB_DIR)/include
+>
+>
+> ################################################################################
+> LIBS += -L$(VIVANTE_SDK_LIB) -l OpenVX -l OpenVXU -lGAL
+> LIBS += -L$(OVXLIB_DIR)/lib -l ovxlib
+> LIBS += -lm -ldl
+>
+>
+12a25,26
+> #Sajjad
+> INCLUDE += -I./include
+17a32
+> CFLAGS += -I./include
+23a39
+> #LIBS += -lopencv_imgproc -lopencv_core -lopencv_videoio -lopencv_imgcodecs -lopencv_highgui -lz -lm
+27c43
+< LIBS += -L../source_code/bin_r -lnn_detect
+---
+> #LIBS += -L../source_code/bin_r -lnn_detect
+50c66,67
+< LDFLAGS += -Wall -shared -Wl,-soname,$(TARGET_NAME) -Wl,-z,defs
+---
+> #LDFLAGS += -Wall -shared -Wl,-soname,$(TARGET_NAME) -Wl,-z,defs
+> LDFLAGS += -Wall -Wl,-soname,$(TARGET_NAME) -Wl,-z,defs
+khadas@Khadas:~/hussain/sample_demo_x11B_tiny$

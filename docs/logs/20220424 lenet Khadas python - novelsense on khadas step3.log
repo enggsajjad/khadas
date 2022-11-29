@@ -1,0 +1,31 @@
+khadas@Khadas-teco:~$ cd sajjad/ksnn/
+.git/     docs/     examples/ ksnn/     
+khadas@Khadas-teco:~$ cd sajjad/ksnn/examples/
+caffe/         copy_to_board/ darknet/       keras/         onnx/          pytorch/       tensorflow/    tflite/        
+khadas@Khadas-teco:~$ cd sajjad/ksnn/examples/copy_to_board/
+bmp/   model/ 
+khadas@Khadas-teco:~$ cd sajjad/ksnn/examples/copy_to_board/
+khadas@Khadas-teco:~/sajjad/ksnn/examples/copy_to_board$ ls
+bmp  lenet-simple.py  lenet_call.sh  model
+khadas@Khadas-teco:~/sajjad/ksnn/examples/copy_to_board$ ./lenet_call.sh 
+Testing: bmp/0.bmp
+Predicted class is: 0
+Testing: bmp/1.bmp
+Predicted class is: 1
+Testing: bmp/2.bmp
+Predicted class is: 2
+Testing: bmp/3.bmp
+Predicted class is: 3
+Testing: bmp/4.bmp
+Predicted class is: 4
+Testing: bmp/5.bmp
+Predicted class is: 3
+Testing: bmp/6.bmp
+Predicted class is: 4
+Testing: bmp/7.bmp
+Predicted class is: 7
+Testing: bmp/8.bmp
+Predicted class is: 8
+Testing: bmp/9.bmp
+Predicted class is: 4
+khadas@Khadas-teco:~/sajjad/ksnn/examples/copy_to_board$ 

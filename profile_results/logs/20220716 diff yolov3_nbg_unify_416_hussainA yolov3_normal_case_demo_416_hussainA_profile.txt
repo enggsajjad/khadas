@@ -1,0 +1,1209 @@
+sajjad@teco:~/hussain/npusdk2_basis/aml_npu_sdk/acuity-toolkit/demo$ ls yolov3_nbg_unify_416_hussainA/
+BUILD               makefile.linux      vnn_global.h        vnn_pre_process.c   vnn_yolov3.h
+.cproject           nbg_meta.json       vnn_post_process.c  vnn_pre_process.h   yolov3_88.nb
+main.c              .project            vnn_post_process.h  vnn_yolov3.c        yolov3.vcxproj
+sajjad@teco:~/hussain/npusdk2_basis/aml_npu_sdk/acuity-toolkit/demo$ diff yolov3_nbg_unify_416_hussainA/main.c yolov3_normal_case_demo_416_hussainA_profile/main.c
+sajjad@teco:~/hussain/npusdk2_basis/aml_npu_sdk/acuity-toolkit/demo$ diff yolov3_nbg_unify_416_hussainA/vnn_global.h yolov3_normal_case_demo_416_hussainA_profile/vnn_global.h
+sajjad@teco:~/hussain/npusdk2_basis/aml_npu_sdk/acuity-toolkit/demo$ diff yolov3_nbg_unify_416_hussainA/vnn_post_process.h yolov3_normal_case_demo_416_hussainA_profile/vnn_post_process.h
+sajjad@teco:~/hussain/npusdk2_basis/aml_npu_sdk/acuity-toolkit/demo$ diff yolov3_nbg_unify_416_hussainA/vnn_post_process.c yolov3_normal_case_demo_416_hussainA_profile/vnn_post_process.c
+sajjad@teco:~/hussain/npusdk2_basis/aml_npu_sdk/acuity-toolkit/demo$ diff yolov3_nbg_unify_416_hussainA/vnn_pre_process.c yolov3_normal_case_demo_416_hussainA_profile/vnn_pre_process.c
+sajjad@teco:~/hussain/npusdk2_basis/aml_npu_sdk/acuity-toolkit/demo$ diff yolov3_nbg_unify_416_hussainA/vnn_pre_process.h yolov3_normal_case_demo_416_hussainA_profile/vnn_pre_process.h
+sajjad@teco:~/hussain/npusdk2_basis/aml_npu_sdk/acuity-toolkit/demo$ diff yolov3_nbg_unify_416_hussainA/vnn_yolov3.h yolov3_normal_case_demo_416_hussainA_profile/vnn_yolov3.h
+sajjad@teco:~/hussain/npusdk2_basis/aml_npu_sdk/acuity-toolkit/demo$ diff yolov3_nbg_unify_416_hussainA/vnn_yolov3.c yolov3_normal_case_demo_416_hussainA_profile/vnn_yolov3.c
+81,84c81,84
+< #define NET_NODE_NUM            (1)
+< #define NET_NORM_TENSOR_NUM     (4)
+< #define NET_CONST_TENSOR_NUM    (0)
+< #define NET_VIRTUAL_TENSOR_NUM  (3)
+---
+> #define NET_NODE_NUM            (32)
+> #define NET_NORM_TENSOR_NUM     (3)
+> #define NET_CONST_TENSOR_NUM    (26)
+> #define NET_VIRTUAL_TENSOR_NUM  (32)
+143c143
+<
+---
+>     vsi_nn_tensor_id_t      const_tensor[NET_CONST_TENSOR_NUM];
+201c201
+<     vsi_nn_SetGraphOutputs( graph, NULL, 3 );
+---
+>     vsi_nn_SetGraphOutputs( graph, NULL, 2 );
+215c215
+<       lid       - nbg_0
+---
+>       lid       - convolution_0_1
+217,218c217,218
+<       name      - nbg
+<       operation - nbg
+---
+>       name      - convolution_0
+>       operation - convolution
+219a220,726
+>       filter    - [3, 3, 3, 16]
+>       output    - [416, 416, 16, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[0], VSI_NN_OP_CONV2D, 3, 1, 1);
+>     node[0]->nn_param.conv2d.ksize[0] = 3;
+>     node[0]->nn_param.conv2d.ksize[1] = 3;
+>     node[0]->nn_param.conv2d.weights = 16;
+>     node[0]->nn_param.conv2d.stride[0] = 1;
+>     node[0]->nn_param.conv2d.stride[1] = 1;
+>     node[0]->nn_param.conv2d.pad[0] = 1;
+>     node[0]->nn_param.conv2d.pad[1] = 1;
+>     node[0]->nn_param.conv2d.pad[2] = 1;
+>     node[0]->nn_param.conv2d.pad[3] = 1;
+>     node[0]->nn_param.conv2d.group = 1;
+>     node[0]->nn_param.conv2d.dilation[0] = 1;
+>     node[0]->nn_param.conv2d.dilation[1] = 1;
+>     node[0]->nn_param.conv2d.multiplier = 0;
+>     node[0]->vx_param.overflow_policy = VX_CONVERT_POLICY_SATURATE;
+>     node[0]->vx_param.rounding_policy = VX_ROUND_POLICY_TO_NEAREST_EVEN;
+>     node[0]->vx_param.down_scale_size_rounding = VX_CONVOLUTIONAL_NETWORK_DS_SIZE_ROUNDING_FLOOR;
+>
+>     /*-----------------------------------------
+>       lid       - leakyrelu_0_3
+>       var       - node[1]
+>       name      - leakyrelu_0
+>       operation - leakyrelu
+>       input     - [416, 416, 16, 1]
+>       output    - [416, 416, 16, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[1], VSI_NN_OP_LEAKY_RELU, 1, 1, 3);
+>     node[1]->nn_param.activation.leaky_ratio = 0.1;
+>
+>     /*-----------------------------------------
+>       lid       - pooling_1_4
+>       var       - node[2]
+>       name      - pooling_1
+>       operation - pooling
+>       input     - [416, 416, 16, 1]
+>       output    - [208, 208, 16, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[2], VSI_NN_OP_POOL, 1, 1, 4);
+>     node[2]->nn_param.pool.ksize[0] = 2;
+>     node[2]->nn_param.pool.ksize[1] = 2;
+>     node[2]->nn_param.pool.stride[0] = 2;
+>     node[2]->nn_param.pool.stride[1] = 2;
+>     node[2]->nn_param.pool.pad[0] = 0;
+>     node[2]->nn_param.pool.pad[1] = 1;
+>     node[2]->nn_param.pool.pad[2] = 0;
+>     node[2]->nn_param.pool.pad[3] = 1;
+>     node[2]->nn_param.pool.type = VX_CONVOLUTIONAL_NETWORK_POOLING_MAX;
+>     node[2]->nn_param.pool.round_type = VSI_NN_ROUND_FLOOR;
+>     node[2]->vx_param.down_scale_size_rounding = VX_CONVOLUTIONAL_NETWORK_DS_SIZE_ROUNDING_FLOOR;
+>
+>     /*-----------------------------------------
+>       lid       - convolution_2_5
+>       var       - node[3]
+>       name      - convolution_2
+>       operation - convolution
+>       input     - [208, 208, 16, 1]
+>       filter    - [3, 3, 16, 32]
+>       output    - [208, 208, 32, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[3], VSI_NN_OP_CONV2D, 3, 1, 5);
+>     node[3]->nn_param.conv2d.ksize[0] = 3;
+>     node[3]->nn_param.conv2d.ksize[1] = 3;
+>     node[3]->nn_param.conv2d.weights = 32;
+>     node[3]->nn_param.conv2d.stride[0] = 1;
+>     node[3]->nn_param.conv2d.stride[1] = 1;
+>     node[3]->nn_param.conv2d.pad[0] = 1;
+>     node[3]->nn_param.conv2d.pad[1] = 1;
+>     node[3]->nn_param.conv2d.pad[2] = 1;
+>     node[3]->nn_param.conv2d.pad[3] = 1;
+>     node[3]->nn_param.conv2d.group = 1;
+>     node[3]->nn_param.conv2d.dilation[0] = 1;
+>     node[3]->nn_param.conv2d.dilation[1] = 1;
+>     node[3]->nn_param.conv2d.multiplier = 0;
+>     node[3]->vx_param.overflow_policy = VX_CONVERT_POLICY_SATURATE;
+>     node[3]->vx_param.rounding_policy = VX_ROUND_POLICY_TO_NEAREST_EVEN;
+>     node[3]->vx_param.down_scale_size_rounding = VX_CONVOLUTIONAL_NETWORK_DS_SIZE_ROUNDING_FLOOR;
+>
+>     /*-----------------------------------------
+>       lid       - leakyrelu_2_7
+>       var       - node[4]
+>       name      - leakyrelu_2
+>       operation - leakyrelu
+>       input     - [208, 208, 32, 1]
+>       output    - [208, 208, 32, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[4], VSI_NN_OP_LEAKY_RELU, 1, 1, 7);
+>     node[4]->nn_param.activation.leaky_ratio = 0.1;
+>
+>     /*-----------------------------------------
+>       lid       - pooling_3_8
+>       var       - node[5]
+>       name      - pooling_3
+>       operation - pooling
+>       input     - [208, 208, 32, 1]
+>       output    - [104, 104, 32, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[5], VSI_NN_OP_POOL, 1, 1, 8);
+>     node[5]->nn_param.pool.ksize[0] = 2;
+>     node[5]->nn_param.pool.ksize[1] = 2;
+>     node[5]->nn_param.pool.stride[0] = 2;
+>     node[5]->nn_param.pool.stride[1] = 2;
+>     node[5]->nn_param.pool.pad[0] = 0;
+>     node[5]->nn_param.pool.pad[1] = 1;
+>     node[5]->nn_param.pool.pad[2] = 0;
+>     node[5]->nn_param.pool.pad[3] = 1;
+>     node[5]->nn_param.pool.type = VX_CONVOLUTIONAL_NETWORK_POOLING_MAX;
+>     node[5]->nn_param.pool.round_type = VSI_NN_ROUND_FLOOR;
+>     node[5]->vx_param.down_scale_size_rounding = VX_CONVOLUTIONAL_NETWORK_DS_SIZE_ROUNDING_FLOOR;
+>
+>     /*-----------------------------------------
+>       lid       - convolution_4_9
+>       var       - node[6]
+>       name      - convolution_4
+>       operation - convolution
+>       input     - [104, 104, 32, 1]
+>       filter    - [3, 3, 32, 64]
+>       output    - [104, 104, 64, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[6], VSI_NN_OP_CONV2D, 3, 1, 9);
+>     node[6]->nn_param.conv2d.ksize[0] = 3;
+>     node[6]->nn_param.conv2d.ksize[1] = 3;
+>     node[6]->nn_param.conv2d.weights = 64;
+>     node[6]->nn_param.conv2d.stride[0] = 1;
+>     node[6]->nn_param.conv2d.stride[1] = 1;
+>     node[6]->nn_param.conv2d.pad[0] = 1;
+>     node[6]->nn_param.conv2d.pad[1] = 1;
+>     node[6]->nn_param.conv2d.pad[2] = 1;
+>     node[6]->nn_param.conv2d.pad[3] = 1;
+>     node[6]->nn_param.conv2d.group = 1;
+>     node[6]->nn_param.conv2d.dilation[0] = 1;
+>     node[6]->nn_param.conv2d.dilation[1] = 1;
+>     node[6]->nn_param.conv2d.multiplier = 0;
+>     node[6]->vx_param.overflow_policy = VX_CONVERT_POLICY_SATURATE;
+>     node[6]->vx_param.rounding_policy = VX_ROUND_POLICY_TO_NEAREST_EVEN;
+>     node[6]->vx_param.down_scale_size_rounding = VX_CONVOLUTIONAL_NETWORK_DS_SIZE_ROUNDING_FLOOR;
+>
+>     /*-----------------------------------------
+>       lid       - leakyrelu_4_11
+>       var       - node[7]
+>       name      - leakyrelu_4
+>       operation - leakyrelu
+>       input     - [104, 104, 64, 1]
+>       output    - [104, 104, 64, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[7], VSI_NN_OP_LEAKY_RELU, 1, 1, 11);
+>     node[7]->nn_param.activation.leaky_ratio = 0.1;
+>
+>     /*-----------------------------------------
+>       lid       - pooling_5_12
+>       var       - node[8]
+>       name      - pooling_5
+>       operation - pooling
+>       input     - [104, 104, 64, 1]
+>       output    - [52, 52, 64, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[8], VSI_NN_OP_POOL, 1, 1, 12);
+>     node[8]->nn_param.pool.ksize[0] = 2;
+>     node[8]->nn_param.pool.ksize[1] = 2;
+>     node[8]->nn_param.pool.stride[0] = 2;
+>     node[8]->nn_param.pool.stride[1] = 2;
+>     node[8]->nn_param.pool.pad[0] = 0;
+>     node[8]->nn_param.pool.pad[1] = 1;
+>     node[8]->nn_param.pool.pad[2] = 0;
+>     node[8]->nn_param.pool.pad[3] = 1;
+>     node[8]->nn_param.pool.type = VX_CONVOLUTIONAL_NETWORK_POOLING_MAX;
+>     node[8]->nn_param.pool.round_type = VSI_NN_ROUND_FLOOR;
+>     node[8]->vx_param.down_scale_size_rounding = VX_CONVOLUTIONAL_NETWORK_DS_SIZE_ROUNDING_FLOOR;
+>
+>     /*-----------------------------------------
+>       lid       - convolution_6_13
+>       var       - node[9]
+>       name      - convolution_6
+>       operation - convolution
+>       input     - [52, 52, 64, 1]
+>       filter    - [3, 3, 64, 128]
+>       output    - [52, 52, 128, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[9], VSI_NN_OP_CONV2D, 3, 1, 13);
+>     node[9]->nn_param.conv2d.ksize[0] = 3;
+>     node[9]->nn_param.conv2d.ksize[1] = 3;
+>     node[9]->nn_param.conv2d.weights = 128;
+>     node[9]->nn_param.conv2d.stride[0] = 1;
+>     node[9]->nn_param.conv2d.stride[1] = 1;
+>     node[9]->nn_param.conv2d.pad[0] = 1;
+>     node[9]->nn_param.conv2d.pad[1] = 1;
+>     node[9]->nn_param.conv2d.pad[2] = 1;
+>     node[9]->nn_param.conv2d.pad[3] = 1;
+>     node[9]->nn_param.conv2d.group = 1;
+>     node[9]->nn_param.conv2d.dilation[0] = 1;
+>     node[9]->nn_param.conv2d.dilation[1] = 1;
+>     node[9]->nn_param.conv2d.multiplier = 0;
+>     node[9]->vx_param.overflow_policy = VX_CONVERT_POLICY_SATURATE;
+>     node[9]->vx_param.rounding_policy = VX_ROUND_POLICY_TO_NEAREST_EVEN;
+>     node[9]->vx_param.down_scale_size_rounding = VX_CONVOLUTIONAL_NETWORK_DS_SIZE_ROUNDING_FLOOR;
+>
+>     /*-----------------------------------------
+>       lid       - leakyrelu_6_15
+>       var       - node[10]
+>       name      - leakyrelu_6
+>       operation - leakyrelu
+>       input     - [52, 52, 128, 1]
+>       output    - [52, 52, 128, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[10], VSI_NN_OP_LEAKY_RELU, 1, 1, 15);
+>     node[10]->nn_param.activation.leaky_ratio = 0.1;
+>
+>     /*-----------------------------------------
+>       lid       - pooling_7_16
+>       var       - node[11]
+>       name      - pooling_7
+>       operation - pooling
+>       input     - [52, 52, 128, 1]
+>       output    - [26, 26, 128, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[11], VSI_NN_OP_POOL, 1, 1, 16);
+>     node[11]->nn_param.pool.ksize[0] = 2;
+>     node[11]->nn_param.pool.ksize[1] = 2;
+>     node[11]->nn_param.pool.stride[0] = 2;
+>     node[11]->nn_param.pool.stride[1] = 2;
+>     node[11]->nn_param.pool.pad[0] = 0;
+>     node[11]->nn_param.pool.pad[1] = 1;
+>     node[11]->nn_param.pool.pad[2] = 0;
+>     node[11]->nn_param.pool.pad[3] = 1;
+>     node[11]->nn_param.pool.type = VX_CONVOLUTIONAL_NETWORK_POOLING_MAX;
+>     node[11]->nn_param.pool.round_type = VSI_NN_ROUND_FLOOR;
+>     node[11]->vx_param.down_scale_size_rounding = VX_CONVOLUTIONAL_NETWORK_DS_SIZE_ROUNDING_FLOOR;
+>
+>     /*-----------------------------------------
+>       lid       - convolution_8_17
+>       var       - node[12]
+>       name      - convolution_8
+>       operation - convolution
+>       input     - [26, 26, 128, 1]
+>       filter    - [3, 3, 128, 256]
+>       output    - [26, 26, 256, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[12], VSI_NN_OP_CONV2D, 3, 1, 17);
+>     node[12]->nn_param.conv2d.ksize[0] = 3;
+>     node[12]->nn_param.conv2d.ksize[1] = 3;
+>     node[12]->nn_param.conv2d.weights = 256;
+>     node[12]->nn_param.conv2d.stride[0] = 1;
+>     node[12]->nn_param.conv2d.stride[1] = 1;
+>     node[12]->nn_param.conv2d.pad[0] = 1;
+>     node[12]->nn_param.conv2d.pad[1] = 1;
+>     node[12]->nn_param.conv2d.pad[2] = 1;
+>     node[12]->nn_param.conv2d.pad[3] = 1;
+>     node[12]->nn_param.conv2d.group = 1;
+>     node[12]->nn_param.conv2d.dilation[0] = 1;
+>     node[12]->nn_param.conv2d.dilation[1] = 1;
+>     node[12]->nn_param.conv2d.multiplier = 0;
+>     node[12]->vx_param.overflow_policy = VX_CONVERT_POLICY_SATURATE;
+>     node[12]->vx_param.rounding_policy = VX_ROUND_POLICY_TO_NEAREST_EVEN;
+>     node[12]->vx_param.down_scale_size_rounding = VX_CONVOLUTIONAL_NETWORK_DS_SIZE_ROUNDING_FLOOR;
+>
+>     /*-----------------------------------------
+>       lid       - leakyrelu_8_19
+>       var       - node[13]
+>       name      - leakyrelu_8
+>       operation - leakyrelu
+>       input     - [26, 26, 256, 1]
+>       output    - [26, 26, 256, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[13], VSI_NN_OP_LEAKY_RELU, 1, 1, 19);
+>     node[13]->nn_param.activation.leaky_ratio = 0.1;
+>
+>     /*-----------------------------------------
+>       lid       - pooling_9_20
+>       var       - node[14]
+>       name      - pooling_9
+>       operation - pooling
+>       input     - [26, 26, 256, 1]
+>       output    - [13, 13, 256, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[14], VSI_NN_OP_POOL, 1, 1, 20);
+>     node[14]->nn_param.pool.ksize[0] = 2;
+>     node[14]->nn_param.pool.ksize[1] = 2;
+>     node[14]->nn_param.pool.stride[0] = 2;
+>     node[14]->nn_param.pool.stride[1] = 2;
+>     node[14]->nn_param.pool.pad[0] = 0;
+>     node[14]->nn_param.pool.pad[1] = 1;
+>     node[14]->nn_param.pool.pad[2] = 0;
+>     node[14]->nn_param.pool.pad[3] = 1;
+>     node[14]->nn_param.pool.type = VX_CONVOLUTIONAL_NETWORK_POOLING_MAX;
+>     node[14]->nn_param.pool.round_type = VSI_NN_ROUND_FLOOR;
+>     node[14]->vx_param.down_scale_size_rounding = VX_CONVOLUTIONAL_NETWORK_DS_SIZE_ROUNDING_FLOOR;
+>
+>     /*-----------------------------------------
+>       lid       - convolution_10_21
+>       var       - node[15]
+>       name      - convolution_10
+>       operation - convolution
+>       input     - [13, 13, 256, 1]
+>       filter    - [3, 3, 256, 512]
+>       output    - [13, 13, 512, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[15], VSI_NN_OP_CONV2D, 3, 1, 21);
+>     node[15]->nn_param.conv2d.ksize[0] = 3;
+>     node[15]->nn_param.conv2d.ksize[1] = 3;
+>     node[15]->nn_param.conv2d.weights = 512;
+>     node[15]->nn_param.conv2d.stride[0] = 1;
+>     node[15]->nn_param.conv2d.stride[1] = 1;
+>     node[15]->nn_param.conv2d.pad[0] = 1;
+>     node[15]->nn_param.conv2d.pad[1] = 1;
+>     node[15]->nn_param.conv2d.pad[2] = 1;
+>     node[15]->nn_param.conv2d.pad[3] = 1;
+>     node[15]->nn_param.conv2d.group = 1;
+>     node[15]->nn_param.conv2d.dilation[0] = 1;
+>     node[15]->nn_param.conv2d.dilation[1] = 1;
+>     node[15]->nn_param.conv2d.multiplier = 0;
+>     node[15]->vx_param.overflow_policy = VX_CONVERT_POLICY_SATURATE;
+>     node[15]->vx_param.rounding_policy = VX_ROUND_POLICY_TO_NEAREST_EVEN;
+>     node[15]->vx_param.down_scale_size_rounding = VX_CONVOLUTIONAL_NETWORK_DS_SIZE_ROUNDING_FLOOR;
+>
+>     /*-----------------------------------------
+>       lid       - leakyrelu_10_23
+>       var       - node[16]
+>       name      - leakyrelu_10
+>       operation - leakyrelu
+>       input     - [13, 13, 512, 1]
+>       output    - [13, 13, 512, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[16], VSI_NN_OP_LEAKY_RELU, 1, 1, 23);
+>     node[16]->nn_param.activation.leaky_ratio = 0.1;
+>
+>     /*-----------------------------------------
+>       lid       - pooling_11_24
+>       var       - node[17]
+>       name      - pooling_11
+>       operation - pooling
+>       input     - [13, 13, 512, 1]
+>       output    - [13, 13, 512, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[17], VSI_NN_OP_POOL, 1, 1, 24);
+>     node[17]->nn_param.pool.ksize[0] = 2;
+>     node[17]->nn_param.pool.ksize[1] = 2;
+>     node[17]->nn_param.pool.stride[0] = 1;
+>     node[17]->nn_param.pool.stride[1] = 1;
+>     node[17]->nn_param.pool.pad[0] = 0;
+>     node[17]->nn_param.pool.pad[1] = 1;
+>     node[17]->nn_param.pool.pad[2] = 0;
+>     node[17]->nn_param.pool.pad[3] = 1;
+>     node[17]->nn_param.pool.type = VX_CONVOLUTIONAL_NETWORK_POOLING_MAX;
+>     node[17]->nn_param.pool.round_type = VSI_NN_ROUND_FLOOR;
+>     node[17]->vx_param.down_scale_size_rounding = VX_CONVOLUTIONAL_NETWORK_DS_SIZE_ROUNDING_FLOOR;
+>
+>     /*-----------------------------------------
+>       lid       - convolution_12_25
+>       var       - node[18]
+>       name      - convolution_12
+>       operation - convolution
+>       input     - [13, 13, 512, 1]
+>       filter    - [3, 3, 512, 1024]
+>       output    - [13, 13, 1024, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[18], VSI_NN_OP_CONV2D, 3, 1, 25);
+>     node[18]->nn_param.conv2d.ksize[0] = 3;
+>     node[18]->nn_param.conv2d.ksize[1] = 3;
+>     node[18]->nn_param.conv2d.weights = 1024;
+>     node[18]->nn_param.conv2d.stride[0] = 1;
+>     node[18]->nn_param.conv2d.stride[1] = 1;
+>     node[18]->nn_param.conv2d.pad[0] = 1;
+>     node[18]->nn_param.conv2d.pad[1] = 1;
+>     node[18]->nn_param.conv2d.pad[2] = 1;
+>     node[18]->nn_param.conv2d.pad[3] = 1;
+>     node[18]->nn_param.conv2d.group = 1;
+>     node[18]->nn_param.conv2d.dilation[0] = 1;
+>     node[18]->nn_param.conv2d.dilation[1] = 1;
+>     node[18]->nn_param.conv2d.multiplier = 0;
+>     node[18]->vx_param.overflow_policy = VX_CONVERT_POLICY_SATURATE;
+>     node[18]->vx_param.rounding_policy = VX_ROUND_POLICY_TO_NEAREST_EVEN;
+>     node[18]->vx_param.down_scale_size_rounding = VX_CONVOLUTIONAL_NETWORK_DS_SIZE_ROUNDING_FLOOR;
+>
+>     /*-----------------------------------------
+>       lid       - leakyrelu_12_27
+>       var       - node[19]
+>       name      - leakyrelu_12
+>       operation - leakyrelu
+>       input     - [13, 13, 1024, 1]
+>       output    - [13, 13, 1024, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[19], VSI_NN_OP_LEAKY_RELU, 1, 1, 27);
+>     node[19]->nn_param.activation.leaky_ratio = 0.1;
+>
+>     /*-----------------------------------------
+>       lid       - convolution_13_28
+>       var       - node[20]
+>       name      - convolution_13
+>       operation - convolution
+>       input     - [13, 13, 1024, 1]
+>       filter    - [1, 1, 1024, 256]
+>       output    - [13, 13, 256, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[20], VSI_NN_OP_CONV2D, 3, 1, 28);
+>     node[20]->nn_param.conv2d.ksize[0] = 1;
+>     node[20]->nn_param.conv2d.ksize[1] = 1;
+>     node[20]->nn_param.conv2d.weights = 256;
+>     node[20]->nn_param.conv2d.stride[0] = 1;
+>     node[20]->nn_param.conv2d.stride[1] = 1;
+>     node[20]->nn_param.conv2d.pad[0] = 0;
+>     node[20]->nn_param.conv2d.pad[1] = 0;
+>     node[20]->nn_param.conv2d.pad[2] = 0;
+>     node[20]->nn_param.conv2d.pad[3] = 0;
+>     node[20]->nn_param.conv2d.group = 1;
+>     node[20]->nn_param.conv2d.dilation[0] = 1;
+>     node[20]->nn_param.conv2d.dilation[1] = 1;
+>     node[20]->nn_param.conv2d.multiplier = 0;
+>     node[20]->vx_param.overflow_policy = VX_CONVERT_POLICY_SATURATE;
+>     node[20]->vx_param.rounding_policy = VX_ROUND_POLICY_TO_NEAREST_EVEN;
+>     node[20]->vx_param.down_scale_size_rounding = VX_CONVOLUTIONAL_NETWORK_DS_SIZE_ROUNDING_FLOOR;
+>
+>     /*-----------------------------------------
+>       lid       - leakyrelu_13_30
+>       var       - node[21]
+>       name      - leakyrelu_13
+>       operation - leakyrelu
+>       input     - [13, 13, 256, 1]
+>       output    - [13, 13, 256, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[21], VSI_NN_OP_LEAKY_RELU, 1, 1, 30);
+>     node[21]->nn_param.activation.leaky_ratio = 0.1;
+>
+>     /*-----------------------------------------
+>       lid       - convolution_14_31
+>       var       - node[22]
+>       name      - convolution_14
+>       operation - convolution
+>       input     - [13, 13, 256, 1]
+>       filter    - [3, 3, 256, 512]
+>       output    - [13, 13, 512, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[22], VSI_NN_OP_CONV2D, 3, 1, 31);
+>     node[22]->nn_param.conv2d.ksize[0] = 3;
+>     node[22]->nn_param.conv2d.ksize[1] = 3;
+>     node[22]->nn_param.conv2d.weights = 512;
+>     node[22]->nn_param.conv2d.stride[0] = 1;
+>     node[22]->nn_param.conv2d.stride[1] = 1;
+>     node[22]->nn_param.conv2d.pad[0] = 1;
+>     node[22]->nn_param.conv2d.pad[1] = 1;
+>     node[22]->nn_param.conv2d.pad[2] = 1;
+>     node[22]->nn_param.conv2d.pad[3] = 1;
+>     node[22]->nn_param.conv2d.group = 1;
+>     node[22]->nn_param.conv2d.dilation[0] = 1;
+>     node[22]->nn_param.conv2d.dilation[1] = 1;
+>     node[22]->nn_param.conv2d.multiplier = 0;
+>     node[22]->vx_param.overflow_policy = VX_CONVERT_POLICY_SATURATE;
+>     node[22]->vx_param.rounding_policy = VX_ROUND_POLICY_TO_NEAREST_EVEN;
+>     node[22]->vx_param.down_scale_size_rounding = VX_CONVOLUTIONAL_NETWORK_DS_SIZE_ROUNDING_FLOOR;
+>
+>     /*-----------------------------------------
+>       lid       - convolution_18_37
+>       var       - node[23]
+>       name      - convolution_18
+>       operation - convolution
+>       input     - [13, 13, 256, 1]
+>       filter    - [1, 1, 256, 128]
+>       output    - [13, 13, 128, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[23], VSI_NN_OP_CONV2D, 3, 1, 37);
+>     node[23]->nn_param.conv2d.ksize[0] = 1;
+>     node[23]->nn_param.conv2d.ksize[1] = 1;
+>     node[23]->nn_param.conv2d.weights = 128;
+>     node[23]->nn_param.conv2d.stride[0] = 1;
+>     node[23]->nn_param.conv2d.stride[1] = 1;
+>     node[23]->nn_param.conv2d.pad[0] = 0;
+>     node[23]->nn_param.conv2d.pad[1] = 0;
+>     node[23]->nn_param.conv2d.pad[2] = 0;
+>     node[23]->nn_param.conv2d.pad[3] = 0;
+>     node[23]->nn_param.conv2d.group = 1;
+>     node[23]->nn_param.conv2d.dilation[0] = 1;
+>     node[23]->nn_param.conv2d.dilation[1] = 1;
+>     node[23]->nn_param.conv2d.multiplier = 0;
+>     node[23]->vx_param.overflow_policy = VX_CONVERT_POLICY_SATURATE;
+>     node[23]->vx_param.rounding_policy = VX_ROUND_POLICY_TO_NEAREST_EVEN;
+>     node[23]->vx_param.down_scale_size_rounding = VX_CONVOLUTIONAL_NETWORK_DS_SIZE_ROUNDING_FLOOR;
+>
+>     /*-----------------------------------------
+>       lid       - leakyrelu_14_33
+>       var       - node[24]
+>       name      - leakyrelu_14
+>       operation - leakyrelu
+>       input     - [13, 13, 512, 1]
+>       output    - [13, 13, 512, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[24], VSI_NN_OP_LEAKY_RELU, 1, 1, 33);
+>     node[24]->nn_param.activation.leaky_ratio = 0.1;
+>
+>     /*-----------------------------------------
+>       lid       - leakyrelu_18_39
+>       var       - node[25]
+>       name      - leakyrelu_18
+>       operation - leakyrelu
+>       input     - [13, 13, 128, 1]
+>       output    - [13, 13, 128, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[25], VSI_NN_OP_LEAKY_RELU, 1, 1, 39);
+>     node[25]->nn_param.activation.leaky_ratio = 0.1;
+>
+>     /*-----------------------------------------
+>       lid       - convolution_15_34
+>       var       - node[26]
+>       name      - convolution_15
+>       operation - convolution
+>       input     - [13, 13, 512, 1]
+>       filter    - [1, 1, 512, 255]
+221,222d727
+<                   [26, 26, 255, 1]
+<                   [52, 52, 255, 1]
+224,226c729,834
+<     NEW_VXNODE(node[0], VSI_NN_OP_NBG, 1, 3, 0);
+<     node[0]->nn_param.nbg.type = VSI_NN_NBG_FILE;
+<     node[0]->nn_param.nbg.url = data_file_name;
+---
+>     NEW_VXNODE(node[26], VSI_NN_OP_CONV2D, 3, 1, 34);
+>     node[26]->nn_param.conv2d.ksize[0] = 1;
+>     node[26]->nn_param.conv2d.ksize[1] = 1;
+>     node[26]->nn_param.conv2d.weights = 255;
+>     node[26]->nn_param.conv2d.stride[0] = 1;
+>     node[26]->nn_param.conv2d.stride[1] = 1;
+>     node[26]->nn_param.conv2d.pad[0] = 0;
+>     node[26]->nn_param.conv2d.pad[1] = 0;
+>     node[26]->nn_param.conv2d.pad[2] = 0;
+>     node[26]->nn_param.conv2d.pad[3] = 0;
+>     node[26]->nn_param.conv2d.group = 1;
+>     node[26]->nn_param.conv2d.dilation[0] = 1;
+>     node[26]->nn_param.conv2d.dilation[1] = 1;
+>     node[26]->nn_param.conv2d.multiplier = 0;
+>     node[26]->vx_param.overflow_policy = VX_CONVERT_POLICY_SATURATE;
+>     node[26]->vx_param.rounding_policy = VX_ROUND_POLICY_TO_NEAREST_EVEN;
+>     node[26]->vx_param.down_scale_size_rounding = VX_CONVOLUTIONAL_NETWORK_DS_SIZE_ROUNDING_FLOOR;
+>
+>     /*-----------------------------------------
+>       lid       - upsampling_19_40
+>       var       - node[27]
+>       name      - upsampling_19
+>       operation - upsampling
+>       input     - [13, 13, 128, 1]
+>       output    - [26, 26, 128, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[27], VSI_NN_OP_RESIZE, 1, 1, 40);
+>     node[27]->nn_param.resize.type = VSI_NN_INTERPOLATION_NEAREST_NEIGHBOR;
+>     node[27]->nn_param.resize.factor = 2.0;
+>
+>     /*-----------------------------------------
+>       lid       - concat_20_41
+>       var       - node[28]
+>       name      - concat_20
+>       operation - concat
+>       input     - [26, 26, 128, 1]
+>                   [26, 26, 256, 1]
+>       output    - [26, 26, 384, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[28], VSI_NN_OP_CONCAT, 2, 1, 41);
+>     node[28]->nn_param.concat.axis = 2;
+>
+>     /*-----------------------------------------
+>       lid       - convolution_21_42
+>       var       - node[29]
+>       name      - convolution_21
+>       operation - convolution
+>       input     - [26, 26, 384, 1]
+>       filter    - [3, 3, 384, 256]
+>       output    - [26, 26, 256, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[29], VSI_NN_OP_CONV2D, 3, 1, 42);
+>     node[29]->nn_param.conv2d.ksize[0] = 3;
+>     node[29]->nn_param.conv2d.ksize[1] = 3;
+>     node[29]->nn_param.conv2d.weights = 256;
+>     node[29]->nn_param.conv2d.stride[0] = 1;
+>     node[29]->nn_param.conv2d.stride[1] = 1;
+>     node[29]->nn_param.conv2d.pad[0] = 1;
+>     node[29]->nn_param.conv2d.pad[1] = 1;
+>     node[29]->nn_param.conv2d.pad[2] = 1;
+>     node[29]->nn_param.conv2d.pad[3] = 1;
+>     node[29]->nn_param.conv2d.group = 1;
+>     node[29]->nn_param.conv2d.dilation[0] = 1;
+>     node[29]->nn_param.conv2d.dilation[1] = 1;
+>     node[29]->nn_param.conv2d.multiplier = 0;
+>     node[29]->vx_param.overflow_policy = VX_CONVERT_POLICY_SATURATE;
+>     node[29]->vx_param.rounding_policy = VX_ROUND_POLICY_TO_NEAREST_EVEN;
+>     node[29]->vx_param.down_scale_size_rounding = VX_CONVOLUTIONAL_NETWORK_DS_SIZE_ROUNDING_FLOOR;
+>
+>     /*-----------------------------------------
+>       lid       - leakyrelu_21_44
+>       var       - node[30]
+>       name      - leakyrelu_21
+>       operation - leakyrelu
+>       input     - [26, 26, 256, 1]
+>       output    - [26, 26, 256, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[30], VSI_NN_OP_LEAKY_RELU, 1, 1, 44);
+>     node[30]->nn_param.activation.leaky_ratio = 0.1;
+>
+>     /*-----------------------------------------
+>       lid       - convolution_22_45
+>       var       - node[31]
+>       name      - convolution_22
+>       operation - convolution
+>       input     - [26, 26, 256, 1]
+>       filter    - [1, 1, 256, 255]
+>       output    - [26, 26, 255, 1]
+>     -----------------------------------------*/
+>     NEW_VXNODE(node[31], VSI_NN_OP_CONV2D, 3, 1, 45);
+>     node[31]->nn_param.conv2d.ksize[0] = 1;
+>     node[31]->nn_param.conv2d.ksize[1] = 1;
+>     node[31]->nn_param.conv2d.weights = 255;
+>     node[31]->nn_param.conv2d.stride[0] = 1;
+>     node[31]->nn_param.conv2d.stride[1] = 1;
+>     node[31]->nn_param.conv2d.pad[0] = 0;
+>     node[31]->nn_param.conv2d.pad[1] = 0;
+>     node[31]->nn_param.conv2d.pad[2] = 0;
+>     node[31]->nn_param.conv2d.pad[3] = 0;
+>     node[31]->nn_param.conv2d.group = 1;
+>     node[31]->nn_param.conv2d.dilation[0] = 1;
+>     node[31]->nn_param.conv2d.dilation[1] = 1;
+>     node[31]->nn_param.conv2d.multiplier = 0;
+>     node[31]->vx_param.overflow_policy = VX_CONVERT_POLICY_SATURATE;
+>     node[31]->vx_param.rounding_policy = VX_ROUND_POLICY_TO_NEAREST_EVEN;
+>     node[31]->vx_param.down_scale_size_rounding = VX_CONVOLUTIONAL_NETWORK_DS_SIZE_ROUNDING_FLOOR;
+231c839
+<     NEW_VXNODE(node[0], VSI_NN_OP_NBG, 1, 3, 0);
+---
+>     NEW_VXNODE(node[0], VSI_NN_OP_NBG, 1, 2, 0);
+251c859
+<     /* @output_82_199:out0 */
+---
+>     /* @output_16_35:out0 */
+257c865
+<     attr.dtype.fl = 2;
+---
+>     attr.dtype.fl = -49;
+261c869
+<     /* @output_94_225:out0 */
+---
+>     /* @output_23_46:out0 */
+267c875
+<     attr.dtype.fl = 2;
+---
+>     attr.dtype.fl = -49;
+271,275c879,887
+<     /* @output_106_251:out0 */
+<     attr.size[0] = 52;
+<     attr.size[1] = 52;
+<     attr.size[2] = 255;
+<     attr.size[3] = 1;
+---
+>
+>
+>     if( !inference_with_nbg )
+>     {
+>     /* @convolution_0_1:weight */
+>     attr.size[0] = 3;
+>     attr.size[1] = 3;
+>     attr.size[2] = 3;
+>     attr.size[3] = 16;
+276a889,895
+>     attr.dtype.fl = -5;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[0], attr, VSI_NN_TYPE_INT8, 64, 432);
+>
+>     /* @convolution_0_1:bias */
+>     attr.size[0] = 16;
+>     attr.dim_num = 1;
+279c898
+<     NEW_NORM_TENSOR(norm_tensor[3], attr, VSI_NN_TYPE_INT8);
+---
+>     NEW_CONST_TENSOR(const_tensor[1], attr, VSI_NN_TYPE_INT32, 0, 64);
+280a900,908
+>     /* @convolution_2_5:weight */
+>     attr.size[0] = 3;
+>     attr.size[1] = 3;
+>     attr.size[2] = 16;
+>     attr.size[3] = 32;
+>     attr.dim_num = 4;
+>     attr.dtype.fl = -1;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[2], attr, VSI_NN_TYPE_INT8, 8466792, 4608);
+281a910,915
+>     /* @convolution_2_5:bias */
+>     attr.size[0] = 32;
+>     attr.dim_num = 1;
+>     attr.dtype.fl = -8;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[3], attr, VSI_NN_TYPE_INT32, 8466664, 128);
+283,284c917,983
+<     if( !inference_with_nbg )
+<     {
+---
+>     /* @convolution_4_9:weight */
+>     attr.size[0] = 3;
+>     attr.size[1] = 3;
+>     attr.size[2] = 32;
+>     attr.size[3] = 64;
+>     attr.dim_num = 4;
+>     attr.dtype.fl = 1;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[4], attr, VSI_NN_TYPE_INT8, 8471656, 18432);
+>
+>     /* @convolution_4_9:bias */
+>     attr.size[0] = 64;
+>     attr.dim_num = 1;
+>     attr.dtype.fl = -14;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[5], attr, VSI_NN_TYPE_INT32, 8471400, 256);
+>
+>     /* @convolution_6_13:weight */
+>     attr.size[0] = 3;
+>     attr.size[1] = 3;
+>     attr.size[2] = 64;
+>     attr.size[3] = 128;
+>     attr.dim_num = 4;
+>     attr.dtype.fl = -2;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[6], attr, VSI_NN_TYPE_INT8, 8490600, 73728);
+>
+>     /* @convolution_6_13:bias */
+>     attr.size[0] = 128;
+>     attr.dim_num = 1;
+>     attr.dtype.fl = -21;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[7], attr, VSI_NN_TYPE_INT32, 8490088, 512);
+>
+>     /* @convolution_8_17:weight */
+>     attr.size[0] = 3;
+>     attr.size[1] = 3;
+>     attr.size[2] = 128;
+>     attr.size[3] = 256;
+>     attr.dim_num = 4;
+>     attr.dtype.fl = 49;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[8], attr, VSI_NN_TYPE_INT8, 8565352, 294912);
+>
+>     /* @convolution_8_17:bias */
+>     attr.size[0] = 256;
+>     attr.dim_num = 1;
+>     attr.dtype.fl = 23;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[9], attr, VSI_NN_TYPE_INT32, 8564328, 1024);
+>
+>     /* @convolution_10_21:weight */
+>     attr.size[0] = 3;
+>     attr.size[1] = 3;
+>     attr.size[2] = 256;
+>     attr.size[3] = 512;
+>     attr.dim_num = 4;
+>     attr.dtype.fl = 73;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[10], attr, VSI_NN_TYPE_INT8, 2544, 1179648);
+>
+>     /* @convolution_10_21:bias */
+>     attr.size[0] = 512;
+>     attr.dim_num = 1;
+>     attr.dtype.fl = 23;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[11], attr, VSI_NN_TYPE_INT32, 496, 2048);
+285a985,1254
+>     /* @convolution_12_25:weight */
+>     attr.size[0] = 3;
+>     attr.size[1] = 3;
+>     attr.size[2] = 512;
+>     attr.size[3] = 1024;
+>     attr.dim_num = 4;
+>     attr.dtype.fl = 63;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[12], attr, VSI_NN_TYPE_INT8, 1186288, 4718592);
+>
+>     /* @convolution_12_25:bias */
+>     attr.size[0] = 1024;
+>     attr.dim_num = 1;
+>     attr.dtype.fl = 23;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[13], attr, VSI_NN_TYPE_INT32, 1182192, 4096);
+>
+>     /* @convolution_13_28:weight */
+>     attr.size[0] = 1;
+>     attr.size[1] = 1;
+>     attr.size[2] = 1024;
+>     attr.size[3] = 256;
+>     attr.dim_num = 4;
+>     attr.dtype.fl = 71;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[14], attr, VSI_NN_TYPE_INT8, 5905904, 262144);
+>
+>     /* @convolution_13_28:bias */
+>     attr.size[0] = 256;
+>     attr.dim_num = 1;
+>     attr.dtype.fl = 23;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[15], attr, VSI_NN_TYPE_INT32, 5904880, 1024);
+>
+>     /* @convolution_14_31:weight */
+>     attr.size[0] = 3;
+>     attr.size[1] = 3;
+>     attr.size[2] = 256;
+>     attr.size[3] = 512;
+>     attr.dim_num = 4;
+>     attr.dtype.fl = 71;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[16], attr, VSI_NN_TYPE_INT8, 6170096, 1179648);
+>
+>     /* @convolution_14_31:bias */
+>     attr.size[0] = 512;
+>     attr.dim_num = 1;
+>     attr.dtype.fl = 23;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[17], attr, VSI_NN_TYPE_INT32, 6168048, 2048);
+>
+>     /* @convolution_18_37:weight */
+>     attr.size[0] = 1;
+>     attr.size[1] = 1;
+>     attr.size[2] = 256;
+>     attr.size[3] = 128;
+>     attr.dim_num = 4;
+>     attr.dtype.fl = 71;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[18], attr, VSI_NN_TYPE_INT8, 7481836, 32768);
+>
+>     /* @convolution_18_37:bias */
+>     attr.size[0] = 128;
+>     attr.dim_num = 1;
+>     attr.dtype.fl = 23;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[19], attr, VSI_NN_TYPE_INT32, 7481324, 512);
+>
+>     /* @convolution_15_34:weight */
+>     attr.size[0] = 1;
+>     attr.size[1] = 1;
+>     attr.size[2] = 512;
+>     attr.size[3] = 255;
+>     attr.dim_num = 4;
+>     attr.dtype.fl = 76;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[20], attr, VSI_NN_TYPE_INT8, 7350764, 130560);
+>
+>     /* @convolution_15_34:bias */
+>     attr.size[0] = 255;
+>     attr.dim_num = 1;
+>     attr.dtype.fl = 23;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[21], attr, VSI_NN_TYPE_INT32, 7349744, 1020);
+>
+>     /* @convolution_21_42:weight */
+>     attr.size[0] = 3;
+>     attr.size[1] = 3;
+>     attr.size[2] = 384;
+>     attr.size[3] = 256;
+>     attr.dim_num = 4;
+>     attr.dtype.fl = 73;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[22], attr, VSI_NN_TYPE_INT8, 7515628, 884736);
+>
+>     /* @convolution_21_42:bias */
+>     attr.size[0] = 256;
+>     attr.dim_num = 1;
+>     attr.dtype.fl = 23;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[23], attr, VSI_NN_TYPE_INT32, 7514604, 1024);
+>
+>     /* @convolution_22_45:weight */
+>     attr.size[0] = 1;
+>     attr.size[1] = 1;
+>     attr.size[2] = 256;
+>     attr.size[3] = 255;
+>     attr.dim_num = 4;
+>     attr.dtype.fl = 75;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[24], attr, VSI_NN_TYPE_INT8, 8401384, 65280);
+>
+>     /* @convolution_22_45:bias */
+>     attr.size[0] = 255;
+>     attr.dim_num = 1;
+>     attr.dtype.fl = 23;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_CONST_TENSOR(const_tensor[25], attr, VSI_NN_TYPE_INT32, 8400364, 1020);
+>
+>
+>
+>     /* @convolution_0_1:out0 */
+>     attr.dtype.fl = -7;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[0]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @leakyrelu_0_3:out0 */
+>     attr.dtype.fl = -7;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[1]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @pooling_1_4:out0 */
+>     attr.dtype.fl = -7;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[2]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @convolution_2_5:out0 */
+>     attr.dtype.fl = -15;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[3]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @leakyrelu_2_7:out0 */
+>     attr.dtype.fl = -15;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[4]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @pooling_3_8:out0 */
+>     attr.dtype.fl = -15;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[5]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @convolution_4_9:out0 */
+>     attr.dtype.fl = -19;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[6]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @leakyrelu_4_11:out0 */
+>     attr.dtype.fl = -19;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[7]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @pooling_5_12:out0 */
+>     attr.dtype.fl = -19;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[8]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @convolution_6_13:out0 */
+>     attr.dtype.fl = -27;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[9]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @leakyrelu_6_15:out0 */
+>     attr.dtype.fl = -26;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[10]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @pooling_7_16:out0 */
+>     attr.dtype.fl = -26;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[11]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @convolution_8_17:out0 */
+>     attr.dtype.fl = -35;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[12]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @leakyrelu_8_19:out0 */
+>     attr.dtype.fl = -50;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[13]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @pooling_9_20:out0 */
+>     attr.dtype.fl = -50;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[14]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @convolution_10_21:out0 */
+>     attr.dtype.fl = -42;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[15]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @leakyrelu_10_23:out0 */
+>     attr.dtype.fl = -40;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[16]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @pooling_11_24:out0 */
+>     attr.dtype.fl = -40;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[17]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @convolution_12_25:out0 */
+>     attr.dtype.fl = -51;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[18]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @leakyrelu_12_27:out0 */
+>     attr.dtype.fl = -48;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[19]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @convolution_13_28:out0 */
+>     attr.dtype.fl = -48;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[20]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @leakyrelu_13_30:out0 */
+>     attr.dtype.fl = -48;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[21]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @convolution_14_31:out0 */
+>     attr.dtype.fl = -53;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[22]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @convolution_18_37:out0 */
+>     attr.dtype.fl = -50;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[23]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @leakyrelu_14_33:out0 */
+>     attr.dtype.fl = -53;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[24]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @leakyrelu_18_39:out0 */
+>     attr.dtype.fl = -50;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[25]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @upsampling_19_40:out0 */
+>     attr.dtype.fl = -50;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[27]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @concat_20_41:out0 */
+>     attr.dtype.fl = -50;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[28]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @convolution_21_42:out0 */
+>     attr.dtype.fl = -56;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[29]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+>
+>     /* @leakyrelu_21_44:out0 */
+>     attr.dtype.fl = -52;
+>     attr.dtype.qnt_type = VSI_NN_QNT_TYPE_DFP;
+>     NEW_VIRTUAL_TENSOR(node[30]->output.tensors[0], attr, VSI_NN_TYPE_INT8);
+293,295c1262,1263
+<     node[0]->output.tensors[0] = norm_tensor[1];
+<     node[0]->output.tensors[1] = norm_tensor[2];
+<     node[0]->output.tensors[2] = norm_tensor[3];
+---
+>     node[26]->output.tensors[0] = norm_tensor[1];
+>     node[31]->output.tensors[0] = norm_tensor[2];
+297c1265,1385
+<     /* nbg_0 */
+---
+>     /* convolution_0_1 */
+>     node[0]->input.tensors[1] = const_tensor[0]; /* data_weight */
+>     node[0]->input.tensors[2] = const_tensor[1]; /* data_bias */
+>
+>     /* leakyrelu_0_3 */
+>     node[1]->input.tensors[0] = node[0]->output.tensors[0];
+>
+>     /* pooling_1_4 */
+>     node[2]->input.tensors[0] = node[1]->output.tensors[0];
+>
+>     /* convolution_2_5 */
+>     node[3]->input.tensors[0] = node[2]->output.tensors[0];
+>     node[3]->input.tensors[1] = const_tensor[2]; /* data_weight */
+>     node[3]->input.tensors[2] = const_tensor[3]; /* data_bias */
+>
+>     /* leakyrelu_2_7 */
+>     node[4]->input.tensors[0] = node[3]->output.tensors[0];
+>
+>     /* pooling_3_8 */
+>     node[5]->input.tensors[0] = node[4]->output.tensors[0];
+>
+>     /* convolution_4_9 */
+>     node[6]->input.tensors[0] = node[5]->output.tensors[0];
+>     node[6]->input.tensors[1] = const_tensor[4]; /* data_weight */
+>     node[6]->input.tensors[2] = const_tensor[5]; /* data_bias */
+>
+>     /* leakyrelu_4_11 */
+>     node[7]->input.tensors[0] = node[6]->output.tensors[0];
+>
+>     /* pooling_5_12 */
+>     node[8]->input.tensors[0] = node[7]->output.tensors[0];
+>
+>     /* convolution_6_13 */
+>     node[9]->input.tensors[0] = node[8]->output.tensors[0];
+>     node[9]->input.tensors[1] = const_tensor[6]; /* data_weight */
+>     node[9]->input.tensors[2] = const_tensor[7]; /* data_bias */
+>
+>     /* leakyrelu_6_15 */
+>     node[10]->input.tensors[0] = node[9]->output.tensors[0];
+>
+>     /* pooling_7_16 */
+>     node[11]->input.tensors[0] = node[10]->output.tensors[0];
+>
+>     /* convolution_8_17 */
+>     node[12]->input.tensors[0] = node[11]->output.tensors[0];
+>     node[12]->input.tensors[1] = const_tensor[8]; /* data_weight */
+>     node[12]->input.tensors[2] = const_tensor[9]; /* data_bias */
+>
+>     /* leakyrelu_8_19 */
+>     node[13]->input.tensors[0] = node[12]->output.tensors[0];
+>
+>     /* pooling_9_20 */
+>     node[14]->input.tensors[0] = node[13]->output.tensors[0];
+>
+>     /* convolution_10_21 */
+>     node[15]->input.tensors[0] = node[14]->output.tensors[0];
+>     node[15]->input.tensors[1] = const_tensor[10]; /* data_weight */
+>     node[15]->input.tensors[2] = const_tensor[11]; /* data_bias */
+>
+>     /* leakyrelu_10_23 */
+>     node[16]->input.tensors[0] = node[15]->output.tensors[0];
+>
+>     /* pooling_11_24 */
+>     node[17]->input.tensors[0] = node[16]->output.tensors[0];
+>
+>     /* convolution_12_25 */
+>     node[18]->input.tensors[0] = node[17]->output.tensors[0];
+>     node[18]->input.tensors[1] = const_tensor[12]; /* data_weight */
+>     node[18]->input.tensors[2] = const_tensor[13]; /* data_bias */
+>
+>     /* leakyrelu_12_27 */
+>     node[19]->input.tensors[0] = node[18]->output.tensors[0];
+>
+>     /* convolution_13_28 */
+>     node[20]->input.tensors[0] = node[19]->output.tensors[0];
+>     node[20]->input.tensors[1] = const_tensor[14]; /* data_weight */
+>     node[20]->input.tensors[2] = const_tensor[15]; /* data_bias */
+>
+>     /* leakyrelu_13_30 */
+>     node[21]->input.tensors[0] = node[20]->output.tensors[0];
+>
+>     /* convolution_14_31 */
+>     node[22]->input.tensors[0] = node[21]->output.tensors[0];
+>     node[22]->input.tensors[1] = const_tensor[16]; /* data_weight */
+>     node[22]->input.tensors[2] = const_tensor[17]; /* data_bias */
+>
+>     /* convolution_18_37 */
+>     node[23]->input.tensors[0] = node[21]->output.tensors[0];
+>     node[23]->input.tensors[1] = const_tensor[18]; /* data_weight */
+>     node[23]->input.tensors[2] = const_tensor[19]; /* data_bias */
+>
+>     /* leakyrelu_14_33 */
+>     node[24]->input.tensors[0] = node[22]->output.tensors[0];
+>
+>     /* leakyrelu_18_39 */
+>     node[25]->input.tensors[0] = node[23]->output.tensors[0];
+>
+>     /* convolution_15_34 */
+>     node[26]->input.tensors[0] = node[24]->output.tensors[0];
+>     node[26]->input.tensors[1] = const_tensor[20]; /* data_weight */
+>     node[26]->input.tensors[2] = const_tensor[21]; /* data_bias */
+>
+>     /* upsampling_19_40 */
+>     node[27]->input.tensors[0] = node[25]->output.tensors[0];
+>
+>     /* concat_20_41 */
+>     node[28]->input.tensors[0] = node[27]->output.tensors[0];
+>     node[28]->input.tensors[1] = node[13]->output.tensors[0];
+>
+>     /* convolution_21_42 */
+>     node[29]->input.tensors[0] = node[28]->output.tensors[0];
+>     node[29]->input.tensors[1] = const_tensor[22]; /* data_weight */
+>     node[29]->input.tensors[2] = const_tensor[23]; /* data_bias */
+>
+>     /* leakyrelu_21_44 */
+>     node[30]->input.tensors[0] = node[29]->output.tensors[0];
+>
+>     /* convolution_22_45 */
+>     node[31]->input.tensors[0] = node[30]->output.tensors[0];
+>     node[31]->input.tensors[1] = const_tensor[24]; /* data_weight */
+>     node[31]->input.tensors[2] = const_tensor[25]; /* data_bias */
+306d1393
+<     node[0]->output.tensors[2] = norm_tensor[3];
+312d1398
+<     graph->output.tensors[2] = norm_tensor[3];
+343c1429
+<
+---
+>     vsi_nn_DumpGraphToJson( graph );
+sajjad@teco:~/hussain/npusdk2_basis/aml_npu_sdk/acuity-toolkit/demo$

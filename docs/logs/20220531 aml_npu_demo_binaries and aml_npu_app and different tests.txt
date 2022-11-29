@@ -1,0 +1,1036 @@
+========================================
+A.
+
+aml_npu_demo_binaries
+aml_npu_app
+git into home folder
+delete the .git folders and copied into
+hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries
+hussain/aml_npu_appwog/aml_npu_app
+from /aml_npu_demo_binarieswog/aml_npu_demo_binaries
+./INSTALL
+./detect_demo_x11 -m 2 -p ./1080p.bmp
+worked
+produced output.bmp
+100%person
+
+========================================
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to khadas@192.168.178.139                              │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+
+Welcome to Fenix 1.0.11 Ubuntu 20.04.4 LTS Linux 4.9.241
+ _  ___               _            __     _____ __  __ _____
+| |/ / |__   __ _  __| | __ _ ___  \ \   / /_ _|  \/  |___ /
+| ' /| '_ \ / _` |/ _` |/ _` / __|  \ \ / / | || |\/| | |_ \
+| . \| | | | (_| | (_| | (_| \__ \   \ V /  | || |  | |___) |
+|_|\_\_| |_|\__,_|\__,_|\__,_|___/    \_/  |___|_|  |_|____/
+
+
+ * Website:        https://www.khadas.com
+ * Documentation:  https://docs.khadas.com
+ * Forum:          https://forum.khadas.com
+
+Last login: Wed Jun  1 00:51:25 2022 from 192.168.178.33
+khadas@Khadas-teco:~$ ls
+aml_npu_app  aml_npu_demo_binaries  Desktop  Documents  Downloads  hussain  Music  Pictures  Public  sajjad  Templates  venv  Videos
+khadas@Khadas-teco:~$ rm -rf aml_npu_
+khadas@Khadas-teco:~$ rm -rf aml_npu_app/
+khadas@Khadas-teco:~$ rm -rf aml_npu_demo_binaries/
+khadas@Khadas-teco:~$ git clone https://github.com/khadas/aml_npu_app
+Cloning into 'aml_npu_app'...
+remote: Enumerating objects: 1778, done.
+remote: Counting objects: 100% (197/197), done.
+remote: Compressing objects: 100% (73/73), done.
+remote: Total 1778 (delta 102), reused 197 (delta 102), pack-reused 1581
+Receiving objects: 100% (1778/1778), 1.00 GiB | 2.56 MiB/s, done.
+Resolving deltas: 100% (1009/1009), done.
+khadas@Khadas-teco:~$ git clone --recursive https://github.com/khadas/aml_npu_demo_binaries
+Cloning into 'aml_npu_demo_binaries'...
+remote: Enumerating objects: 476, done.
+remote: Counting objects: 100% (91/91), done.
+remote: Compressing objects: 100% (52/52), done.
+remote: Total 476 (delta 44), reused 85 (delta 38), pack-reused 385
+Receiving objects: 100% (476/476), 999.46 MiB | 3.22 MiB/s, done.
+Resolving deltas: 100% (220/220), done.
+Submodule 'detect_demo_picture/nn_data' (https://gitlab.com/khadas/neural_network_large_file.git) registered for path 'detect_demo_picture/nn_data'
+Cloning into '/home/khadas/aml_npu_demo_binaries/detect_demo_picture/nn_data'...
+remote: Enumerating objects: 13584, done.
+remote: Counting objects: 100% (2769/2769), done.
+remote: Compressing objects: 100% (2514/2514), done.
+remote: Total 13584 (delta 566), reused 1688 (delta 202), pack-reused 10815
+Receiving objects: 100% (13584/13584), 3.71 GiB | 4.88 MiB/s, done.
+Resolving deltas: 100% (2815/2815), done.
+Submodule path 'detect_demo_picture/nn_data': checked out '710052fcf64bd9aa3ea9ea3301e23d39fed7df3a'
+khadas@Khadas-teco:~$ cp -r aml_npu_demo_binaries hussain/aml_npu_demo_binarieswog
+cp: error writing 'hussain/aml_npu_demo_binarieswog/.git/objects/pack/pack-cf9f594481472456e96526c87f33245ebc5ff123.pack': No space left on device
+cp: cannot create directory 'hussain/aml_npu_demo_binarieswog/.git/objects/info': No space left on device
+cp: cannot create directory 'hussain/aml_npu_demo_binarieswog/.git/logs': No space left on device
+cp: cannot create directory 'hussain/aml_npu_demo_binarieswog/.git/modules': No space left on device
+cp: cannot create directory 'hussain/aml_npu_demo_binarieswog/detect_demo': No space left on device
+cp: cannot create directory 'hussain/aml_npu_demo_binarieswog/detect_demo_picture': No space left on device
+cp: cannot create directory 'hussain/aml_npu_demo_binarieswog/inceptionv3': No space left on device
+khadas@Khadas-teco:~$ cp -r aml_npu_demo_binaries hussain/aml_npu_demo_binarieswog
+cp: cannot create directory 'hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries': No space left on device
+khadas@Khadas-teco:~$ cp -r aml_npu_demo_binaries hussain/aml_npu_demo_binarieswog
+khadas@Khadas-teco:~$ cd hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo
+detect_demo/         detect_demo_picture/
+khadas@Khadas-teco:~$ cd hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture/
+lib/     nn_data/
+khadas@Khadas-teco:~$ cd hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture/
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture$ ./INSTALL
+cp: cannot create regular file '/usr/lib/libnn_facenet.so': Permission denied
+cp: cannot create regular file '/usr/lib/libnn_yoloface.so': Permission denied
+cp: cannot create regular file '/usr/lib/libnn_yolo_v2.so': Permission denied
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture$ sudo ./INSTALL
+[sudo] password for khadas:
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:419.831 right:1464 top:6.80861 bottom:1080
+left:429.831 top-10:40
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture$ ll
+total 12284
+drwxrwxr-x 4 khadas khadas    4096 Jun  1 02:03 ./
+drwxrwxr-x 5 khadas khadas    4096 Jun  1 02:01 ../
+-rw-rw-r-- 1 khadas khadas 6220854 Jun  1 01:57 1080p.bmp
+-rwxrwxr-x 1 khadas khadas   49288 Jun  1 01:57 detect_demo_fb*
+-rwxrwxr-x 1 khadas khadas   49496 Jun  1 01:57 detect_demo_x11*
+-rwxrwxr-x 1 khadas khadas      37 Jun  1 01:57 INSTALL*
+drwxrwxr-x 2 khadas khadas    4096 Jun  1 01:57 lib/
+drwxrwxr-x 2 khadas khadas    4096 Jun  1 01:57 nn_data/
+-rw-rw-r-- 1 khadas khadas 6220854 Jun  1 02:03 output.bmp
+-rw-rw-r-- 1 khadas khadas     472 Jun  1 01:57 README.md
+-rwxrwxr-x 1 khadas khadas     163 Jun  1 01:57 UNINSTALL*
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture$ display output.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture$
+
+
+========================================
+B. 
+/hussain/aml_npu_appwog/aml_npu_app
+source_code:
+- no bin_r
+- sudo build_vx.sh
+- bin_r
+	- detect_log.o
+	- detect.o
+	- libnn_detect.so
+
+========================================
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to khadas@192.168.178.139                              │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+
+Welcome to Fenix 1.0.11 Ubuntu 20.04.4 LTS Linux 4.9.241
+ _  ___               _            __     _____ __  __ _____
+| |/ / |__   __ _  __| | __ _ ___  \ \   / /_ _|  \/  |___ /
+| ' /| '_ \ / _` |/ _` |/ _` / __|  \ \ / / | || |\/| | |_ \
+| . \| | | | (_| | (_| | (_| \__ \   \ V /  | || |  | |___) |
+|_|\_\_| |_|\__,_|\__,_|\__,_|___/    \_/  |___|_|  |_|____/
+
+
+ * Website:        https://www.khadas.com
+ * Documentation:  https://docs.khadas.com
+ * Forum:          https://forum.khadas.com
+
+Last login: Wed Jun  1 01:10:12 2022 from 192.168.178.33
+khadas@Khadas-teco:~$ ll
+total 200
+drwxr-xr-x 22 khadas khadas  4096 Jun  1 01:18 ./
+drwxr-xr-x  3 root   root    4096 Dec 16 08:02 ../
+drwxrwxr-x  6 khadas khadas  4096 Jun  1 01:17 aml_npu_app/
+drwxrwxr-x  3 khadas khadas  4096 Jun  1 01:17 aml_npu_demo_binaries/
+-rw-------  1 khadas khadas 48409 May 29 03:40 .bash_history
+-rw-r--r--  1 khadas khadas   220 Feb 25  2020 .bash_logout
+-rw-r--r--  1 khadas khadas  3771 Feb 25  2020 .bashrc
+drwx------ 21 khadas khadas  4096 May 18 02:21 .cache/
+drwx------ 30 khadas khadas  4096 May  8 23:00 .config/
+drwxrwxr-x  2 khadas khadas  4096 Jun  1 01:10 Desktop/
+drwxr-xr-x  2 khadas khadas  4096 Dec 16 16:17 Documents/
+drwxr-xr-x  2 khadas khadas  4096 May 11 22:58 Downloads/
+drwx------  3 khadas khadas  4096 Dec 16 16:17 .gnupg/
+drwxrwxr-x  4 khadas khadas  4096 May 27 14:53 hussain/
+drwxr-xr-x  5 khadas khadas  4096 Dec 28 18:56 .local/
+drwx------  4 khadas khadas  4096 Dec 16 16:24 .mozilla/
+drwxr-xr-x  2 khadas khadas  4096 Dec 16 16:17 Music/
+drwxr-xr-x  2 khadas khadas  4096 Dec 16 16:17 Pictures/
+-rw-r--r--  1 khadas khadas   807 Feb 25  2020 .profile
+drwxr-xr-x  2 khadas khadas  4096 Dec 16 16:17 Public/
+-rw-------  1 khadas khadas    75 Jan 15 18:14 .python_history
+drwxrwxr-x 11 khadas khadas  4096 May 14 03:49 sajjad/
+drwx------  2 khadas khadas  4096 Mar 19 01:19 .ssh/
+-rw-r--r--  1 khadas khadas     0 Dec 16 08:02 .sudo_as_admin_successful
+drwxr-xr-x  2 khadas khadas  4096 Dec 16 16:17 Templates/
+drwxrwxr-x  6 khadas khadas  4096 Mar 13 00:46 venv/
+drwxr-xr-x  2 khadas khadas  4096 Dec 16 16:17 Videos/
+-rw-------  1 khadas khadas 25899 May 28 17:20 .viminfo
+drwxrwxr-x  5 khadas khadas  4096 May 18 02:46 .vscode-server/
+-rw-rw-r--  1 khadas khadas   270 Mar 27 21:46 .wget-hsts
+-rw-------  1 khadas khadas   228 Jun  1 01:18 .Xauthority
+-rw-rw-r--  1 khadas khadas  8790 Dec 17 11:14 .xscreensaver
+khadas@Khadas-teco:~$ ls -lh
+total 52K
+drwxrwxr-x  6 khadas khadas 4.0K Jun  1 01:17 aml_npu_app
+drwxrwxr-x  3 khadas khadas 4.0K Jun  1 01:17 aml_npu_demo_binaries
+drwxrwxr-x  2 khadas khadas 4.0K Jun  1 01:10 Desktop
+drwxr-xr-x  2 khadas khadas 4.0K Dec 16 16:17 Documents
+drwxr-xr-x  2 khadas khadas 4.0K May 11 22:58 Downloads
+drwxrwxr-x  4 khadas khadas 4.0K May 27 14:53 hussain
+drwxr-xr-x  2 khadas khadas 4.0K Dec 16 16:17 Music
+drwxr-xr-x  2 khadas khadas 4.0K Dec 16 16:17 Pictures
+drwxr-xr-x  2 khadas khadas 4.0K Dec 16 16:17 Public
+drwxrwxr-x 11 khadas khadas 4.0K May 14 03:49 sajjad
+drwxr-xr-x  2 khadas khadas 4.0K Dec 16 16:17 Templates
+drwxrwxr-x  6 khadas khadas 4.0K Mar 13 00:46 venv
+drwxr-xr-x  2 khadas khadas 4.0K Dec 16 16:17 Videos
+khadas@Khadas-teco:~$ ls -l --block-size=G
+total 1G
+drwxrwxr-x  6 khadas khadas 1G Jun  1 01:17 aml_npu_app
+drwxrwxr-x  3 khadas khadas 1G Jun  1 01:17 aml_npu_demo_binaries
+drwxrwxr-x  2 khadas khadas 1G Jun  1 01:10 Desktop
+drwxr-xr-x  2 khadas khadas 1G Dec 16 16:17 Documents
+drwxr-xr-x  2 khadas khadas 1G May 11 22:58 Downloads
+drwxrwxr-x  4 khadas khadas 1G May 27 14:53 hussain
+drwxr-xr-x  2 khadas khadas 1G Dec 16 16:17 Music
+drwxr-xr-x  2 khadas khadas 1G Dec 16 16:17 Pictures
+drwxr-xr-x  2 khadas khadas 1G Dec 16 16:17 Public
+drwxrwxr-x 11 khadas khadas 1G May 14 03:49 sajjad
+drwxr-xr-x  2 khadas khadas 1G Dec 16 16:17 Templates
+drwxrwxr-x  6 khadas khadas 1G Mar 13 00:46 venv
+drwxr-xr-x  2 khadas khadas 1G Dec 16 16:17 Videos
+khadas@Khadas-teco:~$ ls aml_npu_app/
+DDK_6.3.3.4  DDK_6.4.0.3  DDK_6.4.3  DDK_6.4.4.3  detect_library  LICENSE  NN_SLT
+khadas@Khadas-teco:~$ ls aml_npu_app/ -h
+DDK_6.3.3.4  DDK_6.4.0.3  DDK_6.4.3  DDK_6.4.4.3  detect_library  LICENSE  NN_SLT
+khadas@Khadas-teco:~$ ls -a
+.                      .bash_history  .config    .gnupg    Music     .python_history            Templates  .vscode-server
+..                     .bash_logout   Desktop    hussain   Pictures  sajjad                     venv       .wget-hsts
+aml_npu_app            .bashrc        Documents  .local    .profile  .ssh                       Videos     .Xauthority
+aml_npu_demo_binaries  .cache         Downloads  .mozilla  Public    .sudo_as_admin_successful  .viminfo   .xscreensaver
+khadas@Khadas-teco:~$ ls -a aml_npu_app/
+.  ..  DDK_6.3.3.4  DDK_6.4.0.3  DDK_6.4.3  DDK_6.4.4.3  detect_library  .git  .gitignore  LICENSE  NN_SLT
+khadas@Khadas-teco:~$ cp -r aml_npu_app hussain/aml_npu_appwog
+cp: error writing 'hussain/aml_npu_appwog/.git/objects/pack/pack-111bc0498fd738bb40afedff6cf845c0c4d31bd7.pack': No space left on device
+cp: cannot create directory 'hussain/aml_npu_appwog/.git/objects/info': No space left on device
+cp: cannot create directory 'hussain/aml_npu_appwog/.git/logs': No space left on device
+cp: cannot create directory 'hussain/aml_npu_appwog/DDK_6.3.3.4': No space left on device
+cp: cannot create directory 'hussain/aml_npu_appwog/NN_SLT': No space left on device
+cp: cannot create directory 'hussain/aml_npu_appwog/detect_library': No space left on device
+khadas@Khadas-teco:~$ cp -r aml_npu_app hussain/aml_npu_appwog
+khadas@Khadas-teco:~$ ls -a
+.                      .bash_history  .config    .gnupg    Music     .python_history            Templates  .vscode-server
+..                     .bash_logout   Desktop    hussain   Pictures  sajjad                     venv       .wget-hsts
+aml_npu_app            .bashrc        Documents  .local    .profile  .ssh                       Videos     .Xauthority
+aml_npu_demo_binaries  .cache         Downloads  .mozilla  Public    .sudo_as_admin_successful  .viminfo   .xscreensaver
+khadas@Khadas-teco:~$ cd hussain/aml_npu_appwog/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog$ ls -a
+.  ..  aml_npu_app  DDK_6.4.0.3  DDK_6.4.3  DDK_6.4.4.3  .git  .gitignore  LICENSE
+khadas@Khadas-teco:~/hussain/aml_npu_appwog$ rm -rf .git
+khadas@Khadas-teco:~/hussain/aml_npu_appwog$ ls -a
+.  ..  aml_npu_app  DDK_6.4.0.3  DDK_6.4.3  DDK_6.4.4.3  .gitignore  LICENSE
+khadas@Khadas-teco:~/hussain/aml_npu_appwog$ cd aml_npu_app/
+DDK_6.3.3.4/    DDK_6.4.0.3/    DDK_6.4.3/      DDK_6.4.4.3/    detect_library/ .git/           NN_SLT/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog$ cd aml_npu_app/
+DDK_6.3.3.4/    DDK_6.4.0.3/    DDK_6.4.3/      DDK_6.4.4.3/    detect_library/ .git/           NN_SLT/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog$ cd aml_npu_app/detect_library/source_code/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/source_code$ ls
+build_vx.sh  detect.c  detect_log.c  include  Makefile  makefile.linux  makefile.linux.def
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/source_code$ ls
+build_vx.sh  detect.c  detect_log.c  include  Makefile  makefile.linux  makefile.linux.def
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/source_code$ ./build_vx.sh
+  COMPILE /home/khadas/hussain/aml_npu_appwog/aml_npu_app/detect_library/source_code/detect_log.c
+  COMPILE /home/khadas/hussain/aml_npu_appwog/aml_npu_app/detect_library/source_code/detect.c
+detect.c:109:12: warning: ‘find_string_index’ defined but not used [-Wunused-function]
+  109 | static int find_string_index(char* buffer, char* str, int lenght)
+      |            ^~~~~~~~~~~~~~~~~
+tee: /linux_build_sample.log: Permission denied
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/source_code$ sudo ./build_vx.sh
+[sudo] password for khadas:
+make: Nothing to be done for 'all'.
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/source_code$ ls
+bin_r  build_vx.sh  detect.c  detect_log.c  include  Makefile  makefile.linux  makefile.linux.def
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/source_code$ ls bin_r/
+detect_log.o  detect.o  libnn_detect.so
+
+
+========================================
+C. 
+/hussain/aml_npu_appwog/aml_npu_app
+sample_demo_x11
+- no bin_r_cv4
+- sudo build_vx.sh
+- bin_r_cv4
+	- detect_demo_x11
+	- main.o
+========================================
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/source_code$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library$ ls
+inception   sample_demo_fb   source_code        yolo_demo_fb_usb    yolo_demo_x11_usb
+model_code  sample_demo_x11  yolo_demo_fb_mipi  yolo_demo_x11_mipi
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library$ cd sample_demo_x11/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11$ ls
+1080p.bmp    detect.h  main.cpp        makefile.linux.def    nn_detect_common.h  nn_detect_utils.h  result
+build_vx.sh  emb.db    makefile.linux  makefile.target_name  nn_detect.h         ReadMe.txt
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11$ sudo ./build_vx.sh
+  COMPILE /home/khadas/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11/main.cpp
+main.cpp: In function ‘int run_detect_model(int, char**)’:
+main.cpp:329:10: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+  329 |   return NULL;
+      |          ^~~~
+main.cpp:275:39: warning: unused variable ‘img_width’ [-Wunused-variable]
+  275 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                       ^~~~~~~~~
+main.cpp:275:50: warning: unused variable ‘img_height’ [-Wunused-variable]
+  275 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                                  ^~~~~~~~~~
+main.cpp: In function ‘int run_detect_facent(int, char**)’:
+main.cpp:412:10: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+  412 |   return NULL;
+      |          ^~~~
+main.cpp:368:39: warning: unused variable ‘img_width’ [-Wunused-variable]
+  368 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                       ^~~~~~~~~
+main.cpp:368:50: warning: unused variable ‘img_height’ [-Wunused-variable]
+  368 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                                  ^~~~~~~~~~
+main.cpp: In function ‘int init_fb()’:
+main.cpp:538:11: warning: unused variable ‘i’ [-Wunused-variable]
+  538 |  long int i;
+      |           ^
+main.cpp: At global scope:
+main.cpp:536:12: warning: ‘int init_fb()’ defined but not used [-Wunused-function]
+  536 | static int init_fb(void)
+      |            ^~~~~~~
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11$ ls
+1080p.bmp  build_vx.sh  emb.db                  main.cpp        makefile.linux.def    nn_detect_common.h  nn_detect_utils.h  result
+bin_r_cv4  detect.h     linux_build_sample.log  makefile.linux  makefile.target_name  nn_detect.h         ReadMe.txt
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11$ ls bin_r_cv4/
+detect_demo_x11  main.o
+
+
+
+
+========================================
+D. 
+/hussain/aml_npu_appwog/aml_npu_app
+detect_yolo_v3
+- no bin_r
+- sudo build_vx.sh
+- bin_r
+	- libnn_yolo_v3.so
+	- vnn_yolov3.o
+	- yolo_v3.o
+	- yolov3_process.o
+
+========================================
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app$ cd detect_library/model_code/detect_yolo_v3
+detect_yolo_v3/      detect_yolo_v3_tiny/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app$ cd detect_library/model_code/detect_yolo_v3
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ls
+build_vx.sh  include  makefile.linux  makefile.linux.def  makefile.target_name  vnn_yolov3.c  yolo_v3.c  yolov3_process.c
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code/detect_yolo_v3$ sudo ./build_vx.sh
+  COMPILE /home/khadas/hussain/aml_npu_appwog/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3/yolov3_process.c
+  COMPILE /home/khadas/hussain/aml_npu_appwog/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3/vnn_yolov3.c
+vnn_yolov3.c: In function ‘vnn_CreateYolov3’:
+vnn_yolov3.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_yolov3.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+  COMPILE /home/khadas/hussain/aml_npu_appwog/aml_npu_app/DDK_6.3.3.4/detect_library/model_code/detect_yolo_v3/yolo_v3.c
+make: Nothing to be done for 'all'.
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ls
+bin_r        include                 makefile.linux      makefile.target_name  yolo_v3.c
+build_vx.sh  linux_build_sample.log  makefile.linux.def  vnn_yolov3.c          yolov3_process.c
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ls bin_r/
+libnn_yolo_v3.so  vnn_yolov3.o  yolo_v3.o  yolov3_process.o
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code/detect_yolo_v3$ ls
+bin_r        include                 makefile.linux      makefile.target_name  yolo_v3.c
+build_vx.sh  linux_build_sample.log  makefile.linux.def  vnn_yolov3.c          yolov3_process.c
+
+
+========================================
+TRIAL -1
+/hussain/aml_npu_appwog/aml_npu_app
+sample_demo_x11
+- no bin_r_cv4
+- sudo build_vx.sh
+- bin_r_cv4
+	- detect_demo_x11
+	- main.o
+- create lib and nn_data into bin_r_cv4
+- coopied from aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture/
+- libnn_detect.so libnn_yolo_v3.so into lib
+- yolov3_88.nb into nn_data
+- $ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+- produced ../result: output0.bmp
+========================================
+
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code/detect_yolo_v3$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library$ cd sample_demo_x11/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11$ ls
+1080p.bmp  build_vx.sh  emb.db                  main.cpp        makefile.linux.def    nn_detect_common.h  nn_detect_utils.h  result
+bin_r_cv4  detect.h     linux_build_sample.log  makefile.linux  makefile.target_name  nn_detect.h         ReadMe.txt
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11$ cd bin_r_cv4/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls
+detect_demo_x11  main.o
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ mkdir lib
+mkdir: cannot create directory ‘lib’: Permission denied
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ sudo mkdir lib
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ sudo mkdir nn_data
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ cp ~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture/lib/libnn_yolo_v3.so ./lib/.
+cp: cannot create regular file './lib/./libnn_yolo_v3.so': Permission denied
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ sudo cp ~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture/lib/libnn_yolo_v3.so ./lib/.
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ sudo cp ~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture/lib/libnn_detect.so ./lib/.
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ sudo cp ~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture/nn_data/yolov3_88.nb ./nn_data/.
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls
+detect_demo_x11  lib  main.o  nn_data
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls lib/
+libnn_detect.so  libnn_yolo_v3.so
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls nn_data/
+yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:419.831 right:1464 top:6.80861 bottom:1080
+left:429.831 top-10:40
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls
+detect_demo_x11  lib  main.o  nn_data
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls ..
+1080p.bmp  build_vx.sh  emb.db                  main.cpp        makefile.linux.def    nn_detect_common.h  nn_detect_utils.h  result
+bin_r_cv4  detect.h     linux_build_sample.log  makefile.linux  makefile.target_name  nn_detect.h         ReadMe.txt
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls re
+ls: cannot access 're': No such file or directory
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ ls ../result/
+face_160.bmp  face.bmp  output0.bmp  output1.bmp  output2.bmp  output5.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$
+
+
+========================================
+TRIAL -2
+/hussain/aml_npu_appwog/aml_npu_app
+sample_demo_x11 copied into sample_demo_x11A
+copy libnn_detect.so libnn_yolo_v3.so into lib from newly compiled source_code (B) and detect_yolo_v3 (D)
+========================================
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11/bin_r_cv4$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library$ cp -r sample_demo_x11 sample_demo_11A
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library$ cd sample_demo_x11A
+-bash: cd: sample_demo_x11A: No such file or directory
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library$ ls
+inception   sample_demo_11A  sample_demo_x11  yolo_demo_fb_mipi  yolo_demo_x11_mipi
+model_code  sample_demo_fb   source_code      yolo_demo_fb_usb   yolo_demo_x11_usb
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library$ mv sample_demo_11A sample_demo_x11A
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library$ cd sample_demo_x11A/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A$ ls
+1080p.bmp  build_vx.sh  emb.db                  main.cpp        makefile.linux.def    nn_detect_common.h  nn_detect_utils.h  resultA
+bin_r_cv4  detect.h     linux_build_sample.log  makefile.linux  makefile.target_name  nn_detect.h         ReadMe.txt
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A$ cd bin_r_cv4/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ cd bin
+-bash: cd: bin: No such file or directory
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ cd lib/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4/lib$ ls
+libnn_detect.so  libnn_yolo_v3.so
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4/lib$ rm -rf libnn_*
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4/lib$ ls
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4/lib$ sudo cp ~/hussain/aml_npu_appwog/aml_npu_app/detect_library/source_code/bin_r/libnn_detect.so .
+[sudo] password for khadas:
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4/lib$ sudo cp ~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code/detect_yolo_v3/bin_r/libnn_yolo_v3.so .
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4/lib$ ls
+libnn_detect.so  libnn_yolo_v3.so
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4/lib$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ ls
+detect_demo_x11  lib  main.o  nn_data
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ 
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:419.831 right:1464 top:6.80861 bottom:1080
+left:429.831 top-10:40
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$
+
+
+
+========================================
+check nn_data/yolov3_88.nb from other newconvert\yolov3_nbg_unify
+did not worked
+========================================
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ mv nn_data/yolov3_88.nb nn_data/original_yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ ls nn_data/
+original_yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ ls
+detect_demo_x11  lib  main.o  nn_data  output.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ ls nn_data/
+original_yolov3_88.nb  yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ mv nn_data/yolov3_88.nb nn_data/newconvert_yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ ls nn_data/
+newconvert_yolov3_88.nb  original_yolov3_88.nb
+
+
+========================================
+check nn_data/yolov3_88.nb from other old\yolov3_nbg_unify
+did not worked
+========================================
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ ls nn_data/
+newconvert_yolov3_88.nb  original_yolov3_88.nb  yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp   W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [compute_node:379]Create node[0] NBG fail
+E [vnn_CreateYolov3:342]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E [model_create:61]CHECK PTR 61
+E Detect_api:[det_set_model:225]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$
+
+
+========================================
+check again with original nn_data/yolov3_88.nb
+worked
+========================================
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ mv nn_data/yolov3_88.nb nn_data/old_yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ ls nn_data/
+newconvert_yolov3_88.nb  old_yolov3_88.nb  original_yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ mv nn_data/original_yolov3_88.nb nn_data/yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ ls nn_data/
+newconvert_yolov3_88.nb  old_yolov3_88.nb  yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:419.831 right:1464 top:6.80861 bottom:1080
+left:429.831 top-10:40
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$
+
+
+
+
+
+
+========================================
+UNINSTALL the lib from aml_npu_demo_binarieswog/aml_npu_demo_binaries
+and try again did not worked
+INTALL the newly generated libs
+adn tried it workd
+
+========================================
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture$ sudo ./UNINSTALL
+[sudo] password for khadas:
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture$ ./detect_demo_x11 -m 2 -p ./1080p.bmp
+./detect_demo_x11: error while loading shared libraries: libnn_detect.so: cannot open shared object file: No such file or directory
+khadas@Khadas-teco:~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture$
+
+
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+./detect_demo_x11: error while loading shared libraries: libnn_detect.so: cannot open shared object file: No such file or directory
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ sudo cp -arf lib/* /usr/lib
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:419.831 right:1464 top:6.80861 bottom:1080
+left:429.831 top-10:40
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ mv nn_data/yolov3_88.nb nn_data/original_yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ mv nn_data/newconvert_yolov3_88.nb nn_data/yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp   W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:213]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ mv nn_data/yolov3_88.nb nn_data/newconvert_yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ mv nn_data/old_yolov3_88.nb nn_data/yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ ls nn_data/
+newconvert_yolov3_88.nb  original_yolov3_88.nb  yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp   W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+E Detect_api:[det_set_model:213]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ mv nn_data/yolov3_88.nb nn_data/old_yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ mv nn_data/original_yolov3_88.nb nn_data/yolov3_88.nb
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp   W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:419.831 right:1464 top:6.80861 bottom:1080
+left:429.831 top-10:40
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ ls
+detect_demo_x11  graph.json  lib  main.o  nn_data  output.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ display output.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$
+
+
+
+========================================
+combining all 
+
+========================================
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A/bin_r_cv4$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11A$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library$ cp -r sample_demo_x11A sample_demo_x11B
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library$ cd sample_demo_x11B/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$ ls
+1080p.bmp  build_vx.sh  emb.db                  main.cpp        makefile.linux.def    nn_detect_common.h  nn_detect_utils.h  resultA
+bin_r_cv4  detect.h     linux_build_sample.log  makefile.linux  makefile.target_name  nn_detect.h         ReadMe.txt
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$ ls ~/hussain/aml_npu_appwog/aml_npu_app/detect_library/source_code/
+bin_r  build_vx.sh  detect.c  detect_log.c  include  Makefile  makefile.linux  makefile.linux.def
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$ ls ~/hussain/aml_npu_appwog/aml_npu_app/detect_library/source_code/include/
+detect_log.h  nn_detect_common.h  nn_detect.h  nn_detect_utils.h
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$ cp -r ~/hussain/aml_npu_appwog/aml_npu_app/detect_library/source_code/*.c .
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$ cp -r ~/hussain/aml_npu_appwog/aml_npu_app/detect_library/source_code/include .
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$ cp -r ~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code/detect_yolo_v3/
+bin_r/                  include/                makefile.linux          makefile.target_name    yolo_v3.c
+build_vx.sh             linux_build_sample.log  makefile.linux.def      vnn_yolov3.c            yolov3_process.c
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$ cp -r ~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code/detect_yolo_v3/*.c .
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$ ls ~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/
+nn_detect_common.h  nn_detect_utils.h  vnn_post_process.h  vnn_yolov3.h  yolov3_process.h
+nn_detect.h         vnn_global.h       vnn_pre_process.h   yolo_v3.h
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$ diff ~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/nn_detect_common.h ~/hussain/aml_npu_appwog/aml_npu_app/detect_library/source_code/include/nn_detect_common.h
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$ diff ~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/nn_detect.h ~/hussain/aml_npu_appwog/aml_npu_app/detect_library/source_code/include/nn_detect.h     khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$ diff ~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/nn_detect_utils.h ~/hussain/aml_npu_appwog/aml_npu_app/detect_library/source_code/include/nn_detect_utils.h
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$ cp -r ~/hussain/aml_npu_appwog/aml_npu_app/detect_library/model_code/detect_yolo_v3/include/*.h ./include/.
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ ls ..
+1080p.bmp    detect.c      emb.db                  main.cpp            makefile.target_name  vnn_yolov3.c
+bin_r_cv4    detect_log.c  include                 makefile.linux      nn_detect_common.h    yolo_v3.c
+build_vx.sh  detect_log.o  linux_build_sample.log  makefile.linux.def  ReadMe.txt            yolov3_process.c
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ ls ../include/
+detect.h      nn_detect_common.h  nn_detect_utils.h  vnn_post_process.h  vnn_yolov3.h  yolov3_process.h
+detect_log.h  nn_detect.h         vnn_global.h       vnn_pre_process.h   yolo_v3.h
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$
+khadas@Khadas-teco:~$ cd ~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$
+-bash: cd: /home/khadas/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$: No such file or directory
+khadas@Khadas-teco:~$ cd ~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$ ls
+1080p.bmp    detect.c      emb.db                  main.cpp            makefile.target_name  vnn_yolov3.c
+bin_r_cv4    detect_log.c  include                 makefile.linux      nn_detect_common.h    yolo_v3.c
+build_vx.sh  detect_log.o  linux_build_sample.log  makefile.linux.def  ReadMe.txt            yolov3_process.c
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$ cd bin_r_cv4/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ ls
+detect_demo_x11  detect_log.o  detect.o  main.o  vnn_yolov3.o  yolo_v3.o  yolov3_process.o
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E [vnn_CreateYolov3:168]Open file nn_data/yolov3_88.nb failed.
+E [model_create:61]CHECK PTR 61
+E Detect_api:[det_set_model:213]Model_create fail, file_path=nn_data, dev_type=1
+det_set_model fail. ret=-4
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ mkdir nn_data
+mkdir: cannot create directory ‘nn_data’: Permission denied
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ sudo mkdir nn_data
+[sudo] password for khadas:
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ cp ../../sample_demo_x11/bin_r_cv4/nn_data/yolov3_88.nb ./nn_data/.
+cp: cannot create regular file './nn_data/./yolov3_88.nb': Permission denied
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ sudo cp ../../sample_demo_x11/bin_r_cv4/nn_data/yolov3_88.nb ./nn_data/.
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp   W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:419.831 right:1464 top:6.80861 bottom:1080
+left:429.831 top-10:40
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ ls
+detect_demo_x11  detect_log.o  detect.o  main.o  nn_data  vnn_yolov3.o  yolo_v3.o  yolov3_process.o
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ ls ..
+1080p.bmp    detect.c      emb.db                  main.cpp            makefile.target_name  vnn_yolov3.c
+bin_r_cv4    detect_log.c  include                 makefile.linux      nn_detect_common.h    yolo_v3.c
+build_vx.sh  detect_log.o  linux_build_sample.log  makefile.linux.def  ReadMe.txt            yolov3_process.c
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ ls ..
+1080p.bmp    detect.c      emb.db                  main.cpp            makefile.target_name  vnn_yolov3.c
+bin_r_cv4    detect_log.c  include                 makefile.linux      nn_detect_common.h    yolo_v3.c
+build_vx.sh  detect_log.o  linux_build_sample.log  makefile.linux.def  ReadMe.txt            yolov3_process.c
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ ls ../include/
+detect.h      nn_detect_common.h  nn_detect_utils.h  vnn_post_process.h  vnn_yolov3.h  yolov3_process.h
+detect_log.h  nn_detect.h         vnn_global.h       vnn_pre_process.h   yolo_v3.h
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ cat ~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture/UNINSTALL
+#!/bin/bash
+
+rm /usr/lib/libnn_detect.so*
+rm /usr/lib/libnn_facenet.so*
+rm /usr/lib/libnn_yoloface.so*
+rm /usr/lib/libnn_yolo_v2.so*
+rm /usr/lib/libnn_yolo_v3.so*
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ sudo ~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture/UNINSTALL
+rm: cannot remove '/usr/lib/libnn_facenet.so*': No such file or directory
+rm: cannot remove '/usr/lib/libnn_yoloface.so*': No such file or directory
+rm: cannot remove '/usr/lib/libnn_yolo_v2.so*': No such file or directory
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E Detect_api:[check_and_set_function:165]dlopen libnn_yolo_v3.so failed!
+E Detect_api:[det_set_model:206]ModelType so open failed or Not support now!!
+det_set_model fail. ret=-1
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$
+
+
+
+
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ cat ~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture/INSTALL
+#!/bin/bash
+
+cp -arf lib/* /usr/lib
+
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ cp -arf ~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture/lib/libnn_yolo_v3.so  /usr/lib
+cp: cannot create regular file '/usr/lib/libnn_yolo_v3.so': Permission denied
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ sudo cp -arf ~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture/lib/libnn_yolo_v3.so  /usr/lib
+[sudo] password for khadas:
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp   W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:419.831 right:1464 top:6.80861 bottom:1080
+left:429.831 top-10:40
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ sudo ~/hussain/aml_npu_demo_binarieswog/aml_npu_demo_binaries/detect_demo_picture/UNINSTALL
+rm: cannot remove '/usr/lib/libnn_detect.so*': No such file or directory
+rm: cannot remove '/usr/lib/libnn_facenet.so*': No such file or directory
+rm: cannot remove '/usr/lib/libnn_yoloface.so*': No such file or directory
+rm: cannot remove '/usr/lib/libnn_yolo_v2.so*': No such file or directory
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp   W Detect_api:[det_set_log_level:19]Set log level=1
+W Detect_api:[det_set_log_level:21]output_format not support Imperfect, default to DET_LOG_TERMINAL
+W Detect_api:[det_set_log_level:26]Not exist VSI_NN_LOG_LEVEL, Setenv set_vsi_log_error_level
+det_set_log_config Debug
+E Detect_api:[check_and_set_function:165]dlopen libnn_yolo_v3.so failed!
+E Detect_api:[det_set_model:206]ModelType so open failed or Not support now!!
+det_set_model fail. ret=-1
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$
+
+========================================
+changing further the makefile.linux and main.cpp 
+========================================
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -h
+Hello from yolo_v3.c
+./detect_demo_x11: option requires an argument -- 'h'
+./detect_demo_x11 [-p picture path] [-w width] [-h height] [-m model type] [-f facenet flag] [-H]
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ cd ..
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$ vim main.cpp
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$ sudo ./build_vx.sh
+  COMPILE /home/khadas/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/main.cpp
+main.cpp: In function ‘int run_detect_model(int, char**)’:
+main.cpp:331:10: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+  331 |   return NULL;
+      |          ^~~~
+main.cpp:277:39: warning: unused variable ‘img_width’ [-Wunused-variable]
+  277 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                       ^~~~~~~~~
+main.cpp:277:50: warning: unused variable ‘img_height’ [-Wunused-variable]
+  277 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                                  ^~~~~~~~~~
+main.cpp: At global scope:
+main.cpp:250:13: warning: ‘void crop_face(cv::Mat, cv::Mat&, DetectResult, int, int)’ defined but not used [-Wunused-function]
+  250 | static void crop_face(cv::Mat sourceFrame, cv::Mat& imageROI, DetectResult resultData, int img_height, int img_width) {
+      |             ^~~~~~~~~
+main.cpp:98:17: warning: ‘screensize’ defined but not used [-Wunused-variable]
+   98 | static long int screensize = 0;
+      |                 ^~~~~~~~~~
+main.cpp:97:33: warning: ‘finfo’ defined but not used [-Wunused-variable]
+   97 | static struct fb_fix_screeninfo finfo;
+      |                                 ^~~~~
+main.cpp:96:33: warning: ‘vinfo’ defined but not used [-Wunused-variable]
+   96 | static struct fb_var_screeninfo vinfo;
+      |                                 ^~~~~
+main.cpp:95:12: warning: ‘fbfd’ defined but not used [-Wunused-variable]
+   95 | static int fbfd = 0;
+      |            ^~~~
+main.cpp: In function ‘int run_detect_model(int, char**)’:
+main.cpp:343:16: warning: ‘pdata’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+  343 |  model_setinput(image, pdata);//ret = det_set_input(image, type);
+      |  ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$ cd bin_r_cv4/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+Hello from yolo_v3.c
+det_set_log_config Debug
+E [vnn_CreateYolov3:168]Open file nn_data/yolov3_7d.nb failed.
+E [model_create:61]CHECK PTR 61
+det_set_model fail. ret=-1
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ mv nn_data/yolov3_88.nb nn_data/yolov3_7d.nb
+mv: cannot move 'nn_data/yolov3_88.nb' to 'nn_data/yolov3_7d.nb': Permission denied
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ sudo mv nn_data/yolov3_88.nb nn_data/yolov3_7d.nb
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp       Hello from yolo_v3.c
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+Segmentation fault (core dumped)
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$
+
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+Hello from yolo_v3.c
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+Segmentation fault (core dumped)
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ cd -
+/home/khadas/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$ vim main.cpp
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$ sudo ./build_vx.sh
+  COMPILE /home/khadas/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/main.cpp
+main.cpp: In function ‘int run_detect_model(int, char**)’:
+main.cpp:331:10: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+  331 |   return NULL;
+      |          ^~~~
+main.cpp:277:39: warning: unused variable ‘img_width’ [-Wunused-variable]
+  277 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                       ^~~~~~~~~
+main.cpp:277:50: warning: unused variable ‘img_height’ [-Wunused-variable]
+  277 |  int nn_height, nn_width, nn_channel, img_width, img_height;
+      |                                                  ^~~~~~~~~~
+main.cpp: At global scope:
+main.cpp:250:13: warning: ‘void crop_face(cv::Mat, cv::Mat&, DetectResult, int, int)’ defined but not used [-Wunused-function]
+  250 | static void crop_face(cv::Mat sourceFrame, cv::Mat& imageROI, DetectResult resultData, int img_height, int img_width) {
+      |             ^~~~~~~~~
+main.cpp:98:17: warning: ‘screensize’ defined but not used [-Wunused-variable]
+   98 | static long int screensize = 0;
+      |                 ^~~~~~~~~~
+main.cpp:97:33: warning: ‘finfo’ defined but not used [-Wunused-variable]
+   97 | static struct fb_fix_screeninfo finfo;
+      |                                 ^~~~~
+main.cpp:96:33: warning: ‘vinfo’ defined but not used [-Wunused-variable]
+   96 | static struct fb_var_screeninfo vinfo;
+      |                                 ^~~~~
+main.cpp:95:12: warning: ‘fbfd’ defined but not used [-Wunused-variable]
+   95 | static int fbfd = 0;
+      |            ^~~~
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B$ cd bin_r_cv4/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+Hello from yolo_v3.c
+det_set_log_config Debug
+det_set_model success!!
+
+model.width:416
+model.height:416
+model.channel:3
+
+Det_set_input START
+
+yolov3_preprocess1
+
+yolov3_preprocess2
+
+width=416, height=416, channel=3
+
+yolov3_preprocess3
+
+yolov3_preprocess4
+
+yolov3_preprocess5
+Det_set_input END
+Det_get_result START
+Det_get_result END
+
+resultData.detect_num=1
+result type is 2
+i:1 left:419.831 right:1464 top:6.80861 bottom:1080
+left:429.831 top-10:40
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11B/bin_r_cv4$
+
+
+
+==============================================================
+sample_demo_x11B to sample_demo_x11C with old and newconvert\yolov3_nbg_unify files 
+==============================================================
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11C$ sudo ./build_vx.sh
+[sudo] password for khadas:
+  COMPILE /home/khadas/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11C/vnn_yolov3.c
+vnn_yolov3.c: In function ‘vnn_CreateYolov3’:
+vnn_yolov3.c:146:29: warning: unused variable ‘data’ [-Wunused-variable]
+  146 |     uint8_t *               data;
+      |                             ^~~~
+At top level:
+vnn_yolov3.c:94:17: warning: ‘load_data’ defined but not used [-Wunused-function]
+   94 | static uint8_t* load_data
+      |                 ^~~~~~~~~
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11C$ cd bin_r_cv4/
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11C/bin_r_cv4$ ./detect_demo_x11 -m 2 -p ../1080p.bmp
+Hello from yolo_v3.c
+det_set_log_config Debug
+E [model_create:64]CHECK STATUS(-1:A generic error code, used when no other describes the error.)
+det_set_model fail. ret=-1
+khadas@Khadas-teco:~/hussain/aml_npu_appwog/aml_npu_app/detect_library/sample_demo_x11C/bin_r_cv4$
+
+
+
+==============================================================
+==============================================================
+
+
+
+==============================================================
+==============================================================
+
+
+
+==============================================================
+==============================================================

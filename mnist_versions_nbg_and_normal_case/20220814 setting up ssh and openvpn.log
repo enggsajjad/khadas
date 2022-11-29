@@ -1,0 +1,179 @@
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to khadas@192.168.178.139                              │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+
+
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 ∙ MobaXterm Personal Edition v21.1 ∙                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ➤ SSH session to sajjad@10.10.254.178                                │
+    │   ∙ Direct SSH      :  ✔                                             │
+    │   ∙ SSH compression :  ✔                                             │
+    │   ∙ SSH-browser     :  ✔                                             │
+    │   ∙ X11-forwarding  :  ✔  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ➤ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+=========================================================
+Setting up openvpn
+Executing commands remotely with ssh and output redirection
+https://linuxconfig.org/executing-commands-remotely-with-ssh-and-output-redirection
+=========================================================
+
+khadas@Khadas:~$ sudo /etc/init.d/openvpn start
+[sudo] password for khadas: 
+Sorry, try again.
+[sudo] password for khadas: 
+Starting openvpn (via systemctl): openvpn.service.
+
+
+
+
+
+hadas@Khadas:~$ sudo openvpn --config teco.ovpn
+[sudo] password for khadas: 
+Sun Aug 14 07:20:03 2022 OpenVPN 2.4.7 aarch64-unknown-linux-gnu [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [PKCS11] [MH/PKTINFO] [AEAD] built on Jul 19 2021
+Sun Aug 14 07:20:03 2022 library versions: OpenSSL 1.1.1f  31 Mar 2020, LZO 2.10
+Enter Auth Username: hussain
+Enter Auth Password: ********                
+Sun Aug 14 07:20:10 2022 TCP/UDP: Preserving recently used remote address: [AF_INET6]2a00:1398:5:3202::244:1194
+Sun Aug 14 07:20:10 2022 Socket Buffers: R=[212992->212992] S=[212992->212992]
+Sun Aug 14 07:20:10 2022 UDP link local: (not bound)
+Sun Aug 14 07:20:10 2022 UDP link remote: [AF_INET6]2a00:1398:5:3202::244:1194
+Sun Aug 14 07:20:10 2022 TLS: Initial packet from [AF_INET6]2a00:1398:5:3202::244:1194, sid=8215535c 5dab03f5
+Sun Aug 14 07:20:10 2022 WARNING: this configuration may cache passwords in memory -- use the auth-nocache option to prevent this
+Sun Aug 14 07:20:10 2022 VERIFY OK: depth=1, C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=TECO CA, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 07:20:10 2022 VERIFY X509NAME OK: C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=server, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 07:20:10 2022 VERIFY OK: depth=0, C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=server, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 07:20:10 2022 Control Channel: TLSv1.3, cipher TLSv1.3 TLS_AES_256_GCM_SHA384, 2048 bit RSA
+Sun Aug 14 07:20:10 2022 [server] Peer Connection Initiated with [AF_INET6]2a00:1398:5:3202::244:1194
+Sun Aug 14 07:20:12 2022 SENT CONTROL [server]: 'PUSH_REQUEST' (status=1)
+Sun Aug 14 07:20:12 2022 PUSH: Received control message: 'PUSH_REPLY,route 129.13.170.0 255.255.255.0,route 129.13.169.0 255.255.255.0,route 10.11.0.0 255.255.0.0,route 10.12.0.0 255.255.0.0,route-ipv6 2000::/3,redirect-gateway def1 bypass-dhcp,dhcp-option DNS 129.13.170.200,dhcp-option DNS 129.13.170.203,dhcp-option DNS6 2a00:1398:5:3202::200,dhcp-option DNS6 2a00:1398:5:3202::203,dhcp-option DOMAIN teco.edu,sndbuf 393216,rcvbuf 393216,tun-ipv6,route-gateway 10.255.254.1,topology subnet,ping 10,ping-restart 120,ifconfig-ipv6 2a00:1398:5:3291::1001/64 2a00:1398:5:3291::1,ifconfig 10.255.254.3 255.255.255.0,peer-id 1,cipher AES-256-GCM'
+Sun Aug 14 07:20:12 2022 OPTIONS IMPORT: timers and/or timeouts modified
+Sun Aug 14 07:20:12 2022 OPTIONS IMPORT: --sndbuf/--rcvbuf options modified
+Sun Aug 14 07:20:12 2022 Socket Buffers: R=[212992->425984] S=[212992->425984]
+Sun Aug 14 07:20:12 2022 OPTIONS IMPORT: --ifconfig/up options modified
+Sun Aug 14 07:20:12 2022 OPTIONS IMPORT: route options modified
+Sun Aug 14 07:20:12 2022 OPTIONS IMPORT: route-related options modified
+Sun Aug 14 07:20:12 2022 OPTIONS IMPORT: --ip-win32 and/or --dhcp-option options modified
+Sun Aug 14 07:20:12 2022 OPTIONS IMPORT: peer-id set
+Sun Aug 14 07:20:12 2022 OPTIONS IMPORT: adjusting link_mtu to 1625
+Sun Aug 14 07:20:12 2022 OPTIONS IMPORT: data channel crypto options modified
+Sun Aug 14 07:20:12 2022 Data Channel: using negotiated cipher 'AES-256-GCM'
+Sun Aug 14 07:20:12 2022 Outgoing Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+Sun Aug 14 07:20:12 2022 Incoming Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+Sun Aug 14 07:20:12 2022 ROUTE_GATEWAY 192.168.178.1/255.255.255.0 IFACE=wlan0 HWADDR=10:2c:6b:5c:a9:28
+Sun Aug 14 07:20:12 2022 GDG6: remote_host_ipv6=2a00:1398:5:3202::244
+Sun Aug 14 07:20:12 2022 ROUTE6_GATEWAY fe80::1eed:6fff:fe0c:5be0 IFACE=wlan0
+Sun Aug 14 07:20:12 2022 ROUTE6: 2000::/3 overlaps IPv6 remote 2a00:1398:5:3202::244, adding host route to VPN endpoint
+Sun Aug 14 07:20:12 2022 TUN/TAP device tun0 opened
+Sun Aug 14 07:20:12 2022 TUN/TAP TX queue length set to 100
+Sun Aug 14 07:20:12 2022 /sbin/ip link set dev tun0 up mtu 1500
+Sun Aug 14 07:20:12 2022 /sbin/ip addr add dev tun0 10.255.254.3/24 broadcast 10.255.254.255
+Sun Aug 14 07:20:12 2022 /sbin/ip -6 addr add 2a00:1398:5:3291::1001/64 dev tun0
+Sun Aug 14 07:20:12 2022 ROUTE remote_host protocol differs from tunneled
+Sun Aug 14 07:20:12 2022 /sbin/ip route add 0.0.0.0/1 via 10.255.254.1
+Sun Aug 14 07:20:12 2022 /sbin/ip route add 128.0.0.0/1 via 10.255.254.1
+Sun Aug 14 07:20:12 2022 /sbin/ip route add 129.13.170.0/24 via 10.255.254.1
+Sun Aug 14 07:20:12 2022 /sbin/ip route add 129.13.169.0/24 via 10.255.254.1
+Sun Aug 14 07:20:12 2022 /sbin/ip route add 10.11.0.0/16 via 10.255.254.1
+Sun Aug 14 07:20:12 2022 /sbin/ip route add 10.12.0.0/16 via 10.255.254.1
+Sun Aug 14 07:20:12 2022 add_route_ipv6(2a00:1398:5:3202::244/128 -> fe80::1eed:6fff:fe0c:5be0 metric 1) dev wlan0
+Sun Aug 14 07:20:12 2022 /sbin/ip -6 route add 2a00:1398:5:3202::244/128 dev wlan0 via fe80::1eed:6fff:fe0c:5be0 metric 1
+Sun Aug 14 07:20:12 2022 add_route_ipv6(2000::/3 -> 2a00:1398:5:3291::1 metric -1) dev tun0
+Sun Aug 14 07:20:12 2022 /sbin/ip -6 route add 2000::/3 dev tun0
+Sun Aug 14 07:20:12 2022 Initialization Sequence Completed
+>>"|:Q
+exit
+Sun Aug 14 08:20:10 2022 TLS: soft reset sec=0 bytes=433097/-1 pkts=2377/0
+Sun Aug 14 08:20:10 2022 VERIFY OK: depth=1, C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=TECO CA, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 08:20:10 2022 VERIFY X509NAME OK: C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=server, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 08:20:10 2022 VERIFY OK: depth=0, C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=server, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 08:20:10 2022 Outgoing Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+Sun Aug 14 08:20:10 2022 Incoming Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+Sun Aug 14 08:20:10 2022 Control Channel: TLSv1.3, cipher TLSv1.3 TLS_AES_256_GCM_SHA384, 2048 bit RSA
+Sun Aug 14 09:20:10 2022 VERIFY OK: depth=1, C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=TECO CA, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 09:20:10 2022 VERIFY X509NAME OK: C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=server, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 09:20:10 2022 VERIFY OK: depth=0, C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=server, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 09:20:10 2022 Outgoing Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+Sun Aug 14 09:20:10 2022 Incoming Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+Sun Aug 14 09:20:10 2022 Control Channel: TLSv1.3, cipher TLSv1.3 TLS_AES_256_GCM_SHA384, 2048 bit RSA
+Sun Aug 14 10:20:10 2022 VERIFY OK: depth=1, C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=TECO CA, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 10:20:10 2022 VERIFY X509NAME OK: C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=server, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 10:20:10 2022 VERIFY OK: depth=0, C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=server, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 10:20:10 2022 Outgoing Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+Sun Aug 14 10:20:10 2022 Incoming Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+Sun Aug 14 10:20:10 2022 Control Channel: TLSv1.3, cipher TLSv1.3 TLS_AES_256_GCM_SHA384, 2048 bit RSA
+Sun Aug 14 11:20:10 2022 TLS: soft reset sec=0 bytes=89704/-1 pkts=1084/0
+Sun Aug 14 11:20:10 2022 VERIFY OK: depth=1, C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=TECO CA, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 11:20:10 2022 VERIFY X509NAME OK: C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=server, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 11:20:10 2022 VERIFY OK: depth=0, C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=server, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 11:20:10 2022 Outgoing Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+Sun Aug 14 11:20:10 2022 Incoming Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+Sun Aug 14 11:20:10 2022 Control Channel: TLSv1.3, cipher TLSv1.3 TLS_AES_256_GCM_SHA384, 2048 bit RSA
+Sun Aug 14 12:20:10 2022 VERIFY OK: depth=1, C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=TECO CA, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 12:20:10 2022 VERIFY X509NAME OK: C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=server, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 12:20:10 2022 VERIFY OK: depth=0, C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=server, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 12:20:10 2022 Outgoing Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+Sun Aug 14 12:20:10 2022 Incoming Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+Sun Aug 14 12:20:10 2022 Control Channel: TLSv1.3, cipher TLSv1.3 TLS_AES_256_GCM_SHA384, 2048 bit RSA
+Sun Aug 14 13:20:10 2022 VERIFY OK: depth=1, C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=TECO CA, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 13:20:10 2022 VERIFY X509NAME OK: C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=server, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 13:20:10 2022 VERIFY OK: depth=0, C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=server, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 13:20:10 2022 Outgoing Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+Sun Aug 14 13:20:10 2022 Incoming Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+Sun Aug 14 13:20:10 2022 Control Channel: TLSv1.3, cipher TLSv1.3 TLS_AES_256_GCM_SHA384, 2048 bit RSA
+Sun Aug 14 14:20:10 2022 TLS: soft reset sec=0 bytes=96732/-1 pkts=1094/0
+Sun Aug 14 14:20:10 2022 VERIFY OK: depth=1, C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=TECO CA, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 14:20:10 2022 VERIFY X509NAME OK: C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=server, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 14:20:10 2022 VERIFY OK: depth=0, C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=server, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 14:20:10 2022 Outgoing Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+Sun Aug 14 14:20:10 2022 Incoming Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+Sun Aug 14 14:20:10 2022 Control Channel: TLSv1.3, cipher TLSv1.3 TLS_AES_256_GCM_SHA384, 2048 bit RSA
+Sun Aug 14 15:20:10 2022 VERIFY OK: depth=1, C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=TECO CA, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 15:20:10 2022 VERIFY X509NAME OK: C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=server, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 15:20:10 2022 VERIFY OK: depth=0, C=DE, ST=BW, L=Karlsruhe, O=TECO, OU=TECO, CN=server, name=server, emailAddress=unixca@teco.edu
+Sun Aug 14 15:20:10 2022 Outgoing Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+Sun Aug 14 15:20:10 2022 Incoming Data Channel: Cipher 'AES-256-GCM' initialized with 256 bit key
+Sun Aug 14 15:20:10 2022 Control Channel: TLSv1.3, cipher TLSv1.3 TLS_AES_256_GCM_SHA384, 2048 bit RSA
+
+khadas@Khadas:~$ ssh sajjad@10.10.254.178
+The authenticity of host '10.10.254.178 (10.10.254.178)' can't be established.
+ECDSA key fingerprint is SHA256:cQ5tWKKIqFTv3q/ir8/v5PMRFhZxa3FapEILJZuOdWI.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '10.10.254.178' (ECDSA) to the list of known hosts.
+sajjad@10.10.254.178's password: 
+Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 5.4.0-107-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+26 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Last login: Sun Aug 14 08:38:47 2022 from 129.13.170.244
+sajjad@teco:~$ exit
+logout
+Connection to 10.10.254.178 closed.
+khadas@Khadas:~$ 
+
+========================================
+Passing credentials to openvpn
+========================================
+khadas@Khadas:~$ cat credentials.ovpn
+hussain
+#sajjan2
+khadas@Khadas:~$ sudo openvpn --config teco.ovpn  --auth-user-pass credentials.ovpn

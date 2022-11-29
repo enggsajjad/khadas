@@ -1,0 +1,19 @@
+--viv-sdk SDK dir, if one of --pack-* is given, please specify a folder containing the binary sdk of vSimulator.
+--pack-nbg-unify Pack binary graph for unify driver.(Optional) mutually exclusive with other --pack-*.If this feature is enabled, two cases will be generated,a unify case and a nbg_unify case. If no --pack-* is given, only the unify case will be generated. 
+--optimize Optimize the exporting network according to the specified hardware configuration path or configuration name. 
+(Optional).
+none – no optimization Default (Default) - If a configuration file or configuration name is not specified, it will use default export rule to export application code.If --pack-* is given, please specify a configuration file path or configuration name instead of
+
+
+The difference between the two commands:
+Normal_case: When loading the model, online compilation may takes a long time. Android platform: supports running normal case directly 
+Linux platform: does not. If Linux platform is used, 1.you need to push acuity_tool_xx/bin/vcmdtoos directory to the board data directory, and then set the environment variable:export VIVANTE_SDK_DIR=/data/vcmdtools. 2.you need to push buildroot_sdk_6462/buildroot_sdk/build/so/drivers_64_exportdata or drivers_32_exportdata to the board data directory ,and then set the environment variable:export LD_LIBRARY_PATH=/xxx/xxx/drivers_64_exportdata NBG case: This step of on-line compilation has been completed on the PC. nb file can be loaded directly on the board, and the model loading speed is fast.
+
+
+
+Linux：
+Get OP usage time:
+	export VIV_VX_DEBUG_LEVEL=1
+	export CNN_PERF=1
+Dump result of each layer:
+	export NN_LAYER_DUMP=1
